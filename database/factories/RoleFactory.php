@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Sale;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SaleFactory extends Factory
+class RoleFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Sale::class;
+    protected $model = Role::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,8 @@ class SaleFactory extends Factory
     public function definition()
     {
         return [
-            'amount'=>$this->faker->numberBetween(500,2500),
-            'experience_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
-            'buyer_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
+            'name'=>$this->faker->realText(10),
+            'description'=>$this->faker->realText(10),
         ];
     }
 }

@@ -11,5 +11,9 @@ class Sale extends Model
 
     protected $fillable=['experience_id','buyer_id','amount','approved'];
 
+    public function experience()
+    {
+        return $this->belongsTo(Experience::class);
+    }
 
 }

@@ -35,13 +35,10 @@ class User extends Authenticatable
         'city',
         'province',
         'country',
-        'picture',
         'role_id',
         'email_verified_at',
-        'state',
         'verified',
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -68,9 +65,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
 
     public function role(){
         return $this->belongsTo(Role::class);

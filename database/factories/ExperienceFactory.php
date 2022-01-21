@@ -24,6 +24,7 @@ class ExperienceFactory extends Factory
         return [
             'title'=>$this->faker->realText(10),
             'subtitle'=>$this->faker->realText(10),
+            'slug'=>'',
             'description'=>$this->faker->realText(20),
             'languaje_id'=>$this->faker->randomElement([1,2,3]),
             'place_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
