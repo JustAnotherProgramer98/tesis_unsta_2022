@@ -75,4 +75,13 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class);
     }
+    
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'picturable');
+    }
 }

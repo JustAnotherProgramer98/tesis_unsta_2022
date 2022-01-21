@@ -11,4 +11,12 @@ class Place extends Model
 
     protected $fillable=['province','city','adress','coordenates'];
 
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'picturable');
+    }
 }

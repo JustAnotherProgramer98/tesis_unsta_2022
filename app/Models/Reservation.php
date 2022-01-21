@@ -11,5 +11,13 @@ class Reservation extends Model
 
     protected $fillable=['date','experience_id','user_id','completed'];
 
+    public function experience()
+    {
+        return $this->belongsTo(Experience::class);
+    }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

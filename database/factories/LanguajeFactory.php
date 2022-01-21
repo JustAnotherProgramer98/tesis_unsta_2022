@@ -22,7 +22,7 @@ class LanguajeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title'=>$this->faker->realText(10),
         ];
     }
 }

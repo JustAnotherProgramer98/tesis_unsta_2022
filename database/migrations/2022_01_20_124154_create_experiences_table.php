@@ -16,13 +16,14 @@ class CreateExperiencesTable extends Migration
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug');
             $table->string('subtitle');
             $table->text('description');
 
             $table->foreignId('place_id')->constrained()->references('id')->on('places');
             $table->foreignId('languaje_id')->constrained()->references('id')->on('languajes');
             $table->foreignId('host_id')->constrained()->references('id')->on('users');
-            $table->foreignId('need_reservation')->constrained()->references('id')->on('reservations')->default('null');
+            $table->foreignId('reservation_id')->constrained()->references('id')->on('reservations')->default('null');
             
 
 

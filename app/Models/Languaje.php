@@ -10,4 +10,9 @@ class Languaje extends Model
     use HasFactory;
 
     protected $fillable = ['title'];
+
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
 }
