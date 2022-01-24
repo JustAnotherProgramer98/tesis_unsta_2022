@@ -1,48 +1,50 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+ @extends('layouts.app')
 
-        <x-jet-validation-errors class="mb-4" />
+ @section('content')
+     <div class="min-h-screen bg-no-repeat bg-cover bg-center"
+         style="background-image: url('https://cdn.pixabay.com/photo/2021/12/15/20/21/sea-6873335_960_720.jpg')">
+         <div class="flex justify-end">
+             <div class="bg-white min-h-screen w-1/2 flex justify-center items-center">
+                 <div>
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
+                     <form>
+                         <div>
+                             <span class="text-sm text-gray-900">Welcome back</span>
+                             <h1 class="text-2xl font-bold">Login to your account</h1>
+                         </div>
+                         <div class="mt-5">
+                             <label class="block text-md mb-2" for="password">Password</label>
+                             <input class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="password"
+                                 name="password" placeholder="password">
+                         </div>
+                         <div class="my-3">
+                             <label class="block text-md mb-2" for="email">Email</label>
+                             <input class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="email"
+                                 name="password" placeholder="email">
+                         </div>
+                         <div class="flex justify-between">
+                             <div>
+                                 <input class="cursor-pointer" type="radio" name="rememberme">
+                                 <span class="text-sm">Remember Me</span>
+                             </div>
+                             <span class="underline decoration-blue-400 decoration-wavy decoration-2">Forgot password?</span>
+                         </div>
+                         <div class="">
+                             <button
+                                 class="mt-4 mb-3 w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded-md transition duration-100">Login
+                                 now</button>
+                             <div class="flex  space-x-2 justify-center items-end bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-md transition duration-100"">
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+                <img class="  h-5 cursor-pointer" src="https://i.imgur.com/arC60SB.png" alt="">
+                                 <button>Or sign-in with google</button>
+                             </div>
+                         </div>
+                     </form>
+                     <p class="mt-8"> Dont have an account? <span class="cursor-pointer text-sm text-blue-600">
+                             Join free today</span></p>
+                 </div>
+             </div>
+         </div>
+     </div>
+     </div>
+ @endsection
