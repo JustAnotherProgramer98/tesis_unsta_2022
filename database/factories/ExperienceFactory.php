@@ -21,10 +21,11 @@ class ExperienceFactory extends Factory
      */
     public function definition()
     {
+        $title=$this->faker->realText(10);
         return [
-            'title'=>$this->faker->realText(10),
+            'title'=>$title,
             'subtitle'=>$this->faker->realText(10),
-            'slug'=>'',
+            'slug'=>str_replace(' ', '-', strtolower($title)),
             'description'=>$this->faker->realText(20),
             'languaje_id'=>$this->faker->randomElement([1,2,3]),
             'place_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),

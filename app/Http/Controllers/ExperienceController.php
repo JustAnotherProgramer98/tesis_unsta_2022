@@ -14,7 +14,8 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        //
+        $experiences=Experience::all();
+        return view('index',compact(['experiences']));
     }
 
     /**

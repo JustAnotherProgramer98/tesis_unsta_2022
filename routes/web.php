@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExperienceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/index',[ExperienceController::class,'index'])->name('experiencies.index');
+
+Route::get('/shop', function () {
+    return view('shop');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
