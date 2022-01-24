@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Experience;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ExperienceController extends Controller
 {
@@ -14,6 +15,10 @@ class ExperienceController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->isAdmin()) {
+            $experiences=Experience::paginate(6);
+            return view('admin.experiencies.index',compact(['experiences']));
+        }
         $experiences=Experience::all();
         return view('index',compact(['experiences']));
     }

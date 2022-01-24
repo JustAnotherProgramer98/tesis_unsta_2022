@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
         Experience::factory(2)->hasAttached(Category::factory(['title'=>'Arte'])->create())->create();
         Experience::factory(3)->hasAttached(Category::factory(['title'=>'Al aire libre'])->create())->create();
         Experience::factory(1)->hasAttached(Category::factory(['title'=>'Montaña'])->create())->create();
-
+        //Estado de las experiencias 2:Pendiente de aprovacion 1: Activa , 0:Inactiva
         
         $this->command->line('Comments...');
         Comment::factory(6)->create();

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ExperienceController;
+use App\Models\Experience;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +29,11 @@ Route::get('/shop', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/panel-de-administracion',[AdminController::class,'index'])->name('admin.panel');
+
+    Route::get('/experiencias',[ExperienceController::class,'index'])->name('experiencies.index.admin');
+
+});
+
