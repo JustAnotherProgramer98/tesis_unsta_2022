@@ -16,7 +16,7 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('experience_id')->constrained()->references('id')->on('experiences');
+            $table->foreignId('experience_id')->constrained()->references('id')->on('experiences')->onDelete('cascade');
             $table->foreignId('buyer_id')->constrained()->references('id')->on('users');//comprador
             $table->double('amount');
             $table->boolean('approved')->default(0);

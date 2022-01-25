@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->text('body');
             $table->foreignId('user_id')->constrained()->references('id')->on('users');
-            $table->foreignId('experience_id')->constrained()->references('id')->on('experiences');
+            $table->foreignId('experience_id')->constrained()->references('id')->on('experiences')->onDelete('cascade');;
             
             $table->timestamps();
         });

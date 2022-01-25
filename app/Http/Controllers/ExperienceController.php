@@ -115,8 +115,17 @@ class ExperienceController extends Controller
      * @param  \App\Models\Experience  $experience
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Experience $experience)
+    public function destroy(Request $request)
     {
-        //
+        
+        try {
+            $sales_experience=DB::table('sales')->where('experience_id',$request->experience_id);
+            if ($sales_experience!=null or count($sales_experience)!=0) $sales_experience->delete();
+
+            return Experience::where('id',$request->experience_id)->get()->first()->delete();
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
+        
     }
 }

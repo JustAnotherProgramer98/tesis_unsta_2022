@@ -6,23 +6,23 @@
         class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
         <!-- Sidebar -->
-            <x-admin-side-bar></x-admin-side-bar>
+        <x-admin-side-bar></x-admin-side-bar>
         <!-- ./Sidebar -->
 
         @if (session()->has('success'))
             <div class="alert alert-success">
-                @if(is_array(session('success')))
+                @if (is_array(session('success')))
                     <ul>
                         @foreach (session('success') as $message)
                             <li>{{ $message }}</li>
                         @endforeach
                     </ul>
                 @else
-                {{ session('success') }}
+                    {{ session('success') }}
                 @endif
             </div>
         @endif
-        
+
         <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
             <!-- Client Table -->
             <div id="index" class="tabcontent mt-4 mx-4 block">
@@ -30,10 +30,9 @@
                 <hr class="border-1 border-slate-600">
                 <br>
                 <br>
-                <button
-                    onclick="openNewTab(event, 'create')"
+                <button onclick="openNewTab(event, 'create')"
                     class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear
-                    
+
                     experiencia
                 </button>
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -89,7 +88,9 @@
                                             <td class="px-4 py-3"><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
                                         <td class="px-4 py-3"><i class="fas fa-pencil-alt text-blue-500"></i></td>
-                                        <td class="px-4 py-3"><i onclick="deleteUser('{{addslashes($experiencie->title) }}')" class="fas fa-trash-alt text-red-500 cursor-pointer	"></i></td>
+                                        <td class="px-4 py-3"><i
+                                                onclick="deleteUser(event,'{{ addslashes($experiencie->title) }}',{{ $experiencie->id }})"
+                                                class="fas fa-trash-alt text-red-500 cursor-pointer	"></i></td>
                                     </tr>
                                     @empty
                                         <tr>No hay experiencias en la base de datos</tr>
@@ -108,19 +109,35 @@
 
 
         <script>
-            function deleteUser(experience_name) {
-                
-                Swal.fire({
+            function deleteUser(e, experience_name, experience_id) {
+                e.preventDefault();
+
+                swal({
                     title: 'Borrar experiencia',
-                    text: '¿Estas seguro que quieres borrar la experiencia '+experience_name+" ?",
-                    icon: 'question',
+                    text: '¿Estas seguro que quieres borrar la experiencia ' + experience_name + " ?",
+                    type: 'question',
                     showCancelButton: true,
                     confirmButtonColor: "#1e40af",
                     cancelButtonText: "Cancelar",
                     confirmButtonText: "Borrar",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                })
-            }
+                }).then(result => {
+                    $.ajax({
+                    url:"{{ route('experiencies.destroy.admin') }}",
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                    type: 'DELETE',
+                    data: {experience_id: experience_id},
+                    
+                    success: (result) => {
+                        location.reload();
+                    },
+                    failure: (result) => alert(msg_error),
+                });
+                });
+
+            };
         </script>
     @endsection

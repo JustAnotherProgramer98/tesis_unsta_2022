@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/experiencias',[ExperienceController::class,'index'])->name('experiencies.index.admin');
     Route::post('/experiencias/store',[ExperienceController::class,'store'])->name('experiencies.store.admin');
+    Route::delete('/experiencias/delete',[ExperienceController::class,'destroy'])->name('experiencies.destroy.admin');
 
 });
 
