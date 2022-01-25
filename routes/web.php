@@ -26,11 +26,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::view('experiencias/crear', 'admin.experiencies.create');
+Route::get('/experiencias/crear',[ExperienceController::class,'create'])->name('experiencies.create.admin');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/panel-de-administracion',[AdminController::class,'index'])->name('admin.panel');
 
     Route::get('/experiencias',[ExperienceController::class,'index'])->name('experiencies.index.admin');
+    Route::post('/experiencias/store',[ExperienceController::class,'store'])->name('experiencies.store.admin');
 
 });
 

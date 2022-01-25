@@ -2,21 +2,40 @@
 
 @section('content')
 
-<div
-class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-    
+    <div
+        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+
         <!-- Sidebar -->
             <x-admin-side-bar></x-admin-side-bar>
         <!-- ./Sidebar -->
+
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                @if(is_array(session('success')))
+                    <ul>
+                        @foreach (session('success') as $message)
+                            <li>{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                {{ session('success') }}
+                @endif
+            </div>
+        @endif
         
-        <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64">
+        <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
             <!-- Client Table -->
-            <div class="mt-4 mx-4">
+            <div id="index" class="tabcontent mt-4 mx-4 block">
                 <h1>Tabla de experiencias</h1>
                 <hr class="border-1 border-slate-600">
                 <br>
                 <br>
-                <button  class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear experiencia</button>
+                <button
+                    onclick="openNewTab(event, 'create')"
+                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear
+                    
+                    experiencia
+                </button>
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
                     <div class="w-full overflow-x-auto">
                         <table class="w-full">
@@ -61,14 +80,16 @@ class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white d
                                                 @default
                                                     <span
                                                         class="px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
-                                                        Pendiente de aprovacion</span>
+                                                        Pendiente de aprobacion</span>
                                             @endswitch
                                         </td>
                                         @if ($experiencie->status != 1)
                                             <td class="px-4 py-3"><i class="fas fa-check text-green-500"></i></td>
+                                        @else
+                                            <td class="px-4 py-3"><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
                                         <td class="px-4 py-3"><i class="fas fa-pencil-alt text-blue-500"></i></td>
-                                        <td class="px-4 py-3"><i class="fas fa-trash-alt text-red-500"></i></td>
+                                        <td class="px-4 py-3"><i onclick="deleteUser('{{addslashes($experiencie->title) }}')" class="fas fa-trash-alt text-red-500 cursor-pointer	"></i></td>
                                     </tr>
                                     @empty
                                         <tr>No hay experiencias en la base de datos</tr>
@@ -81,11 +102,25 @@ class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white d
                         </div>
                     </div>
                 </div>
-
-
-
-
+                <x-create-experience-form :places="$places" :hosts="$hosts" :languajes="$languajes"></x-create-experience-form>
             </div>
         </div>
 
+
+        <script>
+            function deleteUser(experience_name) {
+                
+                Swal.fire({
+                    title: 'Borrar experiencia',
+                    text: '¿Estas seguro que quieres borrar la experiencia '+experience_name+" ?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: "#1e40af",
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: "Borrar",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                })
+            }
+        </script>
     @endsection

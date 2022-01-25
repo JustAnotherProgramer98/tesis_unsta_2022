@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Experience;
+use App\Models\Languaje;
+use App\Models\Place;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ExperienceController extends Controller
 {
@@ -17,21 +21,16 @@ class ExperienceController extends Controller
     {
         if (Auth::user()) {
             $experiences=Experience::paginate(6);
-            return view('admin.experiencies.index',compact(['experiences']));
+            $places=Place::all();
+            $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
+            $languajes=Languaje::all();
+            
+            return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes']));
         }
         $experiences=Experience::all();
         return view('guest.index',compact(['experiences']));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,7 +40,39 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // image_id De momento no
+
+        $validated=$request->validate([
+            'title'=>'required|string',
+            'subtitle'=>'required|string',
+            'description'=>'required|string',
+            'place_id'=>'required|integer',
+            'host_id'=>'required|integer',
+            'languajes'=>'required|array',
+        ]);
+
+        $languajes=collect();
+        foreach ($validated['languajes'] as $add_languaje) {
+            $languajes->add(Languaje::where('id',$add_languaje)->get()->first());
+        }
+
+        try {
+            DB::transaction(function () use ($validated,$languajes){
+                $experience=Experience::create($validated+[
+                    'slug'=>strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $validated['title']))))), '-')),
+                ]);
+                
+                foreach ($languajes as $languaje) {
+                    $experience->languajes()->attach($languaje);
+                }
+
+                
+            });
+            return redirect()->route('experiencies.index.admin')->withSuccess(['Experiencia creada correctamente']);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

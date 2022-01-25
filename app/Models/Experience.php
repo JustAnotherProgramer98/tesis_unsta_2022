@@ -9,16 +9,16 @@ class Experience extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','slug','subtitle','description','status','place_id','languaje_id','host_id','reservation_id'];
+    protected $fillable = ['title','slug','subtitle','description','status','place_id','host_id','reservation_id'];
     
     public function place()
     {
         return $this->belongsTo(Place::class);
     }
 
-    public function languaje()
+    public function languajes()
     {
-        return $this->belongsTo(Languaje::class);
+        return $this->belongsToMany(Languaje::class,'experiencie_languaje');
     }
 
     public function host()
