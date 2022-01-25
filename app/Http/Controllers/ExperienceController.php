@@ -15,12 +15,12 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->isAdmin()) {
+        if (Auth::user()) {
             $experiences=Experience::paginate(6);
             return view('admin.experiencies.index',compact(['experiences']));
         }
         $experiences=Experience::all();
-        return view('index',compact(['experiences']));
+        return view('guest.index',compact(['experiences']));
     }
 
     /**

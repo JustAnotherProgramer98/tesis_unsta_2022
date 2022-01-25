@@ -16,11 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index',[ExperienceController::class,'index'])->name('experiencies.index');
+Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
 
 Route::get('/shop', function () {
     return view('shop');
@@ -30,6 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::view('experiencias/crear', 'admin.experiencies.create');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/panel-de-administracion',[AdminController::class,'index'])->name('admin.panel');
 

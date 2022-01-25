@@ -4,35 +4,19 @@
 
 <div
 class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-
-<!-- Header -->
-<div class="fixed w-full flex items-center justify-between h-14 text-white z-10">
-    <div
-    class="flex items-center justify-evenly md:justify-center w-14 md:w-64 h-14 bg-blue-800 dark:bg-gray-800 border-none">
-    <img class="w-7 h-7 md:w-10 md:h-10 mr-2 rounded-md overflow-hidden"
-    src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
-    <span class="hidden md:block">{{ Auth::user()->name }}</span>
-            </div>
-            <div class="flex justify-between items-center h-14 bg-blue-800 dark:bg-gray-800 header-right">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button class="p-4 items-center hover:text-blue-100 rounded-lg">Salir </button>
-                </form>
-            </div>
-        </div>
-        <!-- ./Header -->
-        
+    
         <!-- Sidebar -->
-        <x-admin-side-bar></x-admin-side-bar>
+            <x-admin-side-bar></x-admin-side-bar>
         <!-- ./Sidebar -->
         
-        <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
+        <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64">
             <!-- Client Table -->
             <div class="mt-4 mx-4">
                 <h1>Tabla de experiencias</h1>
                 <hr class="border-1 border-slate-600">
                 <br>
                 <br>
+                <button  class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear experiencia</button>
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
                     <div class="w-full overflow-x-auto">
                         <table class="w-full">
@@ -43,6 +27,9 @@ class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white d
                                     <th class="px-4 py-3">Anfitrion</th>
                                     <th class="px-4 py-3">Lugar</th>
                                     <th class="px-4 py-3">Estado de la experiencia</th>
+                                    <th class="px-4 py-3">Validar</th>
+                                    <th class="px-4 py-3">Editar</th>
+                                    <th class="px-4 py-3">Borrar</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -77,6 +64,11 @@ class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white d
                                                         Pendiente de aprovacion</span>
                                             @endswitch
                                         </td>
+                                        @if ($experiencie->status != 1)
+                                            <td class="px-4 py-3"><i class="fas fa-check text-green-500"></i></td>
+                                        @endif
+                                        <td class="px-4 py-3"><i class="fas fa-pencil-alt text-blue-500"></i></td>
+                                        <td class="px-4 py-3"><i class="fas fa-trash-alt text-red-500"></i></td>
                                     </tr>
                                     @empty
                                         <tr>No hay experiencias en la base de datos</tr>
