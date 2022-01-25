@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
 
 Route::get('/shop', function () {
-    return view('shop');
+    return view('guest.shop');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
