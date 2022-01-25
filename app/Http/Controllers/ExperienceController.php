@@ -94,19 +94,48 @@ class ExperienceController extends Controller
      */
     public function edit(Experience $experience)
     {
-        //
+        $places=Place::all();
+        $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
+        $languajes=Languaje::all();
+        return view('admin.experiencies.edit',compact(['experience','places','hosts','languajes']));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Experience  $experience
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Experience $experience)
     {
-        //
+         // image_id De momento no
+
+         $validated=$request->validate([
+            'title'=>'required|string',
+            'subtitle'=>'required|string',
+            'description'=>'required|string',
+            'place_id'=>'required|integer',
+            'host_id'=>'required|integer',
+            'languajes'=>'required|array',
+        ]);
+
+        $languajes=collect();
+        foreach ($validated['languajes'] as $add_languaje) {
+            $languajes->add(Languaje::where('id',$add_languaje)->get()->first());
+        }
+
+        try {
+            DB::transaction(function () use ($validated,$languajes,$experience){
+                $experience->update($validated+[
+                    'slug'=>strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $validated['title']))))), '-')),
+                ]);
+                
+                foreach ($languajes as $languaje) {
+                    $experience->languajes()->attach($languaje);
+                }
+
+                
+            });            
+            return redirect()->route('experiencies.index.admin');
+            
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

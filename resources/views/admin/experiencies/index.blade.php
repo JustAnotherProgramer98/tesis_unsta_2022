@@ -9,20 +9,6 @@
         <x-admin-side-bar></x-admin-side-bar>
         <!-- ./Sidebar -->
 
-        @if (session()->has('success'))
-            <div class="alert alert-success">
-                @if (is_array(session('success')))
-                    <ul>
-                        @foreach (session('success') as $message)
-                            <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                @else
-                    {{ session('success') }}
-                @endif
-            </div>
-        @endif
-
         <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
             <!-- Client Table -->
             <div id="index" class="tabcontent mt-4 mx-4 block">
@@ -45,51 +31,54 @@
                                     <th class="px-4 py-3">Anfitrion</th>
                                     <th class="px-4 py-3">Lugar</th>
                                     <th class="px-4 py-3">Estado de la experiencia</th>
-                                    <th class="px-4 py-3">Validar</th>
+                                    <th class="px-4 py-3">Activar</th>
                                     <th class="px-4 py-3">Editar</th>
                                     <th class="px-4 py-3">Borrar</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                                @forelse ($experiences as $experiencie)
+                                @forelse ($experiences as $experience)
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-                                        <td class="px-4 py-3">
-                                            <p class="font-semibold capitalize">{{ $experiencie->title }}</p>
+                                        <td class="px-4 py-3 cursor-pointer">
+                                            <p class="font-semibold capitalize">{{ $experience->title }}</p>
+                                        </td>
+                                        <td class="px-4 py-3 cursor-pointer">
+                                            <p class="font-semibold capitalize">{{ $experience->host->name }}</p>
+                                        </td>
+                                        <td class="px-4 py-3 cursor-pointer">
+                                            <p class="font-semibold capitalize">{{ $experience->place->province }} -
+                                                {{ $experience->place->city }}</p>
                                         </td>
                                         <td class="px-4 py-3">
-                                            <p class="font-semibold capitalize">{{ $experiencie->host->name }}</p>
-                                        </td>
-                                        <td class="px-4 py-3">
-                                            <p class="font-semibold capitalize">{{ $experiencie->place->province }} -
-                                                {{ $experiencie->place->city }}</p>
-                                        </td>
-                                        <td class="px-4 py-3">
-                                            @switch($experiencie->status)
+                                            @switch($experience->status)
                                                 @case(0)
                                                     <span
-                                                        class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Inactiva
+                                                        class="cursor-default px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Inactiva
                                                     </span>
                                                 @break
                                                 @case(1)
                                                     <span
-                                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">Activa
+                                                        class="cursor-default px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">Activa
                                                     </span>
                                                 @break
                                                 @default
                                                     <span
-                                                        class="px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
+                                                        class="cursor-default px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
                                                         Pendiente de aprobacion</span>
                                             @endswitch
                                         </td>
-                                        @if ($experiencie->status != 1)
-                                            <td class="px-4 py-3"><i class="fas fa-check text-green-500"></i></td>
+                                        @if ($experience->status != 1)
+                                            <td class="px-8 py-3 "><i class="fas fa-check text-green-500"></i></td>
                                         @else
-                                            <td class="px-4 py-3"><i class="fas fa-check text-gray-500"></i></td>
+                                            <td class="px-8 py-3 "><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
-                                        <td class="px-4 py-3"><i class="fas fa-pencil-alt text-blue-500"></i></td>
-                                        <td class="px-4 py-3"><i
-                                                onclick="deleteUser(event,'{{ addslashes($experiencie->title) }}',{{ $experiencie->id }})"
+                                        <td class="px-8 py-3 "><a
+                                                href="{{ route('experiencies.edit.admin', $experience) }}"><i
+                                                    class="fas fa-pencil-alt text-blue-500"></i></a>
+                                        </td>
+                                        <td class="px-8 py-3 "><i
+                                                onclick="deleteUser(event,'{{ addslashes($experience->title) }}',{{ $experience->id }})"
                                                 class="fas fa-trash-alt text-red-500 cursor-pointer	"></i></td>
                                     </tr>
                                     @empty
@@ -112,7 +101,7 @@
             function deleteUser(e, experience_name, experience_id) {
                 e.preventDefault();
 
-                swal({
+                Swal.fire({
                     title: 'Borrar experiencia',
                     text: '¿Estas seguro que quieres borrar la experiencia ' + experience_name + " ?",
                     type: 'question',
@@ -121,23 +110,26 @@
                     cancelButtonText: "Cancelar",
                     confirmButtonText: "Borrar",
                 }).then(result => {
-                    $.ajax({
-                    url:"{{ route('experiencies.destroy.admin') }}",
-                    headers: {
-                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                            "content"
-                        ),
-                    },
-                    type: 'DELETE',
-                    data: {experience_id: experience_id},
-                    
-                    success: (result) => {
-                        location.reload();
-                    },
-                    failure: (result) => alert(msg_error),
-                });
-                });
+                        if (result.value) {
+                            $.ajax({
+                                url: "{{ route('experiencies.destroy.admin') }}",
+                                headers: {
+                                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                        "content"
+                                    ),
+                                },
+                                type: 'DELETE',
+                                data: {
+                                    experience_id: experience_id
+                                },
 
-            };
+                                success: (result) => {
+                                    location.reload();
+                                },
+                                failure: (result) => alert(msg_error),
+                            }); //fin Ajax
+                            } // fin If
+                        });
+                };
         </script>
     @endsection
