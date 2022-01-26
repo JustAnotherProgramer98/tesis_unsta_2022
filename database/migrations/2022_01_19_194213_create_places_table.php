@@ -16,10 +16,10 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->id();
 
-            $table->string('province');
-            $table->string('city');
             $table->string('adress');
             $table->string('coordenates');
+            $table->integer('status')->default(0);
+            $table->foreignId('city_id')->references('id')->on('cities')->constrained()->cascadeOnDelete();
 
             $table->timestamps();
         });

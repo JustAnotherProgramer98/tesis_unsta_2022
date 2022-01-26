@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Country;
 use App\Models\Experience;
 use App\Models\Languaje;
 use App\Models\Place;
@@ -22,6 +23,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        $this->command->line('Paises...');
+        Country::factory()->create();
+        $this->command->line('Provincias...');
+        $this->call(ProvinceSeeder::class);
+        $this->command->line('Ciudades...');
+        if(\App::environment() == 'local' || \App::environment() == 'development'){
+            $this->call(CitySeederDev::class);
+        }else{
+            $this->call(CitySeeder::class);
+        }
+
+
         $this->command->line('Users...');
         User::factory(['name'=>'Santiago','email'=>'d@gmail.com','password'=>Hash::make('123'),'role_id'=>1])->create();
         User::factory(['name'=>'Facundo','email'=>'f@gmail.com','password'=>Hash::make('123'),'role_id'=>2])->create();

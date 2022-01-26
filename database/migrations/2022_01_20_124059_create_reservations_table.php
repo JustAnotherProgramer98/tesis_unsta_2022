@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateReservationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->text('body');
-            $table->foreignId('user_id')->constrained()->references('id')->on('users');
-            $table->foreignId('experience_id')->constrained()->references('id')->on('experiences')->onDelete('cascade');;
             
+            $table->dateTime('date');
+            $table->foreignId('user_id')->constrained()->references('id')->on('users');
+            $table->boolean('completed')->default(0);
+
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('reservations');
     }
 }
