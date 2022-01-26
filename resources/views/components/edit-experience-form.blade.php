@@ -17,6 +17,15 @@
     <form method="POST" action="{{ route('experiencies.update.admin',$experience) }}" class="flex flex-col p-10 px-8 pt-6 mx-auto my-6 mb-4 transition duration-500 ease-in-out transform w-11/12">
         @method("PUT")
         @csrf
+        <div class="relative p-4 w-1/2">
+            <label for="status" class="text-base leading-7 ">Estatus </label>
+            <br>
+            <select class="font-bold text-black w-1/2 px-4 py-2.5 mt-2 text-base  rounded-lg focus:border-blueGray-500 focus:outline-none ring-offset-2 " name="status">
+                <option class="font-bold text-black w-1/2 px-4 py-2.5 mt-2 text-base  rounded-lg text-red-700 bg-red-100 focus:border-blueGray-500 focus:outline-none ring-offset-2 "       value="0" {{ $experience->status == 0 ? 'selected' : '' }} >Inactivo</option>
+                <option class="font-bold text-black w-1/2 px-4 py-2.5 mt-2 text-base  rounded-lg text-green-700 bg-green-100 focus:border-blueGray-500 focus:outline-none ring-offset-2 "   value="1" {{ $experience->status == 1 ? 'selected' : '' }} >Activo</option>
+                <option class="font-bold text-black w-1/2 px-4 py-2.5 mt-2 text-base  rounded-lg text-yellow-700 bg-yellow-100 focus:border-blueGray-500 focus:outline-none ring-offset-2 " value="2" {{ $experience->status == 2 ? 'selected' : '' }} >Pendiente de aprobacion</option>
+            </select>
+        </div>
         <section class="flex flex-col w-full h-full p-1 overflow-auto">
             <label for="name" class="text-base leading-7  mb-5">Imagen de la experiencia</label>
             <header

@@ -75,7 +75,7 @@
                                             @endswitch
                                         </td>
                                         @if ($experience->status != 1)
-                                            <td class="px-8 py-3 "><i class="fas fa-check text-green-500"></i></td>
+                                            <td class="px-8 py-3 "><i onclick="approveExperience(event,'{{ addslashes($experience->title) }}',{{ $experience->id }})" class="fas fa-check text-green-500 cursor-pointer"></i></td>
                                         @else
                                             <td class="px-8 py-3 "><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
@@ -125,6 +125,39 @@
                                     ),
                                 },
                                 type: 'DELETE',
+                                data: {
+                                    experience_id: experience_id
+                                },
+
+                                success: (result) => {
+                                    location.reload();
+                                },
+                                failure: (result) => alert(msg_error),
+                            }); //fin Ajax
+                            } // fin If
+                        });
+                };
+                function approveExperience(e, experience_name, experience_id) {
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Aprobar experiencia',
+                    text: '¿Estas seguro que quieres aprobar la experiencia ' + experience_name + " ?",
+                    type: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: "#1e40af",
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: "Aprobar",
+                }).then(result => {
+                        if (result.value) {
+                            $.ajax({
+                                url: "{{ route('experiencies.approve.admin') }}",
+                                headers: {
+                                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                        "content"
+                                    ),
+                                },
+                                type: 'POST',
                                 data: {
                                     experience_id: experience_id
                                 },

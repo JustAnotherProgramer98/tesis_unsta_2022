@@ -101,6 +101,7 @@ class ExperienceController extends Controller
             'place_id'=>'required|integer',
             'host_id'=>'required|integer',
             'languajes'=>'required|array',
+            'status'=>'required',
         ]);
 
         $languajes=collect();
@@ -135,6 +136,16 @@ class ExperienceController extends Controller
             if ($sales_experience!=null or count($sales_experience)!=0) $sales_experience->delete();
 
             return Experience::where('id',$request->experience_id)->get()->first()->delete();
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
+        
+    }
+    public function approveExperience(Request $request)
+    {
+        
+        try {
+            return Experience::where('id',$request->experience_id)->get()->first()->update(['status' => 1]);
         } catch (\Throwable $th) {
             return "error ".$th;
         }

@@ -72,7 +72,7 @@
                                             @endswitch
                                         </td>
                                         @if ($place->status != 1)
-                                            <td class="px-8 py-3 "><i class="fas fa-check text-green-500"></i></td>
+                                            <td class="px-8 py-3 "><i  class="fas fa-check text-green-500"></i></td>
                                         @else
                                             <td class="px-8 py-3 "><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
