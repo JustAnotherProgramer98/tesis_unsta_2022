@@ -69,7 +69,10 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
-        //
+        if (Auth::user()) {
+            $provinces=Province::with('cities')->get();
+            return view('admin.places.edit',compact(['place','provinces']));
+        }
     }
 
     /**

@@ -28,12 +28,7 @@
         </div>
         <section class="flex flex-col w-full h-full p-1 overflow-auto">
             <label for="name" class="text-base leading-7  mb-5">Imagen de la experiencia</label>
-            <header
-                class="flex flex-col items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
-                <input type="file" name="image_id"
-                    class="w-auto px-2 py-1 my-2 mr-2  transition duration-500 ease-in-out transform border rounded-md hover:text-blueGray-600 text-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-gray-100">
-                Subir una imagen
-            </header>
+            <div class="input-images"></div>
         </section>
         <div class="relative p-4">
             <label for="name" class="text-base leading-7 ">Titulo de la Experiencia</label>

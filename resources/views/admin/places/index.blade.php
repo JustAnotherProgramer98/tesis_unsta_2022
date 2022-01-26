@@ -43,19 +43,20 @@
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold uppercase">{{ $place->city->province->country->name }}</p>
+                                            <p class="font-semibold uppercase">{{ $place->city->province->country->name }}
+                                            </p>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
                                             <p class="font-semibold">{{ $place->city->province->name }}</p>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold">{{ Str::limit($place->city->name,10) }}</p>
+                                            <p class="font-semibold">{{ Str::limit($place->city->name, 10) }}</p>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold capitalize">{{ Str::limit($place->adress,25)}}</p>
+                                            <p class="font-semibold capitalize">{{ Str::limit($place->adress, 25) }}</p>
                                         </td>
                                         <td class="text-center px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold capitalize">{{ $place->experiences_count}}</p>
+                                            <p class="font-semibold capitalize">{{ $place->experiences_count }}</p>
                                         </td>
                                         <td class="px-4 py-3">
                                             @switch($place->status)
@@ -76,12 +77,11 @@
                                             @endswitch
                                         </td>
                                         @if ($place->status != 1)
-                                            <td class="px-8 py-3 "><i  class="fas fa-check text-green-500"></i></td>
+                                            <td class="px-8 py-3 "><i class="fas fa-check text-green-500"></i></td>
                                         @else
                                             <td class="px-8 py-3 "><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
-                                        <td class="px-8 py-3 "><a
-                                                href="{{ route('experiencies.edit.admin', $place) }}"><i
+                                        <td class="px-8 py-3 "><a href="{{ route('places.edit.admin', $place) }}"><i
                                                     class="fas fa-pencil-alt text-blue-500"></i></a>
                                         </td>
                                         <td class="px-8 py-3 "><i
@@ -103,8 +103,15 @@
             </div>
         </div>
 
-
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script>
+            $(document).ready(function() {
+                $('.input-images').imageUploader({
+                    label: 'Arrastra o hace click para subir las imagenes'
+                });
+
+            });
+
             function deletePlace(e, place_name, place_id) {
                 e.preventDefault();
 
@@ -117,26 +124,26 @@
                     cancelButtonText: "Cancelar",
                     confirmButtonText: "Borrar",
                 }).then(result => {
-                        if (result.value) {
-                            $.ajax({
-                                url: "{{ route('places.destroy.admin') }}",
-                                headers: {
-                                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                                        "content"
-                                    ),
-                                },
-                                type: 'DELETE',
-                                data: {
-                                    place_id: place_id
-                                },
+                    if (result.value) {
+                        $.ajax({
+                            url: "{{ route('places.destroy.admin') }}",
+                            headers: {
+                                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                    "content"
+                                ),
+                            },
+                            type: 'DELETE',
+                            data: {
+                                place_id: place_id
+                            },
 
-                                success: (result) => {
-                                    // location.reload();
-                                },
-                                failure: (result) => alert(msg_error),
-                            }); //fin Ajax
-                            } // fin If
-                        });
-                };
+                            success: (result) => {
+                                location.reload();
+                            },
+                            failure: (result) => alert(msg_error),
+                        }); //fin Ajax
+                    } // fin If
+                });
+            };
         </script>
     @endsection

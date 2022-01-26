@@ -41,18 +41,20 @@
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin',$experience) }}">
+                                            <a href="{{ route('experiencie.show.admin', $experience) }}">
                                                 <p class="font-semibold capitalize">{{ $experience->title }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin',$experience) }}">
+                                            <a href="{{ route('experiencie.show.admin', $experience) }}">
                                                 <p class="font-semibold capitalize">{{ $experience->host->name }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin',$experience) }}">
-                                                <p class="font-semibold capitalize">{{ $experience->place->city->province->name }} - {{ $experience->place->city->name }} </p>
+                                            <a href="{{ route('experiencie.show.admin', $experience) }}">
+                                                <p class="font-semibold capitalize">
+                                                    {{ $experience->place->city->province->name }} -
+                                                    {{ $experience->place->city->name }} </p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
@@ -74,7 +76,9 @@
                                             @endswitch
                                         </td>
                                         @if ($experience->status != 1)
-                                            <td class="px-8 py-3 "><i onclick="approveExperience(event,'{{ addslashes($experience->title) }}',{{ $experience->id }})" class="fas fa-check text-green-500 cursor-pointer"></i></td>
+                                            <td class="px-8 py-3 "><i
+                                                    onclick="approveExperience(event,'{{ addslashes($experience->title) }}',{{ $experience->id }})"
+                                                    class="fas fa-check text-green-500 cursor-pointer"></i></td>
                                         @else
                                             <td class="px-8 py-3 "><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
@@ -102,7 +106,17 @@
         </div>
 
 
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+                crossorigin="anonymous"></script>
         <script>
+            $(document).ready(function() {
+                $('.input-images').imageUploader({
+                    label: 'Arrastra o hace click para subir las imagenes'
+                });
+
+            });
+
             function deleteUser(e, experience_name, experience_id) {
                 e.preventDefault();
 
@@ -115,28 +129,29 @@
                     cancelButtonText: "Cancelar",
                     confirmButtonText: "Borrar",
                 }).then(result => {
-                        if (result.value) {
-                            $.ajax({
-                                url: "{{ route('experiencies.destroy.admin') }}",
-                                headers: {
-                                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                                        "content"
-                                    ),
-                                },
-                                type: 'DELETE',
-                                data: {
-                                    experience_id: experience_id
-                                },
+                    if (result.value) {
+                        $.ajax({
+                            url: "{{ route('experiencies.destroy.admin') }}",
+                            headers: {
+                                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                    "content"
+                                ),
+                            },
+                            type: 'DELETE',
+                            data: {
+                                experience_id: experience_id
+                            },
 
-                                success: (result) => {
-                                    location.reload();
-                                },
-                                failure: (result) => alert(msg_error),
-                            }); //fin Ajax
-                            } // fin If
-                        });
-                };
-                function approveExperience(e, experience_name, experience_id) {
+                            success: (result) => {
+                                location.reload();
+                            },
+                            failure: (result) => alert(msg_error),
+                        }); //fin Ajax
+                    } // fin If
+                });
+            };
+
+            function approveExperience(e, experience_name, experience_id) {
                 e.preventDefault();
 
                 Swal.fire({
@@ -148,26 +163,26 @@
                     cancelButtonText: "Cancelar",
                     confirmButtonText: "Aprobar",
                 }).then(result => {
-                        if (result.value) {
-                            $.ajax({
-                                url: "{{ route('experiencies.approve.admin') }}",
-                                headers: {
-                                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                                        "content"
-                                    ),
-                                },
-                                type: 'POST',
-                                data: {
-                                    experience_id: experience_id
-                                },
+                    if (result.value) {
+                        $.ajax({
+                            url: "{{ route('experiencies.approve.admin') }}",
+                            headers: {
+                                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                    "content"
+                                ),
+                            },
+                            type: 'POST',
+                            data: {
+                                experience_id: experience_id
+                            },
 
-                                success: (result) => {
-                                    location.reload();
-                                },
-                                failure: (result) => alert(msg_error),
-                            }); //fin Ajax
-                            } // fin If
-                        });
-                };
+                            success: (result) => {
+                                location.reload();
+                            },
+                            failure: (result) => alert(msg_error),
+                        }); //fin Ajax
+                    } // fin If
+                });
+            };
         </script>
     @endsection
