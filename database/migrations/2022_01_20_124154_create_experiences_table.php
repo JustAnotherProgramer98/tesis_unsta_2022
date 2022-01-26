@@ -21,7 +21,7 @@ class CreateExperiencesTable extends Migration
             $table->text('description');
             $table->integer('status')->default(0);
             
-            $table->foreignId('place_id')->constrained()->references('id')->on('places');
+            $table->foreignId('place_id')->constrained()->references('id')->on('places')->onDelete('cascade');
             $table->foreignId('host_id')->constrained()->references('id')->on('users');
             $table->foreignId('reservation_id')->nullable()->constrained()->references('id')->on('reservations');
             

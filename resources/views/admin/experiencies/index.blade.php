@@ -52,9 +52,8 @@
                                         </td>
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin',$experience) }}">
-                                                <p class="font-semibold capitalize">{{ $experience->place->province }} -
+                                                <p class="font-semibold capitalize">{{ $experience->place->city->province->name }} - {{ $experience->place->city->name }} </p>
                                             </a>
-                                                {{ $experience->place->city }}</p>
                                         </td>
                                         <td class="px-4 py-3">
                                             @switch($experience->status)

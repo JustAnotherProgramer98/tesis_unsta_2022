@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PlaceController extends Controller
 {
@@ -17,30 +19,35 @@ class PlaceController extends Controller
     {
         if (Auth::user()) {
             $places=Place::withCount('experiences')->paginate(6);            
-            return view('admin.places.index',compact(['places']));
+            $provinces=Province::with('cities')->get();
+            return view('admin.places.index',compact(['places','provinces']));
         }
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+    // image_id De momento no
+ 
+    $validated=$request->validate([
+    'country_id'=>'required|integer',
+    'province_id'=>'required|integer',
+    'city_id'=>'required|integer',
+    'adress'=>'required|string',
+    'coordenates'=>'required|string',
+    ]);
+
+    try {
+        DB::transaction(function () use ($validated){
+
+        Place::create($validated+[
+            'status'=>Auth::user()->isAdmin() ? 1 : 0
+        ]);
+    });
+    return redirect()->route('places.index.admin');
+    } catch (\Throwable $th) {
+        throw $th;
+    }
     }
 
     /**

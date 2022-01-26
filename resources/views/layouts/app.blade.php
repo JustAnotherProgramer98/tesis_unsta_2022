@@ -27,7 +27,7 @@
           background: #4287f5; 
         }
         ::-webkit-scrollbar-thumb:hover {
-          background: whitesmoke; 
+          background: #4287f5; 
         }
       
       </style>

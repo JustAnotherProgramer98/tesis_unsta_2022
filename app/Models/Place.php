@@ -9,7 +9,7 @@ class Place extends Model
 {
     use HasFactory;
 
-    protected $fillable=['province','city','adress','coordenates'];
+    protected $fillable=['city_id','adress','coordenates','status'];
 
     public function experiences()
     {
@@ -18,5 +18,9 @@ class Place extends Model
     public function images()
     {
         return $this->morphMany(Image::class, 'picturable');
+    }
+    public function city()
+    {
+    	return $this->belongsTo(City::class);
     }
 }

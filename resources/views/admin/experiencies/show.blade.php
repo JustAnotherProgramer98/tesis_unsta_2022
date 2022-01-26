@@ -68,8 +68,10 @@
                     <label for="name" class="text-base leading-7 ">Ubicacion de la experiencia</label>
                     <div
                         class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
-                        <p>{{ $experience->place->province }} - {{ $experience->place->city }} -
-                            {{ $experience->place->adress }}</p>
+                        <p><span class="text-blue-800">Provincia: </span>   {{ $experience->place->city->province->name }}</p>
+                        <p><span class="text-blue-800">Ciudad: </span>   {{ $experience->place->city->name }}</p>
+                        <p><span class="text-blue-800">Direccion: </span>   {{ $experience->place->adress }}</p>
+                        
                     </div>
 
                 </div>

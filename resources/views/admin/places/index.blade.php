@@ -27,6 +27,7 @@
                             <thead>
                                 <tr
                                     class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                    <th class="px-4 py-3">Pais</th>
                                     <th class="px-4 py-3">Provincia</th>
                                     <th class="px-4 py-3">Ciudad</th>
                                     <th class="px-4 py-3">Direccion</th>
@@ -42,10 +43,13 @@
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold capitalize">{{ $place->province }}</p>
+                                            <p class="font-semibold uppercase">{{ $place->city->province->country->name }}</p>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold capitalize">{{ $place->city }}</p>
+                                            <p class="font-semibold">{{ $place->city->province->name }}</p>
+                                        </td>
+                                        <td class="px-4 py-3 cursor-pointer">
+                                            <p class="font-semibold">{{ Str::limit($place->city->name,10) }}</p>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
                                             <p class="font-semibold capitalize">{{ Str::limit($place->adress,25)}}</p>
@@ -95,6 +99,7 @@
                         </div>
                     </div>
                 </div>
+                <x-create-place-form :provinces="$provinces"></x-create-place-form>
             </div>
         </div>
 
@@ -105,7 +110,7 @@
 
                 Swal.fire({
                     title: 'Borrar lugar',
-                    text: '¿Estas seguro que quieres borrar el lugar' + place_name + " ?. Borraras tambien todas las experiencias asociadas a ese lugar",
+                    text: '¿Estas seguro que quieres borrar el lugar?. Borraras tambien todas las experiencias asociadas a ese lugar',
                     type: 'question',
                     showCancelButton: true,
                     confirmButtonColor: "#1e40af",
@@ -126,7 +131,7 @@
                                 },
 
                                 success: (result) => {
-                                    location.reload();
+                                    // location.reload();
                                 },
                                 failure: (result) => alert(msg_error),
                             }); //fin Ajax
