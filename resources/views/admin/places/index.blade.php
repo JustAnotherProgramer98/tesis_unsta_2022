@@ -190,27 +190,5 @@
                     } // fin If
                 });
             };
-
-            //Search cities by Province_id
-            function searchByProvincia() {
-                var province_id = $("#search_cities_by_province_id").val();
-                $.ajax({
-                    url: "{{ route('places.render.cities.admin') }}",
-                    headers: {
-                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                            "content"
-                        ),
-                    },
-                    type: 'POST',
-                    data: {
-                        province_id: province_id
-                    },
-
-                    success: (result) => {
-                        $("#city_name").replaceWith(result);
-                    },
-                    failure: (result) => alert(msg_error),
-                }); //fin Ajax 
-            }
         </script>
     @endsection
