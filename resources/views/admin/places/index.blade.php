@@ -86,7 +86,8 @@
                                             @endswitch
                                         </td>
                                         @if ($place->status != 1)
-                                            <td class="px-8 py-3 "><i onclick="approvePlace(event,{{ $place->id }})" class="fas fa-check text-green-500 cursor-pointer"></i></td>
+                                            <td class="px-8 py-3 "><i onclick="approvePlace(event,{{ $place->id }})"
+                                                    class="fas fa-check text-green-500 cursor-pointer"></i></td>
                                         @else
                                             <td class="px-8 py-3 "><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
@@ -156,7 +157,7 @@
                 });
             };
 
-            function approvePlace(e,place_id) {
+            function approvePlace(e, place_id) {
                 e.preventDefault();
 
                 Swal.fire({
@@ -189,5 +190,27 @@
                     } // fin If
                 });
             };
+
+            //Search cities by Province_id
+            function searchByProvincia() {
+                var province_id = $("#search_cities_by_province_id").val();
+                $.ajax({
+                    url: "{{ route('places.render.cities.admin') }}",
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                    type: 'POST',
+                    data: {
+                        province_id: province_id
+                    },
+
+                    success: (result) => {
+                        $("#city_name").replaceWith(result);
+                    },
+                    failure: (result) => alert(msg_error),
+                }); //fin Ajax 
+            }
         </script>
     @endsection

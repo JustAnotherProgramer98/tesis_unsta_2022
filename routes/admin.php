@@ -26,5 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/places/{place}/edit',[PlaceController::class,'edit'])->name('places.edit.admin');
     Route::put('/places/{place}/update',[PlaceController::class,'update'])->name('places.update.admin');
     Route::delete('/places/delete',[PlaceController::class,'destroy'])->name('places.destroy.admin');
+    //Render cities by province
+    Route::post('render/places-by-province',[PlaceController::class,'renderPlacesByProvince'])->name('places.render.cities.admin');
 
 });

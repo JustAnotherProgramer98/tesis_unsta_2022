@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Place;
 use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class PlaceController extends Controller
 {
@@ -101,5 +103,11 @@ class PlaceController extends Controller
             return "error ".$th;
         }
         
+    }
+    public function renderPlacesByProvince(Request $request)
+    {
+       $cities = City::where('province_id', $request->province_id)->get();
+
+        return View::make("components.select-render-cities")->with(['cities'=>$cities])->render();
     }
 }

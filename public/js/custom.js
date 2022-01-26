@@ -1,3 +1,4 @@
+//Move between tabs
 function openNewTab(evt, tab_name) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
