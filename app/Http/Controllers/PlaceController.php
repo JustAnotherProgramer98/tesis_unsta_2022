@@ -40,9 +40,7 @@ class PlaceController extends Controller
     try {
         DB::transaction(function () use ($validated){
 
-        Place::create($validated+[
-            'status'=>Auth::user()->isAdmin() ? 1 : 0
-        ]);
+        Place::create($validated);
     });
     return redirect()->route('places.index.admin');
     } catch (\Throwable $th) {
@@ -50,23 +48,12 @@ class PlaceController extends Controller
     }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Place  $place
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Place $place)
     {
-        //
+        return view('admin.places.show',compact(['place']));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Place  $place
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Place $place)
     {
         if (Auth::user()) {
@@ -75,24 +62,28 @@ class PlaceController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Place  $place
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Place $place)
     {
-        //
+        $validated=$request->validate([
+            'country_id'=>'required|integer',
+            'province_id'=>'required|integer',
+            'city_id'=>'required|integer',
+            'adress'=>'required|string',
+            'coordenates'=>'required|string',
+            ]);
+        
+            try {
+                DB::transaction(function () use ($validated,$place){
+        
+                    $place->update($validated);
+            });
+            return redirect()->route('places.index.admin');
+            } catch (\Throwable $th) {
+                throw $th;
+            }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Place  $place
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         try {
@@ -100,5 +91,15 @@ class PlaceController extends Controller
         } catch (\Throwable $th) {
             return "error ".$th;
         }
+    }
+    public function approvePlace(Request $request)
+    {
+        
+        try {
+            return Place::where('id',$request->place_id)->get()->first()->update(['status' => 1]);
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
+        
     }
 }

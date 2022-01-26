@@ -43,17 +43,26 @@
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold uppercase">{{ $place->city->province->country->name }}
-                                            </p>
+                                            <a href="{{ route('place.show.admin', $place) }}">
+                                                <p class="font-semibold uppercase">
+                                                    {{ $place->city->province->country->name }}</p>
+                                            </a>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold">{{ $place->city->province->name }}</p>
+                                            <a href="{{ route('place.show.admin', $place) }}">
+                                                <p class="font-semibold">{{ $place->city->province->name }}</p>
+                                            </a>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold">{{ Str::limit($place->city->name, 10) }}</p>
+                                            <a href="{{ route('place.show.admin', $place) }}">
+                                                <p class="font-semibold">{{ Str::limit($place->city->name, 10) }}</p>
+                                            </a>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold capitalize">{{ Str::limit($place->adress, 25) }}</p>
+                                            <a href="{{ route('place.show.admin', $place) }}">
+                                                <p class="font-semibold capitalize">{{ Str::limit($place->adress, 25) }}
+                                                </p>
+                                            </a>
                                         </td>
                                         <td class="text-center px-4 py-3 cursor-pointer">
                                             <p class="font-semibold capitalize">{{ $place->experiences_count }}</p>
@@ -77,7 +86,7 @@
                                             @endswitch
                                         </td>
                                         @if ($place->status != 1)
-                                            <td class="px-8 py-3 "><i class="fas fa-check text-green-500"></i></td>
+                                            <td class="px-8 py-3 "><i onclick="approvePlace(event,{{ $place->id }})" class="fas fa-check text-green-500 cursor-pointer"></i></td>
                                         @else
                                             <td class="px-8 py-3 "><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
@@ -103,7 +112,8 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+                crossorigin="anonymous"></script>
         <script>
             $(document).ready(function() {
                 $('.input-images').imageUploader({
@@ -133,6 +143,40 @@
                                 ),
                             },
                             type: 'DELETE',
+                            data: {
+                                place_id: place_id
+                            },
+
+                            success: (result) => {
+                                location.reload();
+                            },
+                            failure: (result) => alert(msg_error),
+                        }); //fin Ajax
+                    } // fin If
+                });
+            };
+
+            function approvePlace(e,place_id) {
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Aprobar lugar',
+                    text: '¿Estas seguro que quieres aprobar este lugar  ?',
+                    type: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: "#1e40af",
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: "Aprobar",
+                }).then(result => {
+                    if (result.value) {
+                        $.ajax({
+                            url: "{{ route('places.approve.admin') }}",
+                            headers: {
+                                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                    "content"
+                                ),
+                            },
+                            type: 'POST',
                             data: {
                                 place_id: place_id
                             },
