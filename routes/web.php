@@ -26,15 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/experiencias/crear',[ExperienceController::class,'create'])->name('experiencies.create.admin');
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/panel-de-administracion',[AdminController::class,'index'])->name('admin.panel');
 
-    Route::get('/experiencias',[ExperienceController::class,'index'])->name('experiencies.index.admin');
-    Route::post('/experiencias/store',[ExperienceController::class,'store'])->name('experiencies.store.admin');
-    Route::get('/experiencias/{experience}/edit',[ExperienceController::class,'edit'])->name('experiencies.edit.admin');
-    Route::put('/experiencias/{experience}/update',[ExperienceController::class,'update'])->name('experiencies.update.admin');
-    Route::delete('/experiencias/delete',[ExperienceController::class,'destroy'])->name('experiencies.destroy.admin');
 
-});
+require __DIR__.'/admin.php';
 

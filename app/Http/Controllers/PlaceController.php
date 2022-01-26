@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Place;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlaceController extends Controller
 {
@@ -14,7 +15,11 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::user()) {
+            $places=Place::withCount('experiences')->paginate(6);            
+            return view('admin.places.index',compact(['places']));
+        }
+
     }
 
     /**
@@ -78,8 +83,12 @@ class PlaceController extends Controller
      * @param  \App\Models\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Place $place)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            return Place::where('id',$request->place_id)->get()->first()->delete();
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
     }
 }

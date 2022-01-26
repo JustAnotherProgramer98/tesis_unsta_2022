@@ -14,6 +14,23 @@
 
     
     </head>
+    <style>
+
+        ::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+          background: whitesmoke; 
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #4287f5; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: whitesmoke; 
+        }
+      
+      </style>
     <body>
         @if (Auth::user())
         <div class="fixed w-full flex items-center justify-between h-14 text-white z-10">

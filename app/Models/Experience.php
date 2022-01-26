@@ -46,4 +46,9 @@ class Experience extends Model
         return $this->morphMany(Image::class, 'picturable');
     }
 
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
+
 }

@@ -8,7 +8,12 @@
             </ul>
         </div>
     @endif
-    <h2 class="text-center bg-blue-200">Editar la experiencia <span class="text-blue-500">{{ $experience->title }}</span></h2>
+    
+    <h2 class="text-center">Editar la experiencia <span class="text-blue-500">{{ $experience->title }}</span></h2>
+    <a href="{{ route('experiencies.index.admin') }}"
+    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><i class="fas fa-arrow-left"></i>
+    Volver
+    </a>
     <form method="POST" action="{{ route('experiencies.update.admin',$experience) }}" class="flex flex-col p-10 px-8 pt-6 mx-auto my-6 mb-4 transition duration-500 ease-in-out transform w-11/12">
         @method("PUT")
         @csrf

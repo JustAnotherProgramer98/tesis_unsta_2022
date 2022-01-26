@@ -32,12 +32,7 @@ class ExperienceController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
 
@@ -75,23 +70,17 @@ class ExperienceController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Experience  $experience
-     * @return \Illuminate\Http\Response
-     */
     public function show(Experience $experience)
     {
-        //
+        if (Auth::user()) {
+            
+            return view('admin.experiencies.show',compact(['experience']));
+        }
+        $experiences=Experience::all();
+        return view('guest.index',compact(['experiences']));
+    
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Experience  $experience
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Experience $experience)
     {
         $places=Place::all();
@@ -132,18 +121,12 @@ class ExperienceController extends Controller
                 
             });            
             return redirect()->route('experiencies.index.admin');
-            
+
         } catch (\Throwable $th) {
             throw $th;
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Experience  $experience
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         

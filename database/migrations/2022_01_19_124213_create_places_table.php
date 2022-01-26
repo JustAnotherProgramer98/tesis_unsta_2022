@@ -20,6 +20,7 @@ class CreatePlacesTable extends Migration
             $table->string('city');
             $table->string('adress');
             $table->string('coordenates');
+            $table->integer('status')->default(0);
 
             $table->timestamps();
         });

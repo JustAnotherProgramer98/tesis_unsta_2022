@@ -25,8 +25,6 @@ class CreateExperiencesTable extends Migration
             $table->foreignId('host_id')->constrained()->references('id')->on('users');
             $table->foreignId('reservation_id')->nullable()->constrained()->references('id')->on('reservations');
             
-
-
             $table->timestamps();
         });
     }
