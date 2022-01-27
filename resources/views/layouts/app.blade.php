@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.css" rel="stylesheet" />
         <link type="text/css" rel="stylesheet" href="{{ asset('css/image-uploader.css') }}">
+        
 
     
     </head>
@@ -50,7 +51,7 @@
         </div>
     </div>
     @endif
-        
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
         @yield('content')
 
 
@@ -60,5 +61,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/custom.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
+        
+
     </body>
 </html>

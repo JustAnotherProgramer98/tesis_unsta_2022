@@ -6,14 +6,14 @@ use Illuminate\View\Component;
 
 class CreateSaleForm extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $users;
+    public $experiences;
+
+    public function __construct($users,$experiences)
     {
-        //
+        $this->users=$users;
+        $this->experiences=$experiences;
+
     }
 
     /**

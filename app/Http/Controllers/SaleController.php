@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Experience;
 use App\Models\Sale;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +19,9 @@ class SaleController extends Controller
     {
         if (Auth::user()) {
             $sales=Sale::paginate(6);
-            return view('admin.sales.index',compact(['sales']));
+            $users=User::all();
+            $experiences=Experience::where('status',1)->get();
+            return view('admin.sales.index',compact(['sales','experiences','users']));
         }
     }
 
