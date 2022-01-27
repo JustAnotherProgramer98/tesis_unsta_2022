@@ -19,7 +19,7 @@ class ExperienceController extends Controller
             $experiences=Experience::paginate(6);
             return view('admin.experiencies.index',compact(['experiences']));
         }
-        $experiences=Experience::all();
+        $experiences=Experience::where('status', 1)->get();
         return view('guest.index',compact(['experiences']));
     }
 

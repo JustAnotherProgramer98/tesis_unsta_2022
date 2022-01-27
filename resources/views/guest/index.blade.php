@@ -135,7 +135,8 @@
                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAPdvF3u9YGCmWQZDGug3Jy2Eqrb4XuoOQbjozL6ObMiSl_2AvFQGSdpuqNPgADM37GJQ&usqp=CAU" />
                                 <div class="flex flex-col space-y-0">
                                     
-                                    <p class="font-semibold text-base">@User (Github)</p>
+                                    <p class="font-semibold text-base">anfitrion: {{$experiencie->host->name}}</p>
+                                    <p class="font-semibold text-base">anfitrion: {{$experiencie->status}}</p>
                                     <p class="font-light text-sm">20 de Dezembro de 2021</p>
                                 </div>
                             </div>

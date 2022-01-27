@@ -16,13 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
-Route::get('/', function () {
-    $experiences = App\Models\Experience::all();
-    $users = App\Models\User::all();
-    $places = App\Models\Place::all();
-    return view('guest.index', compact(["experiences"]), compact(["users"]));
-});
+Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
+// Route::get('/', function () {
+//     $experiences = App\Models\Experience::all();
+//     $users = App\Models\User::all();
+//     $places = App\Models\Place::all();
+//     return view('guest.index', compact(["experiences"]), compact(["users"]));
+// });
 
 Route::get('/shop', function () {
     $category = App\Models\Category::all();
