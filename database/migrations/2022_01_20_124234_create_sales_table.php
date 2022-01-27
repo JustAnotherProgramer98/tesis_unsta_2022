@@ -19,7 +19,7 @@ class CreateSalesTable extends Migration
             $table->foreignId('experience_id')->constrained()->references('id')->on('experiences')->onDelete('cascade');
             $table->foreignId('buyer_id')->constrained()->references('id')->on('users');//comprador
             $table->double('amount');
-            $table->boolean('approved')->default(0);
+            $table->integer('status')->default(0);
 
             $table->timestamps();
         });

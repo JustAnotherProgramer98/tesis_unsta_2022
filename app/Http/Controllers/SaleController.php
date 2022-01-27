@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SaleController extends Controller
 {
@@ -14,7 +15,10 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::user()) {
+            $sales=Sale::paginate(6);
+            return view('admin.sales.index',compact(['sales']));
+        }
     }
 
     /**

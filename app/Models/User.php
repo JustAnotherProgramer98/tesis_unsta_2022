@@ -78,6 +78,10 @@ class User extends Authenticatable
     {
         return $this->morphMany(Image::class, 'picturable');
     }
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
     public function isAdmin()
     {
         if($this->role->name == "Admin"){
