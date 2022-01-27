@@ -19,12 +19,14 @@ class CreateExperiencesTable extends Migration
             $table->string('slug');
             $table->string('subtitle');
             $table->text('description');
+            $table->double('price');
             $table->integer('status')->default(0);
-            
+
             $table->foreignId('place_id')->constrained()->references('id')->on('places')->onDelete('cascade');
             $table->foreignId('host_id')->constrained()->references('id')->on('users');
             $table->foreignId('reservation_id')->nullable()->constrained()->references('id')->on('reservations');
             
+            $table->softDeletes();
             $table->timestamps();
         });
     }

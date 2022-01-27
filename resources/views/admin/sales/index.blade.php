@@ -41,6 +41,7 @@
                                     <th class="px-4 py-3 whitespace-nowrap">Experiencia comprada</th>
                                     <th class="px-4 py-3 whitespace-nowrap">Anfitrion de la experiencia</th>
                                     <th class="px-4 py-3 whitespace-nowrap">Comprador</th>
+                                    <th class="px-4 py-3 whitespace-nowrap">Monto</th>
                                     <th class="px-4 py-3 whitespace-nowrap">Estado de la compra</th>
                                     <th class="px-4 py-3">Aprobar</th>
                                     <th class="px-4 py-3">Borrar</th>
@@ -68,8 +69,11 @@
                                         </td>
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $sale) }}">
-                                                <p class="font-semibold capitalize">{{ $sale->user->name }} </p>
+                                                <p class="font-semibold capitalize">{{ $sale->user->name }}</p>
                                             </a>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                                <p class="font-semibold capitalize">$ {{ $sale->experience->price }}</p>
                                         </td>
                                         <td class="px-4 py-3">
                                             @switch($sale->status)

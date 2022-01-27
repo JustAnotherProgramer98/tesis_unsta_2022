@@ -49,6 +49,15 @@
                         <div class="input-images"></div>
                     </section>
                     <div class="relative p-4">
+                        <label for="status" class="text-base leading-7 ">Estatus </label>
+                        <br>
+                        <select class="font-bold text-black w-1/2 px-4 py-2.5 mt-2 text-base  rounded-lg focus:border-blueGray-500 focus:outline-none ring-offset-2 " name="status">
+                            <option class="font-bold w-1/2 px-4 py-2.5 mt-2 text-base  rounded-lg text-red-700 bg-red-100 focus:border-blueGray-500 focus:outline-none ring-offset-2 "       value="0" {{ $place->status == 0 ? 'selected' : '' }} >Inactivo</option>
+                            <option class="font-bold w-1/2 px-4 py-2.5 mt-2 text-base  rounded-lg text-green-700 bg-green-100 focus:border-blueGray-500 focus:outline-none ring-offset-2 "   value="1" {{ $place->status == 1 ? 'selected' : '' }} >Activo</option>
+                            <option class="font-bold w-1/2 px-4 py-2.5 mt-2 text-base  rounded-lg text-yellow-700 bg-yellow-100 focus:border-blueGray-500 focus:outline-none ring-offset-2 " value="2" {{ $place->status == 2 ? 'selected' : '' }} >Pendiente de aprobacion</option>
+                        </select>
+                    </div>
+                    <div class="relative p-4">
                         <label for="name" class="text-base leading-7 ">Pais</label>
                         <br>
                         <small class="text-gray-500">*Mas paises proximamente</small>
@@ -58,18 +67,20 @@
                     </div>
                     <div class="relative p-4">
                         <label for="name" class="text-base leading-7 ">Provincia</label>
-                        <select class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="province_id" >
-                            @forelse ($provinces as $province)
+                        @php
+                        $url=route('places.render.cities.admin');
+                        @endphp
+                        <select onchange="searchByProvincia('{{$url}}')" id="search_cities_by_province_id" class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="province_id" >
+                        @forelse ($provinces as $province)
                             <option value="{{ $place->city->province->id }}" {{( $place->city->province->id == $province->id) ? 'selected' : '' }}> {{ $province->name }}</option>
-                                
                         @empty
                         @endforelse
-                        </select>
+                    </select>
                     </div>
                     <div class="relative p-4">
                         <label for="name" class="text-base leading-7 ">Ciudad</label>
-                        <select class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="city_id" >
-                            <option value="1" selected>Argentina</option>
+                        <select id="city_name" class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="city_id" >
+                            <option value="{{ $place->city->id }}" selected> {{ $place->city->name }}</option>
                         </select>
                     </div>
                     <div class="relative p-4">

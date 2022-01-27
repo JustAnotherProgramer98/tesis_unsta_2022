@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Experience extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
-    protected $fillable = ['title','slug','subtitle','description','status','place_id','host_id','reservation_id'];
+    protected $fillable = ['title','slug','subtitle','description','price','status','place_id','host_id','reservation_id'];
     
     public function place()
     {

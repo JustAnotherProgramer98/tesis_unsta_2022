@@ -37,6 +37,7 @@ function searchByProvincia(url) {
 //PopOver
 const button = document.querySelector('#button-popover');
 const tooltip = document.querySelector('#tooltip');
+var button_2 = document.querySelector('#button-popover_2');
 
 const popperInstance = Popper.createPopper(button, tooltip, {
   modifiers: [
@@ -83,10 +84,15 @@ function hide() {
 const showEvents = ['mouseenter', 'focus'];
 const hideEvents = ['mouseleave', 'blur'];
 
-showEvents.forEach((event) => {
-  button.addEventListener(event, show);
-});
-
-hideEvents.forEach((event) => {
-  button.addEventListener(event, hide);
-});
+try {
+  showEvents.forEach((event) => {
+    button.addEventListener(event, show);  
+  });
+  
+  hideEvents.forEach((event) => {
+    button.addEventListener(event, hide);
+  });  
+} catch (error) {
+  console.log(error);
+  
+}

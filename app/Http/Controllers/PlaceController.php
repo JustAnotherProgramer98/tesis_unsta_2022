@@ -72,6 +72,7 @@ class PlaceController extends Controller
             'province_id'=>'required|integer',
             'city_id'=>'required|integer',
             'adress'=>'required|string',
+            'status'=>'required',
             'coordenates'=>'required|string',
             ]);
         

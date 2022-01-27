@@ -43,6 +43,7 @@
                                     <th class="px-4 py-3">Titulo</th>
                                     <th class="px-4 py-3">Anfitrion</th>
                                     <th class="px-4 py-3">Lugar</th>
+                                    <th class="px-4 py-3">Precio</th>
                                     <th class="px-4 py-3">Estado de la experiencia</th>
                                     <th class="px-4 py-3">Activar</th>
                                     <th class="px-4 py-3">Editar</th>
@@ -60,7 +61,7 @@
                                         </td>
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $experience) }}">
-                                                <p class="font-semibold capitalize">{{ $experience->host->name }}</p>
+                                                <p class="font-semibold capitalize">{{ $experience->host->name }} | {{ $experience->host->surname }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
@@ -69,6 +70,9 @@
                                                     {{ $experience->place->city->province->name }} -
                                                     {{ $experience->place->city->name }} </p>
                                             </a>
+                                        </td>
+                                        <td class="px-4 py-3">
+                                                <p class="font-semibold capitalize">$ {{ $experience->price }}  </p>
                                         </td>
                                         <td class="px-4 py-3">
                                             @switch($experience->status)
