@@ -13,6 +13,6 @@ class Languaje extends Model
 
     public function experiences()
     {
-        return $this->hasMany(Experience::class);
+        return $this->belongsToMany(Experience::class,'experiencie_languaje');
     }
 }

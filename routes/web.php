@@ -54,7 +54,5 @@ Route::view('/experiencias/welcome', 'welcome');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/panel-de-administracion',[AdminController::class,'index'])->name('admin.panel');
 
-    Route::get('/experiencias',[ExperienceController::class,'index'])->name('experiencies.index.admin');
 
-});
-
+require __DIR__.'/admin.php';

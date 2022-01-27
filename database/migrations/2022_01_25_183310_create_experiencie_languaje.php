@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateExperiencieLanguaje extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('experiencie_languaje', function (Blueprint $table) {
             $table->id();
-            $table->text('body');
-            $table->foreignId('user_id')->constrained()->references('id')->on('users');
-            $table->foreignId('experience_id')->constrained()->references('id')->on('experiences')->onDelete('cascade');;
-            
+
+            $table->foreignId('experience_id')->references('id')->on('experiences')->constrained()->cascadeOnDelete();
+            $table->foreignId('languaje_id')->references('id')->on('languajes')->constrained()->cascadeOnDelete();
+
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('experiencie_languaje');
     }
 }
