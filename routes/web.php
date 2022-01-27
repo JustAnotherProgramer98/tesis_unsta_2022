@@ -49,6 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::view('experiencias/crear', 'admin.experiencies.create');
+Route::view('/experiencias/welcome', 'welcome');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/panel-de-administracion',[AdminController::class,'index'])->name('admin.panel');
