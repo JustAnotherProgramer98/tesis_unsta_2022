@@ -19,7 +19,7 @@
         @csrf
         <div class="relative p-4">
             <label for="name" class="text-base leading-7 ">Experiencia de la venta</label>
-            <select class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="country_id" >
+            <select id="experience_id" onchange="checkhostGift(event)" class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="country_id" >
                 <option value="X" selected hidden>Selecciona una experiencia</option>
                 @forelse ($experiences as $experience)
                     <option value="{{ $experience->id }}">{{ $experience->title }}</option>
@@ -30,7 +30,7 @@
         </div>
         <div class="relative p-4">
             <label for="name" class="text-base leading-7 ">Usuario comprador</label>
-            <select class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="buyer_id" >
+            <select onchange="checkhostGift(event)" id="buyer_id"  class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="buyer_id" >
                 <option value="X" selected hidden>Selecciona un usuario</option>
                 @forelse ($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }} | {{ $user->surname }}</option>
@@ -39,7 +39,9 @@
                 @endforelse
             </select>
         </div>
-        <div class="relative p-4">
+        <p id="beneficiary" class="relative p-4 w-full px-4 py-2.5 mt-2 border-transparent rounded-lg bg-red-500  font-extrabold focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 hidden"><i class="fas fa-exclamation-triangle"></i> El anfitrion no puede regalarse experiencias</p> 
+        <div  class="relative p-4">
+
             <label for="name" class="text-base leading-7 ">Usuario beneficiario</label>
             <select class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 " name="beneficierie_id" >
                 <option value="X" selected hidden>Selecciona un usuario</option>
@@ -57,20 +59,24 @@
             <input type="number" min="0" name="amount"
             class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
         </div>
-        <div class="relative p-4">
-            <label for="name" class="text-base leading-7 ">Direccion</label>
-            
-        </div>
-        <div class="relative p-4">
-            <label for="name" class="text-base leading-7 ">Latitud y Longitud</label><br>
-            <small class="text-gray-500">**Separa con una , la latitud de la longitud</small>
-            <input  name="coordenates"
-                class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
-        </div>
         <div class="flex items-center w-full pt-4 mb-4">
-            <button
-                class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-800 ">Crear
-                lugar </button>
+            <button class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-800 ">Crear venta </button>
         </div>
     </form>
 </div>
+
+<script>
+//Check if host is autogift
+function checkhostGift(e) {
+    var buyer_id = $("#buyer_id").val();
+    @json($experiences).forEach(element => {
+        if (element.host_id == buyer_id) {
+            $('#beneficiary').removeClass( "hidden" )
+            $("#buyer_id").disable();
+        }
+        else {
+            $('#beneficiary').addClass( "hidden" )
+        }
+    });
+}
+</script>
