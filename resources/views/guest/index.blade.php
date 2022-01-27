@@ -113,27 +113,29 @@
             </div>
         </div>
     </section>
+
     <section>
         <!-- This is the Relevant Experience  -->
         <div class="min-h-screen">
-            <p class="text-center text-4xl font-semibold py-4">Experiencias Destacadas</p>
+            <p class="text-center text-4xl font-semibold py-4"><br> Experiencias Destacadas</p>
             <div class="p-4 gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 select-none">
                 @foreach ($experiences->take(4) as $experiencie)
-                    <div
-                        class="w-full cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-blue-400/80 hover:shadow-2xl hover:bg-gray-50">
+                
+                    <div class="w-full cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-blue-400/80 hover:shadow-2xl hover:bg-gray-50">
                         <img class="aspect-video bg-cover w-full rounded-t-md min-h-40"
                             src="https://laravelnews.imgix.net/images/tailwindcss.png?ixlib=php-3.3.1" />
                         <div class="p-4">
                             <span class="text-blue-600 font-normal text-base">News</span>
                               <p class="text-red-500">  @foreach ($experiencie->categories as $category) {{ $category->title }} - @endforeach</p>
-                            
+                              
                             <p class="font-semibold text-xl py-2">{{ $experiencie->title }}</p>
                             <p class="font-light text-gray-700 text-justify line-clamp-3">{{ $experiencie->description }}</p>
                             <div class="flex flex-wrap mt-10 space-x-4 align-bottom">
                                 <img class="w-10 h-10 rounded-full"
                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAPdvF3u9YGCmWQZDGug3Jy2Eqrb4XuoOQbjozL6ObMiSl_2AvFQGSdpuqNPgADM37GJQ&usqp=CAU" />
                                 <div class="flex flex-col space-y-0">
-                                    <p class="font-semibold text-base">@djpfs (Github)</p>
+                                    
+                                    <p class="font-semibold text-base">@User (Github)</p>
                                     <p class="font-light text-sm">20 de Dezembro de 2021</p>
                                 </div>
                             </div>
@@ -249,9 +251,9 @@
                         Equipo</h1>
 
                     <p class="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
-                        Somos 2 alumnos en su ultimo año de la carrera de Ingenieria Informatica, en la Universidad del
+                        Somos dos alumnos cursando su ultimo año de la carrera de Ingeniería Informática, de la Universidad del
                         Norte Santo Tomas de Aquino.
-                        Este proyecto esta diseñado como exposición para el proyecto final.
+                        Este proyecto esta diseñado como exposición para el proyecto final integrador. En el cual consta de satisfacer las necesidades de clientes a nivel mundial. 
                     </p>
                 </div>
 
