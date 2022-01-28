@@ -109,7 +109,7 @@
                 </ul>
             </div>
         </header>
-        <main class="h-full">
+        <main class="h-full w-full">
                 {{-- Conenido de las paginas --}}
                 @yield('content')
         </main>
