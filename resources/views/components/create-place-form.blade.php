@@ -1,8 +1,8 @@
-<div id="create" class="tabcontent container items-center px-5 py-12 lg:px-20 hidden">
+<div id="create" class="tabcontent container items-center hidden">
 
     <button
     onclick="openNewTab(event, 'index')"
-    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><i class="fas fa-arrow-left"></i>
+    class="mb-4 ml-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><i class="fas fa-arrow-left"></i>
     Volver
     </button>
     @if ($errors->any())

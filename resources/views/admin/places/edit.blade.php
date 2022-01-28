@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
+@section('title_of_tab')
+    <p class="text-black font-bold text-2xl">Editar el lugar <span class="text-purple-500">{{ $place->adress }}</span></h2></p>
+@endsection
+
+
 @section('content')
 
     <div
         class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-
-        <!-- Sidebar -->
-        <x-admin-side-bar></x-admin-side-bar>
-        <!-- ./Sidebar -->
-
         @if (session()->has('success'))
             <div class="alert alert-success">
                 @if (is_array(session('success')))
@@ -23,10 +23,9 @@
             </div>
         @endif
 
-        <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
+        <div class="h-full overflow-hidden">
             <div class="tabcontent container items-center px-5 py-12 lg:px-20">
 
-                <h2 class="text-center">Editar el lugar <span class="text-blue-500">{{ $place->adress }}</span></h2>
                 <a href="{{ route('places.index.admin') }}"
                 class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><i class="fas fa-arrow-left"></i>
                 Volver

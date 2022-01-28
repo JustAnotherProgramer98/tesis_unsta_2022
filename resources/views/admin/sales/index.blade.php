@@ -1,21 +1,18 @@
 @extends('layouts.app')
 
+@section('title_of_tab')
+    <p class="text-purple-500 font-bold text-2xl">Ventas</p>
+@endsection
+
+
 @section('content')
 
     <div
         class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
-        <!-- Sidebar -->
-        <x-admin-side-bar></x-admin-side-bar>
-        <!-- ./Sidebar -->
-
-        <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
+        <div class="px-12 h-full">
             <!-- Client Table -->
             <div id="index" class="tabcontent mt-4 mx-4 block">
-                <h1>Tabla de ventas</h1>
-                <hr class="border-1 border-slate-600">
-                <br>
-                <br>
                 <div class="flex gap-4 mb-4">
                     <div class="relative w-1/2">
                         <input type="text" class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Buscar venta..." />

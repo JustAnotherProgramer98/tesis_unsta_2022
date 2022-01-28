@@ -1,12 +1,16 @@
 @extends('layouts.app')
 
+@section('title_of_tab')
+<div class="flex align-middle">
+    <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-purple-500">{{ Str::limit($place->adress,10) }}</span></p>
+    <img width="100px" height="100px"  src="{{ asset('images/plane-with-marker.jpg') }}" alt="">
+</div>
+@endsection
+
 @section('content')
     <div
         class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
-        <!-- Sidebar -->
-        <x-admin-side-bar></x-admin-side-bar>
-        <!-- ./Sidebar -->
 
         @if (session()->has('success'))
             <div class="alert alert-success">
@@ -22,19 +26,13 @@
             </div>
         @endif
 
-        <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
+        <div class="h-full">
             <div class="tabcontent container items-center px-5 py-12 lg:px-20">
                 <a href="{{ route('places.index.admin') }}"
                     class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><i
                         class="fas fa-arrow-left"></i>
                     Volver
                 </a>
-                <div class="flex align-middle">
-                    <h2 class="text-center mx-auto relative w-2/3">Informacion sobre el lugar <span
-                            class="text-blue-500">{{ $place->title }}</span></h2>
-                    <img width="100px" height="100px"  src="{{ asset('images/plane-with-marker.jpg') }}" alt="">
-                </div>
-
                 <section class="flex flex-col w-full h-full p-1 overflow-auto">
                     <label for="name" class="text-base leading-7  mb-5">Imagen de la experiencia</label>
                     <header

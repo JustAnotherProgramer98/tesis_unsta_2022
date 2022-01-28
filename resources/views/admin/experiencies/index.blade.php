@@ -1,17 +1,14 @@
 @extends('layouts.app')
 
+@section('title_of_tab')
+    <p class="text-purple-500 font-bold  text-2xl">Experiencias</p>
+@endsection
 @section('content')
-
-    <div
-        class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-
+    <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <div class="h-full overflow-hidden">
             <!-- Client Table -->
             <div id="index" class="tabcontent mt-4 mx-4 block">
-                <h1>Tabla de experiencias</h1>
-                <hr class="border-1 border-slate-600">
-                <br>
-                <br>
+
                 <div class="flex gap-4 mb-4">
                     <div class="relative w-1/2">
                         <input type="text" class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Buscar experiencia..." />
@@ -62,9 +59,7 @@
                                         </td>
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $experience) }}">
-                                                <p class="font-semibold capitalize">
-                                                    {{ $experience->place->city->province->name }} -
-                                                    {{ $experience->place->city->name }} </p>
+                                                <p class="font-semibold capitalize">{{ Str::limit($experience->place->city->province->name.' - '.$experience->place->city->name,20) }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">

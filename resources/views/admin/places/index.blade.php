@@ -1,21 +1,15 @@
 @extends('layouts.app')
 
+@section('title_of_tab')
+    <p class="text-purple-500 font-bold text-2xl">Lugares</p>
+@endsection
+
 @section('content')
 
-    <div
-        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-
-        <!-- Sidebar -->
-        <x-admin-side-bar></x-admin-side-bar>
-        <!-- ./Sidebar -->
-
-        <div class="px-10 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
+    <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+        <div>
             <!-- Client Table -->
             <div id="index" class="tabcontent mt-4 mx-4 block">
-                <h1>Tabla de experiencias</h1>
-                <hr class="border-1 border-slate-600">
-                <br>
-                <br>
                 <div class="flex gap-4 mb-4">
                     <div class="relative w-1/2">
                         <input type="text" class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Buscar lugar..." />
@@ -43,7 +37,7 @@
                                     <th class="px-4 py-3">Provincia</th>
                                     <th class="px-4 py-3">Ciudad</th>
                                     <th class="px-4 py-3">Direccion</th>
-                                    <th class="px-4 py-3">Cantidad de experiencias en el lugar</th>
+                                    <th class="px-4 py-3 whitespace-nowrap">Exp. en el lugar</th>
                                     <th class="px-4 py-3">Estado</th>
                                     <th class="px-4 py-3">Activar</th>
                                     <th class="px-4 py-3">Editar</th>
@@ -62,7 +56,7 @@
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">
                                             <a href="{{ route('place.show.admin', $place) }}">
-                                                <p class="font-semibold">{{ $place->city->province->name }}</p>
+                                                <p class="font-semibold">{{ Str::limit($place->city->province->name, 15) }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer">

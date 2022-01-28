@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
+@section('title_of_tab')
+    <p class="font-bold text-2xl text-black">Editar experiencia <span class="text-purple-500 font-normal">{{ $experience->title }}</span></p>
+@endsection
+
 @section('content')
 
     <div
-        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+        class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
         @if (session()->has('success'))
             <div class="alert alert-success">
@@ -19,7 +23,7 @@
             </div>
         @endif
 
-        <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
+        <div class="h-full">
             <x-edit-experience-form :places="$places" :hosts="$hosts" :languajes="$languajes" :experience="$experience"></x-edit-experience-form>
 
         </div>
