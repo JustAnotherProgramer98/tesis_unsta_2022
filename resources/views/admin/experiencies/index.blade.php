@@ -3,13 +3,9 @@
 @section('content')
 
     <div
-        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+        class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
-        <!-- Sidebar -->
-        <x-admin-side-bar></x-admin-side-bar>
-        <!-- ./Sidebar -->
-
-        <div class="px-12 h-full ml-14 mt-14 mb-10 md:ml-64 overflow-hidden">
+        <div class="h-full overflow-hidden">
             <!-- Client Table -->
             <div id="index" class="tabcontent mt-4 mx-4 block">
                 <h1>Tabla de experiencias</h1>
@@ -202,4 +198,4 @@
                 });
             };
         </script>
-    @endsection
+@endsection

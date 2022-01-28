@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
 
+Route::view('/blank_template','blank_template');
+
 Route::get('/shop', function () {
     return view('guest.shop');
 });

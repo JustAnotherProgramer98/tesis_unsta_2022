@@ -5,10 +5,6 @@
     <div
         class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
-        <!-- Sidebar -->
-        <x-admin-side-bar></x-admin-side-bar>
-        <!-- ./Sidebar -->
-
         @if (session()->has('success'))
             <div class="alert alert-success">
                 @if (is_array(session('success')))
