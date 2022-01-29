@@ -33,6 +33,11 @@
                 class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
         </div>
         <div class="relative p-4">
+            <label for="name" class="text-base leading-7 ">Precio de la experiencia</label><br>
+            <input type="number" min="0" name="price"
+            class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
+        </div>
+        <div class="relative p-4">
             <label for="name" class="text-base leading-7 ">Descripcion de la experiencia</label>
             <br>
             <small class="text-gray-500">*Puede envever HTML para que luego sea interpretado por el

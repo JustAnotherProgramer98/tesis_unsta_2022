@@ -45,6 +45,8 @@ class ExperienceController extends Controller
             'place_id'=>'required|integer',
             'host_id'=>'required|integer',
             'languajes'=>'required|array',
+            'price'=>'required',
+            
         ]);
 
         $languajes=collect();
