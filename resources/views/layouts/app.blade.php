@@ -56,8 +56,7 @@
                     <button
                         class="align-middle rounded-full text-white bg-purple-500 h-10 w-10 focus:shadow-outline-purple focus:outline-none"
                         @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
-                        aria-haspopup="true">S
-
+                        aria-haspopup="true">{{ (Auth::user()->name[0]).'-'.Auth::user()->surname[0] }}
                     </button>
                     <template x-if="isProfileMenuOpen">
                         <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
