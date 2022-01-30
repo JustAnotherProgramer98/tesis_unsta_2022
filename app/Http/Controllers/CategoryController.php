@@ -46,7 +46,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('admin.categories.show',compact(['category']));
     }
 
 
@@ -58,9 +58,27 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category)
     {
-        //
-    }
+          // image_id De momento no
 
+          $validated=$request->validate([
+            'title'=>'required|string',
+            'description'=>'required|string',
+            'status'=>'required',
+        ]);
+
+        try {
+            DB::transaction(function () use ($validated,$category){
+                $category->update($validated+[
+                    'slug'=>strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $validated['title']))))), '-')),
+                ]);
+                
+            });            
+            return redirect()->route('categories.index.admin');
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 
     public function destroy(Request $request)
     {
