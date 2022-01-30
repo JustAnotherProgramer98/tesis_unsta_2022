@@ -18,7 +18,8 @@ class SaleController extends Controller
     public function index()
     {
         if (Auth::user()) {
-            $sales=Sale::paginate(6);
+            
+            $sales=Sale::latest()->paginate(8);
             $users=User::all();
             $experiences=Experience::where('status',1)->get();
             return view('admin.sales.index',compact(['sales','experiences','users']));

@@ -21,8 +21,10 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
+        $title=$this->faker->realText(10);
         return [
-            'title'=>$this->faker->realText(10),
+            'title'=>$title,
+            'slug'=>str_replace(' ', '-', strtolower($title)),
             'description'=>$this->faker->realText(10),
         ];
     }

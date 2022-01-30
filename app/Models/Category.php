@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable=['title','description'];
+    protected $fillable=['title','slug','description','status'];
 
     public function experiences()
     {
@@ -19,5 +19,9 @@ class Category extends Model
     public function images()
     {
         return $this->morphMany(Image::class, 'picturable');
+    }
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

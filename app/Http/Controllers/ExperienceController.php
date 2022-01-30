@@ -20,7 +20,7 @@ class ExperienceController extends Controller
     public function index()
     {
         if (Auth::user()) {
-            $experiences=Experience::paginate(6);
+            $experiences=Experience::latest()->paginate(8);
             $places=Place::all();
             $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
             $languajes=Languaje::all();
@@ -132,7 +132,6 @@ class ExperienceController extends Controller
 
     public function destroy(Request $request)
     {
-        
         try {
             $sales_experience=DB::table('sales')->where('experience_id',$request->experience_id);
             if ($sales_experience!=null or count($sales_experience)!=0) $sales_experience->delete();
@@ -141,7 +140,6 @@ class ExperienceController extends Controller
         } catch (\Throwable $th) {
             return "error ".$th;
         }
-        
     }
     public function approveExperience(Request $request)
     {

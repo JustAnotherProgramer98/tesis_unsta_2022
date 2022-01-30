@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\SaleController;
@@ -37,4 +38,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/sales/{sale}/edit', [SaleController::class, 'edit'])->name('sales.edit.admin');
     Route::put('/sales/{sale}/update', [SaleController::class, 'update'])->name('sales.update.admin');
     Route::delete('/sales/delete', [SaleController::class, 'destroy'])->name('sales.destroy.admin');
+
+
+     //Categories
+     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index.admin');
+     Route::get('/categories/{category}/', [CategoryController::class, 'show'])->name('category.show.admin');
+     Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store.admin');
+     Route::post('/categories/approve', [CategoryController::class, 'approveCategory'])->name('categories.approve.admin');
+     Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit.admin');
+     Route::put('/categories/{category}/update', [CategoryController::class, 'update'])->name('categories.update.admin');
+     Route::delete('/categories/delete', [CategoryController::class, 'destroy'])->name('categories.destroy.admin');
 });

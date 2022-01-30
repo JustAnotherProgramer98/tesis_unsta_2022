@@ -101,10 +101,10 @@
                 </ul>
             </div>
 
-        <main class="h-full w-full">
+        
                 {{-- Conenido de las paginas --}}
                 @yield('content')
-        </main>
+        
     </div>
     </div>
     <script src="https://unpkg.com/@popperjs/core@2"></script>

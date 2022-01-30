@@ -20,7 +20,7 @@ class PlaceController extends Controller
     public function index()
     {
         if (Auth::user()) {
-            $places=Place::withCount('experiences')->paginate(6);            
+            $places=Place::withCount('experiences')->latest()->paginate(8);            
             $provinces=Province::with('cities')->get();
             return view('admin.places.index',compact(['places','provinces']));
         }
