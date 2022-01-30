@@ -47,6 +47,10 @@ function data() {
     togglePagesMenu() {
       this.isPagesMenuOpen = !this.isPagesMenuOpen
     },
+    isPagesUsersOpen: false,
+    togglePagesUser() {
+      this.isPagesUsersOpen = !this.isPagesUsersOpen
+    },
     // Modal
     isModalOpen: false,
     trapCleanup: null,
