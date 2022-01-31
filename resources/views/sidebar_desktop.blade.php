@@ -158,13 +158,13 @@
                   aria-label="submenu">
 
                   <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                    <a class="w-full" href="pages/login.html">Todos los usuarios</a>
+                    <a href="{{ route('users.index.admin') }}" class="w-full" href="pages/login.html">Todos los usuarios</a>
                   </li>
                   <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                    <a class="w-full" href="pages/login.html">Clientes</a>
+                    <a href="{{ route('clients.index.admin') }}" class="w-full" href="pages/login.html">Clientes</a>
                   </li>
                   <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                    <a class="w-full" href="pages/create-account.html">
+                    <a href="{{ route('hosts.index.admin') }}" class="w-full" href="pages/create-account.html">
                       Anfitriones
                     </a>
                   </li>

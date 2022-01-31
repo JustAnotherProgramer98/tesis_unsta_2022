@@ -29,7 +29,7 @@ Route::get('/shop', function () {
     $category = App\Models\Category::all();
     $places = App\Models\Place::all();
     return view('guest.shop', compact(["category"]), compact(["places"]));
-});
+})->name('experiencies.shop');
 
 Route::get('/product', function () {
     $experiences = App\Models\Experience::all();

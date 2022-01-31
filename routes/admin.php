@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\UsersController;
 use App\Models\Category;
 use App\Models\Experience;
 use Illuminate\Support\Facades\Route;
@@ -60,4 +61,18 @@ Route::group(['middleware' => ['auth']], function () {
      Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit.admin');
      Route::put('/categories/{category}/update', [CategoryController::class, 'update'])->name('categories.update.admin');
      Route::delete('/categories/delete', [CategoryController::class, 'destroy'])->name('categories.destroy.admin');
+
+     //Users
+     Route::get('/users', [UsersController::class, 'index'])->name('users.index.admin');//All users
+     Route::get('/users/hosts', [UsersController::class, 'indexHosts'])->name('hosts.index.admin');//Only hosts
+     Route::get('/users/clients', [UsersController::class, 'indexClients'])->name('clients.index.admin');//Only clients
+     Route::get('/users/deleted/users', [UsersController::class, 'indexDeletedUsers'])->name('users.deleted.index.admin');//deleted users
+
+     Route::get('/users/{category}/', [UsersController::class, 'show'])->name('user.show.admin');
+     Route::post('/users/store', [UsersController::class, 'store'])->name('users.store.admin');
+     Route::post('/users/approve', [UsersController::class, 'approveUser'])->name('users.approve.admin');
+     Route::get('/users/{category}/edit', [UsersController::class, 'edit'])->name('users.edit.admin');
+     Route::put('/users/{category}/update', [UsersController::class, 'update'])->name('users.update.admin');
+     Route::delete('/users/delete', [UsersController::class, 'destroy'])->name('users.destroy.admin');
+     Route::get('/search/users', [UsersController::class, 'search'])->name('users.search');
 });

@@ -19,9 +19,9 @@
             </a>
                 <!-- Nav Links -->
             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-            <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/">Home</a></li>
+            <li><a class="hover:text-gray-200" href="{{ route('experiencies.index') }}">Home</a></li>
             
-            <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/shop">Shop</a></li>
+            <li><a class="hover:text-gray-200" href="{{ route('experiencies.shop') }}">Shop</a></li>
             <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
             </ul>
                 <!-- Header Icons -->
@@ -69,7 +69,7 @@
         </nav>
         </section>
     </head>
-<body>
+<body class="overflow-x-hidden">
     <section class="relative  bg-blueGray-50">
         <!-- Main tittle with the photo -->
         <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">

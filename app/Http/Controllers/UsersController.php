@@ -5,26 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $users=User::latest()->paginate(8);
+        return view('admin.users.index',compact(['users']));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function indexHosts()
     {
-        //
+        $users = User::whereRelation('role', 'name','Anfitrion' )->latest()->paginate(8);
+        return view('admin.users.index',compact(['users']));
+
+    }
+    public function indexClients()
+    {
+        $users = User::whereRelation('role', 'name','Cliente' )->latest()->paginate(8);
+        return view('admin.users.index',compact(['users']));
+
+    }
+    public function indexDeletedUsers()
+    {
+        $users=User::onlyTrashed()->latest()->paginate(8);
+        return view('admin.users.index',compact(['users']));
+
     }
 
     /**
@@ -81,5 +87,17 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+    public function approveUser(Request $request)
+    {
+        try {
+            return User::where('id',$request->experience_id)->get()->first()->update(['status' => 1]);
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
+    }
+    public function search(Request $request)
+    {
+        # code...
     }
 }
