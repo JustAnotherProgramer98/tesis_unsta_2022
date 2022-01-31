@@ -67,6 +67,8 @@ Route::group(['middleware' => ['auth']], function () {
      Route::get('/users/hosts', [UsersController::class, 'indexHosts'])->name('hosts.index.admin');//Only hosts
      Route::get('/users/clients', [UsersController::class, 'indexClients'])->name('clients.index.admin');//Only clients
      Route::get('/users/deleted/users', [UsersController::class, 'indexDeletedUsers'])->name('users.deleted.index.admin');//deleted users
+     Route::post('/force-delete/user', [UsersController::class, 'forceDeleteUser'])->name('users.forcedelete.admin');//deleted users
+     Route::post('/restore/user', [UsersController::class, 'restoreUser'])->name('users.restore.admin');//deleted users
 
      Route::get('/users/{category}/', [UsersController::class, 'show'])->name('user.show.admin');
      Route::post('/users/store', [UsersController::class, 'store'])->name('users.store.admin');

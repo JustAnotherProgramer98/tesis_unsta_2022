@@ -29,7 +29,7 @@ class UsersController extends Controller
     public function indexDeletedUsers()
     {
         $users=User::onlyTrashed()->latest()->paginate(8);
-        return view('admin.users.index',compact(['users']));
+        return view('admin.users.softdeleted',compact(['users']));
 
     }
 
@@ -84,9 +84,13 @@ class UsersController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            return User::where('id',$request->experience_id)->get()->first()->delete();
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
     }
     public function approveUser(Request $request)
     {
@@ -99,5 +103,26 @@ class UsersController extends Controller
     public function search(Request $request)
     {
         # code...
+    }
+
+    public function forceDeleteUser(Request $request)
+    {
+        try {
+            User::withTrashed()->where('id',$request->experience_id)->get()->first()->forceDelete();
+            return redirect()->route('users.deleted.index.admin');
+
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
+    }
+    public function restoreUser(Request $request)
+    {
+        try {
+            User::withTrashed()->where('id',$request->experience_id)->get()->first()->restore();
+            return redirect()->route('users.index.admin');
+            
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
     }
 }

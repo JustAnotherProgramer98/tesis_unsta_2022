@@ -55,7 +55,9 @@
                                         </td>
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $experience) }}">
-                                                <p class="font-semibold capitalize">{{ $experience->host->name }} | {{ $experience->host->surname }}</p>
+                                                @isset($experience->host)
+                                                    <p class="font-semibold capitalize">{{ $experience->host->name }} | {{ $experience->host->surname }}</p>
+                                                @endisset
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">

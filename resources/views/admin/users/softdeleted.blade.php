@@ -17,13 +17,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
                         </form>
-                    </div>
-                    <button style="margin-top: auto;margin-bottom: auto" onclick="openNewTab(event, 'create')"
-                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear usuario </button>
-                    <button style="margin-top: auto;margin-bottom: auto" id="button-popover" class="rounded-full border-2 border-blue-500 shadow-lg h-8 w-8" aria-describedby="tooltip">?</button>
-                        <div id="tooltip" role="tooltip"> Hace click en las primeras 3 columnas <br> y mira el detalle del usuario
-                            <div id="arrow" data-popper-arrow></div>
-                        </div>
+                    </div> 
                 </div>
                 
                 </button>
@@ -40,8 +34,7 @@
                                     <th class="px-4 py-3">Rol</th>
                                     <th class="px-4 py-3">Fecha de creacion</th>
                                     <th class="px-4 py-3">Estado</th>
-                                    <th class="px-4 py-3">Aprobar</th>
-                                    <th class="px-4 py-3">Editar</th>
+                                    <th class="px-4 py-3">Restaurar</th>
                                     <th class="px-4 py-3">Borrar</th>
                                 </tr>
                             </thead>
@@ -89,22 +82,7 @@
                                             <p class="font-semibold ">{{($user->created_at)->format('Y-m-d');}}  </p>
                                         </td>
                                         <td class="px-4 py-3">
-                                            @switch($user->status)
-                                                @case(0)
-                                                    <span
-                                                        class="cursor-default px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Desaprobado
-                                                    </span>
-                                                @break
-                                                @case(1)
-                                                    <span
-                                                        class="cursor-default px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">Aprobado
-                                                    </span>
-                                                @break
-                                                @default
-                                                    <span
-                                                        class="cursor-default px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
-                                                        Pendiente de aprobacion</span>
-                                            @endswitch
+                                            <span class="cursor-default px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full">Eliminado</span>
                                         </td>
                                         @if ($user->status != 1)
                                             <td class="px-8 py-3 "><i
@@ -113,16 +91,12 @@
                                         @else
                                             <td class="px-8 py-3 "><i class="fas fa-check text-gray-500"></i></td>
                                         @endif
-                                        <td class="px-8 py-3 "><a
-                                                href="{{ route('users.edit.admin', $user) }}"><i
-                                                    class="fas fa-pencil-alt text-blue-500"></i></a>
-                                        </td>
                                         <td class="px-8 py-3 "><i
                                                 onclick="deleteUser(event,'{{ addslashes($user->name.' '.$user->surname) }}',{{ $user->id }})"
                                                 class="fas fa-trash-alt text-red-500 cursor-pointer	"></i></td>
                                     </tr>
                                     @empty
-                                        <tr>No hay usuarios en la base de datos</tr>
+                                        <tr>No hay usuarios borrados en la base de datos</tr>
                                     @endforelse
 
                                 </tbody>
@@ -153,8 +127,8 @@
 
                 Swal.fire({
                     title: 'Borrar usuario',
-                    text: '¿Estas seguro que quieres borrar a ' + experience_name + " ? Esto eliminara todas las experiencias y ventas que contenga",
-                    type: 'question',
+                    text: '¿Estas seguro que quieres borrar definitivamente a ' + experience_name + " ?",
+                    type: 'error',
                     showCancelButton: true,
                     confirmButtonColor: "#1e40af",
                     cancelButtonText: "Cancelar",
@@ -162,13 +136,13 @@
                 }).then(result => {
                     if (result.value) {
                         $.ajax({
-                            url: "{{ route('users.destroy.admin') }}",
+                            url: "{{ route('users.forcedelete.admin') }}",
                             headers: {
                                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                                     "content"
                                 ),
                             },
-                            type: 'DELETE',
+                            type: 'POST',
                             data: {
                                 experience_id: experience_id
                             },
@@ -186,8 +160,8 @@
                 e.preventDefault();
 
                 Swal.fire({
-                    title: 'Aprobar usuario',
-                    text: '¿Estas seguro que quieres aprobar al usuario ' + experience_name + " ?",
+                    title: 'Resturar usuario',
+                    text: '¿Estas seguro que quieres restaurar al usuario ' + experience_name + " ?",
                     type: 'success',
                     showCancelButton: true,
                     confirmButtonColor: "#1e40af",
@@ -196,7 +170,7 @@
                 }).then(result => {
                     if (result.value) {
                         $.ajax({
-                            url: "{{ route('users.approve.admin') }}",
+                            url: "{{ route('users.restore.admin') }}",
                             headers: {
                                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                                     "content"

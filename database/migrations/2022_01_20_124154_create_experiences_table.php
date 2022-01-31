@@ -23,7 +23,7 @@ class CreateExperiencesTable extends Migration
             $table->integer('status')->default(0);
 
             $table->foreignId('place_id')->constrained()->references('id')->on('places')->onDelete('cascade');
-            $table->foreignId('host_id')->constrained()->references('id')->on('users');
+            $table->foreignId('host_id')->constrained()->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('reservation_id')->nullable()->constrained()->references('id')->on('reservations');
             
             $table->softDeletes();

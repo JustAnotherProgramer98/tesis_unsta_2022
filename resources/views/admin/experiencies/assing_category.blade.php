@@ -62,9 +62,11 @@
                 </div>
                 
                 <div class="relative p-4">
-                    <label id="no_categories" class="hidden text-sm font-semibold text-gray-500 ">La experiencia quedara con las categorias:</label>
-                    <br>
-                    <label id="result_category" class="hidden text-sm font-semibold text-gray-500 ">{{ $experiences->first()->categories->first()->title }}</label>
+                    @isset($experiences->first()->categories)
+                        <label id="no_categories" class="hidden text-sm font-semibold text-gray-500 ">La experiencia quedara con las categorias:</label>
+                        <br>
+                        <label id="result_category" class="hidden text-sm font-semibold text-gray-500 ">{{ $experiences->first()->categories->first()->title }}</label>
+                    @endisset
                 </div>
                 <div class="flex items-center w-full pt-4 mb-4">
                     <button id="assign_category" class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-800 ">Asignar</button>
