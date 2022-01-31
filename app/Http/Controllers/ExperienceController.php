@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Experience;
 use App\Models\Languaje;
 use App\Models\Place;
@@ -153,12 +154,26 @@ class ExperienceController extends Controller
     }
     public function search(Request $request)
     {
-            $experiences=
-            Experience::whereRelation('host', 'name','like','%'.$request->search.'%')->Orwhere('title', 'like', '%'.$request->search.'%')->latest()->paginate(8);
+            $experiences=Experience::whereRelation('host', 'name','like','%'.$request->search.'%')->Orwhere('title', 'like', '%'.$request->search.'%')->latest()->paginate(8);
             $places=Place::all();
             $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
             $languajes=Languaje::all();
             return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes']));
     }
-    
+    public function assignCategoryExperiencie(Request $request)
+    {
+        $validated=$request->validate([
+            'experience_id'=>'required|integer',
+            'category_id'=>'required|integer'
+        ]);
+        
+        try {
+            $category=Category::where('id',$request->category_id)->get()->first();
+            Experience::where('id',$request->experience_id)->get()->first()->categories()->attach($category);
+            return redirect()->route('experiencies.index.admin');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        
+    }
 }

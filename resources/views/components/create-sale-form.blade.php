@@ -60,7 +60,7 @@
             class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
         </div>
         <div class="flex items-center w-full pt-4 mb-4">
-            <button class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-800 ">Crear venta </button>
+            <button id="confirm_sale"  class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-800">Crear venta </button>
         </div>
     </form>
 </div>
@@ -72,10 +72,12 @@ function checkhostGift(e) {
     @json($experiences).forEach(element => {
         if (element.host_id == buyer_id) {
             $('#beneficiary').removeClass( "hidden" )
-            $("#buyer_id").disable();
+            $("#confirm_sale").attr("disabled", true);
+            
         }
         else {
             $('#beneficiary').addClass( "hidden" )
+            $("#confirm_sale").attr("disabled", false);
         }
     });
 }

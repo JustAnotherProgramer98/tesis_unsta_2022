@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/experiences/{experience}/', [ExperienceController::class, 'show'])->name('experiencie.show.admin');
     Route::post('/experiences/store', [ExperienceController::class, 'store'])->name('experiencies.store.admin');
     Route::post('/experiences/approve', [ExperienceController::class, 'approveExperience'])->name('experiencies.approve.admin');
+    Route::post('/experiences/assing/category', [ExperienceController::class, 'assignCategoryExperiencie'])->name('experiencies.assing.category.admin');
     Route::get('/experiences/{experience}/edit', [ExperienceController::class, 'edit'])->name('experiencies.edit.admin');
     Route::put('/experiences/{experience}/update', [ExperienceController::class, 'update'])->name('experiencies.update.admin');
     Route::delete('/experiences/delete', [ExperienceController::class, 'destroy'])->name('experiencies.destroy.admin');
