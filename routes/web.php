@@ -26,29 +26,31 @@ Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index'
 
 Route::get('/shop', function () {
     $category = App\Models\Category::all();
-    $places = App\Models\Place::all();
-    return view('guest.shop', compact(["category"]), compact(["places"]));
+    
+    return view('guest.shop', compact(["category"]));
 });
 
 Route::get('/product', function () {
     $experiences = App\Models\Experience::all();
-    $users = App\Models\User::all();
-    $places = App\Models\Place::all();
-    return view('guest.product', compact(["experiences"]), compact(["users"]));
+    
+    return view('guest.product', compact(["experiences"]));
 });
 
 Route::get('/cart_shop', function () {
     $experiences = App\Models\Experience::all();
-    $users = App\Models\User::all();
-    $places = App\Models\Place::all();
-    return view('guest.cart_shop', compact(["experiences"]), compact(["users"]));
+    return view('guest.cart_shop', compact(["experiences"]));
 });
 
 Route::get('/product_shop', function () {
     $experiences = App\Models\Experience::all();
-    $users = App\Models\User::all();
-    $places = App\Models\Place::all();
+
     return view('guest.product_shop', compact(["experiences"]));
+});
+
+Route::get('/account', function () {
+    $experiences = App\Models\Experience::all();
+    
+    return view('guest.account', compact(["experiences"]));
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
