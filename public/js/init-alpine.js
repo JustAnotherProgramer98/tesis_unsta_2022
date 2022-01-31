@@ -47,6 +47,10 @@ function data() {
     togglePagesMenu() {
       this.isPagesMenuOpen = !this.isPagesMenuOpen
     },
+    isPagesExperiencesOpen: false,
+    togglePagesExperience() {
+      this.isPagesExperiencesOpen = !this.isPagesExperiencesOpen
+    },
     isPagesUsersOpen: false,
     togglePagesUser() {
       this.isPagesUsersOpen = !this.isPagesUsersOpen

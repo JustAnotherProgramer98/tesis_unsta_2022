@@ -5,19 +5,30 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\SaleController;
+use App\Models\Category;
+use App\Models\Experience;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/panel-de-administracion', [AdminController::class, 'index'])->name('admin.panel');
 
+    
     //Experiencies
     Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiencies.index.admin');
+
+    Route::get('/experiences/category/assing', function () {
+        $experiences=Experience::all();
+        $categories=Category::all();
+        return view('admin.experiencies.assing_category',compact(['experiences','categories']));
+    })->name('experiencies.assing.admin');
+
     Route::get('/experiences/{experience}/', [ExperienceController::class, 'show'])->name('experiencie.show.admin');
     Route::post('/experiences/store', [ExperienceController::class, 'store'])->name('experiencies.store.admin');
     Route::post('/experiences/approve', [ExperienceController::class, 'approveExperience'])->name('experiencies.approve.admin');
     Route::get('/experiences/{experience}/edit', [ExperienceController::class, 'edit'])->name('experiencies.edit.admin');
     Route::put('/experiences/{experience}/update', [ExperienceController::class, 'update'])->name('experiencies.update.admin');
     Route::delete('/experiences/delete', [ExperienceController::class, 'destroy'])->name('experiencies.destroy.admin');
+    Route::get('/search/experiences', [ExperienceController::class, 'search'])->name('experience.search');
 
     //Places
     Route::get('/places', [PlaceController::class, 'index'])->name('places.index.admin');
