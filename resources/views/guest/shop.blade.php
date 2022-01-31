@@ -19,9 +19,9 @@
             </a>
                 <!-- Nav Links -->
             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-            <li><a class="hover:text-gray-200" href="#">Home</a></li>
-            <li><a class="hover:text-gray-200" href="#">About</a></li>
-            <li><a class="hover:text-gray-200" href="#">Shop</a></li>
+            <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/">Home</a></li>
+            
+            <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/shop">Shop</a></li>
             <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
             </ul>
                 <!-- Header Icons -->
@@ -90,7 +90,7 @@
                         <div class="">
                             <div class="inline-flex flex-col justify-center relative text-gray-500">
                                 <div class="relative">
-                                    <input type="text" class="p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent" placeholder="search..." />
+                                    <input type="text" value= "Gar"class="p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent" placeholder="search..." />
                                     <svg class="w-4 h-4 absolute left-2.5 top-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                                     </svg>
@@ -134,15 +134,17 @@
                 </svg>
                 </div>
         </div>
-    </section>
+    </section>       
      
     <!-- For Categorys -->
-<main class="py-12 md:px-20 sm:px-14 px-6">
+<main class="py-12 md:px-20 sm:px-14 px-6 border-b-2 border-gray-200 mb-5">
     <p class="text-center text-4xl font-semibold py-4">Por Categorias</p>
+
+    @foreach ($category->take(-1) as $categories)
     <div class="sm:flex items-center shadow-md">
       <div class="md:px-10 sm:px-5">
-        <h1 class="text-gray-800 font-bold text-2xl my-2">long established</h1>
-        <p class="text-gray-700 mb-2 md:mb-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....</p>
+        <h1 class="text-gray-800 font-bold text-2xl my-2"> {{ $categories->title }}</h1>
+        <p class="text-gray-700 mb-2 md:mb-6">{{ $categories->description }}</p>
         <div class="flex justify-between mb-2">
           <span class="font-thin text-sm">May 20th 2020</span>
           <span class="sm:block hidden mb-2 text-gray-800 font-bold">Read more</span>
@@ -152,51 +154,36 @@
         <img class="bg-cover" src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
       </div>
     </div>
+      @endforeach
+
     <div class="mt-6 md:flex space-x-6">
+      
+      @foreach ($category->take(3) as $categories)
       <div>
         <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
         <div>
-          <h1  class="mt-3 text-gray-800 text-2xl font-bold my-2">long established</h1>
-          <p class="text-gray-700 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....</p>
+          <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $categories->title }} </h1>
+          <p class="text-gray-700 mb-2"> {{ $categories->description }}</p>
           <div class="flex justify-between mt-4">
             <span class="font-thin text-sm">May 20th 2020</span>
             <span class="mb-2 text-gray-800 font-bold">Read more</span>
           </div>
         </div>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
-        <div>
-          <h1  class="mt-3 text-gray-800 text-2xl font-bold my-2">long established</h1>
-          <p class="text-gray-700 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....</p>
-          <div class="flex justify-between mt-4">
-            <span class="font-thin text-sm">May 20th 2020</span>
-            <span class="mb-2 text-gray-800 font-bold">Read more</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
-        <div>
-          <h1  class="mt-3 text-gray-800 text-2xl font-bold my-2">long established</h1>
-          <p class="text-gray-700 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....</p>
-          <div class="flex justify-between mt-4">
-            <span class="font-thin text-sm">May 20th 2020</span>
-            <span class="mb-2 text-gray-800 font-bold">Read more</span>
-          </div>
-        </div>
-      </div>
+      @endforeach
+
     </div>
-    <div></div>
   </main>
 
   <!-- For Places -->
   <main class="py-12 md:px-20 sm:px-14 px-6">
     <p class="text-center text-4xl font-semibold py-4">Por Lugares</p>
+    
+    @foreach ($places->take(-1) as $place)
     <div class="sm:flex items-center shadow-md">
       <div class="md:px-10 sm:px-5">
-        <h1 class="text-gray-800 font-bold text-2xl my-2">long established</h1>
-        <p class="text-gray-700 mb-2 md:mb-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....</p>
+        <h1 class="text-gray-800 font-bold text-2xl my-2"> {{ $place->province }}</h1>
+        <p class="text-gray-700 mb-2 md:mb-6">{{ $place->city }} corregir que la foto se quede del lado derecho sin que se estire</p>
         <div class="flex justify-between mb-2">
           <span class="font-thin text-sm">May 20th 2020</span>
           <span class="sm:block hidden mb-2 text-gray-800 font-bold">Read more</span>
@@ -206,42 +193,26 @@
         <img class="bg-cover" src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
       </div>
     </div>
+      @endforeach
+
     <div class="mt-6 md:flex space-x-6">
+      
+      @foreach ($places->take(3) as $place)
       <div>
         <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
         <div>
-          <h1  class="mt-3 text-gray-800 text-2xl font-bold my-2">long established</h1>
-          <p class="text-gray-700 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....</p>
+          <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $place->province }} </h1>
+          <p class="text-gray-700 mb-2">{{ $place->city }}</p>
           <div class="flex justify-between mt-4">
             <span class="font-thin text-sm">May 20th 2020</span>
             <span class="mb-2 text-gray-800 font-bold">Read more</span>
           </div>
         </div>
       </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
-        <div>
-          <h1  class="mt-3 text-gray-800 text-2xl font-bold my-2">long established</h1>
-          <p class="text-gray-700 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....</p>
-          <div class="flex justify-between mt-4">
-            <span class="font-thin text-sm">May 20th 2020</span>
-            <span class="mb-2 text-gray-800 font-bold">Read more</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
-        <div>
-          <h1  class="mt-3 text-gray-800 text-2xl font-bold my-2">long established</h1>
-          <p class="text-gray-700 mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....</p>
-          <div class="flex justify-between mt-4">
-            <span class="font-thin text-sm">May 20th 2020</span>
-            <span class="mb-2 text-gray-800 font-bold">Read more</span>
-          </div>
-        </div>
-      </div>
+      @endforeach
+
     </div>
-    <div></div>
+    
   </main>
 </body>
 </html>

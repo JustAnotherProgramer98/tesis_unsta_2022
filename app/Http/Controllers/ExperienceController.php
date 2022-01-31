@@ -28,7 +28,7 @@ class ExperienceController extends Controller
             
             return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes']));
         }
-        $experiences=Experience::all();
+        $experiences=Experience::where('status', 1)->get();
         return view('guest.index',compact(['experiences']));
     }
 
