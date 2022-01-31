@@ -20,7 +20,7 @@
                 <!-- Nav Links -->
             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
             <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/">Home</a></li>
-            <li><a class="hover:text-gray-200" href="#">About</a></li>
+            
             <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/shop">Shop</a></li>
             <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
             </ul>
@@ -137,7 +137,7 @@
     </section>       
      
     <!-- For Categorys -->
-<main class="py-12 md:px-20 sm:px-14 px-6">
+<main class="py-12 md:px-20 sm:px-14 px-6 border-b-2 border-gray-200 mb-5">
     <p class="text-center text-4xl font-semibold py-4">Por Categorias</p>
 
     @foreach ($category->take(-1) as $categories)

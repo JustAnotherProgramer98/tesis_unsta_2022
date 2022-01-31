@@ -21,7 +21,7 @@
                 <!-- Nav Links -->
                 <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                     <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/">Home</a></li>
-                    <li><a class="hover:text-gray-200" href="#">About</a></li>
+                    
                     <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/shop">Shop</a></li>
                     <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
                 </ul>
@@ -89,7 +89,8 @@
                     <img class="h-full w-full rounded-md object-cover max-w-lg mx-auto" src="https://images.unsplash.com/photo-1578262825743-a4e402caab76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" alt="Nike Air">
                 </div>
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                
+
+
             <h2 class="text-sm title-font text-gray-500 tracking-widest"> @foreach ($experiencie->categories as $category) {{ $category->title }}  @endforeach </h2>
             <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $experiencie->title }}</h1>
             
@@ -131,6 +132,7 @@
           </span>
         </div>
         <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+        
         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           <div class="flex ml-6 items-center">
             <span class="mr-3">Participantes</span>

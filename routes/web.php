@@ -44,6 +44,13 @@ Route::get('/cart_shop', function () {
     return view('guest.cart_shop', compact(["experiences"]), compact(["users"]));
 });
 
+Route::get('/product_shop', function () {
+    $experiences = App\Models\Experience::all();
+    $users = App\Models\User::all();
+    $places = App\Models\Place::all();
+    return view('guest.product_shop', compact(["experiences"]));
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
