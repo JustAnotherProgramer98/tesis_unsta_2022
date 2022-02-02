@@ -7,10 +7,6 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
       </div>
-          <button style="margin-top: auto;margin-bottom: auto" id="button-popover" class="rounded-full border-2 border-blue-500 shadow-lg h-8 w-8" aria-describedby="tooltip">?</button>
-          <div id="tooltip" role="tooltip"> Hace click en las primeras 3 columnas y mira el detalle de la venta
-              <div id="arrow" data-popper-arrow></div>
-          </div>
     </div>
     @include('components.hosts.host_sale_table')
 </div>

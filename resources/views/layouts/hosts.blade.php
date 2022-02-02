@@ -10,6 +10,8 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/image-uploader.css') }}">
+
  
 </head>
 
@@ -18,6 +20,7 @@
     @yield('content')
 
     <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script type="text/javascript" src="{{ asset('js/image-uploader.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 

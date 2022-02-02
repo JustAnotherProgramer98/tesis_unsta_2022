@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="sm:flex flex-row sm:gap-4 gap-10">
-      <div style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4" onclick="openNewTab(event, 'index')">
+      <div onclick="openNewTab(event, 'index')" style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
         <div class="mr-10">
             <i class="text-4xl text-cyan-500 fas fa-campground"></i>
         </div>
@@ -43,11 +43,11 @@
           <h1 class="text-3xl font-bold text-gray-800 dark:text-slate-400">{{count($user->experiences)}}</h1>
         </div>
       </div>
-      <div style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
+      <div onclick="openNewTab(event, 'sales')" style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
         <div class="mr-10">
           <i class="text-4xl fas fa-dollar-sign text-green-500"></i>
       </div>
-        <div onclick="openNewTab(event, 'sales')">
+        <div>
           
           <span class="text-md text-slate-400">Ganancias</span>
           
@@ -64,6 +64,16 @@
           <h1 class="text-3xl font-bold text-gray-800 dark:text-slate-400">$ {{ $balance }}</h1>
         </div>
         
+      </div>
+      <div onclick="openNewTab(event, 'index')" style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
+        <div class="mr-10">
+          <i class="text-4xl fas fa-comment-dollar text-rose-500"></i>
+        </div>
+        <div>
+          <span class="text-md text-slate-400">Cupones de experiencias  </span>
+          <span class="text-md text-slate-400">Totales | Usados </span>
+          <h1 class="text-3xl font-bold text-gray-800 dark:text-slate-400">4.5</h1>
+        </div>
       </div>
       <div class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
         <div class="mr-10">
@@ -86,15 +96,24 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
         </svg>
     </div>
-    <button style="margin-top: auto;margin-bottom: auto" onclick="openNewTab(event, 'sales')"
+    <button style="margin-top: auto;margin-bottom: auto" onclick="openNewTab(event, 'create')"
     class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear una experiencia </button>
         <button style="margin-top: auto;margin-bottom: auto" id="button-popover" class="rounded-full border-2 border-blue-500 shadow-lg h-8 w-8" aria-describedby="tooltip">?</button>
-        <div id="tooltip" role="tooltip"> Hace click en las primeras 3 columnas y mira el detalle de la experiencia
+        <div id="tooltip" role="tooltip"> Hace click en las primeras 3 columnas y mira el detalle de lo que quieras
             <div id="arrow" data-popper-arrow></div>
         </div>
   </div>
   @include('components.hosts.host_experience_table')
 </div>
   @include('host.sales_index')
+  @include('host.create_experience')
 
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+      $('.input-images').imageUploader({
+        label: 'Arrastra o hace click para subir las imagenes'
+      });
+  });
+  </script>
 @endsection
