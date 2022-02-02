@@ -23,7 +23,6 @@ Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index'
 //     return view('guest.index', compact(["experiences"]), compact(["users"]));
 // });
 
-Route::view('/blank_template','blank_template');
 
 Route::get('/shop', function () {
     $category = App\Models\Category::all();
@@ -64,3 +63,4 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 require __DIR__.'/admin.php';
+require __DIR__.'/host.php';

@@ -26,7 +26,7 @@
                     <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
                 </ul>
                 <!-- Header Icons -->
-                <div class="hidden xl:flex items-center space-x-5 items-center">
+                <div class="hidden xl:flex space-x-5 items-center">
                     <a class="hover:text-gray-200" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -48,7 +48,7 @@
                         </span>
                     </a>
                     <!-- Sign In / Register      -->
-                    <a class="flex items-center hover:text-gray-200" href="#">
+                    <a href="{{ route('login') }}" class="flex items-center hover:text-gray-200" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -225,7 +225,7 @@
             </div>
             <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
               <div
-                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-600"
+                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg text-pink-600"
               >
                 <img
                   alt="..."

@@ -20,7 +20,8 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        if (Auth::user()) {
+        if(Auth::user() != null){
+        if (Auth::user()->isAdmin()) {
             $experiences=Experience::latest()->paginate(8);
             $places=Place::all();
             $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
@@ -28,9 +29,13 @@ class ExperienceController extends Controller
             
             return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes']));
         }
-        $experiences=Experience::where('status', 1)->get();
-        return view('guest.index',compact(['experiences']));
+        elseif (Auth::user()->role->name == 'Anfitrion') {
+            return redirect()->route('hosts.index',Auth::user());
+        }
     }
+    $experiences=Experience::where('status', 1)->get();
+        return view('guest.index',compact(['experiences']));
+}
 
 
 
