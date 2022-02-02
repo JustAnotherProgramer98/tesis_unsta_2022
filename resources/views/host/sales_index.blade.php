@@ -12,5 +12,5 @@
               <div id="arrow" data-popper-arrow></div>
           </div>
     </div>
-    @include('components.host_experience_table')
+    @include('components.hosts.host_sale_table')
 </div>

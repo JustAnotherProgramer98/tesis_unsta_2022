@@ -34,16 +34,16 @@
       </div>
     </div>
     <div class="sm:flex flex-row sm:gap-4 gap-10">
-      <div class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
+      <div style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4" onclick="openNewTab(event, 'index')">
         <div class="mr-10">
             <i class="text-4xl text-cyan-500 fas fa-campground"></i>
         </div>
-        <div onclick="openNewTab(event, 'index')">
+        <div >
           <span class="text-md text-slate-400">Experiencias</span>
           <h1 class="text-3xl font-bold text-gray-800 dark:text-slate-400">{{count($user->experiences)}}</h1>
         </div>
       </div>
-      <div class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
+      <div style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
         <div class="mr-10">
           <i class="text-4xl fas fa-dollar-sign text-green-500"></i>
       </div>
@@ -93,7 +93,7 @@
             <div id="arrow" data-popper-arrow></div>
         </div>
   </div>
-  @include('components.host_experience_table')
+  @include('components.hosts.host_experience_table')
 </div>
   @include('host.sales_index')
 
