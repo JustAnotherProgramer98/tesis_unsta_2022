@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Country;
+use App\Models\CouponCode;
 use App\Models\Experience;
 use App\Models\Languaje;
 use App\Models\Place;
@@ -68,6 +69,9 @@ class DatabaseSeeder extends Seeder
         
         $this->command->line('Sales...');
         Sale::factory(8)->create();
+
+        $this->command->line('Coupon Codes...');
+        CouponCode::factory(8)->create();
     
     }
 }

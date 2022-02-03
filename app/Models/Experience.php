@@ -52,4 +52,9 @@ class Experience extends Model
         return $this->hasMany(Sale::class);
     }
 
+    public function coupon_codes()
+    {
+        return $this->hasMany(CouponCode::class);
+    }
+
 }
