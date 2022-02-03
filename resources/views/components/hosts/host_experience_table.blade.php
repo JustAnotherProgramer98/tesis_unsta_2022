@@ -8,6 +8,7 @@
                 <th class="px-4 py-3">Lugar</th>
                 <th class="px-4 py-3">Precio de la experiencia</th>
                 <th class="px-4 py-3">Categoria</th>
+                <th class="px-4 py-3">Estado</th>
                 <th class="px-4 py-3">Editar</th>
                 <th class="px-4 py-3">Borrar</th>
             </tr>
@@ -39,6 +40,24 @@
                         @empty
                             Experiencia sin categoria
                         @endforelse
+                    </td>
+                    <td class="px-8 py-3 whitespace-nowrap">
+                        @switch($experience->status)
+                        @case(0)
+                            <span
+                                class="cursor-default px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Inactiva
+                            </span>
+                        @break
+                        @case(1)
+                            <span
+                                class="cursor-default px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">Activa
+                            </span>
+                        @break
+                        @default
+                            <span
+                                class="cursor-default px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
+                                Esperando de aprobacion</span>
+                    @endswitch
                     </td>
                     <td class="px-8 py-3 ">
                         <a href="{{ route('experiencies.edit.admin', $experience) }}">
