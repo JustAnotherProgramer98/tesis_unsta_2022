@@ -87,7 +87,7 @@
     </div>
   </div>
 
-<div id="index" class="tabcontent block">
+<div id="index" class="tabcontent block pt-10 px-4 ">
   <br>
   <div class="flex gap-4 my-4 ">
     <div class="relative w-1/2">

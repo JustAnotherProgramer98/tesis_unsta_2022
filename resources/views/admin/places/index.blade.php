@@ -70,7 +70,7 @@
                                         <td class="text-center px-4 py-3 cursor-pointer">
                                             <p class="font-semibold capitalize">{{ $place->experiences_count }}</p>
                                         </td>
-                                        <td class="px-4 py-3">
+                                        <td class="px-4 py-3 whitespace-nowrap">
                                             @switch($place->status)
                                                 @case(0)
                                                     <span

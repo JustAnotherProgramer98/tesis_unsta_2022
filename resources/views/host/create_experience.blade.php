@@ -1,4 +1,4 @@
-<div id="create" class=" tabcontent hidden">
+<div id="create" class=" tabcontent hidden px-4">
     <br>
     @if ($errors->any())
     <div class="text-center bg-blue-800 text-lg  text-white italic">

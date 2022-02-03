@@ -15,7 +15,7 @@
  
 </head>
 
-<body class="p-20 antialiased">
+<body class="antialiased">
 
     @yield('content')
 

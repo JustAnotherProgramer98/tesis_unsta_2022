@@ -1,4 +1,4 @@
-<div id="sales" class="tabcontent hidden">
+<div id="sales" class="tabcontent hidden px-4">
     <br>
     <div class="flex gap-4 my-4 ">
       <div class="relative w-1/2">
