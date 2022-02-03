@@ -33,11 +33,10 @@
                         class="fas fa-arrow-left"></i>
                     Volver
                 </a>
-
                 <section class="flex flex-col w-full h-full p-1 overflow-auto">
                     <label for="name" class="text-base leading-7  mb-5">Imagen de la experiencia</label>
-                    <header
-                        class="flex flex-col items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
+                    <header class="flex flex-col items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
+                        <img src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
                     </header>
                 </section>
                 <div class="relative p-4">

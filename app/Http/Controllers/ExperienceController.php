@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Experience;
+use App\Models\Image;
 use App\Models\Languaje;
 use App\Models\Place;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class ExperienceController extends Controller
 {
@@ -43,7 +46,6 @@ class ExperienceController extends Controller
     {
 
         // image_id De momento no
-
         $validated=$request->validate([
             'title'=>'required|string',
             'subtitle'=>'required|string',
@@ -52,8 +54,11 @@ class ExperienceController extends Controller
             'host_id'=>'required|integer',
             'languajes'=>'required|array',
             'price'=>'required',
+            'images'=>'required'
             
         ]);
+        
+                
 
         $languajes=collect();
         foreach ($validated['languajes'] as $add_languaje) {
@@ -61,11 +66,22 @@ class ExperienceController extends Controller
         }
 
         try {
-            DB::transaction(function () use ($validated,$languajes){
+            DB::transaction(function () use ($validated,$languajes,$request){
                 $experience=Experience::create($validated+[
                     'slug'=>strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $validated['title']))))), '-')),
                 ]);
                 
+                foreach($request->images as $image_request){
+                    $image = new Image;
+                    $image_request->store('public');
+                    $image->url=$image_request->hashName();
+                    $image->alt="Imagen Experiencia";
+                    $image->picturable_type=get_class($experience);
+                    $image->picturable_id=$experience->id;
+                    $image->save();
+                    
+                }
+
                 foreach ($languajes as $languaje) {
                     $experience->languajes()->attach($languaje);
                 }
