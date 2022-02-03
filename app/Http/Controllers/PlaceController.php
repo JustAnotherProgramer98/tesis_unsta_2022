@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Image;
 use App\Models\Place;
 use App\Models\Province;
 use Illuminate\Http\Request;
@@ -29,9 +30,8 @@ class PlaceController extends Controller
 
     public function store(Request $request)
     {
-    // image_id De momento no
- 
     $validated=$request->validate([
+    'images'=>'required',
     'country_id'=>'required|integer',
     'province_id'=>'required|integer',
     'city_id'=>'required|integer',
@@ -40,9 +40,19 @@ class PlaceController extends Controller
     ]);
 
     try {
-        DB::transaction(function () use ($validated){
+        DB::transaction(function () use ($validated,$request){
+        $place=Place::create($validated);
 
-        Place::create($validated);
+        foreach($request->images as $image_request){
+            $image = new Image();
+            $image_request->store('public');
+            $image->url=$image_request->hashName();
+            $image->alt="Imagen Lugar";
+            $image->picturable_type=get_class($place);
+            $image->picturable_id=$place->id;
+            $image->save();
+            
+        }
     });
     return redirect()->route('places.index.admin');
     } catch (\Throwable $th) {

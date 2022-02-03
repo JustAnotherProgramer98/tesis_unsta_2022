@@ -45,7 +45,6 @@ class ExperienceController extends Controller
     public function store(Request $request)
     {
 
-        // image_id De momento no
         $validated=$request->validate([
             'title'=>'required|string',
             'subtitle'=>'required|string',

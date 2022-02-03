@@ -121,7 +121,9 @@
         <script>
             $(document).ready(function() {
                 $('.input-images').imageUploader({
-                    label: 'Arrastra o hace click para subir las imagenes'
+                    label: 'Arrastra o hace click para subir las imagenes',
+                    imagesInputName: 'images',
+                    maxFiles:1,
                 });
 
             });

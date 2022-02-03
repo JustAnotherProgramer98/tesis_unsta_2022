@@ -11,7 +11,6 @@
     <div
         class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
-
         @if (session()->has('success'))
             <div class="alert alert-success">
                 @if (is_array(session('success')))
@@ -29,14 +28,21 @@
         <div class="h-full">
             <div class="tabcontent container items-center px-5 py-12 lg:px-20">
                 <a href="{{ route('places.index.admin') }}"
-                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><i
-                        class="fas fa-arrow-left"></i>
+                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                    <i class="fas fa-arrow-left"></i>
                     Volver
                 </a>
                 <section class="flex flex-col w-full h-full p-1 overflow-auto">
-                    <label for="name" class="text-base leading-7  mb-5">Imagen de la experiencia</label>
-                    <header
-                        class="flex flex-col items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
+                    <label for="name" class="text-base leading-7  mb-5">Imagen del lugar</label>
+                    <header class="flex flex-row gap-6 items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 {{ $place->images->first() ? '' :  'bg-gray-400 '}}">
+                        {{ $place->images->first() ? '' :  'Sin imagen ! '}}
+                        @if ($place->images->first())
+                        @forelse ($place->images as $image)
+                            <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
+                        @empty
+                        <p>Sin Imagenes</p>
+                        @endforelse
+                    @endif
                     </header>
                 </section>
                 <div class="relative p-4">
