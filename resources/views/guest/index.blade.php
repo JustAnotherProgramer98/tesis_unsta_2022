@@ -20,15 +20,9 @@
                 </a>
                 <!-- Nav Links -->
                 <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-<<<<<<< HEAD
                     <li><a class="hover:text-gray-200" href="{{ route('experiencies.index') }}">Home</a></li>
                     
                     <li><a class="hover:text-gray-200" href="{{ route('experiencies.shop') }}">Shop</a></li>
-=======
-                    <li><a class="hover:text-gray-200" href="">Home</a></li>
-                    
-                    <li><a class="hover:text-gray-200" href="shop">Shop</a></li>
->>>>>>> frontEnd
                     <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
                 </ul>
                 <!-- Header Icons -->
