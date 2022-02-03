@@ -26,9 +26,6 @@ public function index()
 }
 public function store(Request $request)
 {
-
-    
-
     $validated=$request->validate([
         'title'=>'required|string',
         'subtitle'=>'required|string',
@@ -38,7 +35,7 @@ public function store(Request $request)
         "city_name" => "required",
         "address" => "required",
         "coordenates" => "required",
-        'languajes'=>'required|array', 
+        'languajes'=>'required|array'
     ]);
 try {
     DB::transaction(function () use ($validated,$request){
@@ -48,14 +45,13 @@ try {
     //Si da nulo es porque no esta la provincia en la BD
     //Logica de creacion de mas ciudades y provincias en caso de que no se ingrese una existente 
     $province=Province::where('name',$request->province_name)->get()->first();
-    if($province!=null)
-    {
+    if($province!=null){
         $city=City::where('name',$request->city_name)->where('province_id',$province->id)->get()->first();
         if ($city!=null) $place=Place::firstOrCreate(['city_id'=>$city->id,'adress'=>$request->address,],['coordenates'=>$request->coordenates,'status'=>2]);
     }
     else{
-        $province=Province::create(['name'=>$request->province_name,'country_id'=>1]);
-        $city=City::create(['province_id'=>$province->id,'name'=>$request->city_name]);
+        $province=Province::create(['name'=>$request->province_name,'country_id'=>1,'status'=>2]);
+        $city=City::create(['province_id'=>$province->id,'name'=>$request->city_name,'status'=>2]);
         $place=Place::firstOrCreate(['city_id'=>$city->id,'adress'=>$request->address,],['coordenates'=>$request->coordenates,'status'=>2]);
     }
 

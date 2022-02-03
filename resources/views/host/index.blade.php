@@ -87,7 +87,7 @@
     </div>
   </div>
 
-<div id="index" class="tabcontent block pt-10 px-4 ">
+<div id="index" class="tabcontent block py-8 pb-20 px-4 ">
   <br>
   <div class="flex gap-4 my-4 ">
     <div class="relative w-1/2">
@@ -107,14 +107,44 @@
 </div>
   @include('host.sales_index')
   @include('host.create_experience')
+  @include('host.show_experience')
 
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
   <script>
     $(document).ready(function() {
       $('.input-images').imageUploader({
-        label: 'Arrastra o hace click para subir las imagenes'
-        imagesInputName: 'images',
+        label: 'Arrastra o hace click para subir las imagenes',
+        imagesInputName: 'images'
       });
   });
+
+  //Move between tabs
+function showExperience(evt, tab_name,experience,image_url,experience_province,experience_city,experience_adress) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tab_name).style.display = "block";
+    evt.currentTarget.className += " active";
+
+    if(tab_name=='show_experience_detail'){
+
+      if (image_url=="Sin imagenes") document.getElementById("experience_image").alt='Experiencia sin imagen';  
+      
+      document.getElementById("experience_image").src=image_url;
+      document.getElementById('experience_title').innerHTML = experience.title;
+      document.getElementById('experience_subtitle').innerHTML = experience.subtitle;
+      document.getElementById('experience_description').innerHTML = experience.description;
+
+      document.getElementById('experience_province').innerHTML = experience_province;
+      document.getElementById('experience_city').innerHTML = experience_city;
+      document.getElementById('experience_addres').innerHTML = experience_adress;
+    }
+}
   </script>
 @endsection

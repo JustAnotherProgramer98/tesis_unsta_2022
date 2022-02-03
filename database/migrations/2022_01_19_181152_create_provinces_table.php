@@ -17,7 +17,8 @@ class CreateProvincesTable extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('country_id')->references('id')->on('countries')->constrained()->cascadeOnDelete();
-        
+            $table->integer('status')->default(0);
+
             $table->timestamps();
         });
     }

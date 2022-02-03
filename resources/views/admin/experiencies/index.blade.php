@@ -56,17 +56,17 @@
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $experience) }}">
                                                 @isset($experience->host)
-                                                    <p class="font-semibold capitalize">{{ $experience->host->name }} | {{ $experience->host->surname }}</p>
+                                                    <p class="font-semibold">{{Str::limit($experience->host->name.' '.$experience->host->surname,15,'...')}}</p>
                                                 @endisset
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $experience) }}">
-                                                <p class="font-semibold capitalize">{{ Str::limit($experience->place->city->province->name.' - '.$experience->place->city->name,20) }}</p>
+                                                <p class="font-semibold">{{ Str::limit($experience->place->city->province->name.' - '.$experience->place->city->name,15,'...') }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
-                                                <p class="font-semibold capitalize">$ {{ $experience->price }}  </p>
+                                                <p class="font-semibold">$ {{ $experience->price }}  </p>
                                         </td>
                                         <td class="px-4 py-3">
                                             @forelse ($experience->categories as $category)    

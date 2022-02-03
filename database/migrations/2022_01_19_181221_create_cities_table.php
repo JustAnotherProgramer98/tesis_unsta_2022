@@ -17,6 +17,7 @@ class CreateCitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('province_id')->references('id')->on('provinces')->constrained()->cascadeOnDelete();
+            $table->integer('status')->default(0);
 
             $table->timestamps();
         });

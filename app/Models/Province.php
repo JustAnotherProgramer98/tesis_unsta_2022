@@ -20,4 +20,8 @@ class Province extends Model
     {
     	return $this->belongsTo(Country::class);
     }
+    public function getNameAttribute($value)
+    {
+        return ucfirst(strtolower($value));
+    }
 }

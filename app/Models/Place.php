@@ -23,4 +23,8 @@ class Place extends Model
     {
     	return $this->belongsTo(City::class);
     }
+    public function getAdressAttribute($value)
+    {
+        return ucfirst(strtolower($value));
+    }
 }

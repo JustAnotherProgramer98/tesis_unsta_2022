@@ -19,4 +19,8 @@ class City extends Model
     {
         return $this->hasMany(Place::class);
     }
+    public function getNameAttribute($value)
+    {
+        return ucfirst(strtolower($value));
+    }
 }

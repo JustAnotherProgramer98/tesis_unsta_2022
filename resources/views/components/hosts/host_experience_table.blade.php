@@ -15,7 +15,8 @@
         </thead>
         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
             @forelse ($user->experiences as $experience)
-                <tr
+
+                <tr onclick="showExperience(event, 'show_experience_detail',{{ $experience }},'{{ $experience->images->first()? asset('storage/' . $experience->images->first()->url): addslashes('Sin imagenes') }}','{{ $experience->place->city->province->name }}','{{ $experience->place->city->name }}','{{ addslashes(Str::limit($experience->place->adress,10)) }}')"
                     class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                     <td class="px-4 py-3">
                         <p class="font-semibold capitalize">{{ $experience->title }}</p>
@@ -25,7 +26,8 @@
                     </td>
                     <td class="px-4 py-3">
                         <p class="font-semibold capitalize">
-                            {{ $experience->place->city->province->name . ', ' . $experience->place->city->name }}</p>
+                            {{ Str::limit($experience->place->city->province->name, 10, '...') . ', ' . $experience->place->city->name }}
+                        </p>
                     </td>
                     <td class="px-4 py-3">
                         <p class="font-semibold capitalize">$ {{ $experience->price }}</p>
@@ -43,21 +45,21 @@
                     </td>
                     <td class="px-8 py-3 whitespace-nowrap">
                         @switch($experience->status)
-                        @case(0)
-                            <span
-                                class="cursor-default px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Inactiva
-                            </span>
-                        @break
-                        @case(1)
-                            <span
-                                class="cursor-default px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">Activa
-                            </span>
-                        @break
-                        @default
-                            <span
-                                class="cursor-default px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
-                                Esperando de aprobacion</span>
-                    @endswitch
+                            @case(0)
+                                <span
+                                    class="cursor-default px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Inactiva
+                                </span>
+                            @break
+                            @case(1)
+                                <span
+                                    class="cursor-default px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">Activa
+                                </span>
+                            @break
+                            @default
+                                <span
+                                    class="cursor-default px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
+                                    Esperando de aprobacion</span>
+                        @endswitch
                     </td>
                     <td class="px-8 py-3 ">
                         <a href="{{ route('experiencies.edit.admin', $experience) }}">
@@ -69,10 +71,10 @@
                             class="fas fa-trash-alt text-red-500 cursor-pointer	"></i>
                     </td>
                 </tr>
-            @empty
-                Usuario sin experiencias
-            @endforelse
-        </tbody>
-    </table>
-    <br>
-</div> {{-- fin tabla de experiencia --}}
+                @empty
+                    Usuario sin experiencias
+                @endforelse
+            </tbody>
+        </table>
+        <br>
+    </div> {{-- fin tabla de experiencia --}}
