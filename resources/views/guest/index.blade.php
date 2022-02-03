@@ -20,9 +20,9 @@
                 </a>
                 <!-- Nav Links -->
                 <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-                    <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/">Home</a></li>
+                    <li><a class="hover:text-gray-200" href="">Home</a></li>
                     
-                    <li><a class="hover:text-gray-200" href="http://127.0.0.1:8000/shop">Shop</a></li>
+                    <li><a class="hover:text-gray-200" href="shop">Shop</a></li>
                     <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
                 </ul>
                 <!-- Header Icons -->
@@ -34,7 +34,7 @@
                                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
                     </a>
-                    <a class="flex items-center hover:text-gray-200" href="#">
+                    <a class="flex items-center hover:text-gray-200" href="cart_shop">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -47,8 +47,8 @@
                             </span>
                         </span>
                     </a>
-                    <!-- Sign In / Register      -->
-                    <a class="flex items-center hover:text-gray-200" href="#">
+                    <!-- Sign In / Register  -->
+                    <a class="flex items-center hover:text-gray-200" href="account">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -266,7 +266,7 @@
             <div class="p-4 gap-4 select-none flex mx-auto">
                 @foreach ($experiences->take(4) as $experiencie)
                 
-                    <div class="w-full cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-blue-400/80 hover:shadow-2xl hover:bg-gray-50">
+                    <div class="w-full cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50">
                         <img class="aspect-video bg-cover w-full rounded-t-md min-h-40"
                             src="https://laravelnews.imgix.net/images/tailwindcss.png?ixlib=php-3.3.1" />
                         <div class="p-4">

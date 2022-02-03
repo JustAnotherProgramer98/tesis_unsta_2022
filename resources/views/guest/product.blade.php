@@ -83,7 +83,7 @@
 
 <main class="my-8">
     <div class="container mx-auto px-6">
-        @foreach ($experiences->take(1) as $experiencie)
+        
         <div class="md:flex md:items-center">
                     
             <div class="md:flex-1 px-4">
@@ -118,11 +118,10 @@
                     
                 </div>
             </div>
-            
 
             <div class="md:flex-1 px-4">
-                <h2 class="text-sm title-font text-gray-500 tracking-widest"> @foreach ($experiencie->categories as $category) {{ $category->title }}  @endforeach </h2>
-                <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $experiencie->title }}</h1>
+                <h2 class="text-sm title-font text-gray-500 tracking-widest"> @foreach ($experience->categories as $category) {{ $category->title }}  @endforeach </h2>
+                <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $experience->title }}</h1>
                 
                 <div class="flex mb-4">
                     <span class="flex items-center">
@@ -161,7 +160,7 @@
                         </a>
                     </span>
                 </div>
-                <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+                <p class="leading-relaxed">{{$experience->description}}</p>
                 
                 <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                     <div class="flex ml-6 items-center">
@@ -197,7 +196,7 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        
 
 
 
