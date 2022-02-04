@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CouponCodeController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\SaleController;
@@ -77,4 +78,9 @@ Route::group(['middleware' => ['auth']], function () {
      Route::put('/users/{category}/update', [UsersController::class, 'update'])->name('users.update.admin');
      Route::delete('/users/delete', [UsersController::class, 'destroy'])->name('users.destroy.admin');
      Route::get('/search/users', [UsersController::class, 'search'])->name('users.search');
+
+      //CouponCode
+      Route::get('/coupon-codes', [CouponCodeController::class, 'index'])->name('coupons.index.admin');
+      Route::get('/coupon-codes/{couponcode}/', [CouponCodeController::class, 'show'])->name('coupon.show.admin');
+      Route::delete('/coupon-codes/delete', [CouponCodeController::class, 'destroy'])->name('coupons.destroy.admin');
 });

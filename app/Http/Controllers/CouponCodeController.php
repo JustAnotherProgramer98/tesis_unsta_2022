@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CouponCode;
+use App\Models\Experience;
 use Illuminate\Http\Request;
 
 class CouponCodeController extends Controller
@@ -14,7 +15,9 @@ class CouponCodeController extends Controller
      */
     public function index()
     {
-        //
+        $experiences_with_coupons=Experience::withCount('coupon_codes')->orderBy('coupon_codes_count', 'desc')->latest()->paginate(8);
+        return view('admin.coupon_codes.index',compact(['experiences_with_coupons']));
+
     }
 
     /**
@@ -78,8 +81,16 @@ class CouponCodeController extends Controller
      * @param  \App\Models\CouponCode  $couponCode
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CouponCode $couponCode)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            $coupons=CouponCode::where('experience_id',$request->first_cupon_id)->get();
+            foreach ($coupons as $coupon) {
+                $coupon->delete();
+            }
+            return 'Sucess';
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
     }
 }
