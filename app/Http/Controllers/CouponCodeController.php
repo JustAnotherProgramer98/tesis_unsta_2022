@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CouponCode;
 use App\Models\Experience;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CouponCodeController extends Controller
 {
@@ -20,67 +21,39 @@ class CouponCodeController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        
+        $validated=$request->validate([
+            'experience_id'=>'required|integer',
+            'quantity_coupons'=>'required|numeric|digits_between:1,100',
+            'percentaje_coupons'=>'required|numeric|digits_between:1,100'
+        ]);
+        
+        try {
+            DB::transaction(function () use ($validated){
+                for ($i=0; $i != $validated['quantity_coupons']; $i++){
+                    CouponCode::create(['code'=>bin2hex(random_bytes(6)),
+                        'discount_percent'=>$validated['percentaje_coupons'],
+                        'experience_id'=> Experience::where('id',$validated['experience_id'])->get()->first()->id
+                    ]);
+            
+                }
+            });
+            return redirect()->route('coupons.index.admin');
+        }
+        catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\CouponCode  $couponCode
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(CouponCode $couponCode)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\CouponCode  $couponCode
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CouponCode $couponCode)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CouponCode  $couponCode
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, CouponCode $couponCode)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\CouponCode  $couponCode
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         try {

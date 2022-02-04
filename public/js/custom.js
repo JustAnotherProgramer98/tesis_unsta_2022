@@ -96,3 +96,12 @@ try {
   console.log(error);
   
 }
+//Limit of input cuppons
+function limiter_cuppons(input) {
+  if (input.value < 0) input.value = 1;
+  if (input.value > 100) input.value = 100;
+}
+function limiter_discount(input) {
+   if (input.value < 1) input.value = 1;
+   if (input.value > 100) input.value = 100;
+}

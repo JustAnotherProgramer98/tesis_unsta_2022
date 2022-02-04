@@ -82,5 +82,6 @@ Route::group(['middleware' => ['auth']], function () {
       //CouponCode
       Route::get('/coupon-codes', [CouponCodeController::class, 'index'])->name('coupons.index.admin');
       Route::get('/coupon-codes/{couponcode}/', [CouponCodeController::class, 'show'])->name('coupon.show.admin');
+      Route::post('/coupon-codes/store', [CouponCodeController::class, 'store'])->name('coupons.store.admin');
       Route::delete('/coupon-codes/delete', [CouponCodeController::class, 'destroy'])->name('coupons.destroy.admin');
 });

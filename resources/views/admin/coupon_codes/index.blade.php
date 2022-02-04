@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <x-create-place-form :provinces="$provinces"></x-create-place-form> --}}
+                <x-create-cupons-form :experiences="$experiences_with_coupons"></x-create-cupons-form>
             </div>
         </div>
 
