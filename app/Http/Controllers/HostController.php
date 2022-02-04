@@ -8,20 +8,21 @@ use App\Models\Experience;
 use App\Models\Languaje;
 use App\Models\Place;
 use App\Models\Province;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HostController extends Controller
 {
-public function index()
+public function index(User $user)
 {
     if (!(Auth::user()->role->name == 'Administrador')) {
         $provinces=Province::all();
         $places=Place::where('status',1)->get();
         $categories=Category::where('status',1)->get();
         $languajes=Languaje::all();        
-        return view('host.index',['user'=>Auth::user(),'places'=>$places,'languajes'=>$languajes,'provinces'=>$provinces,'categories'=>$categories]);
+        return view('guest.account',['user'=>$user,'places'=>$places,'languajes'=>$languajes,'provinces'=>$provinces,'categories'=>$categories]);
     }
 }
 public function store(Request $request)

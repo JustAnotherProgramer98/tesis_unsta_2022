@@ -8,6 +8,7 @@ use App\Models\Image;
 use App\Models\Languaje;
 use App\Models\Place;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -24,23 +25,22 @@ class ExperienceController extends Controller
     public function index()
     {
         if(Auth::user() != null){
-        if (Auth::user()->isAdmin()) {
-            $experiences=Experience::latest()->paginate(8);
-            $places=Place::all();
-            $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
-            $languajes=Languaje::all();
-            
-            return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes']));
+            if (Auth::user()->isAdmin()) {
+                $experiences=Experience::latest()->paginate(8);
+                $places=Place::all();
+                $comment=Comment::all();
+                $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
+                $languajes=Languaje::all();
+                
+                return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes','comment']));
+            }
+            elseif (Auth::user()->role->name == 'Anfitrion') {
+                return redirect()->route('hosts.index',Auth::user());
+            }
         }
-        elseif (Auth::user()->role->name == 'Anfitrion') {
-            return redirect()->route('hosts.index',Auth::user());
-        }
+        $experiences=Experience::where('status', 1)->get();
+            return view('guest.index',compact(['experiences']));
     }
-    $experiences=Experience::where('status', 1)->get();
-        return view('guest.index',compact(['experiences']));
-}
-
-
 
     public function store(Request $request)
     {

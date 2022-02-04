@@ -10,12 +10,7 @@
         <div>          
             <h1 class="text-gray-800 dark:text-slate-100 text-2xl font-bold my-2">{{ $user->name.' '.$user->surname }}</h1>
             <p class="text-gray-800 dark:text-slate-100 text-lg tracking-wide mb-6 md:max-w-lg whitespace-nowrap">Rol : {{ $user->role->name }}</p>
-            <form action="{{ route('logout') }}" method="POST">
-              @csrf
-              <button>    
-                  <span class="bg-white p-2 text-gray-800 dark:text-slate-100">Cerrar sesion</span>
-              </button>
-          </form>
+            
         </div>
       </div>
     </div>
@@ -33,7 +28,9 @@
         <h2 class="text-gray-800 dark:text-slate-100 text-2xl font-semibold">traversymedia</h2>
       </div>
     </div>
+
     <div class="sm:flex flex-row sm:gap-4 gap-10">
+      
       <div onclick="openNewTab(event, 'index')" style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
         <div class="mr-10">
             <i class="text-4xl text-cyan-500 fas fa-campground"></i>
@@ -43,6 +40,7 @@
           <h1 class="text-3xl font-bold text-gray-800 dark:text-slate-400">{{count($user->experiences)}}</h1>
         </div>
       </div>
+
       <div onclick="openNewTab(event, 'sales')" style="box-shadow: 3px 3px rgb(107 33 168)" class="flex justify-between items-center bg-gray-100 dark:bg-slate-600 p-3 rounded-md  mb-4">
         <div class="mr-10">
           <i class="text-4xl fas fa-dollar-sign text-green-500"></i>
@@ -85,6 +83,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
 <div id="index" class="tabcontent block py-8 pb-20 px-4 ">

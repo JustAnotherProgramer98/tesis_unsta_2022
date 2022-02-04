@@ -3,7 +3,14 @@
 
 use App\Http\Controllers\ExperienceController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Experience;
+use App\Models\Province;
+use App\Models\Category;
+use App\Models\City;
+use App\Models\Place;
+use App\Models\Languaje;
+use App\Models\User;
+use App\Models\Comment;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,16 +49,30 @@ Route::get('/product_shop', function () {
     return view('guest.product_shop', compact(["experiences"]));
 });
 
-Route::get('/account', function () {
-    $experiences = App\Models\Experience::all();
+Route::middleware('auth')->get('/account', function () {
+    $provinces=Province::all();
+    $places=Place::where('status',1)->get();
+    $categories=Category::where('status',1)->get();
+    $languajes=Languaje::all();
+    $user=Auth::User();
     
-    return view('guest.account', compact(["experiences"]));
+    return view('guest.account', compact(['provinces', 'places', 'categories', 'languajes', 'user']));
+});
+
+Route::middleware('auth')->get('/account_guest', function () {
+    $provinces=Province::all();
+    $places=Place::where('status',1)->get();
+    $categories=Category::where('status',1)->get();
+    $languajes=Languaje::all();
+    $user=Auth::User();   
+    return view('guest.account_guest', compact(['provinces', 'places', 'categories', 'languajes', 'user']));
 });
 
 Route::get('/test', function () {
     $experiences = App\Models\Experience::all();
     $category = App\Models\Category::all();
-    return view('guest.test', compact(["experiences"]), compact(["category"]));
+    $user = App\Models\User::all();
+    return view('guest.test', compact(["experiences","category","user"]));
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
