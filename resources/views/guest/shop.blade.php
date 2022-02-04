@@ -169,6 +169,7 @@
                     <div class="flex flex-wrap items-center lg:justify-between justify-center">
                         <!-- Card 1 -->
                         @foreach ($experiences as $experience)
+                        
                         <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="{{route('guest.product',$experience)}}">
                             <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
                                 <div>

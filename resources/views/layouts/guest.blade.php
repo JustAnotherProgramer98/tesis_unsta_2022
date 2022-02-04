@@ -80,14 +80,14 @@
                                     <span role="menuitem" tabindex="-1" class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50" aria-disabled="true">New feature (soon)</span>
                                     <a href="javascript:void(0)" tabindex="2" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem" >License</a>
                                 </div>
-                                    <div class="py-1">
-                                        <form action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                            <button>    
-                                                <span class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left">Cerrar sesion</span>
-                                            </button>
-                                        </form>
-                                    </div>
+                                <div class="py-1">
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button>    
+                                            <span class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left">Cerrar sesion</span>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div> <!-- FIN Sign In / Register  test    -->

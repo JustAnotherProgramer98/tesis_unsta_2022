@@ -122,6 +122,7 @@
             <div class="md:flex-1 px-4">
                 <h2 class="text-sm title-font text-gray-500 tracking-widest"> @foreach ($experience->categories as $category) {{ $category->title }}  @endforeach </h2>
                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $experience->title }}</h1>
+                <h2 class="mt-3 text-gray-800 text-2xl font-bold my-2"> Experiencia elaborada por: <a class="hover:text-gray-200" href="{{ route('guest.account_guest') }}">{{ $experience->host->name }}</a></h2>
                 
                 <div class="flex mb-4">
                     <span class="flex items-center">

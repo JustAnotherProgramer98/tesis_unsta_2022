@@ -66,7 +66,7 @@ Route::middleware('auth')->get('/account_guest', function () {
     $languajes=Languaje::all();
     $user=Auth::User();   
     return view('guest.account_guest', compact(['provinces', 'places', 'categories', 'languajes', 'user']));
-});
+})->name('guest.account_guest');
 
 Route::get('/test', function () {
     $experiences = App\Models\Experience::all();

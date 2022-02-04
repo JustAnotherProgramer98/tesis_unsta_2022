@@ -56,8 +56,8 @@
                       <div class="mr-4 p-3 text-center">
                         <span
                           class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                          >22</span
-                        ><span class="text-sm text-gray-500">Amigos</span>
+                          >4.5</span
+                        ><span class="text-sm text-gray-500">Estrellas</span>
                       </div>
 
                       <div class="mr-4 p-3 text-center" onclick="openNewTab(event, 'index')">
