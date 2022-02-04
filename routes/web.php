@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Experience;
 use App\Models\Province;
@@ -24,13 +25,8 @@ use App\Models\Comment;
 
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
 
+Route::get('/shop',[GuestController::class,'index'])->name('experiencies.shop');
 
-Route::get('/shop', function () {
-    $category = App\Models\Category::all();
-    $places = App\Models\Place::all();
-    $experiences = App\Models\Experience::all();
-    return view('guest.shop',compact(["experiences",'category',"places"]));
-})->name('experiencies.shop');
 
 Route::get('/product/{experience}', function (App\Models\Experience $experience) {
     $experiences = App\Models\Experience::all();
