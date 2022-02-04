@@ -41,7 +41,13 @@
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3 cursor-pointer">
-                                            <p class="font-semibold">{{ $experience_coupon->title }}</p>
+                                            @php
+                                                $array_of_coupons=[];
+                                                foreach ($experience_coupon->coupon_codes as $coupon) {
+                                                    array_push($array_of_coupons,$coupon->code);
+                                                }
+                                            @endphp
+                                            <p onclick='openCouponDetail(event, "show","{{$experience_coupon->title}}",<?php echo json_encode($array_of_coupons);?> )' class="font-semibold">{{ $experience_coupon->title }}</p>
                                         </td>
                                         <td class="px-4 py-3 cursor-pointer text-center">
                                             <p class="font-semibold">{{ $experience_coupon->coupon_codes_count }}</p>
@@ -70,6 +76,7 @@
                     </div>
                 </div>
                 <x-create-cupons-form :experiences="$experiences_with_coupons"></x-create-cupons-form>
+                @include('admin.coupon_codes.show')
             </div>
         </div>
 
@@ -102,5 +109,54 @@ function deletePlace(e, experience_name, first_cupon_id){
         } // fin If
     });
 };
+
+function openCouponDetail(event, tab_name,model,coupons) {
+
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tab_name).style.display = "block";
+    event.currentTarget.className += " active";
+
+
+
+    document.getElementById("container_popover_buttons").innerHTML='';    
+    console.log("largo del array "+coupons.length);
+
+    let loop=0;
+    for (let index = 0; index != coupons.length ; index++) {
+    popover_button=`
+        <div style="width: max-content" x-data="{open: false}"  class="items-center justify-between">
+            <div style="border-top-left-radius: 10px;border-bottom-right-radius: 10px;left: 70px;top:20px" x-cloak class="flex-shrink-0 pr-2 bg-gray-600 z-20 relative">
+                <div x-show="open"  @mouseleave="open = false" x-transition class="" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                <div class="py-1 z-50">
+                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                    <p class="text-white block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Sin usar</p>
+                </div>
+                </div>
+            </div>
+            <div class="z-10 flex-1 w-fit border border-gray-400 rounded-xl text-sm truncate m-3"  @mouseover="open = true" >
+            <p id=Cuppon_code[${loop}] class="p-3 text-gray-500 w-full font-bold">Codigo de cupon</p>
+            </div>
+        </div>`
+
+        console.log("valor de loop "+loop);
+        console.log("entrada");
+        document.getElementById("container_popover_buttons").innerHTML+=popover_button;
+        loop++;
+        document.getElementById("Cuppon_code["+index+"]").innerHTML=coupons[index];
+       
+    }
+    
+    
+    document.getElementById("experience_name").innerHTML=model;
+    
+}
         </script>
     @endsection
