@@ -32,6 +32,11 @@ class Experience extends Model
         return $this->hasMany(Reservation::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
