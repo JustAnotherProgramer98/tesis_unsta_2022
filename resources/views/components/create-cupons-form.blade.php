@@ -1,4 +1,4 @@
-<div id="create" class="tabcontent container items-center px-5 py-12 lg:px-20 hidden">
+<div id="create" class="tabcontent hidden container items-center px-5 py-12 lg:px-20 ">
 
     <button
     onclick="openNewTab(event, 'index')"

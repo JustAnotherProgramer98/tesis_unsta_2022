@@ -12,6 +12,8 @@ use App\Models\Place;
 use App\Models\Languaje;
 use App\Models\User;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +26,6 @@ use App\Models\Comment;
 */
 
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
-
 Route::get('/shop',[GuestController::class,'index'])->name('experiencies.shop');
 
 
