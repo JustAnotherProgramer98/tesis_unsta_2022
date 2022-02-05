@@ -34,9 +34,7 @@ class ExperienceController extends Controller
                 
                 return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes','comment']));
             }
-            elseif (Auth::user()->role->name == 'Anfitrion') {
-                return redirect()->route('hosts.index',Auth::user());
-            }
+            
         }
         $experiences=Experience::where('status', 1)->get();
             return view('guest.index',compact(['experiences']));

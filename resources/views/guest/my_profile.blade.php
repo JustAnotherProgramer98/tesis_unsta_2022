@@ -4,14 +4,12 @@
       <section class="relative block" style="height: 500px;">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-          style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80"); z-index:-10'
-        >
+          style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80"); z-index:-10'>
           <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
         </div>
         <div
           class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
-          style="height: 70px;"
-        >
+          style="height: 70px;">
           <svg
             class="absolute bottom-0 overflow-hidden"
             xmlns="http://www.w3.org/2000/svg"
@@ -19,8 +17,7 @@
             version="1.1"
             viewBox="0 0 2560 100"
             x="0"
-            y="0"
-          >
+            y="0">
             <polygon
               class="text-gray-300 fill-current"
               points="2560 0 2560 100 0 100"
@@ -47,29 +44,27 @@
                 <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"> <!-- Botones del lado derecho de la foto -->
                   
                     <span class="text-gray-800 dark:text-slate-400 text-md">Miembro desde</span>
-                    <h2 class="text-gray-800 dark:text-slate-100 text-2xl font-semibold">{{($user->created_at)->format('d-m-Y')}}</h2>
+                    <h2 class="text-gray-800 dark:text-slate-100 text-2xl font-semibold">{{(Auth::user()->created_at)->format('d-m-Y')}}</h2>
                     
                 </div> <!-- FIN Botoes del lado derecho de la foto --> 
 
                   <div class="w-full lg:w-4/12 px-4 lg:order-1"> <!-- Botones del lado izquierdo de la foto --> 
                     <div class="flex justify-center py-4 lg:pt-4 pt-8">
-                      <div class="mr-4 p-3 text-center">
-                        <span
-                          class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                          >4.5</span
-                        ><span class="text-sm text-gray-500">Estrellas</span>
+                      <div class="mr-4 p-3 text-center bg-gray-200 rounded-md shadow-xl hover:bg-gray-400">
+                        <span class="text-xl font-bold block uppercase tracking-wide text-gray-700">4.5</span>
+                        <span class="text-sm text-gray-500">Estrellas</span>
                       </div>
 
-                      <div class="mr-4 p-3 text-center" onclick="openNewTab(event, 'index')">
-                          <span class="text-xl font-bold block uppercase tracking-wide text-gray-700">{{count($user->experiences)}}</span>
+                      <div class="mr-4 p-3 text-center bg-gray-200 rounded-md shadow-xl hover:bg-gray-400" onclick="openNewTab(event, 'index')">
+                          <span class="text-xl font-bold block uppercase tracking-wide text-gray-700">{{count(Auth::user()->experiences)}}</span>
                           <span class="text-sm text-gray-500">Experiencias</span>
                       </div>
 
-                      <div class="mr-4 p-3 text-center" onclick="openNewTab(event, 'sales')">
+                      <div class="mr-4 p-3 text-center bg-gray-200 rounded-md shadow-xl hover:bg-gray-400" onclick="openNewTab(event, 'sales')">
                       
                         @php
                             $balance=0;
-                          foreach ($user->experiences as $experience) {
+                          foreach (Auth::user()->experiences as $experience) {
                             foreach ($experience->sales as $sale) {
                               if ($sale->status=='1') {
                                 $balance=$balance+$sale->amount;
@@ -86,26 +81,20 @@
               </div>
 
               <div class="text-center mt-12">
-                <h3
-                  class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2"
-                >
-                  {{$user->surname}}, {{$user->name}} 
+                <h3 class="text-4xl font-semibold leading-normal text-gray-800 mb-2">
+                  {{Auth::user()->surname}}, {{Auth::user()->name}} 
                 </h3>
-                <div
-                  class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
-                >
-                  <i
-                    class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"
-                  ></i>
-                  {{$user->province}}, {{$user->country}}
+                <div class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase">
+                  <i class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
+                  {{Auth::user()->province}}, {{Auth::user()->country}}
                 </div>
                 <div class="mb-2 text-gray-700 mt-10">
-                  <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i
-                  >Agente de turismo - Turismo Tuc
+                  <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i>
+                  Agente de turismo - Turismo Tuc
                 </div>
                 <div class="mb-2 text-gray-700">
-                  <i class="fas fa-university mr-2 text-lg text-gray-500"></i
-                  >Universidad del Norte Santo Tomas de Aquino
+                  <i class="fas fa-university mr-2 text-lg text-gray-500"></i>
+                  Universidad del Norte Santo Tomas de Aquino
                 </div>
               </div>
 
@@ -138,4 +127,16 @@
         </div>
       </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+    
+    <script>
+      $(document).ready(function() {
+        $('.input-images').imageUploader({
+          label: 'Arrastra o hace click para subir las imagenes',
+          imagesInputName: 'images'
+        });
+    });
+  
+  
+    </script>
 @endsection    

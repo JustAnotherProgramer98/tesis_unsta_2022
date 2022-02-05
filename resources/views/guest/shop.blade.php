@@ -1,76 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <script src="https://cdn.tailwindcss.com/"></script>
-    <script src="chrome-extension://kgejglhpjiefppelpmljglcjbhoiplfn/shadydom.js"></script>
-    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <section class="relative mx-auto">
-            <!-- navbar -->
-        <nav class="flex justify-between bg-gray-900 text-white w-screen">
-        <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-            <a class="text-3xl font-bold font-heading" href="#">
-                <!-- <img class="h-9" src="logo.png" alt="logo"> -->
-            Logo Here.
-            </a>
-                <!-- Nav Links -->
-            <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-            <li><a class="hover:text-gray-200" href="{{ route('experiencies.index') }}">Home</a></li>
-            
-            <li><a class="hover:text-gray-200" href="{{ route('experiencies.shop') }}">Shop</a></li>
-            <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
-            </ul>
-                <!-- Header Icons -->
-            <div class="hidden xl:flex  space-x-5 items-center">
-                <a class="hover:text-gray-200" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-                </a>
-                <a class="flex items-center hover:text-gray-200" href="cart_shop">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                <span class="flex absolute -mt-5 ml-4">
-                    <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
-                    </span>
-                    </span>
-                </a>
-                <!-- Sign In / Register      -->
-                <a class="flex items-center hover:text-gray-200" href="account">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </a>
-                
-            </div>
-        </div>
-            <!-- Responsive navbar -->
-            <a class="xl:hidden flex mr-6 items-center" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            <span class="flex absolute -mt-5 ml-4">
-                <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
-                </span>
-            </span>
-            </a>
-            <a class="navbar-burger self-center mr-12 xl:hidden" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </a>
-        </nav>
-        </section>
-    </head>
-<body class="overflow-x-hidden">
+@extends('layouts.guest')
+@section('content')     
     <section class="relative  bg-blueGray-50">
         <!-- Main tittle with the photo -->
         <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
@@ -146,7 +75,7 @@
                 <div class="mx-auto container py-8">
                     <div class="flex flex-wrap items-center lg:justify-between justify-center">
                         <!-- Card 1 -->
-                        @foreach ($category as $categories)
+                        @forelse ($category as $categories)
                         <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="s">
                             <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
                                 <div>
@@ -162,13 +91,29 @@
                                 </div>
                             </div>
                         </a>
-                            @endforeach
+                        @empty
+                        <div class="w-full md:w-4/12 mx-auto px-4 text-center">
+                            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                              <div class="px-4 py-5 flex-auto">
+                                <div class="text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full bg-blue-400">
+                                  <span class="inline-block  text-blue-500 dark:text-blue-400">
+                                        <i class="text-6xl text-white far fa-sad-tear"></i>
+                                  </span>
+                                </div>
+                                <h6 class="text-xl font-semibold">Malas noticias</h6>
+                                <p class="mt-2 mb-4 text-gray-600">
+                                        No hay categorias aprobadas aun
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                            @endforelse
                         <!-- Card 1 Ends -->
                     </div>
                     
                     <div class="flex flex-wrap items-center lg:justify-between justify-center">
-                        <!-- Card 1 -->
-                        @foreach ($experiences as $experience)
+                        <!-- Card 2 -->
+                        @forelse ($experiences as $experience)
                         
                         <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="{{route('guest.product',$experience)}}">
                             <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
@@ -185,8 +130,9 @@
                                 </div>
                             </div>
                         </a>
-                            @endforeach
-                        <!-- Card 1 Ends -->
+                        @empty
+                            @endforelse
+                        <!-- Card 2 Ends -->
                     </div> 
                 </div>  
             </div>
@@ -203,8 +149,8 @@
                 <!-- Remove py-8 -->
                 <div class="mx-auto container py-8">
                     <div class="flex flex-wrap items-center lg:justify-between justify-center">
-                        <!-- Card 1 -->
-                        @foreach ($experiences as $experience)
+                        <!-- Card 3 -->
+                        @forelse ($experiences as $experience)
                         <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
                             <div>
                                 <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
@@ -218,8 +164,24 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-                        <!-- Card 1 Ends -->
+                        @empty
+                        <div class="w-full md:w-4/12 mx-auto px-4 text-center">
+                            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                              <div class="px-4 py-5 flex-auto">
+                                <div class="text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full bg-green-600">
+                                  <span class="inline-block  text-blue-500 dark:text-blue-400">
+                                    <i class="text-6xl text-white far fa-sad-tear"></i>
+                                  </span>
+                                </div>
+                                <h6 class="text-xl font-semibold">Malas noticias</h6>
+                                <p class="mt-2 mb-4 text-gray-600">
+                                        No hay lugares aprobados aun
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        @endforelse
+                        <!-- Card 3 Ends -->
                       </div>    
                 </div>  
             </div>
@@ -227,5 +189,4 @@
                 if (!window.ShadyDOM) window.ShadyDOM = { force: true, noPatch: true };
             </script>
     </section>
-</body>
-</html>
+@endsection  

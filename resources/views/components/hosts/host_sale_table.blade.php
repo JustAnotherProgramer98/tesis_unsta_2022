@@ -1,4 +1,5 @@
-<div class="w-full overflow-x-auto mt-8"> {{-- inicio tabla de experiencias --}}
+<div class="w-full overflow-x-auto mt-8"> {{-- inicio tabla de ventas --}}
+    @if (count(Auth::user()->experiences) != 0)
     <table class="w-full bg-black">
         <thead>
             <tr
@@ -11,7 +12,7 @@
             </tr>
         </thead>
         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-            @forelse ($user->experiences as $experience)
+            @forelse (Auth::user()->experiences as $experience)
                 @forelse ($experience->sales as $sale)
                 <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                     <td class="px-4 py-3">
@@ -50,4 +51,7 @@
         </tbody>
     </table>
     <br>
+    @else
+    <p>Aun no tienes ventas , que tal unos cupones para motivar las ventas?</p>
+    @endif
 </div> {{-- fin tabla de experiencia --}}
