@@ -31,8 +31,9 @@ class ExperienceController extends Controller
                 $comment=Comment::all();
                 $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
                 $languajes=Languaje::all();
+                $categories=Category::all();
                 
-                return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes','comment']));
+                return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes','comment','categories']));
             }
             
         }
@@ -50,6 +51,7 @@ class ExperienceController extends Controller
             'host_id'=>'required|integer',
             'languajes'=>'required|array',
             'price'=>'required',
+            'quantity_clients'=>'required|integer',
             'images'=>'required'
         ]);
         
@@ -113,10 +115,11 @@ class ExperienceController extends Controller
             'title'=>'required|string',
             'subtitle'=>'required|string',
             'description'=>'required|string',
+            'quantity_clients'=>'required|integer',
+            'price'=>'required',
             'place_id'=>'required|integer',
             'host_id'=>'required|integer',
             'languajes'=>'required|array',
-            'price'=>'required',
             'status'=>'required',
         ]);
 

@@ -123,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-                <x-create-experience-form :places="$places" :hosts="$hosts" :languajes="$languajes"></x-create-experience-form>
+                <x-create-experience-form :places="$places" :hosts="$hosts" :languajes="$languajes" :categories="$categories"></x-create-experience-form>
             </div>
         </div>
 

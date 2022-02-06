@@ -9,11 +9,14 @@ class CreateExperienceForm extends Component
     public $places;
     public $hosts;
     public $languajes;
-    public function __construct($places,$hosts,$languajes)
+    public $categories;
+    
+    public function __construct($places,$hosts,$languajes,$categories)
     {
         $this->places=$places;
         $this->hosts=$hosts;
         $this->languajes=$languajes;
+        $this->categories=$categories;
         
     }
 

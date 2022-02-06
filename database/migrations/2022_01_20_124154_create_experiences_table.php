@@ -20,6 +20,7 @@ class CreateExperiencesTable extends Migration
             $table->string('subtitle');
             $table->text('description');
             $table->double('price');
+            $table->integer('quantity_clients');
             $table->integer('status')->default(0);
 
             $table->foreignId('place_id')->constrained()->references('id')->on('places')->onDelete('cascade');
