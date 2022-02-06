@@ -42,7 +42,6 @@ class ExperienceController extends Controller
 
     public function store(Request $request)
     {
-
         $validated=$request->validate([
             'title'=>'required|string',
             'subtitle'=>'required|string',
@@ -52,11 +51,8 @@ class ExperienceController extends Controller
             'languajes'=>'required|array',
             'price'=>'required',
             'images'=>'required'
-            
         ]);
         
-                
-
         $languajes=collect();
         foreach ($validated['languajes'] as $add_languaje) {
             $languajes->add(Languaje::where('id',$add_languaje)->get()->first());
@@ -113,8 +109,6 @@ class ExperienceController extends Controller
 
     public function update(Request $request, Experience $experience)
     {
-         // image_id De momento no
-
          $validated=$request->validate([
             'title'=>'required|string',
             'subtitle'=>'required|string',
@@ -122,16 +116,18 @@ class ExperienceController extends Controller
             'place_id'=>'required|integer',
             'host_id'=>'required|integer',
             'languajes'=>'required|array',
+            'price'=>'required',
             'status'=>'required',
         ]);
 
+        
         $languajes=collect();
         foreach ($validated['languajes'] as $add_languaje) {
             $languajes->add(Languaje::where('id',$add_languaje)->get()->first());
         }
 
         try {
-            DB::transaction(function () use ($validated,$languajes,$experience){
+            DB::transaction(function () use ($validated,$languajes,$experience,$request){
                 $experience->update($validated+[
                     'slug'=>strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $validated['title']))))), '-')),
                 ]);
@@ -140,6 +136,18 @@ class ExperienceController extends Controller
                     $experience->languajes()->attach($languaje);
                 }
 
+                if ($request->images==null) foreach($experience->images as $image_to_delete) $image_to_delete->delete(); 
+                else {       
+                    foreach($request->images as $image_request){
+                    $image = new Image;
+                    $image_request->store('public');
+                    $image->url=$image_request->hashName();
+                    $image->alt="Imagen Experiencia";
+                    $image->picturable_type=get_class($experience);
+                    $image->picturable_id=$experience->id;
+                    $image->save();
+                }
+            }
                 
             });            
             return redirect()->route('experiencies.index.admin');
