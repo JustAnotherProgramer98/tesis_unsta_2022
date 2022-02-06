@@ -87,9 +87,21 @@ class PlaceController extends Controller
             ]);
         
             try {
-                DB::transaction(function () use ($validated,$place){
-        
+                DB::transaction(function () use ($validated,$place,$request){
                     $place->update($validated);
+
+                    if ($request->images==null) foreach($place->images as $image_to_delete) $image_to_delete->delete(); 
+                    else {       
+                        foreach($request->images as $image_request){
+                        $image = new Image;
+                        $image_request->store('public');
+                        $image->url=$image_request->hashName();
+                        $image->alt="Imagen Experiencia";
+                        $image->picturable_type=get_class($place);
+                        $image->picturable_id=$place->id;
+                        $image->save();
+                    }
+                }
             });
             return redirect()->route('places.index.admin');
             } catch (\Throwable $th) {
