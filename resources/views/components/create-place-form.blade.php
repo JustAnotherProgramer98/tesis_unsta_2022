@@ -55,9 +55,13 @@
         </div>
         <div class="relative p-4">
             <label for="name" class="text-base leading-7 ">Latitud y Longitud</label><br>
-            <small class="text-gray-500">**Separa con una , la latitud de la longitud</small>
-            <input  name="coordenates"
-                class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
+            {{-- Mapa de google maps --}}
+        <div class="relative p-4">
+            <label for="name" class="text-base leading-7 ">Indica en el mapa la ubicacion de tu experiencia</label>
+                <div id="mapa" style="margin-top: 2rem;width: 100%;height: 400px;border:2px solid transparent;"></div>             
+                <input type="hidden" name="coordinates" id="coordinates">
+        </div>
+
         </div>
         <div class="flex items-center w-full pt-4 mb-4">
             <button
