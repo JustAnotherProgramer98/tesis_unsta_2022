@@ -23,6 +23,7 @@
                 </button>
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
                     <div class="w-full overflow-x-auto">
+                        @if (count($users) != 0)
                         <table class="w-full">
                             <thead>
                                 <tr
@@ -103,6 +104,9 @@
                             </table>
                             <br>
                             {{ $users->links() }}
+                            @else
+                            <p>No hay usuarios borrados en la base de datos</p>
+                            @endif
                         </div>
                     </div>
                 </div>
