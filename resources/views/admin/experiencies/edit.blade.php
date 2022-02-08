@@ -36,7 +36,6 @@
                     label: 'Arrastra o hace click para subir las imagenes'
                 });
 
-<<<<<<< HEAD
         let count={!! json_encode($count) !!};
         var preloaded = [];
         var values = {!! json_encode($varJS) !!}
@@ -53,8 +52,6 @@
             $('.input-images').imageUploader({
                 label: 'Arrastra o hace click para subir las imagenes',
                 preloaded: preloaded
-=======
->>>>>>> frontEnd
             });
         </script>
     @endsection
