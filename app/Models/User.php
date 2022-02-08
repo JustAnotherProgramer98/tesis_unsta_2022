@@ -88,11 +88,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Sale::class,'buyer_id');
     }
-    public function coupon_codes()
-    {
-        return $this->hasMany(CouponCode::class);
-    }
-    
     public function isAdmin()
     {
         if($this->role->name == "Admin"){

@@ -28,17 +28,15 @@
 
         </div>
 
-        @php
-        $count=count($experience->images);
-        $varJS = array();
-        foreach ($experience->images as $image)  array_push($varJS,asset("storage/".$image->url));
-        @endphp
-
-
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
                 crossorigin="anonymous"></script>
         <script>
+            $(document).ready(function() {
+                $('.input-images').imageUploader({
+                    label: 'Arrastra o hace click para subir las imagenes'
+                });
 
+<<<<<<< HEAD
         let count={!! json_encode($count) !!};
         var preloaded = [];
         var values = {!! json_encode($varJS) !!}
@@ -55,7 +53,8 @@
             $('.input-images').imageUploader({
                 label: 'Arrastra o hace click para subir las imagenes',
                 preloaded: preloaded
+=======
+>>>>>>> frontEnd
             });
-        });
         </script>
     @endsection

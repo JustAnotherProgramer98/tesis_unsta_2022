@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\GuestController;
+use app\Http\Controllers\Product_ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Experience;
 use App\Models\Province;
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
 Route::get('/shop',[GuestController::class,'index'])->name('experiencies.shop');
 
+Route::get('/product_shop', [Product_ShopController::class,'index'])->name('experiencies.product_shop');
 
 Route::get('/product/{experience}', function (App\Models\Experience $experience) {
     $experiences = App\Models\Experience::all();
@@ -40,11 +42,7 @@ Route::get('/cart_shop', function () {
     return view('guest.cart_shop', compact(["experiences"]));
 });
 
-Route::get('/product_shop', function () {
-    $experiences = App\Models\Experience::all();
 
-    return view('guest.product_shop', compact(["experiences"]));
-});
 
 Route::middleware('auth')->get('/account', function () {
     $provinces=Province::all();

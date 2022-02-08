@@ -12,34 +12,6 @@ function openNewTab(evt, tab_name) {
     document.getElementById(tab_name).style.display = "block";
     evt.currentTarget.className += " active";
 }
-  //Move between tabs from my_profile_host
-  function showExperience(evt, tab_name,experience,image_url,experience_province,experience_city,experience_adress) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tab_name).style.display = "block";
-    evt.currentTarget.className += " active";
-
-    if(tab_name=='show_experience_detail'){
-
-      if (image_url=="Sin imagenes") document.getElementById("experience_image").alt='Experiencia sin imagen';  
-      
-      document.getElementById("experience_image").src=image_url;
-      document.getElementById('experience_title').innerHTML = experience.title;
-      document.getElementById('experience_subtitle').innerHTML = experience.subtitle;
-      document.getElementById('experience_description').innerHTML = experience.description;
-
-      document.getElementById('experience_province').innerHTML = experience_province;
-      document.getElementById('experience_city').innerHTML = experience_city;
-      document.getElementById('experience_addres').innerHTML = experience_adress;
-    }
-}
 
 //Search cities by Province_id
 function searchByProvincia(url) {

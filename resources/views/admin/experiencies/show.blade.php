@@ -35,16 +35,8 @@
                 </a>
                 <section class="flex flex-col w-full h-full p-1 overflow-auto">
                     <label for="name" class="text-base leading-7  mb-5">Imagen de la experiencia</label>
-                    <header class="flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 {{ $experience->images->first() ? '' :  'bg-gray-400 '}}">
-                        {{ $experience->images->first() ? '' :  'Sin imagen ! '}}
-                        @if ($experience->images->first())
-                            @forelse ($experience->images as $image)
-                                <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
-                            @empty
-                            <p>Sin Imagenes</p>
-                            @endforelse
-                        @endif
-
+                    <header class="flex flex-col items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
+                        <img src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
                     </header>
                 </section>
                 <div class="relative p-4">

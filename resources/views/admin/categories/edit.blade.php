@@ -72,26 +72,13 @@
             </form>
         </div>
     </div>
-    @php
-        $count=count($category->images);
-        $varJS = array();
-        foreach ($category->images as $image)  array_push($varJS,asset("storage/".$image->url));
-    @endphp
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
         <script>
-        let count={!! json_encode($count) !!};
-        var preloaded = [];
-        var values = {!! json_encode($varJS) !!}
-        
-        if(values != []) for(var i = 0; i < count; i++) preloaded.push({id: i, src: values[i]});
-
             $(document).ready(function () {
             change_select_color();
             $('.input-images').imageUploader({
-                label:'Arrastra o hace click para subir las imagenes',
-                preloaded: preloaded,
-                maxFiles:1
+                label:'Arrastra o hace click para subir las imagenes'
             });
   
         });

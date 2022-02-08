@@ -1,9 +1,10 @@
 @extends('layouts.guest')
-@section('content')     
+@section('content')    
+<body>
 
 <!-- Main tittle with the photo -->
     <section class="relative  bg-blueGray-50">
-        <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
+        <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75 ">
             <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
                     background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80');
                 ">
@@ -213,7 +214,7 @@
 
 <!-- Description with a photo -->
     <section>
-        <div class="bg-indigo-600">
+        <div class="bg-gray-800">
             <div class="lg:grid lg:grid-cols-2">
                 <div class="py-24 px-10 lg:px-0 max-w-3xl lg:max-w-md mx-auto">
                     <h2 class="text-4xl tracking-tight font-extrabold text-gray-100">
@@ -280,4 +281,6 @@
             </div>
         </div>
     </section>
-@endsection  
+
+</body>
+@endsection 

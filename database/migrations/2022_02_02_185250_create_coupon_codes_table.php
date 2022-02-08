@@ -15,12 +15,6 @@ class CreateCouponCodesTable extends Migration
     {
         Schema::create('coupon_codes', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
-            $table->integer('discount_percent');
-            $table->integer('status')->default(0);
-
-            $table->foreignId('user_id')->nullable()->constrained()->references('id')->on('users')->onDelete('cascade');//quien usa el codigo
-            $table->foreignId('experience_id')->constrained()->references('id')->on('experiences');
             $table->timestamps();
         });
     }
