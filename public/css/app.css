@@ -1030,6 +1030,9 @@ select {
 .z-10 {
   z-index: 10;
 }
+.z-999 {
+  z-index: 999;
+}
 .col-span-6 {
   grid-column: span 6 / span 6;
 }

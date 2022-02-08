@@ -23,7 +23,7 @@
 
     <section class="relative mx-auto"> <!-- Cabecera de la Pagina -->
         <!-- navbar -->
-        <nav class="flex justify-between bg-gray-800 text-white w-full">
+        <nav class="flex justify-between bg-gray-800 text-white w-full ">
             <div class="px-5 xl:px-12 py-6 flex w-full items-center">
                 <a class="text-3xl font-bold font-heading" href="#">
                     <!-- <img class="h-9" src="logo.png" alt="logo"> -->
@@ -60,7 +60,7 @@
                     </a>
 
                     <!-- Sign In / Register  test    -->
-                    <div class=" relative inline-block text-left dropdown">
+                    <div class="absolute relative inline-block text-left dropdown z-999">
                         <button class="flex items-center hover:text-gray-200" 
                                 type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none"
@@ -73,9 +73,12 @@
                         
                         <div class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
                             <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none" aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
-                                <div class="px-4 py-3">         
-                                    <p class="text-sm leading-5">Signed in as</p>
-                                    <!-- <p class="text-sm font-medium leading-5 text-gray-900 truncate">{{--Auth::user()->email--}}</p> -->
+                                <div class="px-4 py-3">
+                                    @if (Auth::user())        
+                                        <p class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left">{{Auth::user()->email}}</p>
+                                    @else
+                                        <a href="{{ route('login') }}" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Signed in as</a>
+                                    @endif
                                 </div>
                                 <div class="py-1">
                                     <a href="javascript:void(0)" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Account settings</a>
