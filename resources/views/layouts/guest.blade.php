@@ -39,7 +39,6 @@
 </section> <!-- FIN  Cabecera de a Pagina -->
 
 
-
 <body class="text-gray-800 antialiased">
     @yield("content")
     
