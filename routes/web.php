@@ -45,7 +45,7 @@ Route::get('/cart_shop', function () {
 Route::get('/contact_us', function () {
     $experiences = App\Models\Experience::all();
     return view('guest.contact_us', compact(["experiences"]));
-});
+})->name('contact_us');
 
 
 Route::middleware('auth')->get('/account', function () {
