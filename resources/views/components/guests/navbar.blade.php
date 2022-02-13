@@ -1,8 +1,8 @@
 <nav class="flex justify-between bg-gray-700 text-white w-full">
         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
             <a class="text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
-                <div class="bg-white">
-                    <img class="" src="{{ asset('images/zorzal_logo.png') }}" alt="logo">
+                <div class="flex bg-white">
+                    <img class="" src="{{ asset('images/Turistear-sb.png') }}" alt="logo">
 
                 </div>
                 
@@ -12,7 +12,7 @@
                 <li><a class="hover:text-gray-200" href="{{ route('experiencies.index') }}">Home</a></li>
 
                 <li><a class="hover:text-gray-200" href="{{ route('experiencies.shop') }}">Shop</a></li>
-                <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
+                <li><a class="hover:text-gray-200" href="contact_us">Contact Us</a></li>
             </ul>
             <!-- Header Icons -->
             <div class="hidden xl:flex space-x-5 items-center">
