@@ -56,8 +56,8 @@
                       <div class="mr-4 p-3 text-center">
                         <span
                           class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                          >22</span
-                        ><span class="text-sm text-gray-500">Amigos</span>
+                          >4.5</span
+                          ><span class="text-sm text-gray-500">Estrellas</span>
                       </div>
 
                       <div class="mr-4 p-3 text-center" onclick="openNewTab(event, 'index')">
@@ -87,7 +87,7 @@
 
               <div class="text-center mt-12">
                 <h3
-                  class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2"
+                  class="text-4xl font-semibold leading-normal text-gray-800 mb-2"
                 >
                   {{$user->surname}}, {{$user->name}} 
                 </h3>
