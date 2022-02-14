@@ -69,8 +69,6 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category)
     {
-          // image_id De momento no
-
           $validated=$request->validate([
             'title'=>'required|string',
             'description'=>'required|string',
@@ -78,11 +76,23 @@ class CategoryController extends Controller
         ]);
 
         try {
-            DB::transaction(function () use ($validated,$category){
+            DB::transaction(function () use ($validated,$category,$request){
                 $category->update($validated+[
                     'slug'=>strtolower(trim(preg_replace('/[\s-]+/', '-', preg_replace('/[^A-Za-z0-9-]+/', '-', preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $validated['title']))))), '-')),
                 ]);
                 
+                if ($request->images==null) foreach($category->images as $image_to_delete) $image_to_delete->delete(); 
+                else {       
+                    foreach($request->images as $image_request){
+                    $image = new Image;
+                    $image_request->store('public');
+                    $image->url=$image_request->hashName();
+                    $image->alt="Imagen Experiencia";
+                    $image->picturable_type=get_class($category);
+                    $image->picturable_id=$category->id;
+                    $image->save();
+                }
+            }
             });            
             return redirect()->route('categories.index.admin');
 

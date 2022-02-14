@@ -43,7 +43,7 @@ function showExperience(evt, tab_name,experience,image_url,experience_province,e
 
 //Search cities by Province_id
 function searchByProvincia(url) {
-  var province_id = $("#search_cities_by_province_id").val();
+  var province_id = $("#search_cities_by_province_id option:selected").val();
   $.ajax({
       url:url,
       headers: {
