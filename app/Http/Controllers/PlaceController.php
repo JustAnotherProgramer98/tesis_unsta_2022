@@ -36,12 +36,17 @@ class PlaceController extends Controller
     'province_id'=>'required|integer',
     'city_id'=>'required|integer',
     'adress'=>'required|string',
-    'coordenates'=>'required|string',
+    'coordinates'=>'required|string',
     ]);
 
     try {
-        DB::transaction(function () use ($validated,$request){
-        $place=Place::create($validated);
+        $longitud=str_replace(str_replace('(','',strtok($request->coordinates,',')),'',$request->coordinates); 
+        $longitud=str_replace(')','',str_replace('(,','',$longitud));
+
+        $latitud=str_replace('(','',strtok($request->coordinates, ','));
+
+        DB::transaction(function () use ($validated,$request,$latitud,$longitud){
+        $place=Place::create($validated+['coordenates'=>$latitud.'-'.$longitud]);
 
         foreach($request->images as $image_request){
             $image = new Image();

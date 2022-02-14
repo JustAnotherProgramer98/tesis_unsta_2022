@@ -196,4 +196,50 @@
                 });
             };
         </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBH-_Wnc-2JkqJ1xHKJD8ggIGlnBT1yMY&callback=initMap"></script>
+        <script>
+            function initMap() {
+                // Coordenadas de Tucuman
+                const tucuman = {
+                    lat: -26.8198,
+                    lng: -65.2169
+                };
+
+                const map = new google.maps.Map(document.getElementById("mapa"));
+                navigator.geolocation.getCurrentPosition(function(position) {
+
+                    // Mapa centrado en la posicion del usuario si acepta la geolocalizacion
+                    var initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    map.setCenter(initialLocation);
+                    map.setZoom(13);
+                }, function(positionError) {
+                    // User denied geolocation prompt - default Tucuman
+                    map.setCenter(new google.maps.LatLng(tucuman));
+                    map.setZoom(5);
+                });
+                var marker;
+
+                function placeMarker(location) {
+                    if (marker) {
+                        marker.setPosition(location);
+                        document.getElementById("coordinates").value=location;
+
+                    } else {
+                        marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            label:'Aqui!'
+                        });
+                        document.getElementById("coordinates").value=location;
+
+                    }
+                    console.log(document.getElementById("coordinates").value);
+
+                }
+
+                google.maps.event.addListener(map, 'click', function(event) {
+                    placeMarker(event.latLng);
+                });
+            }
+        </script>
     @endsection
