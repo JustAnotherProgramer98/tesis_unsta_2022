@@ -144,7 +144,7 @@
             </div>
             <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
               <div
-                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-gray-700"
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-700"
               >
                 <img
                   alt="..."
@@ -234,49 +234,6 @@
                     <img class="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-tl-md"
                         src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
                         alt="Woman workcation on the beach">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photos Team -->
-    <section class="bg-white dark:bg-gray-900">
-        <div class="container px-6 py-10 mx-auto">
-            <div class="xl:flex xl:items-center xL:-mx-4">
-                <div class="xl:w-1/2 xl:mx-4">
-                    <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Nuestro
-                        Equipo</h1>
-
-                    <p class="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
-                        Somos dos alumnos cursando su último año de la carrera de Ingeniería Informática, de la Universidad del
-                        Norte Santo Tomas de Aquino.
-                        Este proyecto está diseñado como exposición para el proyecto final integrador. En el cual consta de satisfacer las necesidades de clientes a nivel mundial.
-
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-2">
-                    <div>
-                        <img class="object-cover rounded-xl h-64 w-full"
-                            src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                            alt="">
-
-                        <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Santiago
-                            Evangelista</h1>
-
-                        <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">Full stack developer</p>
-                    </div>
-
-                    <div>
-                        <img class="object-cover rounded-xl h-64 w-full"
-                            src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                            alt="">
-
-                        <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Matias Nicolas
-                            Morales</h1>
-
-                        <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">Graphic Designer</p>
-                    </div>
                 </div>
             </div>
         </div>

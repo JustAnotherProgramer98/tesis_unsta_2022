@@ -9,6 +9,7 @@
                 <div class="mx-auto container py-8">
                     <div class="flex flex-wrap items-center lg:justify-between justify-center">
                         <!-- Card 1 -->
+                        
                         @foreach ($experiences as $experience)
                         <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
                             <div>
