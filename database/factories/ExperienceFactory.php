@@ -26,6 +26,7 @@ class ExperienceFactory extends Factory
             'title'=>$title,
             'price'=>$this->faker->numberBetween($min = 1500, $max = 6000),
             'subtitle'=>$this->faker->realText(10),
+            'quantity_clients'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
             'slug'=>str_replace(' ', '-', strtolower($title)),
             'description'=>$this->faker->realText(20),
             'place_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
