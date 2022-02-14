@@ -121,7 +121,6 @@ hideEvents.forEach((event) => {
   button.addEventListener(event, hide);
 });  
 } catch (error) {
-console.log(error);
 
 }
 //Limit of input cuppons
@@ -149,7 +148,7 @@ document.getElementById(tab_name).style.display = "block";
 event.currentTarget.className += " active";
 
 document.getElementById("container_popover_buttons").innerHTML='';    
-console.log("largo del array "+coupons.length);
+
 
 let loop=0;
 for (let index = 0; index != coupons.length ; index++) {
@@ -174,4 +173,26 @@ popover_button=`
    
 }
 document.getElementById("experience_name").innerHTML=model;
+}
+
+//Change select color
+function change_select_color() {
+status_experiencia = $( "#status option:selected" ).text();
+switch (status_experiencia) {
+    case "Inactivo":
+         $('#status').css('background-color', ' rgb(239 68 68)');
+         $('#status').css('color', ' white');
+        break;
+    case "Activo":
+         $('#status').css('background-color', ' rgb(34, 197, 94)');
+         $('#status').css('color', ' white');
+        break;
+    case "Pendiente de aprobacion":
+         $('#status').css('background-color', ' rgb(234, 179, 8)');
+         $('#status').css('color', 'white');
+        break;
+    default:
+        $('#status').css('background-color', ' white');
+        break;
+}
 }

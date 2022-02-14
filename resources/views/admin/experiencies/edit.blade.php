@@ -48,8 +48,8 @@
             }
         }
 
-
         $(document).ready(function() {
+            change_select_color();
             $('.input-images').imageUploader({
                 label: 'Arrastra o hace click para subir las imagenes',
                 preloaded: preloaded
