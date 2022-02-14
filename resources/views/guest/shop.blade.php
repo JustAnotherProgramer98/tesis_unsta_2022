@@ -77,24 +77,39 @@
                                         
                     <div class="flex flex-wrap items-center lg:justify-between justify-center">
                         <!-- Card Categorias -->
-                        @foreach ($category as $categories)
-                            <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" 
-                                href="{{route('experiencies.product_shop',$categories)}}">
-                                <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
+                        @forelse ($category as $categories)
+                        <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="s">
+                            <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
+                                <div>
+                                    <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
                                     <div>
-                                        <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
-                                        <div>
-                                            <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $categories->title }} </h1>
-                                            <p class="text-gray-700 mb-2"> {{ $categories->description }}</p>
-                                            <div class="flex justify-between mt-4">
-                                                <span class="font-thin text-sm">May 20th 2020</span>
-                                                <span class="mb-2 text-gray-800 font-bold">Read more</span>
-                                            </div>
+                                        <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $categories->title }} </h1>
+                                        <p class="text-gray-700 mb-2"> {{ $categories->description }}</p>
+                                        <div class="flex justify-between mt-4">
+                                            <span class="font-thin text-sm">May 20th 2020</span>
+                                            <span class="mb-2 text-gray-800 font-bold">Read more</span>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                        @endforeach
+                            </div>
+                        </a>
+                        @empty
+                        <div class="w-full md:w-4/12 mx-auto px-4 text-center">
+                            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                              <div class="px-4 py-5 flex-auto">
+                                <div class="text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full bg-blue-400">
+                                  <span class="inline-block  text-blue-500 dark:text-blue-400">
+                                        <i class="text-6xl text-white far fa-sad-tear"></i>
+                                  </span>
+                                </div>
+                                <h6 class="text-xl font-semibold">Malas noticias</h6>
+                                <p class="mt-2 mb-4 text-gray-600">
+                                        No hay categorias aprobadas aun
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                            @endforelse
                         <!-- Card Categorias Ends -->
                     </div> 
                 </div>  
@@ -113,21 +128,39 @@
                 <div class="mx-auto container py-8">
                     <div class="flex flex-wrap items-center lg:justify-between justify-center">
                         <!-- Card 1 -->
-                        @foreach ($experiences as $experience)
-                        <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-                            <div>
-                                <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
+                        @forelse ($category as $categories)
+                        <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="s">
+                            <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
                                 <div>
-                                    <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2">{{ $experience->place->city->name }} </h1>
-                                    <p class="text-gray-700 mb-2"> {{ $experience->place->city->province->name }}</p>
-                                    <div class="flex justify-between mt-4">
-                                        <span class="font-thin text-sm">May 20th 2020</span>
-                                        
+                                    <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
+                                    <div>
+                                        <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $categories->title }} </h1>
+                                        <p class="text-gray-700 mb-2"> {{ $categories->description }}</p>
+                                        <div class="flex justify-between mt-4">
+                                            <span class="font-thin text-sm">May 20th 2020</span>
+                                            <span class="mb-2 text-gray-800 font-bold">Read more</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        @endforeach
+                        </a>
+                        @empty
+                        <div class="w-full md:w-4/12 mx-auto px-4 text-center">
+                            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                              <div class="px-4 py-5 flex-auto">
+                                <div class="text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full bg-green-400">
+                                  <span class="inline-block  text-blue-500 dark:text-blue-400">
+                                        <i class="text-6xl text-white far fa-sad-tear"></i>
+                                  </span>
+                                </div>
+                                <h6 class="text-xl font-semibold">Malas noticias</h6>
+                                <p class="mt-2 mb-4 text-gray-600">
+                                        No hay lugares aprobados aun
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                            @endforelse
                         <!-- Card 1 Ends -->
                       </div>    
                 </div>  
