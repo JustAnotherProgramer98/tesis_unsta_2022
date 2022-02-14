@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
+
 Route::get('/shop',[GuestController::class,'index'])->name('experiencies.shop');
 
 Route::get('/product_shop', [Product_ShopController::class,'index'])->name('experiencies.product_shop');
@@ -37,16 +38,10 @@ Route::get('/product/{experience}', function (App\Models\Experience $experience)
     return view('guest.product', compact(["experiences", 'experience']));
 })->name('guest.product');
 
-Route::get('/cart_shop', function () {
+Route::get('/contact_us', function () {
     $experiences = App\Models\Experience::all();
     return view('guest.cart_shop', compact(["experiences"]));
 });
-
-Route::get('/contact_us', function () {
-    $experiences = App\Models\Experience::all();
-    return view('guest.contact_us', compact(["experiences"]));
-});
-
 
 Route::middleware('auth')->get('/account', function () {
     $provinces=Province::all();

@@ -45,8 +45,6 @@
             }
         }
 
-
-        
         $(document).ready(function() {
             change_select_color();
             $('.input-images').imageUploader({
