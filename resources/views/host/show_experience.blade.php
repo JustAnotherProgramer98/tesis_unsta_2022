@@ -8,6 +8,7 @@
                 @if ($user->experiences->first()->images->first())
                     <img id="experience_image" src="{{asset('storage/'.$user->experiences->first()->images->first()->url)}}">
                 @endif
+            @endif
         </header>
     </section>
     <div class="relative p-4">

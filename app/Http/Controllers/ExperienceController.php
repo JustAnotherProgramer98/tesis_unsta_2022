@@ -9,7 +9,6 @@ use App\Models\Languaje;
 use App\Models\Place;
 use App\Models\User;
 use App\Models\Comment;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,22 +31,19 @@ class ExperienceController extends Controller
                 $comment=Comment::all();
                 $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
                 $languajes=Languaje::all();
-
+                
                 return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes','comment']));
             }
-            elseif (Auth::user()->role->name == 'Anfitrion') {
-                return redirect()->route('hosts.index',Auth::user());
-            }
+            
         }
         $experiences=Experience::where('status', 1)->get();
             return view('guest.index',compact(['experiences']));
     }
 
-
-
     public function store(Request $request)
     {
 
+        // image_id De momento no
         $validated=$request->validate([
             'title'=>'required|string',
             'subtitle'=>'required|string',

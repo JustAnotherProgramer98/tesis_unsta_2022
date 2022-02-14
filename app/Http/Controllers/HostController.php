@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\DB;
 
 class HostController extends Controller
 {
-public function index(User $user){
-
+public function show(User $user)
+{
     if (!(Auth::user()->role->name == 'Administrador')) {
         $provinces=Province::all();
         $places=Place::where('status',1)->get();
         $categories=Category::where('status',1)->get();
         $languajes=Languaje::all();        
-        return view('guest.account',['user'=>$user,'places'=>$places,'languajes'=>$languajes,'provinces'=>$provinces,'categories'=>$categories]);
+        return view('guest.my_profile',['user'=>$user,'places'=>$places,'languajes'=>$languajes,'provinces'=>$provinces,'categories'=>$categories]);
     }
 }
 public function store(Request $request)
