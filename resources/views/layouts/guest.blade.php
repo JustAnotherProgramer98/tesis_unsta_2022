@@ -60,7 +60,7 @@
                     </a>
 
                     <!-- Sign In / Register  test    -->
-                    <div class=" relative inline-block text-left dropdown">
+                    <div class="absolute relative inline-block text-left dropdown z-999">
                         <button class="flex items-center hover:text-gray-200" 
                                 type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none"
