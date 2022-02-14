@@ -1,8 +1,11 @@
 <nav class="flex justify-between bg-gray-700 text-white w-full">
     <div class="px-5 xl:px-12 py-6 flex w-full items-center">
         <a class="text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
-            <!-- <img class="h-9" src="logo.png" alt="logo"> -->
-            Logo Here.
+            <div class="bg-white">
+                <img class="" src="{{ asset('') }}" alt="logo">
+
+            </div>
+            
         </a>
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
