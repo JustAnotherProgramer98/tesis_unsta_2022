@@ -23,6 +23,7 @@ class CommentFactory extends Factory
     {
         return [
             'body'=>$this->faker->realText(20),
+            'stars'=>$this->faker->randomElement([1,2,3,4,5]),
             'user_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
             'experience_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
         ];
