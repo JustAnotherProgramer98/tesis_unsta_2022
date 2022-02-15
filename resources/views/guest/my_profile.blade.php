@@ -50,7 +50,7 @@
 
                   <div class="w-full lg:w-4/12 px-4 lg:order-1"> <!-- Botones del lado izquierdo de la foto --> 
                     <div class="flex justify-center py-4 lg:pt-4 pt-8">
-                      <div class="mr-4 p-3 text-center bg-gray-200 rounded-md shadow-xl hover:bg-gray-400">
+                      <div class="mr-4 p-3 text-center bg-gray-200 rounded-md shadow-xl hover:bg-gray-400" onclick="openNewTab(event, 'comments')">
                         <span class="text-xl font-bold block uppercase tracking-wide text-gray-700">4.5</span>
                         <span class="text-sm text-gray-500">Estrellas</span>
                       </div>
@@ -121,6 +121,7 @@
               @include('host.sales_index')
               @include('host.create_experience')
               @include('host.show_experience')
+              @include('host.comments')
 
             </div>
           </div>
