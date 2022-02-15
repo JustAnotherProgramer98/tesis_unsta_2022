@@ -20,6 +20,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.css" rel="stylesheet" />
     <link type="text/css" rel="stylesheet" href="{{ asset('css/image-uploader.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/image-uploader.css') }}">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
 </head>
 

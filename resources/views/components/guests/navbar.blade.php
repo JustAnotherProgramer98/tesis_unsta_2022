@@ -92,7 +92,7 @@
                         
                         <div class="py-1">
                             <a href="{{ route('login') }}" class="hover:bg-slate-300 text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem"><i class="fas fa-door-open"></i>Iniciar sesion</a>
-                            <a href="{{ route('login') }}" class="hover:bg-slate-300 text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem"><i class="far fa-address-card"></i>Registrarse</a>
+                            <a href="{{ route('register') }}" class="hover:bg-slate-300 text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem"><i class="far fa-address-card"></i>Registrarse</a>
                         </div>
                     </div>
                     @endif

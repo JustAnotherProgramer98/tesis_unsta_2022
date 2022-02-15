@@ -48,6 +48,11 @@ Route::get('/contact_us', function () {
     return view('guest.contact_us', compact(["experiences"]));
 })->name('contact_us');
 
+Route::get('/register', function () {
+    $experiences = App\Models\Experience::all();
+    return view('guest.register', compact(["experiences"]));
+})->name('register');
+
 Route::middleware('auth')->get('/account', function () {
     $provinces=Province::all();
     $places=Place::where('status',1)->get();
