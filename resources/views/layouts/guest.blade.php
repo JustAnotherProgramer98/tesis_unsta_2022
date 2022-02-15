@@ -50,6 +50,8 @@
     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script type="text/javascript" src="{{ asset('js/image-uploader.js') }}"></script>
+    
+    
 
     <script>
         function toggleNavbar(collapseID) {

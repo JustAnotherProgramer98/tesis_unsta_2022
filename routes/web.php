@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index');
+Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index')->middleware('web');;
 
 Route::get('/shop',[GuestController::class,'index'])->name('experiencies.shop');
 
@@ -49,8 +49,8 @@ Route::get('/contact_us', function () {
 })->name('contact_us');
 
 //Register 
-Route::get('/register',[GuestController::class,'create'])->name('register');
-Route::post('/register',[GuestController::class,'store'])->name('register.post');
+Route::get('/register',[GuestController::class,'create'])->name('register')->middleware('web');
+Route::post('/register',[GuestController::class,'store'])->name('register.post')->middleware('web');
 
 Route::middleware('auth')->get('/account', function () {
     $provinces=Province::all();

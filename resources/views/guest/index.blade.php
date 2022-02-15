@@ -1,7 +1,6 @@
 @extends('layouts.guest')
 @section('content')    
 <body>
-
 <!-- Main tittle with the photo -->
     <section class="relative  bg-blueGray-50">
         <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
@@ -240,4 +239,28 @@
     </section>
 
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
+
+
+@if (session('status'))
+<script>
+  Swal.fire({  
+  text: 'Tu perfil fue creado correctamente , busca tu experiencia ideal!',
+  title: "<h1 style='color:#112D4E '>Te damos la bienvenida a Turiste<span style='color: #3F72AF'>AR</span>!</h1>",
+  
+  imageUrl: "{{ asset('images/Turistear.png') }}",
+  imageWidth: 300,
+  imageHeight: 100,
+  imageAlt: 'Turistear logo',
+  confirmButtonText: 'Adelante!',
+  background:'#F9F7F7',
+  margin: '5em',
+  confirmButtonColor: '#112D4E',
+  width: 600,
+})
+ </script>
+
+@endif
 @endsection 

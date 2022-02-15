@@ -51,8 +51,9 @@ class GuestController extends Controller
                 'address'=>$validated['adress'],'city'=>$city->name,'province'=>$city->province->name
                 ,'country'=>$city->province->country->name]);
                 Auth::login($user);
+
             });
-            return redirect()->route('experiencies.index');
+            return redirect()->route('experiencies.index')->with('status', 'Profile updated!');
         }
         catch (\Throwable $th) {
             return $th;
