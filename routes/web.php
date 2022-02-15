@@ -48,10 +48,9 @@ Route::get('/contact_us', function () {
     return view('guest.contact_us', compact(["experiences"]));
 })->name('contact_us');
 
-Route::get('/register', function () {
-    $experiences = App\Models\Experience::all();
-    return view('guest.register', compact(["experiences"]));
-})->name('register');
+//Register 
+Route::get('/register',[GuestController::class,'create'])->name('register');
+Route::post('/register',[GuestController::class,'store'])->name('register.post');
 
 Route::middleware('auth')->get('/account', function () {
     $provinces=Province::all();

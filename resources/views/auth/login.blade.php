@@ -33,7 +33,7 @@
                 Login
               </h1>
               @if ($errors->any())
-              <div class="bg-gray-700 text-white text-2xl">
+              <div class="bg-gray-700 text-white whitespace-nowrap">
                   <ul>
                       @foreach ($errors->all() as $error)
                           <li>{{ $error }}</li>
@@ -45,11 +45,11 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                 <span class="text-gray-700 dark:text-gray-400">Email</span>
-                <input name="email" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"/>
+                <input name="email" required class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"/>
               </label>
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Contraseña</span>
-                <input name="password" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" type="password"/>
+                <input name="password" required class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" type="password"/>
               </label>
 
               <!-- You should use a button here, as the anchor is only used for the example  -->

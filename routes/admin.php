@@ -11,6 +11,9 @@ use App\Models\Category;
 use App\Models\Experience;
 use Illuminate\Support\Facades\Route;
 
+//Render cities by province outside middleware for register 
+Route::post('render/places-by-province', [PlaceController::class, 'renderPlacesByProvince'])->name('places.render.cities.admin');
+
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/panel-de-administracion', [AdminController::class, 'index'])->name('admin.panel');
 
@@ -41,8 +44,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/places/{place}/edit', [PlaceController::class, 'edit'])->name('places.edit.admin');
     Route::put('/places/{place}/update', [PlaceController::class, 'update'])->name('places.update.admin');
     Route::delete('/places/delete', [PlaceController::class, 'destroy'])->name('places.destroy.admin');
-    //Render cities by province
-    Route::post('render/places-by-province', [PlaceController::class, 'renderPlacesByProvince'])->name('places.render.cities.admin');
+    
 
     //Sales
     Route::get('/sales', [SaleController::class, 'index'])->name('sales.index.admin');

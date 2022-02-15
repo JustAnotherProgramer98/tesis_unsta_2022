@@ -87,11 +87,10 @@
                 class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
             </div>
             <div class="relative p-4">
-                <label for="name" class="text-base leading-7 ">Latitud y Longitud de la ubicacion</label><br>
-                <small class="text-gray-500">**Separa con una , la latitud de la longitud</small>
-                <input  name="coordenates"
-                    class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
-            </div>    
+                <label for="name" class="text-base leading-7 ">Indica en el mapa la ubicacion de tu experiencia</label>
+                    <div id="mapa" style="margin-top: 2rem;width: 100%;height: 400px;border:2px solid transparent;"></div>             
+                    <input type="hidden" name="coordinates" id="coordinates">
+            </div>
             <div class="relative p-4">
                 <label for="name" class="text-base leading-7 ">Idiomas de la experiencia</label>
                 <br>
@@ -110,3 +109,49 @@
         </form>
     </div>
 </div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB68RsG0J3b_BuRnHW1BTNBqam5rYHu58Y&callback=initMap"></script>
+<script>
+    function initMap() {
+        // Coordenadas de Tucuman
+        const tucuman = {
+            lat: -26.8198,
+            lng: -65.2169
+        };
+
+        const map = new google.maps.Map(document.getElementById("mapa"));
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+            // Mapa centrado en la posicion del usuario si acepta la geolocalizacion
+            var initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.setCenter(initialLocation);
+            map.setZoom(13);
+        }, function(positionError) {
+            // User denied geolocation prompt - default Tucuman
+            map.setCenter(new google.maps.LatLng(tucuman));
+            map.setZoom(5);
+        });
+        var marker;
+
+        function placeMarker(location) {
+            if (marker) {
+                marker.setPosition(location);
+                document.getElementById("coordinates").value=location;
+
+            } else {
+                marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    label:'Aqui!'
+                });
+                document.getElementById("coordinates").value=location;
+
+            }
+            console.log(document.getElementById("coordinates").value);
+
+        }
+
+        google.maps.event.addListener(map, 'click', function(event) {
+            placeMarker(event.latLng);
+        });
+    }
+</script>
