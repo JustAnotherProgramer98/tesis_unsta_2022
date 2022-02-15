@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index')->middleware('web');;
 
-Route::get('/shop',[GuestController::class,'index'])->name('experiencies.shop');
+Route::get('/explora',[GuestController::class,'index'])->name('experiencies.shop');
 
 Route::get('/product_shop', [Product_ShopController::class,'index'])->name('experiencies.product_shop');
 

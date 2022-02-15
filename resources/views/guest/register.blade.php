@@ -25,29 +25,29 @@
         <div class="flex gap-3">
           <div class="relative w-1/2 mb-3">
             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Nombre</label>
-            <input autocomplete="off" type="text" name="name" placeholder="Nombre" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">  
+            <input  value="{{ old('name') }}" autocomplete="off" type="text" name="name" placeholder="Nombre" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">  
           </div>
           <div class="relative w-1/2 mb-3">
             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Apellido</label>
-            <input autocomplete="off" type="text" name="surname" placeholder="Apellido" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">   
+            <input value="{{ old('surname') }}" autocomplete="off" type="text" name="surname" placeholder="Apellido" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">   
           </div>
         </div>
         <div class="relative w-full mb-3">
           <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Fecha de nacimiento</label>
-          <input autocomplete="off" type="date" name="birthday" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email">
+          <input value="{{ old('birthday') }}" autocomplete="off" type="date" name="birthday" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email">
         </div>
         <div class="flex gap-3">
           <div class="relative w-1/2 mb-3">
             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Genero</label>
             <select name="gender" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
               <option selected disabled hidden>Selecciona tu genero</option>
-              <option value="1">Masculino</option>
-              <option value="0">Femenino</option>
+              <option {{ old('gender') == 1 ? 'selected' : '' }} value="1">Masculino</option>
+              <option {{ old('gender') == 0 ? 'selected' : '' }} value="0">Femenino</option>
             </select>
           </div>
           <div class="relative w-1/2 mb-3">
             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Numero de telefono</label>
-            <input autocomplete="off" placeholder="+XXX-(XXX)-XXXXXX" type="text" id="phone" name="phone" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">   
+            <input value="{{ old('phone') }}" autocomplete="off" placeholder="+XXX-(XXX)-XXXXXX" type="text" id="phone" name="phone" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">   
           </div>
         </div>
         
@@ -84,12 +84,12 @@
         
         <div class="relative w-full mb-3">
           <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Direccion de domicilio</label>
-          <input type="text" name="adress" placeholder="Direccion de domicilio" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email">
+          <input value="{{ old('adress') }}" type="text" name="adress" placeholder="Direccion de domicilio" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email">
         </div>
   
         <div class="relative w-full mb-3">
           <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Email</label>
-          <input type="email" name="email" placeholder="Email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email">
+          <input value="{{ old('email') }}" type="email" name="email" placeholder="Email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email">
         </div>
 
         <div class="relative w-full mb-3">
