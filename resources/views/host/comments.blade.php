@@ -9,37 +9,8 @@
                 <div class="mx-auto bg-white shadow-lg rounded-lg my-500 px-3 py-3 w-9/12 border">
                     <h1 class="ml-2 font-bold uppercase flex flex-wrap mt-12 justify-center"> Valoracion promedio de experiencias </h1>
                     <div class="mb-1 tracking-wide px-4 py-4" >
-                        @php
-                        $numerber_of_reviews = $one_star_review = $two_star_review = $three_star_review= $four_star_review = $five_star_review =0;
-
-                        foreach (Auth::user()->experiences as $experience) {
-                            $numerber_of_reviews=$numerber_of_reviews+count($experience->comments);
-                            foreach ($experience->comments as $comment) {
-                                switch ($comment->stars) {
-                                    case (1):
-                                    $one_star_review++;
-                                        break;
-                                    case (2):
-                                    $two_star_review++;
-                                        break;
-                                    case (3):
-                                    $three_star_review++;
-                                        break;
-                                    case (4):
-                                    $four_star_review++;
-                                        break;
-                                    case (5):
-                                    $five_star_review++;
-                                        break;
-                                    default:
-                                        break;
-                                    }
-                                }
-                            }
-                    @endphp
-
                         <h2 class="text-gray-800 font-semibold mt-1">Cantidad de valoraciones: {{ $numerber_of_reviews }}</h2>
-                        <div class="border-b -mx-8 px-8 pb-3">
+                        <div class="px-8 pb-3">
                             <div class="flex items-center mt-1">
                                 <div class=" w-1/5 text-indigo-500 tracking-tighter">
                                     <span>5 estrellas</span>
@@ -107,12 +78,25 @@
                             </div><!-- 5th -->
                         </div>
                     </div>
-    
                     <!-- component -->
                     @forelse(Auth::user()->experiences->take(-4) as $experience)
-                    <div class="mt-12 bg-paleta_tesis_blanco border-b-2 border-b-paleta_tesis_celeste">
-                        <p class="text-paleta_tesis_azul ">Experiencia: <b>{{ $experience->title }}</b> </p>
-                    </div>
+                        @if (count($experience->comments)!=0)
+                            <div class="mt-12 bg-paleta_tesis_blanco border-b-2 border-b-paleta_tesis_celeste">
+                                <p class="text-paleta_tesis_azul ">Experiencia: <b>{{ $experience->title }}</b> </p>
+                            </div>
+                        @elseif ($loop->first)
+                        <div class="px-4 py-5 flex-auto text-center">
+                            <div class="text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full bg-blue-400">
+                              <span class="inline-block  text-blue-500 dark:text-blue-400">
+                                    <i class="text-6xl bg-paleta_tesis_celeste far fa-sad-tear"></i>
+                              </span>
+                            </div>
+                            <h6 class="text-xl font-semibold">Malas noticias</h6>
+                            <p class="mt-2 mb-4 text-paleta_tesis_blanco">
+                                Aun no tienes valoraciones
+                            </p>
+                          </div>
+                        @endif
                         @forelse ($experience->comments->take(-4) as $comment)
                         <div class="flex flex-wrap mt-12 justify-center">
                             <div class="flex-shrink-0"> <!-- Imagen del usuario de la review -->

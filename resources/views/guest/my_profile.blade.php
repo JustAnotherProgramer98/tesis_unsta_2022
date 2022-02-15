@@ -1,5 +1,36 @@
 @extends('layouts.guest')
 @section('content')     
+{{-- //Get how many stars I have --}}
+      @php
+      $numerber_of_reviews = $one_star_review = $two_star_review = $three_star_review= $four_star_review = $five_star_review =0;
+
+      foreach (Auth::user()->experiences as $experience) {
+          $numerber_of_reviews=$numerber_of_reviews+count($experience->comments);
+          foreach ($experience->comments as $comment) {
+              switch ($comment->stars) {
+                  case (1):
+                  $one_star_review++;
+                      break;
+                  case (2):
+                  $two_star_review++;
+                      break;
+                  case (3):
+                  $three_star_review++;
+                      break;
+                  case (4):
+                  $four_star_review++;
+                      break;
+                  case (5):
+                  $five_star_review++;
+                      break;
+                  default:
+                      break;
+                  }
+              }
+          }
+          $numer_of_starts=($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5);
+      @endphp
+
     <main class="profile-page">
       <section class="relative block" style="height: 500px;">
         <div
@@ -51,7 +82,7 @@
                   <div class="w-full lg:w-4/12 px-4 lg:order-1"> <!-- Botones del lado izquierdo de la foto --> 
                     <div class="flex justify-center py-4 lg:pt-4 pt-8">
                       <div class="mr-4 p-3 text-center bg-gray-200 rounded-md shadow-xl hover:bg-gray-400" onclick="openNewTab(event, 'comments')">
-                        <span class="text-xl font-bold block uppercase tracking-wide text-gray-700">4.5</span>
+                        <span class="text-xl font-bold block uppercase tracking-wide text-gray-700">{{ $numer_of_starts }}</span>
                         <span class="text-sm text-gray-500">Estrellas</span>
                       </div>
 
