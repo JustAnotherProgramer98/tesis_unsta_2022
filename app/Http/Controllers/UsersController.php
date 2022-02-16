@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Province;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -63,7 +64,8 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $provinces=Province::with('cities')->get();
+        return view('host.edit_users',compact(['user','provinces']));
     }
 
     /**

@@ -58,13 +58,13 @@
     height: 5px;
   }
   ::-webkit-scrollbar-track {
-    background: whitesmoke; 
+    background: #DBE2EF; 
   }
   ::-webkit-scrollbar-thumb {
-    background: #9333ea; 
+    background: #112D4E; 
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #9333ea; 
+    background: #3F72AF; 
   }
   .dropdown:focus-within .dropdown-menu {
     opacity: 1;

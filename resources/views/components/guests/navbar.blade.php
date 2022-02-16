@@ -1,12 +1,12 @@
 <nav class="flex justify-between bg-gray-700 text-white w-full">
-    <div class="px-5 xl:px-12 py-6 flex w-full items-center">
+    <div class="flex h-auto w-1/5 bg-paleta_tesis_blanco sm:flex sm:items-center place-content-center">
         <a class="text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <img class="" src="{{ asset('images/Turistear3.png') }}" alt="logo">
-
-            </div>
-            
+            <img class="" src="{{ asset('images/Turistear3.png') }}" alt="logo">
         </a>
+        <p class="ml-4 text-2xl font-thin text-paleta_tesis_azul">turiste<span style='color: #3F72AF'>AR</span></p>
+    </div>
+    <div class="px-5 xl:px-12 py-6 flex w-full items-center">
+        
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
             <li><a class="hover:text-gray-200" href="{{ route('experiencies.index') }}">Home</a></li>
@@ -65,9 +65,9 @@
                             <a href="{{ route('hosts.profile') }}" tabindex="0"
                                 class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
                                 role="menuitem">Mi perfil</a>
-                            <a href="javascript:void(0)" tabindex="1"
+                            <a href="{{ route('edit.user',Auth::user()) }}" tabindex="1"
                                 class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                                role="menuitem">Support</a>
+                                role="menuitem">Informacion personal</a>
                             <span role="menuitem" tabindex="-1"
                                 class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
                                 aria-disabled="true">New feature (soon)</span>

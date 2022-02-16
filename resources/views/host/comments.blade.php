@@ -80,23 +80,23 @@
                     </div>
                     <!-- component -->
                     @forelse(Auth::user()->experiences->take(-4) as $experience)
-                        @if (count($experience->comments)!=0)
-                            <div class="mt-12 bg-paleta_tesis_blanco border-b-2 border-b-paleta_tesis_celeste">
-                                <p class="text-paleta_tesis_azul ">Experiencia: <b>{{ $experience->title }}</b> </p>
-                            </div>
-                        @elseif ($loop->first)
-                        <div class="px-4 py-5 flex-auto text-center">
-                            <div class="text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full bg-blue-400">
-                              <span class="inline-block  text-blue-500 dark:text-blue-400">
-                                    <i class="text-6xl bg-paleta_tesis_celeste far fa-sad-tear"></i>
-                              </span>
+                    <div class="mt-12 bg-paleta_tesis_blanco border-b-2 border-b-paleta_tesis_celeste">
+                        <p class="text-paleta_tesis_azul ">Experiencia: <b>{{ $experience->title }}</b> </p>
+                    </div>
+                        
+                       @if (count($experience->comments)==0)
+                           
+                       <div class="px-4 py-5 flex-auto text-center">
+                           <div class="{{ ($loop->iteration%2==0) ? 'bg-blue-400' : 'bg-green-400' }} text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full ">
+                               <span class="text-white inline-block   dark:text-blue-400">
+                                   <i class="text-6xl far fa-sad-tear"></i>
+                                </span>
                             </div>
                             <h6 class="text-xl font-semibold">Malas noticias</h6>
-                            <p class="mt-2 mb-4 text-paleta_tesis_blanco">
-                                Aun no tienes valoraciones
-                            </p>
-                          </div>
-                        @endif
+                            <p class="mt-2 mb-4 text-black">Esta experiencia no tiene comentarios</p>
+                        </div>
+                        @endif 
+                        
                         @forelse ($experience->comments->take(-4) as $comment)
                         <div class="flex flex-wrap mt-12 justify-center">
                             <div class="flex-shrink-0"> <!-- Imagen del usuario de la review -->
@@ -162,6 +162,7 @@
                                                 <svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                                                 <svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                                                 <svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                            </div>
                                             @break
     
                                              @default
@@ -187,7 +188,7 @@
                         <p>Aun no tenes comentarios de tus experiencias, y si creamos unos cupones?</p>
                     @endforelse
                 </div> <!-- FIN review items -->
-    
+                <br>
             </div><!-- fin comentarios -->
             <br>
         @else

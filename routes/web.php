@@ -4,6 +4,7 @@
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\Product_ShopController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Experience;
 use App\Models\Province;
@@ -51,6 +52,9 @@ Route::get('/contact_us', function () {
 //Register 
 Route::get('/register',[GuestController::class,'create'])->name('register')->middleware('web');
 Route::post('/register',[GuestController::class,'store'])->name('register.post')->middleware('web');
+
+//Editar informacion personal de los usuarios
+Route::get('/edit/profile/{user:email}',[UsersController::class,'edit'])->name('edit.user')->middleware('web');
 
 Route::middleware('auth')->get('/account', function () {
     $provinces=Province::all();

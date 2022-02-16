@@ -66,10 +66,30 @@
         </div>
     </section>       
      
-    <!-- For Categorys -->
     <section>
+        <div class="flex mx-auto place-content-center">
+            <p class="mt-8 text-center text-4xl text-paleta_tesis_celeste">Nuestras experiencias recomendadas</p>
+            
+
+        </div>
+        <div  class="parent w-4/5 mx-auto mt-8 flex snap-x overflow-x-auto py-14">
+            @forelse ($experiences as $experience)
+            <div class="shrink-0 w-2/5  mx-4 ">
+                    <div  class="relative h-80 bg-no-repeat cursor-pointer bg-paleta_tesis_blanco rounded-xl  ">
+                        <img class="h-full w-full object-contain" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" alt="">
+                        <p class="absolute bottom-5 text-2xl text-paleta_tesis_blanco bg-paleta_tesis_azul">Titulo: {{ $experience->title }}</p>
+                        <p class="absolute bottom-0  text-paleta_tesis_blanco bg-paleta_tesis_azul">Por: {{ $experience->host->name.' '.$experience->host->surname }}</p>
+                    </div>
+                </div>
+            @empty
+                <p>No podemos reocmendarte experiendicas ahora</p>
+            @endforelse
+          </div>
+    </section>
+    <section>
+        <!-- For Categorys -->
             <!-- component -->
-            <p class="text-center text-4xl font-semibold py-4"><br> Por Categorías</p>
+            <p class="text-center text-4xl font-semibold py-4"><br> Por categorías</p>
             <div tabindex="0" class="focus:outline-none border-b-2 border-gray-200 mb-5">
                 <!-- Remove py-8 -->
                 <div class="mx-auto container py-8">
@@ -113,9 +133,6 @@
                     </div> 
                 </div>  
             </div>
-            <script>
-                if (!window.ShadyDOM) window.ShadyDOM = { force: true, noPatch: true };
-            </script>
     </section>
 
   <!-- For Places -->
@@ -160,10 +177,37 @@
                             </div>
                           </div>
                             @endforelse
-                        <!-- Card 1 Ends -->
+                        <!-- Card 2 Ends -->
                       </div>    
                 </div>  
             </div>
     </section>
 </body>
+<script>
+    const slider = document.querySelector('.parent');
+let mouseDown = false;
+let startX, scrollLeft;
+
+let startDragging = function (e) {
+  mouseDown = true;
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+};
+let stopDragging = function (event) {
+  mouseDown = false;
+};
+
+slider.addEventListener('mousemove', (e) => {
+  e.preventDefault();
+  if(!mouseDown) { return; }
+  const x = e.pageX - slider.offsetLeft;
+  const scroll = x - startX;
+  slider.scrollLeft = scrollLeft - scroll;
+});
+
+// Add the event listeners
+slider.addEventListener('mousedown', startDragging, false);
+slider.addEventListener('mouseup', stopDragging, false);
+slider.addEventListener('mouseleave', stopDragging, false);
+</script>
 @endsection 

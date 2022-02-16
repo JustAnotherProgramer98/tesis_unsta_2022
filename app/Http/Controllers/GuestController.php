@@ -20,7 +20,7 @@ class GuestController extends Controller
     {
         $categories = Category::where('status',1)->get();
         $places = Place::where('status',1)->get();
-        $experiences = Experience::where('status',1)->get();
+        $experiences = Experience::where('status',1)->take(5)->get();
         return view('guest.shop',compact(['experiences','categories','places']));
         
     }

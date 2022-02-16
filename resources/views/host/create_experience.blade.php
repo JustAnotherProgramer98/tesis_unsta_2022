@@ -11,7 +11,7 @@
     @endif
     <div class="flex gap-4 my-4 ">
       
-        <form method="POST" action="{{ route('host.experiencies.store') }}" class="flex flex-col p-10 px-8 pt-6 mx-auto my-6 mb-4 transition duration-500 ease-in-out transform w-11/12 border rounded-lg border-purple-400">
+        <form method="POST" autocomplete="off" action="{{ route('host.experiencies.store') }}" class="flex flex-col p-10 px-8 pt-6 mx-auto my-6 mb-4 transition duration-500 ease-in-out transform w-11/12 border rounded-lg border-purple-400">
             @csrf
             <section class="flex flex-col w-full h-full p-1 overflow-auto">
                 <label for="name" class="text-base leading-7  mb-5">Imagen de la experiencia</label>

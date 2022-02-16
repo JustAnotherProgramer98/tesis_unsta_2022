@@ -43,9 +43,5 @@
                 </div>
                 
             </div>
-            <script src="chrome-extension://kgejglhpjiefppelpmljglcjbhoiplfn/shadydom.js"></script>
-            <script>
-                if (!window.ShadyDOM) window.ShadyDOM = { force: true, noPatch: true };
-            </script>
         </section>
 @endsection

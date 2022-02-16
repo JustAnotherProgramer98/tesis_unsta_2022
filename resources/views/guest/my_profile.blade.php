@@ -73,10 +73,7 @@
                 </div>
                
                 <div class="flex flex-col w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"> <!-- Botones del lado derecho de la foto -->
-                  
-                  <p class="text-gray-800 dark:text-slate-400 text-md">Miembro desde</p>
-                  <h2 class="text-gray-800 dark:text-slate-100 text-2xl font-semibold">{{(Auth::user()->created_at)->format('d-m-Y')}}</h2>
-                  
+                  <br>
                   <p class="text-gray-800 dark:text-slate-400 text-md">Estado de la cuenta
                     @switch(Auth::user()->status)
                   @case(0)
@@ -95,6 +92,11 @@
                           Pendiente de aprobacion</span>
                   @endswitch
                   </p>
+                  <br>
+                  
+                  <p class="text-gray-800 dark:text-slate-400 text-md">Miembro desde</p>
+                  <h2 class="text-gray-800 dark:text-slate-100 text-2xl font-semibold">{{(Auth::user()->created_at)->format('d-m-Y')}}</h2>
+                  
 
                   
                 </div> <!-- FIN Botoes del lado derecho de la foto --> 
