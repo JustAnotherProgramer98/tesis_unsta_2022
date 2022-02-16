@@ -25,19 +25,10 @@
 
 </head>
 
-<style>
-    .dropdown:focus-within .dropdown-menu {
-        opacity: 1;
-        transform: translate(0) scale(1);
-        visibility: visible;
-    }
-</style>
-
-<section class="relative mx-auto"><!-- Cabecera de la Pagina -->
     {{--Llamada del navbar  --}}
         @include('components.guests.navbar')
     {{--Fin del navbar  --}}
-</section> <!-- FIN  Cabecera de a Pagina -->
+
 
 
 <body class="text-gray-800 antialiased">

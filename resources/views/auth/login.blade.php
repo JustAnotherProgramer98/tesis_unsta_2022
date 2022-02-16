@@ -1,87 +1,47 @@
-<!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Windmill Dashboard</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="{{ asset('js/init-alpine.js') }}"></script>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  </head>
-  <body>
-    <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-      <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-        <div class="flex flex-col overflow-y-auto md:flex-row">
-          <div class="h-32 md:h-auto md:w-1/2">
-            <img
-              aria-hidden="true"
-              class="object-cover w-full h-full dark:hidden"
-              src="{{ asset('images/plane-with-marker.jpg') }}"
-              alt="Office"
-            />
-          </div>
-          <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-            <div class="w-full">
-              <h1
-                class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
-              >
-                Login
-              </h1>
-              @if ($errors->any())
-              <div class="bg-gray-700 text-white whitespace-nowrap">
-                  <ul>
-                      @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
-              </div>
-              @endif
-              <label class="block text-sm">
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                <span class="text-gray-700 dark:text-gray-400">Email</span>
-                <input name="email" required class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"/>
-              </label>
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Contraseña</span>
-                <input name="password" required class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" type="password"/>
-              </label>
+@extends('layouts.guest')
+@section('content') 
+<!-- component -->
 
-              <!-- You should use a button here, as the anchor is only used for the example  -->
-              <button
-                class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                href="../index.html"
-              >
-                Ingresar
-              </button>
-            </form> 
-              <hr class="my-8" />
-
-              <p class="mt-4">
-                <a
-                  class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  href="./forgot-password.html"
-                >
-                  Olvidaste tu contraseña?
-                </a>
-              </p>
-              <p class="mt-1">
-                <a
-                  class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  href="./create-account.html"
-                >
-                  Create un usuario!
-                </a>
-              </p>
-            </div>
-          </div>
+<section class="bg-gradient-to-b h-screen from-paleta_tesis_gris">
+<div class="w-full pt-12 md:w-3/5 px-4 mx-auto">
+  
+  <h2 class="text-center text-4xl font-semibold py-4 text-paleta_tesis_azul"><img width="150" height="150" src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo Registro">Bienvenido de vuelta!  <br></h2>
+  
+  <div  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-2xl rounded-lg bg-blueGray-200 border-0">
+    <div class="flex-auto px-4 lg:px-10 py-10 pt-4">
+      <div class="text-blueGray-400 text-center mb-3 font-bold">
+        @if ($errors->any())
+        <div class="">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
         </div>
+      @endif
       </div>
+     
+  
+      <form method="POST" action="{{ route('login') }}" autocomplete="off">
+        @csrf
+        
+        <div class="relative w-full mb-3">
+          <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Email</label>
+          <input value="{{ old('email') }}" type="email" name="email" placeholder="Email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email">
+        </div>
+
+        <div class="relative w-full mb-3">
+          <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Contraseña</label>
+          <input  id="password" type="password" name="password" placeholder="Contraseña" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Password">
+        </div>
+                
+        <div class="text-center mt-6">
+          <button class="bg-gray-700 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150">Ingresar</button>
+        </div>
+      </form>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+</section>
+
+@endsection 
