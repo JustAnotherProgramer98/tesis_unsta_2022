@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\RegisterRequest;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Experience;
@@ -26,33 +28,21 @@ class GuestController extends Controller
         $provinces=Province::with('cities')->get();
         return view('guest.register', compact(["provinces"]));
     }
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
-        $validated=$request->validate([
-            'name' =>'required|string',
-            'surname' =>'required|string',
-            'birthday' =>'required|date',
-            'gender'=>'required|integer',
-            'phone' =>'required|string',
-            'country_id' =>'required|integer',
-            'province_id' =>'required|integer',
-            'city_id' =>'required|integer',
-            'adress' =>'required|string',
-            'email' =>'required|string',
-            'password' =>'required',
-            
-        ]);
         try {
-            DB::transaction(function () use ($validated){
-                $city=City::find($validated['city_id']);
+            DB::transaction(function () use ($request){
+                $city=City::find($request['city_id']);
 
-                $user=User::create($validated+['role_id'=>2,'cuit'=>'not defined',
-                'address'=>$validated['adress'],'city'=>$city->name,'province'=>$city->province->name
+                $user=User::create($request+['role_id'=>$request['type_account'],
+                'address'=>$request['adress'],'city'=>$city->name,'province'=>$city->province->name
                 ,'country'=>$city->province->country->name]);
                 Auth::login($user);
 
             });
+            if (Auth::user()->role_id==3) return redirect()->route('experiencies.index')->with('status', 'Tu cuenta sera verificada por el administrador y te notificaremos cualquier novedad a tu correo');
             return redirect()->route('experiencies.index')->with('status', 'Profile updated!');
+
         }
         catch (\Throwable $th) {
             return $th;

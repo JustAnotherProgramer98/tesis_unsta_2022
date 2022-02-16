@@ -66,17 +66,21 @@ function searchByProvincia(url) {
 const button = document.querySelector('#button-popover');
 const tooltip = document.querySelector('#tooltip');
 var button_2 = document.querySelector('#button-popover_2');
-
-const popperInstance = Popper.createPopper(button, tooltip, {
-modifiers: [
-  {
-    name: 'offset',
-    options: {
-      offset: [0, 8],
-    },
-  },
-],
-});
+try {
+  const popperInstance = Popper.createPopper(button, tooltip, {
+    modifiers: [
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 8],
+        },
+      },
+    ],
+    });
+    
+} catch (error) {
+console.log('Sin popOver button');
+}
 
 function show() {
 // Make the tooltip visible
@@ -153,5 +157,14 @@ switch (status_experiencia) {
     default:
         $('#status').css('background-color', ' white');
         break;
+}
+}
+
+function show_password() {
+var x = document.getElementById("password");
+if (x.type === "password") {
+x.type = "text";
+} else {
+x.type = "password";
 }
 }

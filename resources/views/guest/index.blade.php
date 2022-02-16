@@ -178,6 +178,7 @@
     </section>
       
 <!-- This is the Relevant Experience  -->
+@if(count($experiences)>1)
     <section>
         <div class="min-h-screen">
             <p class="text-center text-4xl font-semibold py-4"><br> Experiencias Destacadas</p>
@@ -210,6 +211,14 @@
             </div>
         </div>
     </section>
+    @else
+    <section>
+      <div class="min-h-max m-4">
+          
+          <p class="text-center text-4xl font-semibold py-4"><br><i class="text-6xl far fa-meh-blank"></i> <br> Parece que no hay experiencias aprobadas...</p>
+      </div>
+  </section>
+    @endif
 
 <!-- Description with a photo -->
     <section>
@@ -247,7 +256,7 @@
 @if (session('status'))
 <script>
   Swal.fire({  
-  text: 'Tu perfil fue creado correctamente , busca tu experiencia ideal!',
+  text: 'Tu perfil fue creado correctamente , busca tu experiencia ideal!'+{{ session('status') }},
   title: "<h1 style='color:#112D4E '>Te damos la bienvenida a Turiste<span style='color: #3F72AF'>AR</span>!</h1>",
   
   imageUrl: "{{ asset('images/Turistear.png') }}",
