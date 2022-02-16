@@ -12,7 +12,7 @@
       <input {{ old('type_account') == 3 ? 'checked' : '' }} onclick="openNewTab(event, 'host_register')"  name="account_type[]" type="checkbox" class="form-checkbox bg-blue-400 border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150" >
         <span class="ml-2 text-sm font-semibold text-blueGray-600">Cuenta anfitrion </span> 
   </div>
-  <div id="client_register" class="tabcontent relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0 hidden">
+  <div id="client_register" class="tabcontent relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
     <div class="flex-auto px-4 lg:px-10 py-10 pt-4">
       <div class="text-blueGray-400 text-center mb-3 font-bold">
         @if ($errors->any())

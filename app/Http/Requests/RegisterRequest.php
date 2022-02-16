@@ -36,7 +36,7 @@ class RegisterRequest extends FormRequest
                 'email' =>'required|string',
                 'password' =>'required',
                 'type_account' =>'required|integer',
-                'cbu'  => 'required_if:type_account,==,3',
+                'cuit'  => 'required_if:type_account,==,3',
                 'imagen_dni'=> 'required_if:type_account,==,3'
         ];
     }
@@ -55,10 +55,10 @@ class RegisterRequest extends FormRequest
         'email.required' =>'No podemos crearte una cuenta sin tu email :(',
         'password.required' =>'No podemos crearte una cuenta sin una contraseña',
         'type_account.required' =>'Tambien validamos el backend , intento de "HACKER"',
-        'cbu.required_if'  => 'Necesitamos tu CBU para constatar los pagos',
+        'cuit.required_if'  => 'Necesitamos tu CUIT para constatar los pagos',
         'imagen_dni.required_if'=> 'Necesitamos tu DNI para validarlo',
-        'province_id.integer' =>'',
-        'city_id.integer' =>''
+        'province_id.integer' =>'La provincia ingresada no es valida',
+        'city_id.integer' =>'La ciudad ingresada no es valida'
     ];
 }
 }

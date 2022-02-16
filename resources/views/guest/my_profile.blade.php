@@ -72,11 +72,31 @@
                   </div>
                 </div>
                
-                <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"> <!-- Botones del lado derecho de la foto -->
+                <div class="flex flex-col w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"> <!-- Botones del lado derecho de la foto -->
                   
-                    <span class="text-gray-800 dark:text-slate-400 text-md">Miembro desde</span>
-                    <h2 class="text-gray-800 dark:text-slate-100 text-2xl font-semibold">{{(Auth::user()->created_at)->format('d-m-Y')}}</h2>
-                    
+                  <p class="text-gray-800 dark:text-slate-400 text-md">Miembro desde</p>
+                  <h2 class="text-gray-800 dark:text-slate-100 text-2xl font-semibold">{{(Auth::user()->created_at)->format('d-m-Y')}}</h2>
+                  
+                  <p class="text-gray-800 dark:text-slate-400 text-md">Estado de la cuenta
+                    @switch(Auth::user()->status)
+                  @case(0)
+                      <span
+                          class="cursor-default px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Inactiva
+                      </span>
+                  @break
+                  @case(1)
+                      <span
+                          class="cursor-default px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">Activa
+                      </span>
+                  @break
+                  @default
+                      <span
+                          class="cursor-default px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
+                          Pendiente de aprobacion</span>
+                  @endswitch
+                  </p>
+
+                  
                 </div> <!-- FIN Botoes del lado derecho de la foto --> 
 
                   <div class="w-full lg:w-4/12 px-4 lg:order-1"> <!-- Botones del lado izquierdo de la foto --> 

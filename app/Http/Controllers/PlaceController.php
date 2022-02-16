@@ -135,7 +135,6 @@ class PlaceController extends Controller
     public function renderPlacesByProvince(Request $request)
     {
        $cities = City::where('province_id', $request->province_id)->get();
-
-        return View::make("components.select-render-cities")->with(['cities'=>$cities])->render();
+        return View::make("components.select-render-cities")->with(['cities'=>$cities,'register'=>$request->register])->render();
     }
 }

@@ -256,8 +256,25 @@
 @if (session('status'))
 <script>
   Swal.fire({  
-  text: 'Tu perfil fue creado correctamente , busca tu experiencia ideal!'+{{ session('status') }},
+  text: 'Tu perfil fue creado correctamente , busca tu experiencia ideal!',
   title: "<h1 style='color:#112D4E '>Te damos la bienvenida a Turiste<span style='color: #3F72AF'>AR</span>!</h1>",
+  
+  imageUrl: "{{ asset('images/Turistear.png') }}",
+  imageWidth: 300,
+  imageHeight: 100,
+  imageAlt: 'Turistear logo',
+  confirmButtonText: 'Adelante!',
+  background:'#F9F7F7',
+  margin: '5em',
+  confirmButtonColor: '#112D4E',
+  width: 600,
+})
+ </script>
+@elseif (session('host'))
+<script>
+  Swal.fire({  
+    title: "<h1 style='color:#112D4E '>Te damos la bienvenida a Turiste<span style='color: #3F72AF'>AR</span>!</h1>",
+  text: 'Tu cuenta sera verificada por el administrador y te notificaremos cualquier novedad a tu correo!',
   
   imageUrl: "{{ asset('images/Turistear.png') }}",
   imageWidth: 300,
