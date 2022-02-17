@@ -2,38 +2,31 @@
 @section('content') 
 
     <!-- contacto -->
-    <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="flex items-center min-h-screen bg-gradient-to-b  from-paleta_tesis_gris dark:bg-gray-900">
         <div class="container mx-auto">
-            <div class="mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+            <div class="mx-auto lg:w-5/6 my-10 bg-white p-5 rounded-md shadow-sm">
                 <div class="text-center">
-                    <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Contact Us</h1>
-                    <p class="text-gray-400 dark:text-gray-400">Completa el formulario para contactarte con nosotros.</p>
+                    <h2 class="text-center text-4xl font-semibold py-4 text-paleta_tesis_azul"><img width="150" height="150"
+                        src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo Registro">Tenes alguna duda? <br> 
+                        <span class="text-lg font-thin">Completa el formulario y recibiremos tu consuta!</span> </h2>
                 </div>
                 <div class="m-7">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="form">
-
-                        <input type="hidden" name="apikey" value="YOUR_ACCESS_KEY_HERE">
-                        <input type="hidden" name="subject" value="New Submission from Web3Forms">
-                        <input type="checkbox" name="botcheck" id="" style="display: none;">
-
-
+                    <form action="#" method="POST" autocomplete="off">
                         <div class="mb-6">
-                            <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Nombre Completo:</label>
-                            <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Nombre completo</label>
+                            <input required value="{{ old('name') }}" placeholder="Nombre completo" type="text" name="name" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" oninput="this.setCustomValidity('')"  oninvalid="this.setCustomValidity('Parece que falta que ingreses tu nombre')">
                         </div>
                         <div class="mb-6">
-                            <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Dirección de Correo:</label>
-                            <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Email</label>
+                            <input required value="{{ old('email') }}" placeholder="Email" type="email" name="email" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"   oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Parece que falta que ingreses tu email')">
                         </div>
                         <div class="mb-6">
-
-                            <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Número de Teléfono:</label>
-                            <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Numero de telefono</label>
+                            <input value="{{ old('phone') }}" id="phone" placeholder="+XXX-(XXX)-XXXXXX" type="text" name="phone" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
                         </div>
                         <div class="mb-6">
-                            <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Mensaje:</label>
-
-                            <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Mensaje</label>
+                            <textarea required rows="5" name="message" placeholder="Tu Mensaje" class="resize-none w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" oninput="this.setCustomValidity('')"  oninvalid="this.setCustomValidity('No tenias un mensaje para nosotros?')"></textarea>
                         </div>
                         <div class="mb-6">
                             <button type="submit" class="w-full px-3 py-4 text-white bg-gray-700 rounded-md focus:bg-indigo-600 focus:outline-none">Enviar Mensaje</button>
@@ -48,16 +41,15 @@
 
     <!-- Photos Team -->
     <section class="bg-white dark:bg-gray-900">
-        <div class="container px-6 py-10 mx-auto">
+        <div class="container px-6 py-10 mx-auto lg:w-5/6">
             <div class="xl:flex xl:items-center xL:-mx-4">
                 <div class="xl:w-1/2 xl:mx-4">
-                    <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Nuestro
-                        Equipo</h1>
+                    <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Nuestro equipo</h1>
 
                     <p class="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
                         Somos dos alumnos cursando su último año de la carrera de Ingeniería Informática, de la Universidad del
                         Norte Santo Tomas de Aquino.
-                        Este proyecto está diseñado como exposición para el proyecto final integrador. En el cual consta de satisfacer las necesidades de clientes a nivel mundial.
+                        Este proyecto está diseñado como exposición para el proyecto final integrador. El cual consta de satisfacer las necesidades de clientes a nivel mundial.
 
                     </p>
                 </div>
@@ -68,9 +60,7 @@
                             src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
                             alt="">
 
-                        <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Santiago
-                            Evangelista</h1>
-
+                        <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Santiago Evangelista</h1>
                         <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">Full stack developer</p>
                     </div>
 
@@ -79,9 +69,7 @@
                             src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                             alt="">
 
-                        <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Matias Nicolas
-                            Morales</h1>
-
+                        <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Matias Nicolas Morales</h1>
                         <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">Graphic Designer</p>
                     </div>
                 </div>
@@ -89,51 +77,13 @@
         </div>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-const form = document.getElementById('form');
-const result = document.getElementById('result');
-
-form.addEventListener('submit', function(e) {
-    const formData = new FormData(form);
-    e.preventDefault();
-    var object = {};
-    formData.forEach((value, key) => {
-        object[key] = value
-    });
-    var json = JSON.stringify(object);
-    result.innerHTML = "Please wait..."
-
-    fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
-        .then(async (response) => {
-            let json = await response.json();
-            if (response.status == 200) {
-                result.innerHTML = json.message;
-                 result.classList.remove('text-gray-500');
-                result.classList.add('text-green-500');
-            } else {
-                console.log(response);
-                result.innerHTML = json.message;
-                 result.classList.remove('text-gray-500');
-                 result.classList.add('text-red-500');
-            }
-        })
-        .catch(error => {
-            console.log(error);
-            result.innerHTML = "Something went wrong!";
-        })
-        .then(function() {
-            form.reset();
-            setTimeout(() => {
-                result.style.display = "none"; 
-            }, 5000);
-        });
-})
+var phoneMask = IMask(
+        document.getElementById("phone"), {
+            mask: "+{000}-(000)-0000000",
+        }
+    );
 </script>
+    
 @endsection 

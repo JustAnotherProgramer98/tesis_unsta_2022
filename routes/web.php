@@ -40,10 +40,7 @@ Route::get('/cart_shop', function () {
     return view('guest.cart_shop', compact(["experiences"]));
 });
 
-Route::get('/contact_us', function () {
-    $experiences = App\Models\Experience::all();
-    return view('guest.contact_us', compact(["experiences"]));
-})->name('contact_us');
+Route::get('/contactanos', [GuestController::class,'createContact'])->name('contact_us');
 
 //Register 
 Route::get('/register',[GuestController::class,'create'])->name('register')->middleware('web');

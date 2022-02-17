@@ -1,5 +1,5 @@
-<nav class="flex justify-between bg-gray-700 text-white w-full">
-    <div class="flex h-auto w-1/5 bg-paleta_tesis_blanco sm:flex sm:items-center place-content-center">
+<nav class="flex justify-between bg-paleta_tesis_azul text-white w-full">
+    <div class="flex h-auto w-1/5 bg-gradient-to-r from-paleta_tesis_blanco via-paleta_tesis_blanco to-paleta_tesis_azul sm:flex sm:items-center pl-4">
         <a class="text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
             <img class="" src="{{ asset('images/Turistear3.png') }}" alt="logo">
         </a>
@@ -9,10 +9,29 @@
         
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-            <li><a class="hover:text-gray-200" href="{{ route('experiencies.index') }}">Home</a></li>
+            
+            <li>
+                <div class="flex flex-col justify-center">
+                    <i class="text-paleta_tesis_blanco text-center mb-2 fal fa-home-alt"></i>
+                    <a class="hover:text-gray-200" href="{{ route('experiencies.index') }}">Home
+                    </a>
+                </div>
+            </li>
 
-            <li><a class="hover:text-gray-200" href="{{ route('experiencies.shop') }}">Shop</a></li>
-            <li><a class="hover:text-gray-200" href="{{ route('contact_us') }}">Contact Us</a></li>
+            <li>
+                <div class="flex flex-col justify-center">
+                    <i class="text-paleta_tesis_blanco text-center mb-2  fal fa-gift"></i>
+                    <a class="hover:text-gray-200" href="{{ route('experiencies.shop') }}">Experiencias
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="flex flex-col justify-center">
+                    <i class="text-paleta_tesis_blanco text-center mb-2  far fa-envelope"></i>
+                    <a class="hover:text-gray-200" href="{{ route('contact_us') }}">Contacto
+                    </a>
+                </div>
+            </li>
         </ul>
         <!-- Header Icons -->
         <div class="hidden xl:flex space-x-5 items-center">

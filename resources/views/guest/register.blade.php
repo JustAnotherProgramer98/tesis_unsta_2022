@@ -2,7 +2,7 @@
 @section('content')
     <!-- component -->
 
-    <section class=" bg-gradient-to-b  from-paleta_tesis_gris">
+    <section class="bg-gradient-to-b  from-paleta_tesis_gris">
         <div class="w-full md:w-3/5 px-4 mx-auto pt-6">
 
             <h2 class="text-center text-4xl font-semibold py-4 text-paleta_tesis_azul"><img width="150" height="150"

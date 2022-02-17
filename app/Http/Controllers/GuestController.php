@@ -54,4 +54,8 @@ class GuestController extends Controller
         $experiences = Experience::where('status',1)->where('id','!=',$experience->id)->take(5)->get()->unique();
         return view('guest.experience_detail', compact(['experiences', 'experience']));
     }
+    public function createContact()
+    {
+        return view('guest.contact_us');
+    }
 }
