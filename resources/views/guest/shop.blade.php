@@ -87,7 +87,20 @@
                     </div>
                 </div>
             @empty
-                <p>No podemos reocmendarte experiendicas ahora</p>
+            <div class="w-full md:w-4/12 mx-auto px-4 my-10 text-center">
+                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div class="px-4 py-5 flex-auto">
+                    <div class="text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full bg-paleta_tesis_azul">
+                      <span class="inline-block  text-blue-500 dark:text-blue-400">
+                        <i class="fal fa-mountain text-6xl text-white"></i>
+                      </span>
+                    </div>
+                    <h6 class="text-xl font-semibold">No tenemos recomendaciones</h6>
+                    <p class="mt-8 mx-auto text-center italic">No podemos recomendarte experiencias ahora</p>
+                  </div>
+                </div>
+              </div>
+                
             @endforelse
           </div>
     </section>
@@ -99,7 +112,7 @@
                 <!-- Remove py-8 -->
                 <div class="mx-auto container py-8">
                                         
-                    <div class="flex flex-wrap items-center lg:justify-between justify-center">
+                    <div class="flex flex-wrap items-center gap-8 justify-center">
                         <!-- Card Categorias -->
                         @forelse ($categories as $category)
                         <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="s">
@@ -147,7 +160,7 @@
             <div tabindex="0" class="focus:outline-none">
                 <!-- Remove py-8 -->
                 <div class="mx-auto container py-8">
-                    <div class="flex flex-wrap items-center lg:justify-between justify-center">
+                    <div class="flex flex-wrap items-center gap-8 justify-center">
                         <!-- Card 1 -->
                         @forelse ($places as $place)
                         <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="s">

@@ -29,15 +29,11 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index')->middleware('web');;
 
+
 Route::get('/explora',[GuestController::class,'index'])->name('experiencies.shop');
-
 Route::get('/explora/buscar', [ProductController::class,'search'])->name('experiencies.product_shop');
+Route::get('/experiencia/{experience}', [GuestController::class,'showExperience'])->name('guest.product');
 
-Route::get('/product/{experience}', function (App\Models\Experience $experience) {
-    $experiences = App\Models\Experience::all();
-    
-    return view('guest.product', compact(["experiences", 'experience']));
-})->name('guest.product');
 
 Route::get('/cart_shop', function () {
     $experiences = App\Models\Experience::all();

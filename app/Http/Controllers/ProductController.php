@@ -21,11 +21,10 @@ class ProductController extends Controller
         switch ($request) {
             
             //Caso categoria y lugar
-            case $request->category and $request->place != "X":
-                $experiences = Experience::with('place')->where('status', 1)
-                ->whereHas('categories', function ($q) use ($request) {
-                    $q->where('categories.id', $request->category);
-                })->where('place',$request->place)->paginate(10);
+            case $request->category=="X" and $request->place != "X":
+                $experiences = Experience::where('status', 1)
+                ->whereHas('place', function ($q) use ($request) {
+                    $q->where('id', $request->place);})->paginate(10);
                 
                 return view('guest.search',compact(['experiences']));
                 break;
@@ -55,7 +54,7 @@ class ProductController extends Controller
             case $request->search and  $request->category == "X" and $request->place == "X":
                 $experiences = Experience::where('status', 1)->where('title', 'like', "%$request->search%")->paginate(10);
                 return view('guest.search',compact(['experiences']));
-                
+
                 break;
 
                 //Caso completo
