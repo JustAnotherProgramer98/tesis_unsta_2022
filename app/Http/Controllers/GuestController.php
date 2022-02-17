@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Models\Category;
 use App\Models\City;
+use App\Models\Contact;
 use App\Models\Experience;
 use App\Models\Place;
 use App\Models\Province;
@@ -58,4 +59,21 @@ class GuestController extends Controller
     {
         return view('guest.contact_us');
     }
+    public function storeContact(Request $request)
+    {
+        $validated=$request->validate([
+            'fullname'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'message'=>'required',
+        ]);
+        try {
+            Contact::create($validated+['browser'=>$request->header('User-Agent')]);
+            return response()->json(['status' => 'El mensaje fue enviado correctamente']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'Error al enviar el mensaje , el error es '.$th]);
+        }
+
+    }
+    
 }

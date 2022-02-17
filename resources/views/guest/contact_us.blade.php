@@ -11,10 +11,10 @@
                         <span class="text-lg font-thin">Completa el formulario y recibiremos tu consuta!</span> </h2>
                 </div>
                 <div class="m-7">
-                    <form action="#" method="POST" autocomplete="off">
+                    <form action="#" method="POST" class="contact" autocomplete="off">
                         <div class="mb-6">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Nombre completo</label>
-                            <input required value="{{ old('name') }}" placeholder="Nombre completo" type="text" name="name" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" oninput="this.setCustomValidity('')"  oninvalid="this.setCustomValidity('Parece que falta que ingreses tu nombre')">
+                            <input required value="{{ old('name') }}" placeholder="Nombre completo" type="text" name="fullname" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" oninput="this.setCustomValidity('')"  oninvalid="this.setCustomValidity('Parece que falta que ingreses tu nombre')">
                         </div>
                         <div class="mb-6">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Email</label>
@@ -76,9 +76,71 @@
             </div>
         </div>
     </section>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
+    $(".contact").submit(function(e) {
+            let fullname = $("input[name=fullname]").val();
+            let email = $("input[name=email]").val();
+            let phone = $("input[name=phone]").val();
+            let message = $("textarea[name=message]").val();
+
+            e.preventDefault();
+            $.ajax({
+                url: "{{ route('contact_us.store') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                data:{
+                    fullname:fullname,
+                    email:email,
+                    phone:phone,
+                    message:message,
+                    _token: "{{ csrf_token() }}",
+                },
+                success: function(result) {
+                    
+                    Swal.fire({  
+                      text: result.status,
+                      imageUrl: "{{ asset('images/Turistear.png') }}",
+                      imageWidth: 300,
+                      imageHeight: 100,
+                      imageAlt: 'Turistear logo',
+                      confirmButtonText: 'Aceptar',
+                      background:'#F9F7F7',
+                      margin: '5em',
+                      confirmButtonColor: '#112D4E',
+                      width: 600,
+                    })
+
+                    $("input[name=fullname]").val('');
+                    $("input[name=email]").val('');
+                    $("input[name=phone]").val('');
+                    $("textarea[name=message]").val('');
+
+                },
+                failure: function (result){
+                    Swal.fire({  
+                      text: result.status,
+                      imageUrl: "{{ asset('images/Turistear.png') }}",
+                      imageWidth: 300,
+                      imageHeight: 100,
+                      imageAlt: 'Turistear logo',
+                      confirmButtonText: 'Adelante!',
+                      background:'#F9F7F7',
+                      margin: '5em',
+                      confirmButtonColor: '#112D4E',
+                      width: 600,
+                    })
+                    
+                }
+            });
+            return false;
+        });
 var phoneMask = IMask(
         document.getElementById("phone"), {
             mask: "+{000}-(000)-0000000",

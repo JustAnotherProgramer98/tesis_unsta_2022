@@ -41,6 +41,8 @@ Route::get('/cart_shop', function () {
 });
 
 Route::get('/contactanos', [GuestController::class,'createContact'])->name('contact_us');
+Route::post('/contactanos',[GuestController::class,'storeContact'])->name('contact_us.store');
+
 
 //Register 
 Route::get('/register',[GuestController::class,'create'])->name('register')->middleware('web');
