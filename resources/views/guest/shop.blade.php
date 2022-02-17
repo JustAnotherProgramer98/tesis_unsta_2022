@@ -81,7 +81,9 @@
             @forelse ($experiences as $experience)
             <div class="shrink-0 w-2/5  mx-4 ">
                     <div  class="relative h-80 bg-no-repeat cursor-pointer bg-paleta_tesis_blanco rounded-xl  ">
-                        <img class="h-full w-full object-contain" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" alt="">
+                        <a href="{{ route('guest.product',$experience) }}">
+                            <img class="h-full w-full object-contain" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" alt="">
+                        </a>
                         <p class="absolute bottom-5 text-2xl text-paleta_tesis_blanco bg-paleta_tesis_azul">Titulo: {{ $experience->title }}</p>
                         <p class="absolute bottom-0  text-paleta_tesis_blanco bg-paleta_tesis_azul">Por: {{ $experience->host->name.' '.$experience->host->surname }}</p>
                     </div>
@@ -115,7 +117,7 @@
                     <div class="flex flex-wrap items-center gap-8 justify-center">
                         <!-- Card Categorias -->
                         @forelse ($categories as $category)
-                        <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="s">
+                        <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="#">
                             <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
                                 <div>
                                     <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
@@ -163,7 +165,7 @@
                     <div class="flex flex-wrap items-center gap-8 justify-center">
                         <!-- Card 1 -->
                         @forelse ($places as $place)
-                        <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="s">
+                        <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="#">
                             <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
                                 <div>
                                     <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">

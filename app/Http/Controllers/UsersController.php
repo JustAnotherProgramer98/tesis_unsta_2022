@@ -45,15 +45,10 @@ class UsersController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(User $user)
     {
-        //
+        return view('guest.account_guest', compact(['user']));
     }
 
     /**

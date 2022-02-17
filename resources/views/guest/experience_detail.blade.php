@@ -41,7 +41,7 @@
             <div class="md:flex-1 px-4">
                 <h2 class="text-sm title-font text-gray-500 tracking-widest"> @foreach ($experience->categories as $category) {{ $category->title }}  @endforeach </h2>
                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $experience->title }}</h1>
-                <h2 class="mt-4 text-gray-800 text-2xl font-bold my-2">Anfitrion: <a class="text-paleta_tesis_celeste bg-paleta_tesis_gris rounded-md p-2 font-thin hover:text-paleta_tesis_gris" href="{{ route('guest.account_guest') }}">{{ $experience->host->name.' '.$experience->host->surname }}</a></h2>
+                <h2 class="mt-4 text-gray-800 text-2xl font-bold my-2">Anfitrion: <a class="text-paleta_tesis_celeste bg-paleta_tesis_gris rounded-md p-2 font-thin hover:text-paleta_tesis_gris" href="{{ route('user.detail',$experience->host) }}">{{ $experience->host->name.' '.$experience->host->surname }}</a></h2>
                 
                 <div class="flex mb-4">
                     <span class="flex items-center">

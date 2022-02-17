@@ -243,6 +243,7 @@
   background:'#F9F7F7',
   margin: '5em',
   confirmButtonColor: '#112D4E',
+  backdrop:'#F9F7F7 url({{ asset("gifs/confetti.gif") }})',
   width: 600,
 })
  </script>
@@ -259,6 +260,7 @@
   confirmButtonText: 'Adelante!',
   background:'#F9F7F7',
   margin: '5em',
+  backdrop:'#F9F7F7 url({{ asset("gifs/confetti.gif") }})',
   confirmButtonColor: '#112D4E',
   width: 600,
 })

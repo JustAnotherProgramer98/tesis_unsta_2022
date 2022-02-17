@@ -1030,6 +1030,9 @@ select {
 .top-3\.5 {
   top: 0.875rem;
 }
+.right-8 {
+  right: 2rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -1501,11 +1504,11 @@ select {
   width: -moz-fit-content;
   width: fit-content;
 }
-.w-3\/4 {
-  width: 75%;
-}
 .w-96 {
   width: 24rem;
+}
+.w-3\/4 {
+  width: 75%;
 }
 .w-1\/2 {
   width: 50%;
@@ -2001,6 +2004,14 @@ select {
 }
 .border-none {
   border-style: none;
+}
+.border-paleta_tesis_azul {
+  --tw-border-opacity: 1;
+  border-color: rgb(17 45 78 / var(--tw-border-opacity));
+}
+.border-paleta_tesis_celeste {
+  --tw-border-opacity: 1;
+  border-color: rgb(63 114 175 / var(--tw-border-opacity));
 }
 .border-b-paleta_tesis_celeste {
   --tw-border-opacity: 1;

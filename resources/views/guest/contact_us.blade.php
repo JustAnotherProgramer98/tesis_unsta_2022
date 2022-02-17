@@ -29,7 +29,7 @@
                             <textarea required rows="5" name="message" placeholder="Tu Mensaje" class="resize-none w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" oninput="this.setCustomValidity('')"  oninvalid="this.setCustomValidity('No tenias un mensaje para nosotros?')"></textarea>
                         </div>
                         <div class="mb-6">
-                            <button type="submit" class="w-full px-3 py-4 text-white bg-gray-700 rounded-md focus:bg-indigo-600 focus:outline-none">Enviar Mensaje</button>
+                            <button type="submit" class="w-full px-3 py-4 text-white bg-gray-700 rounded-md">Enviar Mensaje</button>
                         </div>
                         <p class="text-base text-center text-gray-400" id="result">
                         </p>
@@ -113,6 +113,7 @@
                       confirmButtonText: 'Aceptar',
                       background:'#F9F7F7',
                       margin: '5em',
+                      backdrop:'#F9F7F7 url({{ asset("gifs/confetti.gif") }})',
                       confirmButtonColor: '#112D4E',
                       width: 600,
                     })

@@ -61,14 +61,8 @@ Route::middleware('auth')->get('/account', function () {
     return view('guest.account', compact(['provinces', 'places', 'categories', 'languajes', 'user']));
 });
 
-Route::middleware('auth')->get('/account_guest', function () {
-    $provinces=Province::all();
-    $places=Place::where('status',1)->get();
-    $categories=Category::where('status',1)->get();
-    $languajes=Languaje::all();
-    $user=Auth::User();   
-    return view('guest.account_guest', compact(['provinces', 'places', 'categories', 'languajes', 'user']));
-})->name('guest.account_guest');
+Route::get('/user/{user:id}',[UsersController::class,'show'])->name('user.detail')->middleware('web');
+
 
 Route::get('/test', function () {
     $experiences = App\Models\Experience::all();
