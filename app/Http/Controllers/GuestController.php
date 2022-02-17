@@ -36,8 +36,10 @@ class GuestController extends Controller
         try {
             DB::transaction(function () use ($request){
                 $city=City::find($request['city_id']);
-                $user=User::create($request->all()+['role_id'=>$request['type_account'],'status'=>2,
-                'address'=>$request['adress'],'city'=>$city->name,'province'=>$city->province->name,'country'=>$city->province->country->name]);
+                $user=User::create($request->all()+
+                ['role_id'=>$request['type_account'],'status'=>2,'address'=>$request['adress'],
+                'city'=>$city->name,'province'=>$city->province->name,
+                'country'=>$city->province->country->name,'cuit'=>$request['cuit'] ? $request['cuit'] : 'No definido' ]);
                 Auth::login($user);
 
             });

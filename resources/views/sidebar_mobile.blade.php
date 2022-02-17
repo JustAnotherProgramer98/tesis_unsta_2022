@@ -23,7 +23,7 @@
         @keydown.escape="closeSideMenu"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
-          <p class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200">Tesis unsta</p>
+          <p class="ml-6 text-lg font-bold text-paleta_tesis_azul dark:text-paleta_tesis_gris">Tesis unsta</p>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               @if ((request()->routeIs('admin.panel')))

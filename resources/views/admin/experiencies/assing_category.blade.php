@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <p class="text-black font-bold text-2xl">Asignacion de categorias</p>
+    <p class="text-paleta_tesis_celeste font-bold text-2xl">Asignacion de categorias</p>
 @endsection
 
 

@@ -1,14 +1,13 @@
-<div class="flex h-screen bg-gray-50 dark:bg-purple-600" :class="{ 'overflow-hidden': isSideMenuOpen }">
+<div class="flex h-screen bg-paleta_tesis_blanco dark:bg-paleta_tesis_azul" :class="{ 'overflow-hidden': isSideMenuOpen }">
       <!-- Desktop sidebar -->
       {{-- color de toda la barra --}}
-      <aside class="z-20 h-full hidden w-max overflow-y-auto bg-gray-200 dark:bg-gray-800 md:block flex-shrink-0"
-      >
+      <aside class="z-20 h-full hidden w-max overflow-y-auto bg-gray-200 dark:bg-gray-800 md:block flex-shrink-0">
         <div class="py-4 text-gray-600 dark:text-gray-400">
-          <p class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200">Tesis unsta</p>
+          <p class="ml-6 text-lg font-bold text-paleta_tesis_azul  dark:text-gray-100">Tesis unsta</p>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               @if ((request()->routeIs('admin.panel')))
-                <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
+                <span class="absolute inset-y-0 left-0 w-1 bg-paleta_tesis_celeste rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
               @endif
               <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100" href="{{ route('admin.panel') }}">
                 <svg
@@ -67,7 +66,7 @@
                     <span class="inline-flex justify-center items-center">
                       
                     </span>
-                    <span class="@if (request()->routeIs('experiencies.index.admin')) text-purple-500 italic @endif ml-4 text-sm tracking-wide truncate">Experiencias</span>
+                    <span class="@if (request()->routeIs('experiencies.index.admin')) text-paleta_tesis_celeste @endif ml-4 text-sm tracking-wide truncate">Experiencias</span>
                   </a>
                   </li>
                   <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
@@ -76,14 +75,14 @@
                     <span class="inline-flex justify-center items-center">
                       
                     </span>
-                    <span class="@if (request()->routeIs('experiencies.assing.admin')) text-purple-500 italic @endif ml-4 text-sm tracking-wide truncate">Asignar categoria</span>
+                    <span class="@if (request()->routeIs('experiencies.assing.admin')) text-paleta_tesis_celeste @endif ml-4 text-sm tracking-wide truncate">Asignar categoria</span>
                   </li>
                 </ul>
               </template>
             </li>
             <li class="relative px-6 py-3">
               @if ((request()->routeIs('places.index.admin')))
-              <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
+              <span class="absolute inset-y-0 left-0 w-1 bg-paleta_tesis_celeste rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
               @endif
               <a href="{{ route('places.index.admin') }}"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
@@ -95,7 +94,7 @@
             </li>
             <li class="relative px-6 py-3">
               @if ((request()->routeIs('categories.index.admin')))
-              <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
+              <span class="absolute inset-y-0 left-0 w-1 bg-paleta_tesis_celeste rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
               @endif
               <a href="{{ route('categories.index.admin') }}"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
@@ -107,7 +106,7 @@
             </li>
             <li class="relative px-6 py-3">
               @if ((request()->routeIs('coupons.index.admin')))
-                <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
+                <span class="absolute inset-y-0 left-0 w-1 bg-paleta_tesis_celeste rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
               @endif
               <a href="{{ route('coupons.index.admin') }}"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">  
@@ -119,7 +118,7 @@
             </li>
             <li class="relative px-6 py-3">
               @if ((request()->routeIs('sales.index.admin')))
-              <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
+              <span class="absolute inset-y-0 left-0 w-1 bg-paleta_tesis_celeste rounded-tr-lg rounded-br-lg" aria-hidden="true"></span>  
               @endif
               <a href="{{ route('sales.index.admin') }}"
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">

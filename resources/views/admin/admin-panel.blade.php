@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <p class="text-purple-500 font-bold text-2xl">Panel de administracion</p>
+    <p class="text-paleta_tesis_celeste font-bold text-2xl">Panel de administracion</p>
 @endsection
 
 @section('content')

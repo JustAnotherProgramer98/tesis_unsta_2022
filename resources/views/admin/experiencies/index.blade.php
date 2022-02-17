@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <p class="text-purple-500 font-bold  text-2xl">Experiencias</p>
+    <p class="text-paleta_tesis_celeste font-bold  text-2xl">Experiencias</p>
 @endsection
 @section('content')
     <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">

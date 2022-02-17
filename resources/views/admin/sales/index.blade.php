@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <p class="text-purple-500 font-bold text-2xl">Ventas</p>
+    <p class="text-paleta_tesis_celeste font-bold text-2xl">Ventas</p>
 @endsection
 
 
@@ -55,7 +55,7 @@
                                         </td>
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $sale) }}">
-                                                <p class="font-semibold capitalize">{{ $sale->experience->title }}</p>
+                                                <p class="font-semibold capitalize">{{ Str::limit($sale->experience->title, 15, '...') }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">

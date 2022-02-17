@@ -54,16 +54,19 @@
                 <!-- Profile menu -->
                 <li class="relative">
                     <button
-                        class="align-middle rounded-full text-white bg-purple-500 h-10 w-10 focus:shadow-outline-purple focus:outline-none"
+                        class="align-middle rounded-full text-paleta_tesis_blanco bg-paleta_tesis_celeste h-10 w-10 focus:shadow-outline-purple focus:outline-none"
                         @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
-                        aria-haspopup="true">{{ (Auth::user()->name[0]).'-'.Auth::user()->surname[0] }}
+                        aria-haspopup="true">{{ (Auth::user()->name[0]).''.Auth::user()->surname[0] }}
                     </button>
                     <template x-if="isProfileMenuOpen">
                         <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
                             x-transition:leave-end="opacity-0" @click.away="closeProfileMenu"
                             @keydown.escape="closeProfileMenu"
-                            class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
+                            class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-paleta_tesis_gris border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
                             aria-label="submenu">
+                            <li class="flex">
+                                <span>{{ Auth::user()->name.' '.Auth::user()->surname }}</span>
+                            </li>
                             <li class="flex">
                                 <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                                     href="#">

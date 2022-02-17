@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <p class="text-purple-500 font-bold  text-2xl">Usuarios</p>
+    <p class="text-paleta_tesis_celeste font-bold  text-2xl">Usuarios</p>
 @endsection
 @section('content')
     <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
@@ -62,8 +62,6 @@
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $user) }}">
                                                 <p class="font-semibold">{{ \Carbon\Carbon::parse($user->birthday)->age; }} años</p>
-                                                {{-- <p class="font-semibold">{{ date_diff(date_create($user->birthday),date_create(\Carbon\Carbon::now())) }}</p> --}}
-                                                {{-- <p class="font-semibold capitalize">{{ Str::limit($experience->place->city->province->name.' - '.$experience->place->city->name,20) }}</p> --}}
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
@@ -103,7 +101,7 @@
                                                 @default
                                                     <span
                                                         class="cursor-default px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
-                                                        Pendiente de aprobacion</span>
+                                                        {{ Str::limit('Pendiente de aprobacion', 10, '...') }}</span>
                                             @endswitch
                                         </td>
                                         @if ($user->status != 1)

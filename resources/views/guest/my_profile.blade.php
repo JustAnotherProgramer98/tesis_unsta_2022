@@ -134,6 +134,22 @@
               </div>
 
               <div class="text-center mt-12">
+                <p>Cuenta:
+                      @switch(Auth::user()->role->name)
+                      @case('Admin')
+                          <span
+                              class="cursor-default px-2 py-1 font-semibold leading-tight text-sky-700 bg-sky-100 rounded-full dark:text-sky-100 dark:bg-sky-700">Admin
+                          </span>
+                      @break
+                      @case('Anfitrion')
+                          <span
+                              class="cursor-default px-2 py-1 font-semibold leading-tight text-purple-700 bg-purple-100 rounded-full dark:bg-purple-700 dark:text-purple-100">Anfitrion
+                          </span>
+                      @break
+                      @default
+                          <span style="background-color: #6495ed" class="cursor-default px-2 py-1 font-semibold leading-tight text-gray-200 rounded-full">Cliente</span>
+                  @endswitch
+                </p>
                 <h3 class="text-4xl font-semibold leading-normal text-gray-800 mb-2">
                   {{Auth::user()->surname}}, {{Auth::user()->name}} 
                 </h3>

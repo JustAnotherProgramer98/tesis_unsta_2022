@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <p class="text-black font-bold text-2xl">Editar el lugar <span class="text-purple-500">{{ $place->adress }}</span></h2></p>
+    <p class="text-black font-bold text-2xl">Editar el lugar <span class="text-paleta_tesis_celeste">{{ $place->adress }}</span></h2></p>
 @endsection
 
 

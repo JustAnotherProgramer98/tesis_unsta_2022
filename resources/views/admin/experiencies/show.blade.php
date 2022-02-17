@@ -2,7 +2,7 @@
 
 @section('title_of_tab')
 <div class="flex align-middle">
-    <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-purple-500">{{ $experience->title }}</span></h2></p>
+    <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-paleta_tesis_celeste">{{ $experience->title }}</span></h2></p>
     <img src="{{ asset('images/mountains.png') }}" alt="">
 </div>
 @endsection

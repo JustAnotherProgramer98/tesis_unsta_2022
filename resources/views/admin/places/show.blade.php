@@ -2,7 +2,7 @@
 
 @section('title_of_tab')
 <div class="flex align-middle">
-    <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-purple-500">{{ Str::limit($place->adress,10) }}</span></p>
+    <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-paleta_tesis_celeste">{{ Str::limit($place->adress,10) }}</span></p>
     <img width="100px" height="100px"  src="{{ asset('images/plane-with-marker.jpg') }}" alt="">
 </div>
 @endsection

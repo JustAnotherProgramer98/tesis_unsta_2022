@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <p class="text-black font-bold text-2xl">Editar la categoria <span class="text-purple-500">{{ $category->title }}</span></h2></p>
+    <p class="text-black font-bold text-2xl">Editar la categoria <span class="text-paleta_tesis_celeste">{{ $category->title }}</span></h2></p>
 @endsection
 
 
