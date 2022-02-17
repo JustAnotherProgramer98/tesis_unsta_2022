@@ -193,7 +193,7 @@
                         <div class="p-4">
                             <p class="text-paleta_tesis_gris: font-normal text-base">Categoria: 
                               @foreach ($experiencie->categories as $category) 
-                              <span class="text-paleta_tesis_celeste"> {{ $category->title }}</span> 
+                              <span class="text-paleta_tesis_celeste"> {{ $category->title }}  @if ($loop->last) @else -@endif </span> 
                               @endforeach
                               </p>                              
                             <p class=" text-2xl  py-2">{{ $experiencie->title }}</p>

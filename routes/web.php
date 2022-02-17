@@ -3,7 +3,7 @@
 
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\GuestController;
-use App\Http\Controllers\Product_ShopController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Experience;
@@ -31,7 +31,7 @@ Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index'
 
 Route::get('/explora',[GuestController::class,'index'])->name('experiencies.shop');
 
-Route::get('/product_shop', [Product_ShopController::class,'index'])->name('experiencies.product_shop');
+Route::get('/explora/buscar', [ProductController::class,'search'])->name('experiencies.product_shop');
 
 Route::get('/product/{experience}', function (App\Models\Experience $experience) {
     $experiences = App\Models\Experience::all();
