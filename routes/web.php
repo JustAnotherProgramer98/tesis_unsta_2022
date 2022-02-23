@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProductController;
@@ -35,11 +35,7 @@ Route::get('/explora/buscar', [ProductController::class,'search'])->name('experi
 Route::get('/experiencia/{experience}', [GuestController::class,'showExperience'])->name('guest.product');
 
 
-Route::get('/cart_shop', function () {
-    $experiences = App\Models\Experience::all();
-    return view('guest.cart_shop', compact(["experiences"]));
-});
-
+//Contact us
 Route::get('/contactanos', [GuestController::class,'createContact'])->name('contact_us');
 Route::post('/contactanos',[GuestController::class,'storeContact'])->name('contact_us.store');
 
@@ -47,6 +43,16 @@ Route::post('/contactanos',[GuestController::class,'storeContact'])->name('conta
 //Register 
 Route::get('/register',[GuestController::class,'create'])->name('register')->middleware('web');
 Route::post('/register',[GuestController::class,'store'])->name('register.post')->middleware('web');
+
+//Store experience on cart
+Route::post('/add-to-cart',[CartController::class,'store'])->name('cart.post')->middleware('web');
+
+//Delete experience from cart
+Route::post('/remove-experiencie',[CartController::class,'destroy'])->name('cart.delete')->middleware('web');
+
+//Index cart 
+Route::get('/experiencias-a-comprar',[CartController::class,'index'])->name('cart.index')->middleware('web');
+
 
 //Editar informacion personal de los usuarios
 Route::get('/edit/profile/{user:email}',[UsersController::class,'edit'])->name('edit.user')->middleware('web');

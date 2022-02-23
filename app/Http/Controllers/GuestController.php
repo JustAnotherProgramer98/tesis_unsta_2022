@@ -76,6 +76,5 @@ class GuestController extends Controller
             return response()->json(['status' => 'Error al enviar el mensaje , el error es '.$th]);
         }
 
-    }
-    
+    }  
 }

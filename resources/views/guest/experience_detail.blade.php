@@ -41,7 +41,7 @@
             <div class="md:flex-1 px-4">
                 <h2 class="text-sm title-font text-gray-500 tracking-widest"> @foreach ($experience->categories as $category) {{ $category->title }}  @endforeach </h2>
                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $experience->title }}</h1>
-                <h2 class="mt-4 text-gray-800 text-2xl font-bold my-2">Anfitrion: <a class="text-paleta_tesis_celeste bg-paleta_tesis_gris rounded-md p-2 font-thin hover:text-paleta_tesis_gris" href="{{ route('user.detail',$experience->host) }}">{{ $experience->host->name.' '.$experience->host->surname }}</a></h2>
+                <h2 class="mt-4 text-gray-800 text-2xl font-bold my-2">Anfitrion: <a class="text-paleta_tesis_celeste rounded-md p-2 font-thin hover:text-paleta_tesis_gris" href="{{ route('user.detail',$experience->host) }}">{{ $experience->host->name.' '.$experience->host->surname }}</a></h2>
                 
                 <div class="flex mb-4">
                     <span class="flex items-center">
@@ -69,7 +69,7 @@
                     <div class="flex ml-6 items-center">
                         <span class="mr-3">Participantes</span>
                         <div class="relative">
-                            <select name="quantity_clients" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+                            <select id="quantity_clients" name="quantity_clients" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
                                  @for ($i=1;$experience->quantity_clients != $i;$i++)<option value="{{ $i }}">{{ $i }}</option>@endfor
                                 
                             </select>
@@ -85,7 +85,7 @@
                 <div class="flex">
                     <span class="title-font font-medium text-2xl text-gray-900">Precio: ${{$experience->price}}</span>
                     <button class="flex ml-auto text-paleta_tesis_blanco bg-paleta_tesis_azul border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_celeste rounded">Comprar</button>
-                    <button class="flex ml-3    text-paleta_tesis_gris bg-paleta_tesis_celeste border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_azul rounded">Agregar al carrito</button>
+                    <button id="add_to_cart" class="flex ml-3    text-paleta_tesis_gris bg-paleta_tesis_celeste border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_azul rounded">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -97,12 +97,12 @@
             <h3 class="text-paleta_tesis_gris text-2xl font-medium border-b border-b-paleta_tesis_azul">Más experiencias <span class="text-paleta_tesis_azul"> que recomendamos</span> </h3>
             
             <div class="mt-4 flex flex-row gap-8 place-content-center bg-gradient-to-b from-paleta_tesis_gris via-paleta_tesis_blanco">
-                @foreach ($experiences as $experience)
+                @foreach ($experiences as $experience_related)
                 <div class="focus:outline-none mx-2 w-96 xl:mb-0 m-6 shadow-2xl">
-                    <a href="{{ route('guest.product',$experience) }}">
+                    <a href="{{ route('guest.product',$experience_related) }}">
                         <div>
-                            @if ($experience->images->first())
-                                <img width="400px" height="400px" class="focus:outline-none w-full rounded-3xl" src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
+                            @if ($experience_related->images->first())
+                                <img width="400px" height="400px" class="focus:outline-none w-full rounded-3xl" src="{{asset('storage/'.$experience_related->images->first()->url)}}" alt="{{ $experience_related->images->first()->alt }}">
                                 @else
                                 <img width="400px" height="400px"   class="focus:outline-none w-full h-44 rounded-3xl m-4" src="{{asset('images/Turistear.png')}}" alt="Logo por defecto">
                             @endif
@@ -112,13 +112,13 @@
                     <div class="bg-paleta_tesis_blanco">
                         <div class="p-4">
                             <div class="flex items-center">
-                                <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">{{$experience->title}}</h2>
+                                <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">{{$experience_related->title}}</h2>
                             </div>
-                            <p tabindex="0" class="focus:outline-none text-xs text-gray-600 mt-2">{{Str::limit($experience->description, 20, '...') }}</p>
+                            <p tabindex="0" class="focus:outline-none text-xs text-gray-600 mt-2">{{Str::limit($experience_related->description, 20, '...') }}</p>
                             
                             <div class="flex items-center justify-between py-4">
                                 <h2 tabindex="0" class="focus:outline-none text-indigo-700 text-xs font-semibold">
-                                    {{ $experience->place->city->name }} - {{$experience->place->city->province->name}}
+                                    {{ $experience_related->place->city->name }} - {{$experience_related->place->city->province->name}}
                                 </h2>
                                 <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold"></h3>
                             </div>
@@ -131,4 +131,61 @@
          
     </div>
 </main>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
+
+
+<script>
+    $("#add_to_cart").one( "click", function(e) {
+            e.preventDefault();
+            let quantity = $("#quantity_clients option:selected").val();
+            let experience_id = @json($experience->id);
+            
+
+            $.ajax({
+                url: "{{ route('cart.post') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'POST',
+                data:{
+                    experience_id:experience_id,
+                    quantity:quantity,
+                    _token: "{{ csrf_token() }}",
+                },
+                success: function(result) {
+                    
+                    Swal.fire({  
+                      text: result.status,
+                      imageUrl: "{{ asset('images/Turistear.png') }}",
+                      imageWidth: 300,
+                      imageHeight: 100,
+                      imageAlt: 'Turistear logo',
+                      confirmButtonText: 'Aceptar',
+                      background:'#F9F7F7',
+                      margin: '5em',
+                      confirmButtonColor: '#112D4E',
+                      width: 600,
+                    })
+                },
+                failure: function (result){
+                    Swal.fire({  
+                      text: result.status,
+                      imageUrl: "{{ asset('images/Turistear.png') }}",
+                      imageWidth: 300,
+                      imageHeight: 100,
+                      imageAlt: 'Turistear logo',
+                      confirmButtonText: 'Adelante!',
+                      background:'#F9F7F7',
+                      margin: '5em',
+                      confirmButtonColor: '#112D4E',
+                      width: 600,
+                    })
+                    
+                }
+            });
+            return false;
+        });
+</script>
 @endsection
