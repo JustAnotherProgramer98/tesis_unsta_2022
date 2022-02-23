@@ -1,42 +1,42 @@
 @extends('layouts.guest')
 @section('content')   
 <main class="my-8">
+    
     <div class="container mx-auto px-6">
         
         <div class="md:flex md:items-center">
-                    
+            @if (count($experience->images) >0)
             <div class="md:flex-1 px-4">
                 <div x-data="{ image: 1 }" x-cloak>
-                    <div class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
-                        <div x-show="image === 1" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                            <span class="text-5xl">1</span>
-                        </div>
-
-                        <div x-show="image === 2" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                            <span class="text-5xl">2</span>
-                        </div>
-
-                        <div x-show="image === 3" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                            <span class="text-5xl">3</span>
-                        </div>
-
-                        <div x-show="image === 4" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                            <span class="text-5xl">4</span>
-                        </div>
+                    <div class="h-64 md:h-80 rounded-lg bg-transparent mb-4">
+                        @forelse ($experience->images->take(4) as $image)
+                            <div x-show="image ==={{$loop->iteration}}" style="background: center;background-size: contain;background-repeat: no-repeat;background-image: url('{{asset('storage/'.$image->url)}}')" class="h-64 md:h-80 rounded-lg bg-transparent mx-auto mb-4 flex items-center justify-center"></div>
+                        @empty
+                        @endforelse
                     </div>
 
+                  
                     <div class="flex -mx-2 mb-4">
-                        <template x-for="i in 4">
-                            <div class="flex-1 px-2">
-                                <button x-on:click="image = i" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === i }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
-                                    <span x-text="i" class="text-2xl"></span>
-                                </button>
-                            </div>
-                        </template>
+                        @forelse ($experience->images->take(4) as $image)
+                        <div class="flex-1 px-2">
+                            <button x-on:click="image = {{$loop->iteration}}" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === {{$loop->iteration}} }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-400 flex items-center justify-center" style="background: center;background-repeat: no-repeat;background-size: contain;background-image: url('{{asset('storage/'.$image->url)}}')"></button>
+                        </div>
+                        @empty
+                        @endforelse
                     </div>
-                    
                 </div>
             </div>
+            @else
+            <div class="md:flex-1 px-4">
+                    <div class="h-64 md:h-80 rounded-lg bg-paleta_tesis_blanco mb-4">
+                        <div style="background: center;background-size: contain;background-repeat: no-repeat;background-image: url('{{asset('images/Turistear.png')}}')" class="relative h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                            <p class="absolute bottom-2 bg-paleta_tesis_azul text-white w-full text-center">Experiencia sin imagen</p>
+                        </div>
+                        
+                    </div>
+            </div>
+
+            @endif
 
             <div class="md:flex-1 px-4">
                 <h2 class="text-sm title-font text-gray-500 tracking-widest"> @foreach ($experience->categories as $category) {{ $category->title }}  @endforeach </h2>
@@ -100,11 +100,11 @@
                 @foreach ($experiences as $experience_related)
                 <div class="focus:outline-none mx-2 w-96 xl:mb-0 m-6 shadow-2xl">
                     <a href="{{ route('guest.product',$experience_related) }}">
-                        <div>
+                        <div style="width: 200px;height: 200px;" class="mx-auto">
                             @if ($experience_related->images->first())
-                                <img width="400px" height="400px" class="focus:outline-none w-full rounded-3xl" src="{{asset('storage/'.$experience_related->images->first()->url)}}" alt="{{ $experience_related->images->first()->alt }}">
+                                <img class="focus:outline-none w-full rounded-3xl" src="{{asset('storage/'.$experience_related->images->first()->url)}}" alt="{{ $experience_related->images->first()->alt }}">
                                 @else
-                                <img width="400px" height="400px"   class="focus:outline-none w-full h-44 rounded-3xl m-4" src="{{asset('images/Turistear.png')}}" alt="Logo por defecto">
+                                <img class="focus:outline-none w-full h-full rounded-3xl m-4" src="{{asset('images/Turistear.png')}}" alt="Logo por defecto">
                             @endif
                             
                         </div>
