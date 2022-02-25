@@ -198,11 +198,11 @@
 
 <!-- Description with a photo -->
     <section>
-        <div class="bg-gray-800">
+        <div class="bg-gradient-to-br from-paleta_tesis_celeste p-8 m-8">
             <div class="lg:grid lg:grid-cols-2">
                 <div class="py-24 px-10 lg:px-0 max-w-3xl lg:max-w-md mx-auto">
                     <h2 class="text-4xl tracking-tight font-extrabold text-gray-100">
-                        <span class="block">¿Estás listo para la aventura?</span>
+                        <span class="block whitespace-nowrap mb-2">¿Estás listo para la aventura?</span>
                         <span class="block">Registrate gratis y empezá a disfrutar tu vida.</span>
                     </h2>
                     <p class="text-gray-300 mt-5">
@@ -210,14 +210,12 @@
                         Con tan solo un click. 
                     </p>
                     <div class="inline-block shadow mt-5">
-                        <a href="#"
-                            class="inline-block py-3 px-4 bg-white hover:bg-indigo-100 text-indigo-500 font-medium border border-transparent rounded-md">Registrarse</a>
+                        <a href="{{ route('register') }}" class="mx-auto transition ease-in-out delay-150 hover:scale-110 hover:-translate-y-1 inline-block py-3 px-4 bg-paleta_tesis_blanco hover:bg-paleta_tesis_celeste hover:text-white text-paleta_tesis_celeste font-medium rounded-md">Registrarse</a>
                     </div>
                 </div>
                 <div class="lg:relative lg:mt-16">
-                    <img class="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-tl-md"
-                        src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-                        alt="Woman workcation on the beach">
+                    <img loading="lazy" class="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-md"
+                        src="https://cdn.dribbble.com/users/1794037/screenshots/10977638/media/318f391f577b1f86743c19b33144c1ea.gif" alt="Explore the world">
                 </div>
             </div>
         </div>
