@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\CouponCode;
 use App\Models\Experience;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class CouponCodeController extends Controller
 {
@@ -64,6 +66,19 @@ class CouponCodeController extends Controller
             return 'Sucess';
         } catch (\Throwable $th) {
             return "error ".$th;
+        }
+    }
+    public function use_coupon(Request $request)
+    {
+        $validated=$request->validate(['coupon_code'=>'required'],['coupon_code.required' => 'El cupon es requerido!']);
+        
+        $coupon_code=CouponCode::where('code',$validated['coupon_code'])->get();
+        if(count($coupon_code)==0){
+            return Redirect::back()->withErrors(['msg' => 'El coupon no fue encontrado']);
+        }else{
+            $coupon_code->first()->update(['status'=>1]);
+            $request->session()->put('coupon_code', $coupon_code);
+            return redirect()->back()->with('success', 'Cupon aplicado!');   
         }
     }
 }

@@ -11,31 +11,31 @@
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
             
             <li>
-                <div class="flex flex-col justify-center">
-                    <i class="text-paleta_tesis_blanco text-center mb-2 fal fa-home-alt"></i>
-                    <a class="hover:text-gray-200" href="{{ route('experiencies.index') }}">Home
-                    </a>
-                </div>
+                <a class="hover:text-gray-200 " href="{{ route('experiencies.index') }}">
+                    <div class="flex flex-col justify-center transition ease-in-out duration-100 hover:-translate-y-1 hover:scale-125">
+                        <i class="text-paleta_tesis_blanco text-center mb-2 fal fa-home-alt"></i>Home
+                    </div>
+                </a>
             </li>
 
             <li>
-                <div class="flex flex-col justify-center">
-                    <i class="text-paleta_tesis_blanco text-center mb-2  fal fa-gift"></i>
-                    <a class="hover:text-gray-200" href="{{ route('experiencies.shop') }}">Experiencias
-                    </a>
-                </div>
+                <a class="hover:text-gray-200 " href="{{ route('experiencies.shop') }}">
+                    <div class="flex flex-col justify-center transition ease-in-out duration-100 hover:-translate-y-1 hover:scale-125">
+                        <i class="text-paleta_tesis_blanco text-center mb-2  fal fa-gift"></i>Experiencias
+                    </div>
+                </a>
             </li>
             <li>
-                <div class="flex flex-col justify-center">
-                    <i class="text-paleta_tesis_blanco text-center mb-2  far fa-envelope"></i>
-                    <a class="hover:text-gray-200" href="{{ route('contact_us') }}">Contacto
-                    </a>
-                </div>
+                <a class="hover:text-gray-200 " href="{{ route('contact_us') }}">
+                    <div class="flex flex-col justify-center transition ease-in-out duration-100 hover:-translate-y-1 hover:scale-125">
+                        <i class="text-paleta_tesis_blanco text-center mb-2  far fa-envelope"></i>Contacto
+                    </div>
+                </a>
             </li>
         </ul>
         <!-- Header Icons -->
         <div class="hidden xl:flex space-x-5 items-center">
-            <a class="flex items-center hover:text-gray-200" href="{{ route('cart.index') }}">
+            <a class="flex items-center hover:text-gray-200 transition ease-in-out duration-100 hover:-translate-y-1 hover:scale-125" href="{{ route('cart.index') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -50,7 +50,7 @@
             </a>
 
             <!-- Sign In / Register  test    -->
-            <div style="z-index: 20;" class=" relative inline-block text-left dropdown">
+            <div style="z-index: 20;" class=" relative inline-block text-left dropdown ">
                 <button class="flex items-center hover:text-gray-200" type="button" aria-haspopup="true"
                     aria-expanded="true" aria-controls="headlessui-menu-items-117">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none"

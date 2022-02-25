@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CouponCodeController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProductController;
@@ -53,9 +54,14 @@ Route::post('/remove-experiencie',[CartController::class,'destroy'])->name('cart
 //Index cart 
 Route::get('/experiencias-a-comprar',[CartController::class,'index'])->name('cart.index')->middleware('web');
 
+//Use CouponCode cart 
+Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('couppon.use')->middleware(['web','auth']);
 
-//Editar informacion personal de los usuarios
+
+//Edit personal information from user
 Route::get('/edit/profile/{user:email}',[UsersController::class,'edit'])->name('edit.user')->middleware('web');
+
+
 
 Route::middleware('auth')->get('/account', function () {
     $provinces=Province::all();
@@ -81,7 +87,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::view('experiencias/crear', 'admin.experiencies.create');
 Route::view('/experiencias/welcome', 'welcome');
 
 Route::group(['middleware' => ['auth']], function () {

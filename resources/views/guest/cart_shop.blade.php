@@ -4,8 +4,11 @@
 <div class="flex justify-center my-6">
   <div class="flex flex-col w-full p-8 text-gray-800 bg-white pin-r pin-y md:w-4/5 lg:w-4/5">
     <div class="flex-1">
+      @if (\Session::has('success'))
+        <h4 class="pl-4 text-green-700 rounded-md bg-green-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-check text-green-700 text-2xl"></i>{{Session::get('success')}}</h4>
+      @endif
       @if($errors->any())
-        <h4>{{$errors->first()}}</h4>
+        <h4 class="pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-times text-red-700 text-2xl"></i>{{$errors->first()}}</h4>
       @endif
       @if ($experiences)
         <x-cart-detail-component :experiences="$experiences"> </x-cart-detail-component>
@@ -28,4 +31,36 @@
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
+
+<script>
+  
+$("#coupon_use").submit(function(e) {
+      if (@json(Auth::user()) === null) {
+        e.preventDefault();
+
+          Swal.fire({  
+            title:'Error!',
+            text: "Para usar un cupon debes estar registrado",
+            imageUrl: "{{ asset('images/Turistear.png') }}",
+            imageWidth: 200,
+            imageHeight: 100,
+            imageAlt: 'Turistear logo',
+            confirmButtonText: 'Registrarse',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            background:'#F9F7F7',
+            margin: '5em',
+            confirmButtonColor: '#112D4E',
+            width: 500,
+          }).then(result => {
+                if (result.value) {
+                  window.location.href = "{{ route('register')}}";
+                } // fin If
+              });
+        }
+});
+</script>
 @endsection 

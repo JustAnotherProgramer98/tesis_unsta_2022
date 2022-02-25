@@ -167,7 +167,11 @@
                       margin: '5em',
                       confirmButtonColor: '#112D4E',
                       width: 600,
-                    })
+                        }).then(result => {
+                            if (result.value) {
+                                location.reload();
+                            } // fin If
+                        });
                 },
                 failure: function (result){
                     Swal.fire({  

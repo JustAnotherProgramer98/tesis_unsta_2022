@@ -1,11 +1,14 @@
-<div class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200 w-full  shadow-gray-200 hover:shadow-dark-400/80 ">
+<div class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-110 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200 w-full  shadow-gray-200 hover:shadow-dark-400/80 ">
     <a href="{{ route('guest.product',$experiencie) }}">
-
-      @if ($experiencie->images->first())
-      <img class="aspect-video bg-cover w-full rounded-t-md min-h-40" src="{{asset('storage/'.$experiencie->images->first()->url)}}" />
-      @else
-      <img class="aspect-video bg-cover w-full rounded-t-md min-h-40" src="{{asset('images/Turistear.png')}}" />
-      @endif
+        @if ($experiencie->images->first())
+        <div class="w-full rounded-t-md min-h-40 {{ $experiencie->images->first() ? '' : 'bg-paleta_tesis_gris' }}">
+            <img class="aspect-video bg-cover w-full rounded-t-md min-h-40" src="{{asset('storage/'.$experiencie->images->first()->url)}}" />
+        </div>
+        @else
+        <div class="w-full rounded-t-md min-h-40 {{ $experiencie->images->first() ? '' : 'bg-paleta_tesis_gris' }}">
+            <img class="aspect-video bg-cover w-full rounded-t-md min-h-40" src="{{asset('images/Turistear.png')}}" />
+        </div>
+        @endif
     </a>
       <div class="p-4">
           <p class="text-paleta_tesis_gris: font-normal text-base">Categoria: 

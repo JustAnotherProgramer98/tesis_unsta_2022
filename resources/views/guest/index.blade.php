@@ -182,8 +182,8 @@
 @if(count($experiences)>1)
         <div class="min-h-screen">
             <p class="text-center text-4xl font-semibold py-4"><br> Experiencias Destacadas</p>
-            <div class="p-4 gap-4 select-none flex mx-auto">
-                @foreach ($experiences->take(4) as $experiencie)
+            <div class="p-4 m-12 gap-8 select-none justify-center flex">
+                @foreach ($experiences->take(3) as $experiencie)
                   <x-experience-card :experiencie=$experiencie></x-experience-card>
                 @endforeach
             </div>
