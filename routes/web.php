@@ -6,14 +6,11 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Experience;
 use App\Models\Province;
 use App\Models\Category;
-use App\Models\City;
 use App\Models\Place;
 use App\Models\Languaje;
-use App\Models\User;
-use App\Models\Comment;
+
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -27,11 +24,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index')->middleware('web');;
+Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index')->middleware('web');
 
 
 Route::get('/explora',[GuestController::class,'index'])->name('experiencies.shop');
 Route::get('/explora/buscar', [ProductController::class,'search'])->name('experiencies.product_shop');
+Route::get('/explora/categoria/{category:slug}', [ProductController::class,'searchByCategory'])->name('experiencies.by.category');
+Route::get('/explora/lugar/{place}', [ProductController::class,'searchByPlace'])->name('experiencies.by.place');
+
 Route::get('/experiencia/{experience}', [GuestController::class,'showExperience'])->name('guest.product');
 
 

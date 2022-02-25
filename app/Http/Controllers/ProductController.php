@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 
 use App\Models\Experience;
-
-
+use App\Models\Place;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 
@@ -15,6 +15,19 @@ class ProductController extends Controller
     {
             return ProductController::busqueda_parametrizada($request);
     }
+
+    public function searchByPlace(Request $request,Place $place)
+    {
+        $experiences=Experience::whereRelation('place','id',$place->id)->get();
+        return view('guest.search',compact(['experiences']));
+    }
+    public function searchByCategory(Request $request,Category $category)
+    {
+        $experiences=$category->experiences;
+        return view('guest.search',compact(['experiences']));
+    }
+    
+
 
     public static function busqueda_parametrizada(Request $request)
     {

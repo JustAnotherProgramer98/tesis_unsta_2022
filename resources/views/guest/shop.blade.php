@@ -5,18 +5,14 @@
         <!-- Main tittle with the photo -->
         <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
             
-                <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
-                    background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80');
-                ">
-                <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+                <div class="absolute top-0 w-full h-full bg-paleta_tesis_azul">
+                <span class="w-full h-full absolute opacity-75 bg-paleta_tesis_celeste"></span>
                 </div>
                 <div class="container relative mx-auto">
                 <div class="items-center flex flex-wrap">
                     <div class="w-full lg:w-9/12 px-4 ml-auto mr-auto text-center">
                     <div class="pr-12">
-                        <h1 class="text-white font-semibold text-5xl whitespace-nowrap">
-                            Encuentra tu Experiencia Ideal   
-                        </h1> <br>
+                        <h1 class="text-white font-semibold text-5xl whitespace-nowrap">Encuentra tu Experiencia Ideal   </h1> <br>
                         <!-- component -->
                         <form action="{{ route('experiencies.product_shop') }}" method="GET" autocomplete="off">
                             <div class="w-9/12 inline-flex flex-col justify-center relative text-gray-500">
@@ -28,7 +24,7 @@
                                         </svg>
                                     </div>
                                 <br>
-                                <p>o podes buscar por</p>
+                                <p class="text-white">o podes buscar por</p>
                                 <div class="w-full inline-flex flex-row gap-4 mt-8">
                                     <section class="flex w-full flex-col">
                                         <label for="category" class="text-white font-semibold text-2xl whitespace-nowrap">Categorias</label>
@@ -54,7 +50,7 @@
                                             
                                         </select>
                                     </section>
-                                    <button  class="p-4 my-6 bg-paleta_tesis_gris hover:bg-blue-500 text-paleta_tesis_celeste font-semibold hover:text-white border border-blue-500 hover:border-transparent rounded">Buscar</button>
+                                    <button  class="transition-colors duration-700 p-4 my-6 bg-paleta_tesis_gris hover:bg-blue-500 text-paleta_tesis_celeste font-semibold hover:text-white border border-blue-500 hover:border-transparent rounded">Buscar</button>
                                 </div>
                             </div>
                         </form>
@@ -71,6 +67,7 @@
         </div>
     </section>       
      
+<div class="bg-gradient-to-t from bg-paleta_tesis_gris via-paleta_tesis_blanco">
     <section>
         <div class="flex mx-auto place-content-center">
             <p class="mt-8 text-center text-4xl text-paleta_tesis_celeste">Nuestras experiencias recomendadas</p>
@@ -116,17 +113,16 @@
                                         
                     <div class="flex flex-wrap items-center gap-8 justify-center">
                         <!-- Card Categorias -->
-                        @forelse ($categories as $category)
-                        <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="#">
-                            <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-                                <div>
-                                    <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
-                                    <div>
+                        @forelse ($categories->take(4) as $category)
+                        <a style="width: 22%" class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200" href="{{route('experiencies.by.category',$category)}}">
+                            <div tabindex="0" class="focus:outline-none  xl:mb-0 mb-8">
+                                <div class="rounded-t-lg"> 
+                                    <img class="rounded-t-lg" src="{{asset($category->images->first()->url)}}" alt="{{ $category->images->first()->url }}">
+                                    <div class="m-3">
                                         <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $category->title }} </h1>
                                         <p class="text-gray-700 mb-2"> {{ $category->description }}</p>
                                         <div class="flex justify-between mt-4">
-                                            <span class="font-thin text-sm">May 20th 2020</span>
-                                            <span class="mb-2 text-gray-800 font-bold">Read more</span>
+                                            <p class="text-sm font-thin text-paleta_tesis_azul">Aprobada por turiste<span style='color: #3F72AF'>AR</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -164,16 +160,15 @@
                 <div class="mx-auto container py-8">
                     <div class="flex flex-wrap items-center gap-8 justify-center">
                         <!-- Card 1 -->
-                        @forelse ($places as $place)
-                        <a class="cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50" href="#">
-                            <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
-                                <div>
-                                    <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
-                                    <div>
-                                        <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ Str::limit($place->city->province->country->name.', '.$place->city->province->name, 25, '...') }}</h1>
+                        @forelse ($places->take(8) as $place)
+                        <a style="width: 22%" class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200" href="{{route('experiencies.by.place',$place)}}">
+                            <div tabindex="0" class="focus:outline-none  xl:mb-0 mb-8">
+                                <div class="rounded-t-lg"> 
+                                    <img class="rounded-t-lg h-72 w-full" src="{{asset($place->images->first()->url)}}" alt="{{ $place->images->first()->url }}">
+                                    <div class="m-3">
+                                        <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ Str::limit($place->city->province->name.', '.$place->city->name, 20, '...') }}</h1>
                                         <div class="flex justify-between mt-4">
-                                            <span class="font-thin text-sm">May 20th 2020</span>
-                                            <span class="mb-2 text-gray-800 font-bold">Read more</span>
+                                            <p class="text-sm font-thin text-paleta_tesis_azul">Aprobada por turiste<span style='color: #3F72AF'>AR</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -201,6 +196,7 @@
                 </div>  
             </div>
     </section>
+</div>
 </body>
 <script>
 

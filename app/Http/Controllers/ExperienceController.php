@@ -205,4 +205,43 @@ class ExperienceController extends Controller
         }
         
     }
+    public function codigo_para_subir_mas_de_una_imagen (Request $request)
+    {
+        if($request){
+
+        
+        foreach($request->file('preloaded_images') as $file){
+            $image = new Image;
+            $randomName = Str::random(20) .".". $file->extension();
+            $image->url_image=$randomName;
+            $file->storeAs('public/experiencias', $randomName);
+            $image->name="Imagen secundaria";
+            $image->is_principal=false;
+            $image->experiencia_id=$experiencia->id;
+            $image->save();
+            }
+        }
+    elseif ($request->preloaded_images==null) {
+        foreach ($experiencia->images->where('is_principal',false) as $imagenSecundaria) {
+            $imagenSecundaria->delete();
+        }
+    }
+    
+    /*
+    Si borran imagenes y quiero capturar cuales se borran, no me queda otra que comparar el tamaño
+    del preloaded image que viene en el request vs la cantidad de imagenes que tenia asociado el modelo
+    al mantener el orden solo resta saber que indices se eliminaron y borrarlos
+    */
+    
+     elseif (count($experiencia->images) > count($request->preloaded_images)) {
+         $values_stay_image = array_values($request->preloaded_images);
+         $collecion_keys=array_keys($experiencia->images->toArray());
+         $a=array_diff($collecion_keys,$values_stay_image);
+         
+        for ($i=0;  $i < count($a) ;$i++) {
+            $experiencia->images[$i]->delete();
+        }
+        
+    }
+    }
 }

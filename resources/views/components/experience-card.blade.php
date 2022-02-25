@@ -1,4 +1,4 @@
-<div class="bg-paleta_tesis_blanco w-full cursor-pointer rounded-md shadow-md shadow-gray-200 hover:shadow-dark-400/80 hover:shadow-2xl hover:bg-gray-50">
+<div class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200 w-full  shadow-gray-200 hover:shadow-dark-400/80 ">
     <a href="{{ route('guest.product',$experiencie) }}">
 
       @if ($experiencie->images->first())
