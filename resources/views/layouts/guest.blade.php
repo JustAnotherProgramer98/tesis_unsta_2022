@@ -3,10 +3,16 @@
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
 
 <head>
+    <title>{{ config('app.name', 'No leido del Env') }} |Animate a explorar el mundo! </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'No leido del Env') }}</title>
+    <meta name="description" content="Explora el mundo -Unite a Turistear!"/>
+    <meta name="keywords" content="Explora el mundo, Experiencias, Argentina, Viajes, Guia"/>
+    <meta name="author" content="Evangelista Santiago - Laravel Web Developer">
+    <meta name="copyright" content="Copyright 2022 - Evangelista Santiago Todos los derechos reservados">
+    <meta name="robots" content="index,follow" />
+    <link rel="icon" href="{{ asset('images/Turistear3.png') }}" type="image/x-icon">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <script src="{{ asset('js/init-alpine.js') }}"></script>

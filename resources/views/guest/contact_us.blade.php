@@ -2,7 +2,7 @@
 @section('content') 
 
     <!-- contacto -->
-    <div class="flex items-center min-h-screen bg-gradient-to-b  from-paleta_tesis_gris dark:bg-gray-900">
+    <div id="contact_page" class="flex items-center min-h-screen bg-gradient-to-b  from-paleta_tesis_gris dark:bg-gray-900">
         <div class="container mx-auto">
             <div class="mx-auto lg:w-5/6 my-10 bg-white p-5 rounded-md shadow-sm">
                 <div class="text-center">
@@ -76,6 +76,10 @@
             </div>
         </div>
     </section>
+    <div id="loading" class="hidden absolute top-1/4 w-full max-h-max text-center  bottom-1/4">
+        <p class="text-4xl font-semibold py-4 text-paleta_tesis_azul">Enviando mensaje  <i class="animate-bounce fal fa-envelope"></i></p>  
+        <img class="mx-auto " src="{{ asset('gifs/email_sending.gif') }}" alt="Envio de correo">
+    </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
@@ -102,6 +106,13 @@
                     message:message,
                     _token: "{{ csrf_token() }}",
                 },
+                beforeSend: function(){
+                $( "#contact_page" ).addClass( "blur-sm" );
+                 $("#loading").show();
+                },
+                complete: function(){
+                $("#loading").hide();
+                },
                 success: function(result) {
                     
                     Swal.fire({  
@@ -122,7 +133,7 @@
                     $("input[name=email]").val('');
                     $("input[name=phone]").val('');
                     $("textarea[name=message]").val('');
-
+                    $( "#contact_page" ).removeClass( "blur-sm" );
                 },
                 failure: function (result){
                     Swal.fire({  

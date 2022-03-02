@@ -71,6 +71,7 @@ class GuestController extends Controller
         ]);
         try {
             Contact::create($validated+['browser'=>$request->header('User-Agent')]);
+            MailController::send_mail($validated['fullname'],$validated['email'],$validated['phone'],$validated['message']);
             return response()->json(['status' => 'El mensaje fue enviado correctamente']);
         } catch (\Throwable $th) {
             return response()->json(['status' => 'Error al enviar el mensaje , el error es '.$th]);

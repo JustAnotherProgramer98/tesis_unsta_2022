@@ -214,8 +214,7 @@
                     </div>
                 </div>
                 <div class="lg:relative lg:mt-16">
-                    <img loading="lazy" class="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-md"
-                        src="https://cdn.dribbble.com/users/1794037/screenshots/10977638/media/318f391f577b1f86743c19b33144c1ea.gif" alt="Explore the world">
+                    <img class="lg:absolute lg:inset-0 h-60 w-full lg:h-full object-cover object-center lg:rounded-md" src="{{ asset('gifs/globe_spinning.gif') }}" alt="Explore the world">
                 </div>
             </div>
         </div>
