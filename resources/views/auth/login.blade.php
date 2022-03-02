@@ -11,14 +11,14 @@
     <div class="flex-auto px-4 lg:px-10 py-10 pt-4">
       <div class="text-blueGray-400 text-center mb-3 font-bold">
         @if ($errors->any())
-        <div class="">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-      @endif
+          <div class="bg-red-100">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li class="text-red-700 ">{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
       </div>
      
   

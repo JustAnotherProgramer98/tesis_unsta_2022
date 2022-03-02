@@ -60,6 +60,8 @@ Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('co
 
 //Edit personal information from user
 Route::get('/edit/profile/{user:email}',[UsersController::class,'edit'])->name('edit.user')->middleware('web');
+Route::put('/edit/profile/',[UsersController::class,'update'])->name('update.user')->middleware('web');
+
 
 
 

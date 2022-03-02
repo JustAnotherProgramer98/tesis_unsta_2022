@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Province;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -72,7 +75,44 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validated=$request->validate([
+            'name'=>'required|string',
+            'surname'=>'required|string',
+            'birthday'=>'required|date',
+            'gender'=>'required|string',
+            'phone'=>'required',
+            'adress'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'introducing_me'=>'required',
+            ],[
+                'password.required'=>'Por motivos de seguridad debes ingresar tu contraseña para validar los cambios',
+            ]);
+        if ($validated['password']!=$request->password2 and $request->password2!=null) return redirect()->back()->withErrors('Las contraseñas no coinciden!'); 
+        try {
+            DB::transaction(function () use ($validated,$request,$user){
+                $user->update($validated);
+
+                if ($request->profile_image) foreach($user->images as $image_to_delete) $image_to_delete->delete(); 
+
+                if ($request->profile_image) {
+                    $image = new Image();
+                    $request->profile_image->store('public');
+                    $image->url=$request->profile_image->hashName();
+                    $image->alt="Imagen de perfil";
+                    $image->picturable_type=get_class($user);
+                    $image->picturable_id=$user->id;
+                    $image->save();    
+                }                
+            });
+            Auth::login($user);
+            return redirect()->back()->with('success', 'Datos actualizados!');    
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    
+        
+
     }
 
     /**

@@ -43,6 +43,7 @@ class User extends Authenticatable
         'cuit',
         'birthday',
         'deleted_at',
+        'introducing_me',
         'experiences'
     ];
     /**

@@ -33,11 +33,19 @@
 
     <main class="profile-page">
       <section class="relative block" style="height: 500px;">
-        <div
-          class="absolute top-0 w-full h-full bg-center bg-cover"
+        {{-- Imagen de fondo --}}
+        {{-- @if (Auth::user()->images->first()) --}}
+        
+        <div class="absolute top-0 w-full h-full bg-center bg-cover"
           style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80"); z-index:-10'>
           <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
         </div>
+      {{-- @else
+        <div class="absolute top-0 w-full h-full bg-center bg-cover"
+          style='background-image: url("{{asset('storage/'.Auth::user()->images->first()->url)}}"); z-index:-10'>
+          <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
+        </div>
+          @endif --}}
         <div
           class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
           style="height: 70px;">
@@ -65,10 +73,18 @@
               <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div class="relative">
-                    <img
-                      src="https://thumbs.dreamstime.com/z/icono-de-cuenta-personal-dise%C3%B1o-elementos-creativos-la-colecci%C3%B3n-iconos-pixel-perfecto-para-web-aplicaciones-software-uso-146958683.jpg" 
+                    @if (Auth::user()->images->first())
+                    <img src="{{asset('storage/'.Auth::user()->images->first()->url)}}" alt="{{ Auth::user()->images->first()->alt }}" 
                       class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                       style="max-width: 150px;"/>
+                    
+                    @else
+                    <img
+                    src="https://thumbs.dreamstime.com/z/icono-de-cuenta-personal-dise%C3%B1o-elementos-creativos-la-colecci%C3%B3n-iconos-pixel-perfecto-para-web-aplicaciones-software-uso-146958683.jpg" 
+                    class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                    style="max-width: 150px;"/>
+                    @endif
+                    
                   </div>
                 </div>
                
@@ -157,6 +173,12 @@
                   <i class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
                   {{Auth::user()->province}}, {{Auth::user()->country}}
                 </div>
+                @if (Auth::user()->introducing_me)
+                    <div class="text-sm leading-normal mt-0 mb-2  font-bold uppercase">
+                       {{Auth::user()->introducing_me}}
+                    </div>  
+                @endif
+                
                 <div class="mb-2 text-gray-700 mt-10">
                   <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i>
                   Agente de turismo - Turismo Tuc

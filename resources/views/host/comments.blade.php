@@ -103,7 +103,7 @@
                                 <div class="inline-block relative">
                                     <div class="relative w-16 h-16 rounded-full overflow-hidden">
                                         @if(count($comment->user->images)!=0)
-                                            <img class="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover" src="{{ $comment->user->images->url }}" alt="Profile picture">
+                                            <img class="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover" src="{{asset('storage/'.Auth::user()->images->first()->url)}}" alt="{{asset('storage/'.Auth::user()->images->first()->alt)}}">
                                             <div class="absolute top-0 left-0 w-full h-full rounded-full shadow-inner"></div>
                                             @else
                                             <img class="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile picture">

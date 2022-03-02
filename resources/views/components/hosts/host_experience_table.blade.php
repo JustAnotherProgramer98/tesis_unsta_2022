@@ -4,14 +4,14 @@
             <thead>
                 <tr
                     class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                    <th class="px-4 py-3">Nombre de la experiencia</th>
-                    <th class="px-4 py-3">Cantidad de usuarios que la compraron</th>
-                    <th class="px-4 py-3">Lugar</th>
-                    <th class="px-4 py-3">Precio de la experiencia</th>
-                    <th class="px-4 py-3">Categoria</th>
-                    <th class="px-4 py-3">Estado</th>
-                    <th class="px-4 py-3">Editar</th>
-                    <th class="px-4 py-3">Borrar</th>
+                    <th class="whitespace-nowrap px-4 py-3">Nombre de la experiencia</th>
+                    <th class="whitespace-nowrap px-4 py-3">Cantidad de usuarios que la compraron</th>
+                    <th class="whitespace-nowrap px-4 py-3">Lugar</th>
+                    <th class="whitespace-nowrap px-4 py-3">Precio de la experiencia</th>
+                    <th class="whitespace-nowrap px-4 py-3">Categoria</th>
+                    <th class="whitespace-nowrap px-4 py-3">Estado</th>
+                    <th class="whitespace-nowrap px-4 py-3">Editar</th>
+                    <th class="whitespace-nowrap px-4 py-3">Borrar</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -20,13 +20,13 @@
                     <tr onclick="showExperience(event, 'show_experience_detail',{{ $experience }},'{{ $experience->images->first()? asset('storage/' . $experience->images->first()->url): addslashes('Sin imagenes') }}','{{ $experience->place->city->province->name }}','{{ $experience->place->city->name }}','{{ addslashes(Str::limit($experience->place->adress, 10)) }}')"
                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                         <td class="px-4 py-3">
-                            <p class="font-semibold capitalize">{{ $experience->title }}</p>
+                            <p class="font-semibold capitalize cursor-pointer">{{ $experience->title }}</p>
                         </td>
                         <td class="px-4 py-3">
-                            <p class="font-semibold capitalize">{{ count($experience->sales) }}</p>
+                            <p class="font-semibold capitalize cursor-pointer">{{ count($experience->sales) }}</p>
                         </td>
                         <td class="px-4 py-3">
-                            <p class="font-semibold capitalize">
+                            <p class="font-semibold capitalize cursor-pointer">
                                 {{ Str::limit($experience->place->city->province->name, 10, '...') . ', ' . $experience->place->city->name }}
                             </p>
                         </td>
