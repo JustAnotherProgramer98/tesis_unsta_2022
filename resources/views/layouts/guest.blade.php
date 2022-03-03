@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Explora el mundo -Unite a Turistear!"/>
+    <meta name="description" content="Explora el mundo | Unite a Turistear!"/>
     <meta name="keywords" content="Explora el mundo, Experiencias, Argentina, Viajes, Guia"/>
     <meta name="author" content="Evangelista Santiago - Laravel Web Developer">
     <meta name="copyright" content="Copyright 2022 - Evangelista Santiago Todos los derechos reservados">

@@ -17,8 +17,8 @@
                         </svg>
                     </div>
                     <button style="margin-top: auto;margin-bottom: auto" onclick="openNewTab(event, 'create')"
-                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear cupones</button>
-                        <button style="margin-top: auto;margin-bottom: auto" id="button-popover" class="rounded-full border-2 border-blue-500 shadow-lg h-8 w-8" aria-describedby="tooltip">?</button>
+                    class="mb-4 bg-transparent hover:bg-paleta_tesis_celeste text-paleta_tesis_celeste font-semibold hover:text-white py-2 px-4 border-2 border-celetext-paleta_tesis_celeste hover:border-transparent rounded">Crear cupones</button>
+                        <button style="margin-top: auto;margin-bottom: auto" id="button-popover" class="rounded-full border-2 border-celetext-paleta_tesis_celeste shadow-lg h-8 w-8" aria-describedby="tooltip">?</button>
                         <div id="tooltip" role="tooltip"> Hace click en las primeras 3 columnas y mira el detalle de los cupones
                             <div id="arrow" data-popper-arrow></div>
                         </div>
@@ -127,17 +127,16 @@ function openCouponDetail(event, tab_name,model,coupons) {
 
 
     document.getElementById("container_popover_buttons").innerHTML='';    
-    console.log("largo del array "+coupons.length);
 
     let loop=0;
     for (let index = 0; index != coupons.length ; index++) {
     popover_button=`
         <div style="width: max-content" x-data="{open: false}"  class="items-center justify-between">
-            <div style="border-top-left-radius: 10px;border-bottom-right-radius: 10px;left: 70px;top:20px" x-cloak class="flex-shrink-0 pr-2 bg-paleta_tesis_gris  z-20 relative">
+            <div style="border-top-left-radius: 10px;border-bottom-right-radius: 10px;left: 70px;top:20px" x-cloak class="flex-shrink-0 pr-2  {{ $coupon->status==1 ? 'bg-green-400' : 'bg-red-400' }}  z-20 relative">
                 <div x-show="open"  @mouseleave="open = false" x-transition class="" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1 z-50">
                     <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                    <p class="text-paleta_tesis_azul block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Sin usar</p>
+                    <p class="{{ $coupon->status==1 ? 'text-green-700' : 'text-red-700' }}  block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">{{ $coupon->status==1 ? 'Usado' : 'Sin usar' }}</p>
                 </div>
                 </div>
             </div>
@@ -146,8 +145,7 @@ function openCouponDetail(event, tab_name,model,coupons) {
             </div>
         </div>`
 
-        console.log("valor de loop "+loop);
-        console.log("entrada");
+     
         document.getElementById("container_popover_buttons").innerHTML+=popover_button;
         loop++;
         document.getElementById("Cuppon_code["+index+"]").innerHTML=coupons[index];

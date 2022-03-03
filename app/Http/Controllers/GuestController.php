@@ -43,6 +43,9 @@ class GuestController extends Controller
                 Auth::login($user);
 
             });
+            // $admin = User::whereRelation('role', 'name','Admin' )->get()->first();
+            //Insertar plantilla del usarui que se acaba de registrar
+
             if (Auth::user()->role_id==3) return redirect()->route('experiencies.index')->with('host', 'Tu cuenta sera verificada por el administrador y te notificaremos cualquier novedad a tu correo');
             return redirect()->route('experiencies.index')->with('status', 'Profile updated!');
 

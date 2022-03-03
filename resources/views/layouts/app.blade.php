@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'No leido del Env') }}</title>
-    <meta name="description" content="Explora el mundo -Unite a Turistear!"/>
+    <meta name="description" content="Explora el mundo | Unite a Turistear!"/>
     <meta name="keywords" content="Explora el mundo, Experiencias, Argentina, Viajes, Guia"/>
+    <meta name="author" content="Evangelista Santiago - Laravel Web Developer">
+    <meta name="copyright" content="Copyright 2022 - Evangelista Santiago Todos los derechos reservados">
+    <link rel="icon" href="{{ asset('images/Turistear3.png') }}" type="image/x-icon">
+
     <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{ asset('js/init-alpine.js') }}"></script>

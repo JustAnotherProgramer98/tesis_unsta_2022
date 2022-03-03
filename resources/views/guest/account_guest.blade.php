@@ -69,7 +69,7 @@ foreach ($user->experiences as $experience) {
       </section>
 
     <section class="relative py-16 bg-gray-300">
-        <button style="z-index: 999;display: none" onclick="backToTop()" class="bg-paleta_tesis_blanco border border-paleta_tesis_celeste rounded-xl fixed bottom-5 right-8 outline-none p-3 " id="GoToTop">Subir</button>
+        <button style="z-index: 999;display: none" onclick="backToTop()" class="animate-bounce bg-paleta_tesis_blanco border border-paleta_tesis_celeste rounded-xl fixed bottom-5 right-8 outline-none p-3 " id="GoToTop">Subir</button>
         <div class="container mx-auto px-4">
             <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
                 <div class="px-6">

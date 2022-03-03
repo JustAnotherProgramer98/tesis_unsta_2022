@@ -32,13 +32,12 @@ class ProductController extends Controller
     public static function busqueda_parametrizada(Request $request)
     {
         switch ($request) {
-            
             //Caso categoria y lugar
             case $request->category=="X" and $request->place != "X":
                 $experiences = Experience::where('status', 1)
                 ->whereHas('place', function ($q) use ($request) {
                     $q->where('id', $request->place);})->paginate(10);
-                
+                    
                 return view('guest.search',compact(['experiences']));
                 break;
                 
@@ -48,7 +47,7 @@ class ProductController extends Controller
                 ->whereHas('categories', function ($q) use ($request) {
                         $q->where('categories.id', $request->category);
                 })->paginate(10);
-    
+
                   return view('guest.search',compact(['experiences']));
                 break;
 
@@ -57,7 +56,6 @@ class ProductController extends Controller
                 
                 $experiencias = Experience::with('place')->where('status', 1)
                 ->where('place', $request->place)->paginate(10);
-
                   return view('guest.search',compact(['experiences']));
                 break;
 
@@ -74,7 +72,7 @@ class ProductController extends Controller
             case $request->category and $request->place and $request->search:
                 
                 $experiences = Experience::with('place')
-                    ->where('status', 1)->where('title', 'like', "%$search%")
+                    ->where('status', 1)->where('title', 'like', "%$request->search%")
                     ->where('place',$request->provincia)
                     ->whereHas('categories', function ($q) use ($request) {
                         $q->where('categories.id', $request->category);
@@ -83,7 +81,8 @@ class ProductController extends Controller
 
                   return view('guest.search',compact(['experiences']));
             default:
-               
+                $experiences = Experience::with('place')->paginate(10);
+                  return view('guest.search',compact(['experiences']));
             break;
         }
     }

@@ -39,13 +39,9 @@
           <div class="flex flex-wrap">
 
             <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-              <div
-                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
-              >
-                <div class="px-4 py-5 flex-auto">
-                  <div
-                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400"
-                  >
+              <div class="hover:animate-bounce  relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div class=" px-4 py-5 flex-auto">
+                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                     <span class="inline-block text-blue-500 dark:text-blue-400">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
                             stroke="white">
@@ -66,13 +62,9 @@
             </div>
 
             <div class="w-full md:w-4/12 px-4 text-center">
-              <div
-                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
-              >
+              <div class="hover:animate-bounce  relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                 <div class="px-4 py-5 flex-auto">
-                  <div
-                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400"
-                  >
+                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
                     <span class="inline-block text-blue-500 dark:text-blue-400">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
                             stroke="white">
@@ -90,9 +82,7 @@
             </div>
             
             <div class="pt-6 w-full md:w-4/12 px-4 text-center">
-              <div
-                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
-              >
+              <div class="hover:animate-bounce relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                 <div class="px-4 py-5 flex-auto">
                   <div
                     class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400"
@@ -190,8 +180,8 @@
         </div>
     
     @else
-      <div class="min-h-max m-4"> 
-          <p class="text-center text-4xl font-semibold py-4"><br><i class="text-6xl far fa-meh-blank"></i> <br> Parece que no hay experiencias aprobadas...</p>
+      <div class="min-h-max m-60"> 
+          <p class=" text-center text-4xl font-semibold py-4"><br><i class="text-6xl far fa-meh-blank"></i> <br> Parece que no hay experiencias aprobadas...</p>
       </div>
       @endif
   </section>

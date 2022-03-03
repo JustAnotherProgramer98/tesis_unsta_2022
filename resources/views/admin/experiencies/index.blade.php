@@ -50,7 +50,7 @@
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3">
                                             <a href="{{ route('experiencie.show.admin', $experience) }}">
-                                                <p class="font-semibold capitalize">{{ $experience->title }}</p>
+                                                <p class="font-semibold capitalize">{{Str::limit($experience->title,20,'...')}}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
