@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
         $this->command->line('Users...');
         User::factory(['name'=>'Santiago','email'=>'d@gmail.com','password'=>Hash::make('123'),'role_id'=>1])->create();
-        User::factory(['name'=>'Facundo','email'=>'f@gmail.com','password'=>Hash::make('123'),'role_id'=>2])->create();
+        User::factory(['name'=>'Facundo','status'=>2,'email'=>'f@gmail.com','password'=>Hash::make('123'),'role_id'=>2])->create();
         User::factory(['name'=>'Marcelo','email'=>'m@gmail.com','password'=>Hash::make('123'),'role_id'=>3])->create();
         User::factory(10)->create();
 
@@ -59,12 +59,12 @@ class DatabaseSeeder extends Seeder
         Place::factory(['status'=>1])->count(10)->create();
 
         $this->command->line('Experiencies...');
-        Experience::factory(3)->hasAttached(Category::factory(['status'=>1,'title'=>'Deportes'])->create())->create();
-        Experience::factory(5)->hasAttached(Category::factory(['status'=>1,'title'=>'Surf'])->create())->create();
-        Experience::factory(3)->hasAttached(Category::factory(['status'=>1,'title'=>'Ruta Gastronomica'])->create())->create();
-        Experience::factory(1)->hasAttached(Category::factory(['status'=>1,'title'=>'Al aire libre'])->create())->create();
-        Experience::factory(3)->hasAttached(Category::factory(['status'=>1,'title'=>'Cabalgatas'])->create())->create();
-        Experience::factory(3)->hasAttached(Category::factory(['status'=>1,'title'=>'Visita guiada'])->create())->create();
+        Experience::factory(3)->hasAttached(Category::factory(['slug'=>'deportes',         'status'=>1,'title'=>'Deportes'])->create())->create();
+        Experience::factory(5)->hasAttached(Category::factory(['slug'=>'surf',             'status'=>1,'title'=>'Surf'])->create())->create();
+        Experience::factory(3)->hasAttached(Category::factory(['slug'=>'ruta-gastronomica','status'=>1,'title'=>'Ruta Gastronomica'])->create())->create();
+        Experience::factory(1)->hasAttached(Category::factory(['slug'=>'al-aire-libre',    'status'=>1,'title'=>'Al aire libre'])->create())->create();
+        Experience::factory(3)->hasAttached(Category::factory(['slug'=>'cabalgatas',       'status'=>1,'title'=>'Cabalgatas'])->create())->create();
+        Experience::factory(3)->hasAttached(Category::factory(['slug'=>'visita-guiada',    'status'=>1,'title'=>'Visita guiada'])->create())->create();
 
         //Imagenes de las categorias
         DB::table('images')->insert(['url'=>'https://cdn.pixabay.com/photo/2014/10/14/20/24/soccer-488700_960_720.jpg','alt' => 'Seeded from DB','picturable_id' => 1,'picturable_type' => 'App\Models\Category']);

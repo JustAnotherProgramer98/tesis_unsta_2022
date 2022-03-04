@@ -24,17 +24,15 @@
                     <div class="text-blueGray-400 text-center mb-3 font-bold">
                         @if ($errors->any())
                             <div class="">
-                                <ul>
                                     @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
+                                        <h4 class="pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-times text-red-700 text-2xl"></i>{{$error}}</h4>
                                     @endforeach
-                                </ul>
                             </div>
                         @endif
                     </div>
 
 
-                    <form action="{{ route('register.post') }}" method="POST" autocomplete="off">
+                    <form  id="form-register" action="{{ route('register.post') }}" method="POST" autocomplete="off">
                         @csrf
                         <input type="hidden" name="type_account" value="2">
                         <div class="flex gap-3">
@@ -161,9 +159,22 @@
             @include('components.hosts.host_register')
         </div>
     </section>
+    <div style="margin-left: 25%" id="loading" class="hidden bg-paleta_tesis_blanco  absolute top-1/4 w-1/2 max-h-max text-center  bottom-1/4">
+        <p class="text-4xl font-semibold py-4 text-paleta_tesis_azul">Haciendote lugarcito en nuestro corazon... <i class="text-red-500 animate-ping fas fa-heart"></i></i></p>  
+        <img class="mx-auto " src="{{ asset('gifs/plane_spinning.gif') }}" alt="Formularrio de alta">
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+
+        $("#form-register").submit(function( event ) {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            $( "#contact_page" ).addClass( "blur-sm" );
+            $('#loading').show();
+        });
+
+
         $('input[type="checkbox"]').on('change', function() {
             $('input[name="' + this.name + '"]').not(this).prop('checked', false);
         });

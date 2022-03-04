@@ -18,12 +18,12 @@ class ProductController extends Controller
 
     public function searchByPlace(Request $request,Place $place)
     {
-        $experiences=Experience::whereRelation('place','id',$place->id)->get();
+        $experiences=Experience::where('status',1)->whereRelation('place','id',$place->id)->get();
         return view('guest.search',compact(['experiences']));
     }
     public function searchByCategory(Request $request,Category $category)
     {
-        $experiences=$category->experiences;
+        $experiences=$category->experiences->where('status',1);
         return view('guest.search',compact(['experiences']));
     }
     
