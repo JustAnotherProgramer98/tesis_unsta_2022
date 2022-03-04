@@ -42,8 +42,12 @@ class GuestController extends Controller
                 'country'=>$city->province->country->name,'cuit'=>$request['cuit'] ? $request['cuit'] : 'No definido' ]);
                 Auth::login($user);
 
+                //Send email to new User
+                MailController::register_email($user->name.' '.$user->surname,$user->email);
             });
             // $admin = User::whereRelation('role', 'name','Admin' )->get()->first();
+            //Send email to Admin
+            // MailController::send_mail($validated['fullname'],$validated['email'],$validated['phone'],$validated['message']);
             //Insertar plantilla del usarui que se acaba de registrar
 
             if (Auth::user()->role_id==3) return redirect()->route('experiencies.index')->with('host', 'Tu cuenta sera verificada por el administrador y te notificaremos cualquier novedad a tu correo');

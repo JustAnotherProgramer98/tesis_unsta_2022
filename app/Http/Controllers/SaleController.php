@@ -42,9 +42,21 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Experience $experience)
     {
-        //
+        
+        $experience_to_cart=Experience::where('id',$experience->id)->get();
+        $experience_to_cart->first()->number_puchage = $request->quantity_clients;
+        $request->session()->forget('cart');
+
+        $request->session()->put('cart',$experience_to_cart);
+        
+        
+         return redirect()->route('cart.index');
+    
+        // } catch (\Throwable $th) {
+        //     return $th;
+        // }
     }
 
     /**

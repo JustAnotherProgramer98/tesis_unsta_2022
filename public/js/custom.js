@@ -181,6 +181,8 @@ let startDragging = function (e) {
 let stopDragging = function (event) {
   mouseDown = false;
 };
+try {
+  
 
 slider.addEventListener('mousemove', (e) => {
   e.preventDefault();
@@ -194,6 +196,8 @@ slider.addEventListener('mousemove', (e) => {
 slider.addEventListener('mousedown', startDragging, false);
 slider.addEventListener('mouseup', stopDragging, false);
 slider.addEventListener('mouseleave', stopDragging, false);
-
+} catch (error) {
+  console.log('');
+}
 //BackToTop Button
 

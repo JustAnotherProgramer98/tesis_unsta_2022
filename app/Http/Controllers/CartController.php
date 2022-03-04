@@ -6,13 +6,70 @@ use App\Models\Experience;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use MercadoPago\Item;
+use MercadoPago\Preference;
+use MercadoPago\SDK;
 
 class CartController extends Controller
 {
     public function index(Request $request)
     {
         $experiences=$request->session()->get('cart');
-        return view('guest.cart_shop',compact('experiences'));
+    
+        if ($experiences==null) return view('guest.cart_shop',compact(['experiences']));
+
+        if(count($experiences)==1){
+            $total_ammount=$experiences[0]->number_puchage * $experiences[0]->price;
+            $total_ammount=$total_ammount + round(($total_ammount * 0.2) / 10) * 10;
+            //Mercado pago funcional
+            SDK::setAccessToken(env('MERCADO_PAGO_PRIVATE'));
+            $preference = new Preference();
+
+            $item = new Item();
+            $item->title = 'Compraras: '.$experiences[0]->title;
+            // $item->title = 'Compraras: ';
+            $item->quantity = 1;
+            $item->unit_price = $total_ammount;
+            $preference->items = array($item);
+            $item->currency_id = "ARS";
+            $preference->back_urls = array(
+                "success" => route('sale.success'),
+                "failure" => route('sale.failed'),
+                "pending" => route('sale.waiting'),
+            );
+            $preference->auto_return = "approved"; 
+            $preference->save();
+        }else{
+              //Mercado pago funcional
+              SDK::setAccessToken(env('MERCADO_PAGO_PRIVATE'));
+            $array_items=[];
+            foreach ($experiences as $experience) {
+                $total_ammount=$experience->number_puchage * $experience->price;
+                $total_ammount=$total_ammount + round(($total_ammount * 0.2) / 10) * 10;
+                $item = new Item();
+                $item->title = 'Compraras: '.$experience->title;
+                // $item->title = 'Compraras: ';
+                $item->quantity = 1;
+                $item->unit_price = $total_ammount;
+                $item->currency_id = "ARS";
+                array_push($array_items,$item);
+            }
+            
+          
+            $preference = new Preference();
+
+            
+            $preference->items = $array_items;
+            $preference->back_urls = array(
+                "success" => route('sale.success'),
+                "failure" => route('sale.failed'),
+                "pending" => route('sale.waiting'),
+            );
+            $preference->auto_return = "approved"; 
+            $preference->save();
+        }
+
+        return view('guest.cart_shop',compact(['experiences','preference']));
     }
 
     public function store(Request $request)

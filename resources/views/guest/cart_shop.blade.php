@@ -35,6 +35,27 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
 
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+
+<script>
+    const mp = new MercadoPago("{{ env('MERCADO_PAGO_ACCESS_TOKEN') }}", {
+        locale: 'es-AR'
+    });
+
+    mp.checkout({
+      preference: {
+                id: '{{ $preference->id ?? '' }}'
+            },
+        render: {
+            container: '.cho-container',
+            label: 'Pagar!',
+            
+        },
+        theme: {
+          elementsColor: "#81ecec" // Color claro
+        }
+    });
+</script>
 <script>
   
 $("#coupon_use").submit(function(e) {

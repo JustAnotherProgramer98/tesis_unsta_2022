@@ -5,6 +5,7 @@ use App\Http\Controllers\CouponCodeController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Province;
@@ -53,7 +54,11 @@ Route::post('/remove-experiencie',[CartController::class,'destroy'])->name('cart
 
 //Index cart 
 Route::get('/experiencias-a-comprar',[CartController::class,'index'])->name('cart.index')->middleware('web');
+Route::post('/comprar/{experience}',[SaleController::class,'store'])->name('cart.buy')->middleware('web');
 
+
+//Use CouponCode cart 
+Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('couppon.use')->middleware(['web','auth']);
 //Use CouponCode cart 
 Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('couppon.use')->middleware(['web','auth']);
 
@@ -62,6 +67,10 @@ Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('co
 Route::get('/edit/profile/{user:email}',[UsersController::class,'edit'])->name('edit.user')->middleware('web');
 Route::put('/edit/profile/',[UsersController::class,'update'])->name('update.user')->middleware('web');
 
+
+Route::view('/compra/aprobada', 'sale.success')->name('sale.success');
+Route::view('/compra/rechazada', 'sale.failed')->name('sale.failed');
+Route::view('/compra/en-espera', 'sale.waiting')->name('sale.waiting');
 
 
 
