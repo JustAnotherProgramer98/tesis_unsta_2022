@@ -83,5 +83,39 @@ $("#coupon_use").submit(function(e) {
               });
         }
 });
+function notAproved(estado) {
+  console.log(estado);
+  if (estado=='not_aproved') {
+    Swal.fire({  
+    title:'Error!',
+    text: "Para comprar debes ser un usuario aprobado por el Administrador del sitio",
+    imageUrl: "{{ asset('images/Turistear.png') }}",
+    imageWidth: 200,
+    imageHeight: 100,
+    imageAlt: 'Turistear logo',
+    confirmButtonText: 'Aceptar',
+    background:'#F9F7F7',
+    margin: '5em',
+    confirmButtonColor: '#112D4E',
+    width: 500,
+});
+  } else {
+    Swal.fire({  
+    title:'Error!',
+    text: "Para comprar debes tener un usuario en nuestra pagina",
+    imageUrl: "{{ asset('images/Turistear.png') }}",
+    imageWidth: 200,
+    imageHeight: 100,
+    imageAlt: 'Turistear logo',
+    confirmButtonText: 'Aceptar',
+    background:'#F9F7F7',
+    margin: '5em',
+    confirmButtonColor: '#112D4E',
+    width: 500,
+});
+  }
+
+  
+}
 </script>
 @endsection 
