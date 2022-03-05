@@ -173,7 +173,6 @@ class ExperienceController extends Controller
     }
     public function approveExperience(Request $request)
     {
-        
         try {
             return Experience::where('id',$request->experience_id)->get()->first()->update(['status' => 1]);
         } catch (\Throwable $th) {

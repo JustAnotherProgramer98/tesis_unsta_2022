@@ -7,6 +7,7 @@ use App\Models\Sale;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class SaleController extends Controller
 {
@@ -81,26 +82,14 @@ class SaleController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sale  $sale
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Sale $sale)
+    
+    public function aprove(Request $request)
     {
-        //
+        try {
+            return Sale::where('id',$request->sale_id)->get()->first()->update(['finished' => 1]);
+        } catch (\Throwable $th) {
+            return "error ".$th;
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Sale  $sale
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Sale $sale)
-    {
-        //
-    }
 }
