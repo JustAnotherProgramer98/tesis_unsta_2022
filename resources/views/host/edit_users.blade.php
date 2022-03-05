@@ -58,7 +58,7 @@
                         <div class="flex gap-3">
                             <div class="w-full mb-3">
                                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Presentate para la gente en Turistear...</label>
-                                <textarea name="introducing_me"  style="resize: none" cols="30" rows="10" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow  focus:ring focus:ring-blue-900 w-full ease-linear transition-all duration-150">{{ old('surname',Auth::user()->introducing_me) }}</textarea>
+                                <textarea name="introducing_me"  style="resize: none" cols="30" rows="10" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow  focus:ring focus:ring-blue-900 w-full ease-linear transition-all duration-150">{{ old('introducing_me',Auth::user()->introducing_me) }}</textarea>
                             </div>
                         </div>
                         <input type="hidden" name="type_account" value="2">

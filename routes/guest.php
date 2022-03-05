@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CouponCodeController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,7 +19,7 @@ Route::post('/register',[GuestController::class,'store'])->name('register.post')
 
 //Edit personal information from user
 Route::get('/edit/profile/{user:email}',[UsersController::class,'edit'])->name('edit.user')->middleware('web');
-Route::put('/edit/profile/',[UsersController::class,'update'])->name('update.user')->middleware('web');
+Route::put('/update/profile/{user}',[UsersController::class,'update'])->name('update.user')->middleware('web');
 
 //Store experience on cart
 Route::post('/add-to-cart',[CartController::class,'store'])->name('cart.post')->middleware('web');
