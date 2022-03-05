@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Experience;
+use App\Models\Sale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use MercadoPago\Item;
@@ -39,6 +41,7 @@ class CartController extends Controller
             );
             $preference->auto_return = "approved"; 
             $preference->save();
+            Sale::create(['experience_id'=> $experiences[0]->id,'buyer_id'=> Auth::id(),'amount'=> $total_ammount,'status'=> 0]);
         }else{
               //Mercado pago funcional
               SDK::setAccessToken(env('MERCADO_PAGO_PRIVATE'));
@@ -53,6 +56,7 @@ class CartController extends Controller
                 $item->unit_price = $total_ammount;
                 $item->currency_id = "ARS";
                 array_push($array_items,$item);
+                Sale::create(['experience_id'=> $experience->id,'buyer_id'=> Auth::id(),'amount'=> $total_ammount,'status'=> 0]);
             }
             
           

@@ -76,10 +76,17 @@ foreach ($user->experiences as $experience) {
                     <div class="flex flex-wrap justify-center">
                         <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                             <div class="relative">
+                                @if ($user->images->first())
+                                <img src="{{asset('storage/'.$user->images->first()->url)}}" alt="{{ $user->images->first()->alt }}" 
+                                  class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                                  style="max-width: 150px;"/>
+                                
+                                @else
                                 <img
                                 src="https://thumbs.dreamstime.com/z/icono-de-cuenta-personal-dise%C3%B1o-elementos-creativos-la-colecci%C3%B3n-iconos-pixel-perfecto-para-web-aplicaciones-software-uso-146958683.jpg" 
                                 class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                                 style="max-width: 150px;"/>
+                                @endif
                             </div>
                         </div>
                 
@@ -151,6 +158,9 @@ foreach ($user->experiences as $experience) {
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
                                 {{$user->province}}, {{$user->country}}
                             </div>
+                            @if ($user->introducing_me)
+                                <div class="text-sm leading-normal mt-0 mb-2  font-bold uppercase">{{$user->introducing_me}}</div>  
+                            @endif
                             <div class="mb-2 text-gray-700 mt-10">
                                 <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i>Agente de turismo - Turismo Tuc
                             </div>

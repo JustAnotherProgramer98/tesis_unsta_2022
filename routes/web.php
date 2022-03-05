@@ -41,62 +41,6 @@ Route::get('/explora/lugar/{place}', [ProductController::class,'searchByPlace'])
 Route::get('/experiencia/{experience}', [GuestController::class,'showExperience'])->name('guest.product');
 
 
-//Contact us
-Route::get('/contactanos', [GuestController::class,'createContact'])->name('contact_us');
-Route::post('/contactanos',[GuestController::class,'storeContact'])->name('contact_us.store');
-
-
-//Register 
-Route::get('/register',[GuestController::class,'create'])->name('register')->middleware('web');
-Route::post('/register',[GuestController::class,'store'])->name('register.post')->middleware('web');
-
-//Store experience on cart
-Route::post('/add-to-cart',[CartController::class,'store'])->name('cart.post')->middleware('web');
-
-//Delete experience from cart
-Route::post('/remove-experiencie',[CartController::class,'destroy'])->name('cart.delete')->middleware('web');
-
-//Index cart 
-Route::get('/experiencias-a-comprar',[CartController::class,'index'])->name('cart.index')->middleware('web');
-Route::post('/comprar/{experience}',[SaleController::class,'store'])->name('cart.buy')->middleware('web');
-
-
-//Use CouponCode cart 
-Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('couppon.use')->middleware(['web','auth']);
-//Use CouponCode cart 
-Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('couppon.use')->middleware(['web','auth']);
-
-
-//Edit personal information from user
-Route::get('/edit/profile/{user:email}',[UsersController::class,'edit'])->name('edit.user')->middleware('web');
-Route::put('/edit/profile/',[UsersController::class,'update'])->name('update.user')->middleware('web');
-
-
-Route::view('/compra/aprobada', 'sale.success')->name('sale.success');
-Route::view('/compra/rechazada', 'sale.failed')->name('sale.failed');
-Route::view('/compra/en-espera', 'sale.waiting')->name('sale.waiting');
-
-
-
-Route::middleware('auth')->get('/account', function () {
-    $provinces=Province::all();
-    $places=Place::where('status',1)->get();
-    $categories=Category::where('status',1)->get();
-    $languajes=Languaje::all();
-    $user=Auth::User();
-    
-    return view('guest.account', compact(['provinces', 'places', 'categories', 'languajes', 'user']));
-});
-
-Route::get('/user/{user:id}',[UsersController::class,'show'])->name('user.detail')->middleware('web');
-
-
-Route::get('/test', function () {
-    $experiences = App\Models\Experience::all();
-    $category = App\Models\Category::all();
-    $user = App\Models\User::all();
-    return view('guest.test', compact(["experiences","category","user"]));
-});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -104,9 +48,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::view('/experiencias/welcome', 'welcome');
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/panel-de-administracion',[AdminController::class,'index'])->name('admin.panel');
-});
 
+
+Route::view('/test2','email.register_email');
+Route::view('/test3','email.notification_email');
+Route::view('/test4','email.new_sale_email');
 require __DIR__.'/admin.php';
 require __DIR__.'/host.php';
+require __DIR__.'/guest.php';

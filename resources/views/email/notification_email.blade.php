@@ -130,9 +130,7 @@ a[x-apple-data-detectors='true'] {
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
-      
-      <img align="center" border="0" src="{{ asset('images/Turistear.png') }}" alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 44%;max-width: 255.2px;" width="255.2" class="v-src-width v-src-max-width"/>
-      
+      <p style="font-size: 36px;font-weight: 500" class="ml-4 text font-thin text-paleta_tesis_azul">Turiste<span style='color: #3F72AF;font-weight: 600'>AR</span></p>
     </td>
   </tr>
 </table>
@@ -172,7 +170,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="{{ asset('images/email/image-2_template.png') }}" alt="Tick Icon" title="Tick Icon" style="filter: grayscale(100%) brightness(80%) sepia(300%) hue-rotate(50deg) saturate(500%);outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 14%;max-width: 81.2px;" width="81.2" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_960_720.png" alt="Tick Icon" title="Tick Icon"  width="81.2" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>

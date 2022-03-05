@@ -1,5 +1,7 @@
 @extends('layouts.guest')
 @section('content')     
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 {{-- //Get how many stars I have --}}
       @php
       $numerber_of_reviews = $one_star_review = $two_star_review = $three_star_review= $four_star_review = $five_star_review =0;
@@ -116,7 +118,8 @@
 
                   
                 </div> <!-- FIN Botoes del lado derecho de la foto --> 
-
+                {{-- En caso de ser Admin o Anfitrion --}}
+                @if (Auth::user()->role->name!="Cliente")
                   <div class="w-full lg:w-4/12 px-4 lg:order-1"> <!-- Botones del lado izquierdo de la foto --> 
                     <div class="flex justify-center py-4 lg:pt-4 pt-8">
                       <div class="mr-4 p-3 text-center bg-gray-200 rounded-md shadow-xl hover:bg-gray-400" onclick="openNewTab(event, 'comments')">
@@ -146,7 +149,18 @@
                       </div>
 
                     </div>
-                  </div> <!-- FIN Botoes del lado izquierdo de la foto --> 
+                  </div>
+                  {{-- En caso de ser Cliente--}}
+                  @else
+                  <div class="w-full lg:w-4/12 px-4 lg:order-1"> <!-- Botones del lado izquierdo de la foto --> 
+                    <div class="flex justify-center py-4 lg:pt-4 pt-8">
+                      <div class="mr-4 p-3 text-center bg-gray-200 rounded-md shadow-xl hover:bg-gray-400" onclick="openNewTab(event, 'index')">
+                          <span class="text-xl font-bold block uppercase tracking-wide text-gray-700">{{count(Auth::user()->sales)}}</span>
+                          <span class="text-sm text-gray-500">Experiencias totales</span>
+                      </div>
+                    </div>
+                  </div>
+                  @endif <!-- FIN Botoes del lado izquierdo de la foto --> 
               </div>
 
               <div class="text-center mt-12">
@@ -189,14 +203,16 @@
                 </div>
               </div>
 
-              <!-- Tabla de valores -->              
+              <!-- Tabla de valores -->  
+              {{-- Tablas en caso de ser Anfitrion o Admin --}}
+              @if (Auth::user()->role->name!="Cliente")
               <div id="index" class="tabcontent block py-8 pb-20 px-4 margin-left: 30px;margin-right: 30px">
                 <br>
                 <div class="flex gap-4 my-4 ">
                   <div class="relative w-1/2">
-                      <input type="text" class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="     Buscar experiencia..." />
+                    <input type="text" class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="     Buscar experiencia..." />
                       <svg class="w-4 h-4 absolute left-2.5 top-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                       </svg>
                   </div>
                   <button style="margin-top: auto;margin-bottom: auto" onclick="openNewTab(event, 'create')"
@@ -205,20 +221,39 @@
                       <div id="tooltip" role="tooltip"> Hace click en las primeras 3 columnas y mira el detalle de lo que quieras
                           <div id="arrow" data-popper-arrow></div>
                       </div>
-                </div>
-                @include('components.hosts.host_experience_table')
-                
-              </div> <!-- Fin de Tabla de valores -->
-              @include('host.sales_index')
-              @include('host.create_experience')
-              @include('host.show_experience')
-              @include('host.comments')
+                    </div>
+                    @include('components.hosts.host_experience_table')
+                    
+                  </div> <!-- Fin de Tabla de valores -->
+                  @include('host.sales_index')
+                  @include('host.create_experience')
+                  @include('host.show_experience')
+                  @include('host.comments')
 
+                  {{-- Tabla en caso de ser Cliente --}}
+                  @else
+                  @if ($errors->any())
+                      <div class="">
+                        @foreach ($errors->all() as $error)
+                          <h4 class="pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-times text-red-700 text-2xl"></i>{{$error}}</h4>
+                        @endforeach
+                      </div>
+                  @endif
+                  @if (\Session::has('commented'))
+                    <h4 class="pl-4 text-green-700 rounded-md bg-green-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-check text-green-700 text-2xl"></i>{{Session::get('commented')}}</h4>
+                  @endif
+                  <div class="block py-8 pb-20 px-4 margin-left: 30px;margin-right: 30px">
+                      <br>
+                      @include('components.guests.experience_table')
+                  </div>
+                      @include('components.guests.modal_comment')
+                @endif
             </div>
           </div>
         </div>
       </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
     
     <script>

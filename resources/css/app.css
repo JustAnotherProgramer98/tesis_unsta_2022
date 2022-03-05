@@ -71,3 +71,107 @@
     transform: translate(0) scale(1);
     visibility: visible;
 }
+/* The Modal (background) */
+.modal-comment {
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  padding: 20px;
+}
+/* Modal Content/Box */
+.modal-content-comment {
+  padding: 5%;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+   /* Could be more or less, depending on screen size */
+}
+
+div.container-comment textarea{
+  font-weight:lighter;
+  background-color: transparent;
+  width: 100%;
+  border-width: 2px;
+  padding: 5px 0px;
+  text-indent: 6px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+div.container-comment input:focus{
+  outline: none !important;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+.submit_class {
+  border-style: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  box-shadow: 2px 2px 5px rgb(0,0,0,0.2);
+  cursor: pointer;
+}
+
+input.input-stars[type="radio"] {
+  display: none;
+}
+
+.label-stars-tag {
+  color: #b1b3b4;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+.label-stars-tag:hover,
+.label-stars-tag:hover ~ label {
+  color: #112D4E;
+}
+
+input.input-stars[type="radio"]:checked ~ label {
+  color: #112D4E;
+}

@@ -20,6 +20,8 @@ class CreateSalesTable extends Migration
             $table->foreignId('buyer_id')->constrained()->references('id')->on('users')->onDelete('cascade');//comprador
             $table->double('amount');
             $table->integer('status')->default(0);
+            $table->integer('finished')->default(0);
+            $table->integer('commented')->default(0);
 
             $table->timestamps();
         });
