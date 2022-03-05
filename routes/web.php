@@ -45,6 +45,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::view('/experiencias/welcome', 'welcome');
 
 
+
+Route::view('/test2','email.register_email');
+Route::view('/test3','email.notification_email');
+Route::view('/test4','email.new_sale_email');
 require __DIR__.'/admin.php';
 require __DIR__.'/host.php';
 require __DIR__.'/guest.php';

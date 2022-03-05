@@ -113,7 +113,7 @@ a[x-apple-data-detectors='true'] {
 <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:0px 0px 10px;font-family:arial,helvetica,sans-serif;" align="left">
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;font-family:arial,helvetica,sans-serif;" align="left">
         
   <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 6px solid #080f30;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
     <tbody>
@@ -130,7 +130,7 @@ a[x-apple-data-detectors='true'] {
   </tbody>
 </table>
 
-<table id="u_content_image_4" style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+<table id="u_content_image_4" style="font-family:arial,helvetica,sans-serif;background-color: #82a8d6" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:arial,helvetica,sans-serif;" align="left">
@@ -139,7 +139,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="{{ asset('images/Turistear2.png') }}" alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 174px;" width="174" class="v-src-width v-src-max-width"/>
+      <p style="font-size: 36px;font-weight: 500" class="ml-4 text font-thin text-paleta_tesis_azul">Turiste<span style='color: #3F72AF;font-weight: 600'>AR</span></p>
       
     </td>
   </tr>
@@ -180,7 +180,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="{{asset('images/email/image-1.jpeg')}}" alt="Banner" title="Banner" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 94%;max-width: 545.2px;" width="545.2" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://cdn.pixabay.com/photo/2022/01/11/17/04/city-6931092_960_720.jpg" alt="Banner" title="Banner" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 94%;max-width: 545.2px;" width="545.2" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
@@ -231,7 +231,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:35px 55px 10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div class="v-text-align" style="color: #333333; line-height: 180%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 18px; line-height: 32.4px; font-family: Lato, sans-serif;"><strong><span style="line-height: 32.4px; font-size: 18px;">Hola {{ $name }} </span></strong></span></p>
+    <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 18px; line-height: 32.4px; font-family: Lato, sans-serif;"><strong><span style="line-height: 32.4px; font-size: 18px;">Hola {{ $name ?? '' }} </span></strong></span></p>
     <p style="font-size: 14px; line-height: 180%;">&nbsp;</p>
     <p style="font-size: 14px; line-height: 180%;"><span style="font-family: Lato, sans-serif; font-size: 16px; line-height: 28.8px;">Tu perfil fue creado correctamente y se notifico al administrador para que vea tu solicitud! </span></p>
     <p style="font-size: 14px; line-height: 180%;">&nbsp;</p>
