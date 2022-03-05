@@ -1,6 +1,8 @@
 <div id="comment_experience" class="hidden modal-comment">
-    <form style="width: 50%;" class="modal-content-comment animate bg-paleta_tesis_blanco border border-gray-500"
-        action="/action_page.php" method="post">
+    <form style="width: 50%;" class="modal-content-comment animate bg-paleta_tesis_blanco border border-gray-500" action="{{ route('sale.experiencie.comment') }}" method="POST">
+        @csrf
+        <input id="comment_experience_id" type="hidden" name="experience_id">
+        <input id="comment_sale_id" type="hidden" name="sale_id">
         <div class="imgcontainer relative">
             <span style="top:-50px;right: -30px;"
                 onclick="document.getElementById('comment_experience').style.display='none'"
@@ -19,19 +21,19 @@
                 placeholder="Deja tu comentario aqui"></textarea>
             <label class="text-paleta_tesis_azul italic mb-4">Estrellas</label>
             <p class="clasificacion text-left">
-                <input id="radio1" type="radio" class="input-stars" name="estrellas" value="5"><label
+                <input id="radio1" type="radio" class="input-stars" name="stars_number" value="5"><label
                     style="font-size: 40px;" class="label-stars label-stars-tag" for="radio1">★</label>
-                <input id="radio2" type="radio" class="input-stars" name="estrellas" value="4"><label
+                <input id="radio2" type="radio" class="input-stars" name="stars_number" value="4"><label
                     style="font-size: 40px;" class="label-stars label-stars-tag" for="radio2">★</label>
-                <input id="radio3" type="radio" class="input-stars" name="estrellas" value="3"><label
+                <input id="radio3" type="radio" class="input-stars" name="stars_number" value="3"><label
                     style="font-size: 40px;" class="label-stars label-stars-tag" for="radio3">★</label>
-                <input id="radio4" type="radio" class="input-stars" name="estrellas" value="2"><label
+                <input id="radio4" type="radio" class="input-stars" name="stars_number" value="2"><label
                     style="font-size: 40px;" class="label-stars label-stars-tag" for="radio4">★</label>
-                <input id="radio5" type="radio" class="input-stars" name="estrellas" value="1"><label
+                <input id="radio5" type="radio" class="input-stars" name="stars_number" value="1"><label
                     style="font-size: 40px;" class="label-stars label-stars-tag" for="radio5">★</label>
             </p>
         </div>
 
-        <button class="submit_class bg-paleta_tesis_azul text-white" type="submit" form="login_form">Comentar</button>
+        <button class="submit_class bg-paleta_tesis_azul text-white">Comentar</button>
     </form>
 </div>

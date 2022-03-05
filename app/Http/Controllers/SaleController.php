@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Experience;
 use App\Models\Sale;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class SaleController extends Controller
@@ -82,6 +84,32 @@ class SaleController extends Controller
         //
     }
 
+    public function comment_experiencie(Request $request)
+    {
+        $validated=$request->validate([
+            'experience_id'=>'required|integer',
+            'comment'=>'required|string',
+            'stars_number'=>'required|integer',
+            'sale_id'=>'required|integer',
+            
+        ]);
+        
+        try {
+            DB::transaction(function () use ($validated) {
+                Comment::create([
+                    'body'=>$validated['comment'],
+                    'user_id'=>Auth::id(),
+                    'experience_id'=>$validated['experience_id'],
+                    'stars'=>$validated['stars_number'],
+                    
+                ]);
+                Sale::find($validated['sale_id'])->update(['commented'=>1]);
+            });
+            return redirect()->back()->with('commented', 'Gracias por tu comentario , notificaremos al anfitrion de tu experiencia!');    
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
     
     public function aprove(Request $request)
     {

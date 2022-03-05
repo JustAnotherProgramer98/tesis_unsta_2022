@@ -232,6 +232,16 @@
 
                   {{-- Tabla en caso de ser Cliente --}}
                   @else
+                  @if ($errors->any())
+                      <div class="">
+                        @foreach ($errors->all() as $error)
+                          <h4 class="pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-times text-red-700 text-2xl"></i>{{$error}}</h4>
+                        @endforeach
+                      </div>
+                  @endif
+                  @if (\Session::has('commented'))
+                    <h4 class="pl-4 text-green-700 rounded-md bg-green-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-check text-green-700 text-2xl"></i>{{Session::get('commented')}}</h4>
+                  @endif
                   <div class="block py-8 pb-20 px-4 margin-left: 30px;margin-right: 30px">
                       <br>
                       @include('components.guests.experience_table')

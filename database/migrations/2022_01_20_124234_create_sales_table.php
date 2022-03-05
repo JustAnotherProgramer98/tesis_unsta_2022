@@ -21,6 +21,7 @@ class CreateSalesTable extends Migration
             $table->double('amount');
             $table->integer('status')->default(0);
             $table->integer('finished')->default(0);
+            $table->integer('commented')->default(0);
 
             $table->timestamps();
         });

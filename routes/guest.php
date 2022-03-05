@@ -37,6 +37,7 @@ Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('co
 Route::post('/couppon-use',[CouponCodeController::class,'use_coupon'])->name('couppon.use')->middleware(['web','auth']);
 
 Route::post('/finish-experience',[SaleController::class,'aprove'])->name('sale.aprove')->middleware(['web','auth']);
+Route::post('/comment-experience',[SaleController::class,'comment_experiencie'])->name('sale.experiencie.comment')->middleware(['web','auth']);
 
 //Cases while paying 
 Route::view('/compra/aprobada', 'sale.success')->name('sale.success');

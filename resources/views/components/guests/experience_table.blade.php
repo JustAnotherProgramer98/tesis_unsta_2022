@@ -10,7 +10,7 @@
                     <th class="whitespace-nowrap px-4 py-3">Lugar</th>
                     <th class="whitespace-nowrap px-4 py-3">Precio pagado</th>
                     <th class="whitespace-nowrap px-4 py-3">Estado</th>
-                    <th class="whitespace-nowrap px-4 py-3">Finalizar Exp</th>
+                    <th class="whitespace-nowrap px-4 py-3">Acciones</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -54,9 +54,14 @@
                                 @if ($sale->status==1 && $sale->finished==0)
                                     {{-- Boton de finalizar la experiencia --}}
                                     <button onclick="finishExperience(event,'{{ $sale->experience->title }}','{{ $sale->id }}')" style="background-color: #6495ed" type="button" class="px-2 py-1 font-semibold offset-2 leading-tight text-white bg-gradient-to-bl shadow-lg shadow-gray-400 rounded-full">Finalizar</button>
-                                @elseif ($sale->finished==1)
-                                    {{-- Boton de comentar la experiencia --}}
-                                    <button onclick="commentExperience(event,'{{ $sale->experience->title }}')" style="background-color: #1da184" type="button" class="px-2 py-1 font-semibold offset-2 leading-tight text-white bg-gradient-to-bl shadow-lg shadow-gray-400 rounded-full">Comentar</button>
+                                @elseif ($sale->finished==1 )
+                                    @if ($sale->commented != 1)
+                                        {{-- Experiencia sin comentar --}}
+                                        <button onclick="commentExperience(event,'{{ $sale->experience->title }}','{{ $sale->experience->id }}','{{ $sale->id }}')" style="background-color: #1da184" type="button" class="px-2 py-1 font-semibold offset-2 leading-tight text-white bg-gradient-to-bl shadow-lg shadow-gray-400 rounded-full">Comentar</button>
+                                        @else
+                                        {{-- Experiencia ya comentada --}}
+                                        <span class="cursor-default px-2 py-1 font-semibold leading-tight text-cyan-700 bg-cyan-100 rounded-full">Ya comentaste :) </span>
+                                    @endif
                                 @endif
                             </td>
                         </tr>
@@ -114,8 +119,10 @@
                 } // fin If
             });
     };
-function commentExperience(e, experience_name,sale_id) {
-    $( "#experience_name_on_comment").text(experience_name);
-    $("#comment_experience").show();
+    function commentExperience(e, experience_name,experience_id,sale_id) {
+        $( "#experience_name_on_comment").text(experience_name);
+        $("#comment_sale_id").val(sale_id);
+        $("#comment_experience_id").val(experience_id);
+        $("#comment_experience").show();
     }
 </script>
