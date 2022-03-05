@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <!-- component -->
-                    @forelse(Auth::user()->experiences->take(-4) as $experience)
+                    @forelse(Auth::user()->experiences as $experience)
                     <div class="mt-12 bg-paleta_tesis_blanco border-b-2 border-b-paleta_tesis_celeste">
                         <p class="text-paleta_tesis_azul ">Experiencia: <b>{{ $experience->title }}</b> </p>
                     </div>

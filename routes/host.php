@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HostController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/host/mi-perfil',[HostController::class,'show'])->middleware('auth')->name('hosts.profile');
