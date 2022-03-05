@@ -26,6 +26,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::get('error', function(){
+    abort('404');
+});
+
 Route::get('/',[ExperienceController::class,'index'])->name('experiencies.index')->middleware('web');
 
 
