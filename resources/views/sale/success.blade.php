@@ -1,6 +1,5 @@
 @extends('layouts.guest')
-@section('content')    
-<body>
+@section('content')
     <!-- component -->
     <div class="w-full overflow-x-auto mt-8">
         <div class="mx-auto bg-white shadow-lg rounded-lg my-300 px-3 py-3 w-9/12 border">
@@ -13,20 +12,13 @@
                 <div class="text-center">
                     <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">¡Compra Realizada!</h3>
                     <p class="text-gray-600 my-2">Gracias por completar su pago seguro en línea.</p>
-                    <p> ¡Que tengas un gran dia!  </p>
+                    <p> ¡Que tengas un gran dia! </p>
                     <div class="py-10 text-center">
-                        <a href="#" class="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
-                            ATRAS 
-                        </a>
+                        <a href="{{ route('experiencies.index') }}" class="px-12 bg-paleta_tesis_celeste hover:bg-white hover:text-paleta_tesis_celeste hover:border hover:border-paleta_tesis_celeste text-white font-semibold py-3">Volver al inicio</a>
                     </div>
                 </div>
             </div>
         </div>
         <br>
     </div>
-    
-</body>
-
-
-
-@endsection 
+@endsection

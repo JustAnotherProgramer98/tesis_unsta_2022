@@ -1,11 +1,10 @@
 @extends('layouts.guest')
 @section('content')    
-<body>
-    <div class="w-full overflow-x-auto mt-8">
+    <div class="w-full overflow-x-auto overflow-y-hidden mt-8">
         <div class="mx-auto bg-white shadow-lg rounded-lg my-300 px-3 py-3 w-9/12 border">
             <div class="bg-white p-6  md:mx-auto">
                 
-                <svg class="w-16 h-16 mx-auto my-6 text-red-900 mr-2"
+                <svg class="w-16 h-16 mx-auto text-red-900  text-center"
                             xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24"
                             stroke="white">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -15,19 +14,16 @@
                 
                 <div class="text-center">
                     <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Oops!!</h3>
-                    <p class="text-gray-600 my-2">Tu Compra No Se Pudo Concretar</p>
-                    <p> ¡Prueba con otro metodo o contacta con servicios al cliente!  </p>
+                    <p class="text-gray-600 my-2">Tu compra no se pudo completar</p>
+                    <p> ¡Prueba con otro metodo o contactate con el administrador  </p>
                     <div class="py-10 text-center">
-                        <a href="#" class="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
-                            ATRAS 
-                        </a>
+                        <a href="{{ route('experiencies.index') }}" class="px-12 bg-paleta_tesis_celeste hover:bg-white hover:text-paleta_tesis_celeste hover:border hover:border-paleta_tesis_celeste text-white font-semibold py-3">Volver al inicio</a>
                     </div>
                 </div>
             </div>
         </div>
         <br>
     </div>
-</body>
 
 
 
