@@ -120,4 +120,20 @@ class SaleController extends Controller
         }
     }
 
+    public function sale_success(Request $request)
+    {
+        $last_sale = Sale::where('buyer_id', Auth::id())->orderByDesc('id')->first();
+        $request->session()->forget('cart');
+        DB::transaction(function () use ($last_sale) { $last_sale->update(['status'=>1]);});
+        return view('sale.success');
+    }
+    public function sale_failed(Request $request)
+    {
+        return view('sale.failed');
+    }
+    public function sale_waiting(Request $request)
+    {
+        return view('sale.waiting');
+    }
+
 }
