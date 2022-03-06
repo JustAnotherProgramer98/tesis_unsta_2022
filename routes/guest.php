@@ -41,10 +41,6 @@ Route::post('/finish-experience',[SaleController::class,'aprove'])->name('sale.a
 Route::post('/comment-experience',[SaleController::class,'comment_experiencie'])->name('sale.experiencie.comment')->middleware(['web','auth']);
 
 //Cases while paying 
-//Route::get('/compra/aprobada' ,[SaleController::class,'sale_success'])->name('sale.success');
-//Route::get('/compra/rechazada',[SaleController::class,'sale_failed'])->name('sale.failed');
-//Route::get('/compra/en-espera',[SaleController::class,'sale_waiting'])->name('sale.waiting');
-
-Route::view('/compra/aprobada', ' sale.success') ->name('sale.success');
-Route::view('/compra/rechazada', 'sale.failed') ->name('sale.failed');
-Route::view('/compra/en-espera', 'sale.waiting')->name('sale.waiting');
+Route::get('/compra/aprobada' ,[SaleController::class,'sale_success'])->name('sale.success');
+Route::get('/compra/rechazada',[SaleController::class,'sale_failed'])->name('sale.failed');
+Route::get('/compra/en-espera',[SaleController::class,'sale_waiting'])->name('sale.waiting');

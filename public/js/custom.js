@@ -168,6 +168,14 @@ x.type = "text";
 x.type = "password";
 }
 }
+function show_password_anfi() {
+  var x = document.getElementById("password_anfi");
+  if (x.type === "password") {
+  x.type = "text";
+  } else {
+  x.type = "password";
+  }
+  }
 
 const slider = document.querySelector('.parent');
 let mouseDown = false;

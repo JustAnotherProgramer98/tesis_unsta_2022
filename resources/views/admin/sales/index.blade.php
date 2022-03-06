@@ -49,28 +49,26 @@
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin', $sale) }}">
+                                            <a href="{{ route('sale.show.admin', $sale) }}">
                                                 <p class="font-semibold capitalize">{{ $sale->id }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin', $sale) }}">
+                                            <a href="{{ route('sale.show.admin', $sale) }}">
                                                 <p class="font-semibold capitalize">{{ Str::limit($sale->experience->title, 15, '...') }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin', $sale) }}">
+                                            <a href="{{ route('sale.show.admin', $sale) }}">
                                                 <p class="font-semibold capitalize">{{ $sale->experience->host->name }}
                                                 </p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin', $sale) }}">
-                                                <p class="font-semibold capitalize">{{ $sale->user->name }}</p>
-                                            </a>
+                                            <p class="font-semibold capitalize">{{ $sale->user->name }}</p>
                                         </td>
                                         <td class="px-4 py-3">
-                                                <p class="font-semibold capitalize">$ {{ $sale->experience->price }}</p>
+                                                <p class="font-semibold capitalize">$ {{ $sale->amount }}</p>
                                         </td>
                                         <td class="px-4 py-3">
                                             @switch($sale->status)

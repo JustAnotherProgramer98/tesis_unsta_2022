@@ -6,14 +6,14 @@
         <div class="w-full md:w-3/5 px-4 mx-auto pt-6">
 
             <h2 class="text-center text-4xl font-semibold py-4 text-paleta_tesis_azul"><img width="150" height="150"
-                    src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo Registro">Unete a Turistear <br> <span
-                    class="text-paleta_tesis_celeste">Animate a explorar el mundo!</span> </h2>
+                    src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo Registro">Forma parte de  Turistear <br> <span
+                    class="text-paleta_tesis_celeste">Animate a explorar el mundo</span> <i class="text-paleta_tesis_celeste fal fa-globe-americas"></i> </h2>
             <div class="flex my-6">
-                <input {{ old('type_account') == 2 ? 'checked' : '' }} onclick="openNewTab(event, 'client_register')"
+                <input  onclick="openNewTab(event, 'client_register')"
                     name="account_type[]" type="checkbox"
                     class="form-checkbox bg-blue-400 border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150">
                 <span class="ml-2 text-sm font-semibold text-blueGray-600 mr-6">Cuenta cliente </span>
-                <input {{ old('type_account') == 3 ? 'checked' : '' }} onclick="openNewTab(event, 'host_register')"
+                <input  onclick="openNewTab(event, 'host_register')"
                     name="account_type[]" type="checkbox"
                     class="form-checkbox bg-blue-400 border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150">
                 <span class="ml-2 text-sm font-semibold text-blueGray-600">Cuenta anfitrion </span>
@@ -32,7 +32,7 @@
                     </div>
 
 
-                    <form  id="form-register" action="{{ route('register.post') }}" method="POST" autocomplete="off">
+                    <form  class="form-register-modal" action="{{ route('register.post') }}" method="POST" autocomplete="off">
                         @csrf
                         <input type="hidden" name="type_account" value="2">
                         <div class="flex gap-3">
@@ -50,9 +50,8 @@
                             </div>
                         </div>
                         <div class="w-full mb-3">
-                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Fecha de
-                                nacimiento</label>
-                            <input value="{{ old('birthday') }}" autocomplete="off" type="date" name="birthday"
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Fecha de nacimiento</label>
+                            <input value="{{ old('birthday') }}" autocomplete="off" type="date" id="birthday" name="birthday" min="1920-01-01"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="Email">
                         </div>
@@ -141,7 +140,7 @@
 
                         <div>
                             <label class="inline-flex items-center cursor-pointer">
-                                <input required id="customCheckLogin" type="checkbox"
+                                <input required type="checkbox" oninvalid="this.setCustomValidity('Debes aceptar los terminos y condiciones para continuar')" oninput="this.setCustomValidity('')"
                                     class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150">
                                 <span class="ml-2 text-sm font-semibold text-blueGray-600">
                                     Acepto los terminos y concidiciones de
@@ -159,15 +158,33 @@
             @include('components.hosts.host_register')
         </div>
     </section>
-    <div style="margin-left: 25%" id="loading" class="hidden bg-paleta_tesis_blanco  absolute top-1/4 w-1/2 max-h-max text-center  bottom-1/4">
-        <p class="text-4xl font-semibold py-4 text-paleta_tesis_azul">Haciendote lugarcito en nuestro corazon... <i class="text-red-500 animate-ping fas fa-heart"></i></i></p>  
-        <img class="mx-auto " src="{{ asset('gifs/plane_spinning.gif') }}" alt="Formularrio de alta">
+    <div style="margin-left: 25%;background-color: #f4f4f4" id="loading" class="hidden bg-paleta_tesis_blanco  absolute top-1/4 w-1/2 max-h-max text-center  bottom-1/4">
+        <p class="text-4xl font-semibold py-4 text-paleta_tesis_azul mx-24">Haciendote lugarcito en nuestro corazon... <i class="text-red-500 animate-ping fas fa-heart"></i></i></p>  
+        <div class="h-80 w-80 object-contain mx-auto">
+            <img class=" block" src="{{ asset('gifs/plane_spinning.gif') }}" alt="Formularrio de alta">
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
-        $("#form-register").submit(function( event ) {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+        dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+        mm = '0' + mm;
+        } 
+            
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("birthday").setAttribute("max", today);
+
+        $(".form-register-modal").submit(function( event ) {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
             $( "#contact_page" ).addClass( "blur-sm" );
@@ -175,9 +192,7 @@
         });
 
 
-        $('input[type="checkbox"]').on('change', function() {
-            $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-        });
+       
 
         var phoneMask = IMask(
             document.getElementById("phone"), {
@@ -189,12 +204,26 @@
                 mask: "+{000}-(000)-0000000",
             }
         );
-        $(document).ready(function() {
+        $(document).ready(function(event) {
             $('.input-images').imageUploader({
                 label: 'Arrastra o hace click para subir tu DNI',
                 imagesInputName: 'imagen_dni',
                 maxFiles: 1
             });
+            
+            var last_input=@json(old('type_account'));
+            var elements=$('.form-checkbox');
+            if (last_input==null ) $('.form-checkbox')[0].checked = true;
+            else if (last_input==2) $('.form-checkbox')[0].checked = true;
+            else {
+                $('.form-checkbox')[1].checked = true;
+                openNewTab(event, 'host_register');
+            }
+            
+     
+        });
+        $('input[type="checkbox"]').on('change', function() {
+            $('input[name="' + this.name + '"]').not(this).prop('checked', false);
         });
     </script>
 @endsection

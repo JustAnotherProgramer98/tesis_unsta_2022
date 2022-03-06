@@ -70,7 +70,7 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        //
+        return view('admin.sales.show',compact(['sale']));
     }
 
     /**
@@ -129,10 +129,16 @@ class SaleController extends Controller
     }
     public function sale_failed(Request $request)
     {
+        $last_sale = Sale::where('buyer_id', Auth::id())->orderByDesc('id')->first();
+        $request->session()->forget('cart');
+        DB::transaction(function () use ($last_sale) { $last_sale->update(['status'=>0]);});
         return view('sale.failed');
     }
     public function sale_waiting(Request $request)
     {
+        $last_sale = Sale::where('buyer_id', Auth::id())->orderByDesc('id')->first();
+        $request->session()->forget('cart');
+        DB::transaction(function () use ($last_sale) { $last_sale->update(['status'=>2]);});
         return view('sale.waiting');
     }
 

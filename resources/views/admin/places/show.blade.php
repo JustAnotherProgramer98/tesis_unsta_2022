@@ -1,16 +1,14 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-<div class="flex align-middle">
-    <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-paleta_tesis_celeste">{{ Str::limit($place->adress,10) }}</span></p>
-    <img width="100px" height="100px"  src="{{ asset('images/plane-with-marker.jpg') }}" alt="">
-</div>
+    <div class="flex flex-row">
+        <img width="150px" height="150px"  src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo">
+        <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-paleta_tesis_celeste">{{ Str::limit($place->adress,10) }}</span></p>
+    </div>
 @endsection
 
 @section('content')
-    <div
-        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-
+    <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         @if (session()->has('success'))
             <div class="alert alert-success">
                 @if (is_array(session('success')))

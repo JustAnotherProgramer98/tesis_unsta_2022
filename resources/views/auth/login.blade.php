@@ -11,12 +11,10 @@
     <div class="flex-auto px-4 lg:px-10 py-10 pt-4">
       <div class="text-blueGray-400 text-center mb-3 font-bold">
         @if ($errors->any())
-          <div class="bg-red-100">
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li class="text-red-700 ">{{ $error }}</li>
-                  @endforeach
-              </ul>
+          <div class="">
+            @foreach ($errors->all() as $error)
+              <h4 class="pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-times text-red-700 text-2xl"></i>{{$error}}</h4>
+            @endforeach
           </div>
         @endif
       </div>
@@ -27,12 +25,12 @@
         
         <div class="relative w-full mb-3">
           <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Email</label>
-          <input value="{{ old('email') }}" type="email" name="email" placeholder="Email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email">
+          <input required value="{{ old('email') }}" type="email" name="email" placeholder="Email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" oninput="this.setCustomValidity('')"  oninvalid="this.setCustomValidity('Para iniciar sesion debes darnos tu email')">
         </div>
 
         <div class="relative w-full mb-3">
           <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Contraseña</label>
-          <input  id="password" type="password" name="password" placeholder="Contraseña" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Password">
+          <input required  id="password" type="password" name="password" placeholder="Contraseña" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" oninput="this.setCustomValidity('')"  oninvalid="this.setCustomValidity('El campo contraseña es requerido')">
         </div>
                 
         <div class="text-center mt-6">

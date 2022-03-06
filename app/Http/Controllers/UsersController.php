@@ -84,7 +84,6 @@ class UsersController extends Controller
             'adress'=>'required',
             'email'=>'required',
             'password'=>'required',
-            'introducing_me'=>'required',
             ],[
                 'password.required'=>'Por motivos de seguridad debes ingresar tu contraseña para validar los cambios',
             ]);

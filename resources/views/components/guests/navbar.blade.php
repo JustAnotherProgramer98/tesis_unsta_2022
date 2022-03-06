@@ -79,12 +79,9 @@
                             <a href="{{ route('edit.user',Auth::user()) }}" tabindex="1"
                                 class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left hover:bg-paleta_tesis_celeste hover:text-white"
                                 role="menuitem">Informacion personal</a>
-                            <span role="menuitem" tabindex="-1"
-                                class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
-                                aria-disabled="true">New feature (soon)</span>
-                            <a href="javascript:void(0)" tabindex="2"
-                                class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left hover:bg-paleta_tesis_celeste hover:text-white"
-                                role="menuitem">License</a>
+                                @if (Auth::user()->role->id==1)
+                                    <a href="{{ route('experiencies.index') }}" tabindex="2" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left hover:bg-paleta_tesis_celeste hover:text-white">Panel de Administracion</a>
+                                @endif
                         </div>
                         <div class="py-1 text-gray-700 hover:bg-paleta_tesis_celeste hover:text-white">
                             <form action="{{ route('logout') }}" method="POST">

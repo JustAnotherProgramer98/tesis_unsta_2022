@@ -76,8 +76,7 @@
                             </div>
                         </div>
                         <div class="w-full mb-3">
-                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Fecha de
-                                nacimiento</label>
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Fecha de nacimiento</label>
                             <input value="{{ old('birthday',Auth::user()->birthday) }}" autocomplete="off" type="date" name="birthday"
                                 class="border-0 px-3 py-3  bg-white rounded text-sm shadow  focus:ring focus:ring-blue-900 w-full ease-linear transition-all duration-150"
                                 placeholder="Email">

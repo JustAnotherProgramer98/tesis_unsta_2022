@@ -4,17 +4,15 @@
         <div class="text-blueGray-400 text-center mb-3 font-bold">
             @if ($errors->any())
                 <div class="">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                    @foreach ($errors->all() as $error)
+                        <h4 class="pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-times text-red-700 text-2xl"></i>{{$error}}</h4>
+                    @endforeach
                 </div>
             @endif
         </div>
 
 
-        <form enctype="multipart/form-data" action="{{ route('register.post') }}" method="POST" autocomplete="off">
+        <form enctype="multipart/form-data" action="{{ route('register.post') }}" class="form-register-modal" method="POST" autocomplete="off">
             @csrf
             <input type="hidden" name="type_account" value="3">
             <div class="relative w-full mb-3">
@@ -117,18 +115,18 @@
 
             <div class="relative w-full mb-3">
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Contraseña</label>
-                <input id="password" type="password" name="password" placeholder="Contraseña"
+                <input id="password_anfi" type="password" name="password" placeholder="Contraseña"
                     class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     placeholder="Password">
                 <input type="checkbox"
                     class="orm-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
-                    onclick="show_password()">
+                    onclick="show_password_anfi()">
                 <span class="ml-2 text-sm font-semibold text-blueGray-600">Mostrar Contaseña </span>
             </div>
 
             <div>
                 <label class="inline-flex items-center cursor-pointer">
-                    <input required id="customCheckLogin" type="checkbox"
+                    <input required type="checkbox"
                         class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150">
                     <span class="ml-2 text-sm font-semibold text-blueGray-600">
                         Acepto los terminos y concidiciones de
