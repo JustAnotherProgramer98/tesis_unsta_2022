@@ -26,7 +26,7 @@
         <div class="h-full">
             <div class="tabcontent container items-center px-5 py-12 lg:px-20">
                 <a href="{{ route('places.index.admin') }}"
-                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                    class="mb-4 bg-transparent hover:bg-paleta_tesis_celeste text-paleta_tesis_celeste font-semibold hover:text-white py-2 px-4 border border-paleta_tesis_celeste hover:border-transparent rounded">
                     <i class="fas fa-arrow-left"></i>
                     Volver
                 </a>

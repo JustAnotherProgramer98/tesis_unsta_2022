@@ -3,7 +3,10 @@
       {{-- color de toda la barra --}}
       <aside class="z-20 h-full hidden w-max overflow-y-auto bg-gray-200 dark:bg-gray-800 md:block flex-shrink-0">
         <div class="py-4 text-gray-600 dark:text-gray-400">
-          <p class="ml-6 text-lg font-bold text-paleta_tesis_azul  dark:text-gray-100">Tesis unsta</p>
+          <div class="flex flex-row">
+            <img src="{{ asset('images/Turistear3.png') }}" alt="logo">
+            <p class="ml-4 text-2xl font-thin text-paleta_tesis_azul">turiste<span style='color: #3F72AF'>AR</span></p>
+          </div>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               @if ((request()->routeIs('admin.panel')))

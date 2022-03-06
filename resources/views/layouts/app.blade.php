@@ -43,14 +43,14 @@
             <ul class="flex items-center flex-shrink-0 space-x-6">
                 <!-- Theme toggler -->
                 <li class="flex">
-                    <span class="pr-4">Modo noche </span>
+                    <span class="pr-4 text-gray-400">Modo noche </span>
                     <button class="rounded-md focus:outline-none focus:shadow-outline-purple" @click="toggleTheme"
                         aria-label="Toggle color mode">
                         <template x-if="!dark">
-                            <i class="fas fa-moon"></i>
+                            <i class="text-paleta_tesis_azul fas fa-moon"></i>
                         </template>
                         <template x-if="dark">
-                            <i class="fas fa-sun"></i>
+                            <i class="text-lg-right fas fa-sun"></i>
                         </template>
                     </button>
                 </li>

@@ -23,7 +23,10 @@
         @keydown.escape="closeSideMenu"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
-          <p class="ml-6 text-lg font-bold text-paleta_tesis_azul dark:text-paleta_tesis_gris">Tesis unsta</p>
+          <div class="flex flex-row">
+            <img src="{{ asset('images/Turistear3.png') }}" alt="logo">
+            <p class="ml-4 text-2xl font-thin text-paleta_tesis_azul">turiste<span style='color: #3F72AF'>AR</span></p>
+          </div>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               @if ((request()->routeIs('admin.panel')))

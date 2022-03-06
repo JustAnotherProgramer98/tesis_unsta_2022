@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-<div class="flex align-middle">
-    <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-paleta_tesis_celeste">{{ $experience->title }}</span></h2></p>
-    <img src="{{ asset('images/mountains.png') }}" alt="">
+<div class="flex flex-row">
+    <img width="150px" height="150px"  src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo">
+    <p class="text-black font-bold text-2xl my-auto">Informacion sobre: <span class="text-paleta_tesis_celeste">{{ $experience->title }}</span></p>
 </div>
+
+
 @endsection
 
 
@@ -28,24 +30,23 @@
 
         <div class="h-full">
             <div class="tabcontent container items-center px-5 py-12 lg:px-20">
-                <a href="{{ route('experiencies.index.admin') }}"
-                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><i
-                        class="fas fa-arrow-left"></i>
-                    Volver
-                </a>
+                <a href="{{ route('experiencies.index.admin') }}" class="mb-4 bg-transparent hover:bg-paleta_tesis_celeste text-paleta_tesis_celeste font-semibold hover:text-white py-2 px-4 border border-paleta_tesis_celeste hover:border-transparent rounded"><i class="fas fa-arrow-left"></i>Volver</a>
                 <section class="flex flex-col w-full h-full p-1 overflow-auto">
-                    <label for="name" class="text-base leading-7  mb-5">Imagen de la experiencia</label>
-                    <header class="flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 {{ $experience->images->first() ? '' :  'bg-gray-400 '}}">
-                        {{ $experience->images->first() ? '' :  'Sin imagen ! '}}
+                    <label for="name" class="text-base leading-7  mt-8 mb-5">Imagen de la experiencia</label>
+                    <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
+                        
                         @if ($experience->images->first())
                             @forelse ($experience->images as $image)
                                 <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
                             @empty
                             <p>Sin Imagenes</p>
                             @endforelse
+                        @else
+                        <i class="text-3xl fad fa-sad-tear"></i>
+                        <label for="files">Esta experiencia no cuenta con fotos <br> </label>
                         @endif
 
-                    </header>
+                    </section>
                 </section>
                 <div class="relative p-4">
                     <label for="name" class="text-base leading-7 ">Titulo de la Experiencia</label>
@@ -89,9 +90,9 @@
                     <label for="name" class="text-base leading-7 ">Ubicacion de la experiencia</label>
                     <div
                         class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
-                        <p><span class="text-blue-800">Provincia: </span>   {{ $experience->place->city->province->name }}</p>
-                        <p><span class="text-blue-800">Ciudad: </span>   {{ $experience->place->city->name }}</p>
-                        <p><span class="text-blue-800">Direccion: </span>   {{ $experience->place->adress }}</p>
+                        <p><span class="text-paleta_tesis_celeste">Provincia: </span>   {{ $experience->place->city->province->name }}</p>
+                        <p><span class="text-paleta_tesis_celeste">Ciudad: </span>   {{ $experience->place->city->name }}</p>
+                        <p><span class="text-paleta_tesis_celeste">Direccion: </span>   {{ $experience->place->adress }}</p>
                         
                     </div>
 

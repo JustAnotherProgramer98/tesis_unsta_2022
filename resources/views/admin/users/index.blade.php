@@ -19,7 +19,7 @@
                         </form>
                     </div>
                     <button style="margin-top: auto;margin-bottom: auto" onclick="openNewTab(event, 'create')"
-                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear usuario </button>
+                    class="mb-4 bg-transparent hover:bg-paleta_tesis_celeste text-paleta_tesis_celeste font-semibold hover:text-white py-2 px-4 border border-paleta_tesis_celeste hover:border-transparent rounded">Crear usuario </button>
                     <button style="margin-top: auto;margin-bottom: auto" id="button-popover" class="rounded-full border-2 border-blue-500 shadow-lg h-8 w-8" aria-describedby="tooltip">?</button>
                         <div id="tooltip" role="tooltip"> Hace click en las primeras 3 columnas <br> y mira el detalle del usuario
                             <div id="arrow" data-popper-arrow></div>

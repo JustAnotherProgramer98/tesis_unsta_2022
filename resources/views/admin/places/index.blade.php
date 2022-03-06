@@ -18,7 +18,7 @@
                         </svg>
                     </div>
                     <button style="margin-top: auto;margin-bottom: auto" onclick="openNewTab(event, 'create')"
-                    class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Crear
+                    class="mb-4 bg-transparent hover:bg-paleta_tesis_celeste text-paleta_tesis_celeste font-semibold hover:text-white py-2 px-4 border border-paleta_tesis_celeste hover:border-transparent rounded">Crear
 
                     un lugar
                 </button>
