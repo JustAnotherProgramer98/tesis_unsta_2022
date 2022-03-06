@@ -12,7 +12,7 @@
                             <!-- Card 1 -->
                             
                             @foreach ($experiences as $experience)
-                            <div class="focus:outline-none mx-2 w-96 xl:mb-0 mb-8 shadow-2xl">
+                            <div class="mx-2 w-96 xl:mb-0 mb-8 shadow-2xl transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-110">
                                 <a href="{{ route('guest.product',$experience) }}">
                                     <div>
                                         @if ($experience->images->first())

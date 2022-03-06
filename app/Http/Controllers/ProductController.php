@@ -81,7 +81,7 @@ class ProductController extends Controller
 
                   return view('guest.search',compact(['experiences']));
             default:
-                $experiences = Experience::with('place')->paginate(10);
+                $experiences = Experience::with('place')->where('status',1)->paginate(10);
                   return view('guest.search',compact(['experiences']));
             break;
         }

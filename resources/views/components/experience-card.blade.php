@@ -1,4 +1,4 @@
-<div class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-110 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200 w-full  shadow-gray-200 hover:shadow-dark-400/80 ">
+<div class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-110 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200 min-w-min  shadow-gray-200 hover:shadow-dark-400/80 ">
     <a href="{{ route('guest.product',$experiencie) }}">
         @if ($experiencie->images->first())
         <div class="w-full rounded-t-md min-h-40 {{ $experiencie->images->first() ? '' : 'bg-paleta_tesis_gris' }}">
@@ -20,7 +20,7 @@
           <p class="font-light text-gray-700 text-justify line-clamp-3">{{ Str::limit($experiencie->description, 20, '...') }}</p>
           <div class="flex flex-wrap mt-10 space-x-4 align-bottom">
             @if ($experiencie->host->images->first())
-              <img class="w-10 h-10 rounded-full" src="{{ $experiencie->host->images->first()->url }}" />
+              <img class="w-10 h-10 rounded-full" src="{{asset('storage/'.$experiencie->host->images->first()->url)}}" />
             @else
               <img class="w-10 h-10 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile picture">
             @endif
