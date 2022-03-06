@@ -18,8 +18,6 @@
                             </svg>
                         </form>
                     </div>
-                    <button style="margin-top: auto;margin-bottom: auto" onclick="openNewTab(event, 'create')"
-                    class="mb-4 bg-transparent hover:bg-paleta_tesis_celeste text-paleta_tesis_celeste font-semibold hover:text-white py-2 px-4 border border-paleta_tesis_celeste hover:border-transparent rounded">Crear usuario </button>
                     <button style="margin-top: auto;margin-bottom: auto" id="button-popover" class="rounded-full border-2 border-blue-500 shadow-lg h-8 w-8" aria-describedby="tooltip">?</button>
                         <div id="tooltip" role="tooltip"> Hace click en las primeras 3 columnas <br> y mira el detalle del usuario
                             <div id="arrow" data-popper-arrow></div>
@@ -50,17 +48,17 @@
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin', $user) }}">
+                                            <a href="{{ route('user.show.admin', $user) }}">
                                                 <p class="font-semibold capitalize">{{ Str::limit($user->name.' '.$user->surname, 15, '...') }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin', $user) }}">
+                                            <a href="{{ route('user.show.admin', $user) }}">
                                                 <p class="font-semibold">{{ Str::limit($user->email, 15, '...') }}</p>
                                             </a>
                                         </td>
                                         <td class="px-4 py-3">
-                                            <a href="{{ route('experiencie.show.admin', $user) }}">
+                                            <a href="{{ route('user.show.admin', $user) }}">
                                                 <p class="font-semibold">{{ \Carbon\Carbon::parse($user->birthday)->age; }} años</p>
                                             </a>
                                         </td>
@@ -130,7 +128,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- <x-create-experience-form :places="$places" :hosts="$hosts" :languajes="$languajes"></x-create-experience-form> --}}
             </div>
         </div>
 
