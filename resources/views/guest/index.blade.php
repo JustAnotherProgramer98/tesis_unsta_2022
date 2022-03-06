@@ -5,7 +5,7 @@
     <section class="relative  bg-blueGray-50">
         <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
             <div id="change_backgroud" class="absolute top-0 w-full h-full bg-center bg-cover">
-                <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
+                <span id="blackOverlay" class="w-full h-full absolute"></span>
             </div>
             <div class="container relative mx-auto">
                 <div class="items-center flex flex-wrap">
@@ -20,13 +20,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
-                style="transform: translateZ(0px)">
-                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
-                    preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                    <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
-                </svg>
             </div>
         </div>
     </section>
@@ -216,25 +209,11 @@
   //Randon image on load HomePage
 function randomImage(){
   var images = [
-  'https://cdn.pixabay.com/photo/2021/09/29/08/47/seamless-pattern-6666875_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2021/07/03/08/44/leaves-6383340_960_720.png',
-  'https://cdn.pixabay.com/photo/2021/12/07/21/58/pattern-6854140_960_720.png',
-  'https://cdn.pixabay.com/photo/2021/07/23/21/26/dots-6488171_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2021/11/19/15/21/christmas-6809681_960_720.png',
-  'https://cdn.pixabay.com/photo/2020/09/23/17/12/flowers-5596564_960_720.png',
-  'https://cdn.pixabay.com/photo/2021/01/25/22/45/leaves-5949884_960_720.png',
-  'https://pixabay.com/es/vectors/navidad-patr%c3%b3n-dise%c3%b1o-6809682/',
-  'https://cdn.pixabay.com/photo/2020/07/22/07/04/design-5428296_960_720.png',
-  'https://cdn.pixabay.com/photo/2022/03/01/07/33/ukraine-7040759_960_720.png',
-  'https://cdn.pixabay.com/photo/2021/11/17/19/14/background-6804432_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2021/09/04/13/47/flowers-6597862_960_720.png',
-  'https://cdn.pixabay.com/photo/2021/11/16/21/53/christmas-6802123_960_720.png',
-  'https://cdn.pixabay.com/photo/2021/12/07/21/58/pattern-6854140_960_720.png',
-  'https://cdn.pixabay.com/photo/2022/02/08/18/15/unique-7001891_960_720.png',
-  'https://cdn.pixabay.com/photo/2020/04/19/08/17/watercolor-5062356_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2021/10/15/11/06/lemon-background-6712130_960_720.png',
-  'https://cdn.pixabay.com/photo/2020/09/23/19/58/halloween-5596921_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2022/02/05/08/59/abstract-art-6994326_960_720.png'
+  'https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2018/05/17/16/03/compass-3408928_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2016/01/09/18/27/journey-1130732_960_720.jpg',
+  'https://cdn.pixabay.com/photo/2016/01/09/18/28/notepad-1130743_960_720.jpg',
+    
   ];
   var size = images.length;
   var x = Math.floor(size * Math.random());
