@@ -3,7 +3,6 @@
 <main class="my-8">
     
     <div>
-        
         <div class="container mx-auto md:flex md:items-center px-6">
             @if (count($experience->images) >0)
             <div class="md:flex-1 px-4">
@@ -25,6 +24,7 @@
                         @endforelse
                     </div>
                 </div>
+                <button onclick="open_description_modal('{{addslashes($experience->description)}}')" class="ml-auto font-semibold text-paleta_tesis_blanco bg-gradient-to-br from-blue-500 via-paleta_tesis_celeste to-blue-300 border-0 py-2 px-6 rounded">Leer descripcion de la experiencia</button>
             </div>
             @else
             <div class="md:flex-1 px-4">
@@ -34,6 +34,7 @@
                         </div>
                         
                     </div>
+                <button onclick="open_description_modal('{{addslashes($experience->description)}}')" class="ml-auto font-semibold text-paleta_tesis_blanco bg-gradient-to-br from-blue-500 via-paleta_tesis_celeste to-blue-300 border-0 py-2 px-6 rounded">Leer descripcion de la experiencia</button>
             </div>
 
             @endif
@@ -41,7 +42,7 @@
             <div class="md:flex-1 px-4">
                 <h2 class="text-sm title-font text-gray-500 tracking-widest"> @foreach ($experience->categories as $category) {{ $category->title }}  @endforeach </h2>
                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $experience->title }}</h1>
-                <h2 class="mt-4 text-gray-800 text-2xl font-bold my-2">Anfitrion: <a class="text-paleta_tesis_celeste rounded-md p-2 font-thin hover:text-paleta_tesis_gris" href="{{ route('user.detail',$experience->host) }}">{{ $experience->host->name.' '.$experience->host->surname }}</a></h2>
+                <h2 class="mt-4 text-gray-800 text-2xl font-bold my-2">Anfitrion: <a class="text-paleta_tesis_celeste rounded-md p-2 font-thin hover:text-paleta_tesis_azul" href="{{ route('user.detail',$experience->host) }}">{{ $experience->host->name.' '.$experience->host->surname }}</a></h2>
                 
                 <div class="flex mb-4">
                     <span class="flex items-center">
@@ -62,22 +63,24 @@
                         <span class="text-gray-600 ml-3">{{ count($experience->comments) > 0 ? count($experience->comments).' reseñas' : 'La experiencia aun no tiene reseñas , animate a ser el primero!' }} </span>
                     </span>
                 </div>
-                <p class="leading-relaxed">{{$experience->description}}</p>
+                <div class="flex items-center">
+                    <i class="fab fa-whatsapp text-xl text-green-700"></i>
+                    <a target="_blank" href="https://api.whatsapp.com/send?text=Hola,%20vi%20esta%20experiencia%20en%20Turistear:%20{{$experience->title}}%20que%20se%20realiza%20con%20{{$experience->host->name.' '.$experience->host->surname}}%20y%20no%20pude%20resistirme%20a%20compartirtela%20">
+                        <span class="ml-2">Compartir via whatsapp</span>
+                    </a>
+                </div>
+                
                 <form action="{{ route('cart.buy',$experience) }}" method="POST">
                 @csrf
-                <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                    <div class="flex ml-6 items-center">
-                        <span class="mr-3">Participantes</span>
+                <div class="flex flex-col mt-6 items-start pb-5 border-b-2 border-gray-200 mb-5">
+                    <div class="flex  items-center">
+                        <span class="mr-3">Cantidad de personas</span>
                         <div class="relative">
-                            <select id="quantity_clients" name="quantity_clients" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+                            <select id="quantity_clients" name="quantity_clients" class="w-32 rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
                                  @for ($i=1;$experience->quantity_clients != $i;$i++)<option value="{{ $i }}">{{ $i }}</option>@endfor
                                 
                             </select>
-                            <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
-                                <path d="M6 9l6 6 6-6"></path>
-                                </svg>
-                            </span>
+                            
                         </div>
                     </div>
                 </div>
@@ -95,7 +98,7 @@
 
 
         <div style="width: 100% !important" class="mt-16">
-            <h3 class="text-paleta_tesis_gris text-2xl font-medium border-b border-b-paleta_tesis_azul">Más experiencias <span class="text-paleta_tesis_azul"> que recomendamos</span> </h3>
+            <h3 class="ml-4 text-paleta_tesis_gris text-2xl font-medium border-b border-b-paleta_tesis_azul">Más experiencias <span class="text-paleta_tesis_azul"> que recomendamos</span> </h3>
             
             <div class="mt-4 flex flex-row gap-8 place-content-center bg-gradient-to-b from-paleta_tesis_gris via-paleta_tesis_blanco">
                 @foreach ($experiences as $experience_related)
@@ -132,14 +135,13 @@
          
     </div>
 </main>
-
+@include('components.guests.modal_description')
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
 
 
 <script>
     $("#add_to_cart").one( "click", function(e) {
-        console.log("llamada");
             e.preventDefault();
             let quantity = $("#quantity_clients option:selected").val();
             let experience_id = @json($experience->id);
@@ -193,5 +195,11 @@
             });
             return false;
         });
+        function open_description_modal(experience_description) {
+        $( "#description_comment").text(experience_description);
+        $("#experience_description").show();
+            
+        }
+        
 </script>
 @endsection

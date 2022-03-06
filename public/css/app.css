@@ -1583,6 +1583,9 @@ select {
 .w-4\/5 {
   width: 80%;
 }
+.w-32 {
+  width: 8rem;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1869,6 +1872,9 @@ select {
 .content-center {
   align-content: center;
 }
+.items-start {
+  align-items: flex-start;
+}
 .items-end {
   align-items: flex-end;
 }
@@ -2081,6 +2087,9 @@ select {
 }
 .rounded-br-lg {
   border-bottom-right-radius: 0.5rem;
+}
+.rounded-tl-lg {
+  border-top-left-radius: 0.5rem;
 }
 .border {
   border-width: 1px;
@@ -3560,6 +3569,10 @@ input.input-stars[type="radio"]:checked ~ label {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
+.hover\:bg-paleta_tesis_celeste:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 114 175 / var(--tw-bg-opacity));
+}
 .hover\:bg-blue-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
@@ -3599,10 +3612,6 @@ input.input-stars[type="radio"]:checked ~ label {
 .hover\:bg-gray-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
-}
-.hover\:bg-paleta_tesis_celeste:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(63 114 175 / var(--tw-bg-opacity));
 }
 .hover\:bg-slate-300:hover {
   --tw-bg-opacity: 1;
@@ -3664,6 +3673,10 @@ input.input-stars[type="radio"]:checked ~ label {
   --tw-text-opacity: 1;
   color: rgb(248 113 113 / var(--tw-text-opacity));
 }
+.hover\:text-paleta_tesis_azul:hover {
+  --tw-text-opacity: 1;
+  color: rgb(17 45 78 / var(--tw-text-opacity));
+}
 .hover\:text-paleta_tesis_gris:hover {
   --tw-text-opacity: 1;
   color: rgb(219 226 239 / var(--tw-text-opacity));
@@ -3720,10 +3733,6 @@ input.input-stars[type="radio"]:checked ~ label {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
-.focus\:border-blue-500:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(59 130 246 / var(--tw-border-opacity));
-}
 .focus\:border-purple-300:focus {
   --tw-border-opacity: 1;
   border-color: rgb(216 180 254 / var(--tw-border-opacity));
@@ -3734,6 +3743,10 @@ input.input-stars[type="radio"]:checked ~ label {
 .focus\:border-red-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+.focus\:border-blue-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 .focus\:bg-indigo-600:focus {
   --tw-bg-opacity: 1;

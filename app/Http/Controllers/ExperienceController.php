@@ -208,7 +208,7 @@ class ExperienceController extends Controller
     public function codigo_para_subir_mas_de_una_imagen (Request $request)
     {
     //     if($request){
-
+        https://api.whatsapp.com/send?text=Hola,%20eleg%C3%AD%20esta%20experiencia%20en%20Yeah!%20para%20vos,%20con%20este%20codigo%20abr%C3%ADs%20tu%20regalo%20y%20haces%20la%20reserva.%20Que%20lo%20disfrutes!
         
     //     foreach($request->file('preloaded_images') as $file){
     //         $image = new Image;
