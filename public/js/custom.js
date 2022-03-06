@@ -63,11 +63,11 @@ function searchByProvincia(url) {
   }); //fin Ajax 
 }
 //PopOver
-const button = document.querySelector('#button-popover');
+const button_3 = document.querySelector('#button-popover');
 const tooltip = document.querySelector('#tooltip');
 var button_2 = document.querySelector('#button-popover_2');
 try {
-  const popperInstance = Popper.createPopper(button, tooltip, {
+  const popperInstance = Popper.createPopper(button_3, tooltip, {
     modifiers: [
       {
         name: 'offset',
@@ -79,7 +79,7 @@ try {
     });
     
 } catch (error) {
-console.log('Sin popOver button');
+
 }
 
 function show() {
@@ -118,11 +118,11 @@ const hideEvents = ['mouseleave', 'blur'];
 
 try {
 showEvents.forEach((event) => {
-  button.addEventListener(event, show);  
+  button_3.addEventListener(event, show);  
 });
 
 hideEvents.forEach((event) => {
-  button.addEventListener(event, hide);
+  button_3.addEventListener(event, hide);
 });  
 } catch (error) {
 
@@ -205,7 +205,6 @@ slider.addEventListener('mousedown', startDragging, false);
 slider.addEventListener('mouseup', stopDragging, false);
 slider.addEventListener('mouseleave', stopDragging, false);
 } catch (error) {
-  console.log('');
+  
 }
-//BackToTop Button
 

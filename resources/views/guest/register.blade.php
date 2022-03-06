@@ -173,15 +173,11 @@
         var mm = today.getMonth() + 1; //January is 0!
         var yyyy = today.getFullYear();
 
-        if (dd < 10) {
-        dd = '0' + dd;
-        }
+        if (dd < 10) dd = '0' + dd;
 
-        if (mm < 10) {
-        mm = '0' + mm;
-        } 
-            
+        if (mm < 10) mm = '0' + mm; 
         today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("birthday_anfi").setAttribute("max", today);
         document.getElementById("birthday").setAttribute("max", today);
 
         $(".form-register-modal").submit(function( event ) {

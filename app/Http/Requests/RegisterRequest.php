@@ -56,7 +56,7 @@ class RegisterRequest extends FormRequest
         'password.required' =>'No podemos crearte una cuenta sin una contraseña',
         'type_account.required' =>'Tambien validamos el backend , intento de "HACKER"',
         'cuit.required_if'  => 'Necesitamos tu CUIT para constatar los pagos',
-        'imagen_dni.required_if'=> 'Necesitamos tu DNI para validarlo',
+        'imagen_dni.required_if'=> 'Necesitamos la foto de tu DNI para validarlo',
         'province_id.integer' =>'La provincia ingresada no es valida',
         'city_id.integer' =>'La ciudad ingresada no es valida'
     ];

@@ -2,9 +2,9 @@
 @section('content')   
 <main class="my-8">
     
-    <div class="container mx-auto px-6">
+    <div>
         
-        <div class="md:flex md:items-center">
+        <div class="container mx-auto md:flex md:items-center px-6">
             @if (count($experience->images) >0)
             <div class="md:flex-1 px-4">
                 <div x-data="{ image: 1 }" x-cloak>
@@ -94,7 +94,7 @@
 
 
 
-        <div class="mt-16">
+        <div style="width: 100% !important" class="mt-16">
             <h3 class="text-paleta_tesis_gris text-2xl font-medium border-b border-b-paleta_tesis_azul">Más experiencias <span class="text-paleta_tesis_azul"> que recomendamos</span> </h3>
             
             <div class="mt-4 flex flex-row gap-8 place-content-center bg-gradient-to-b from-paleta_tesis_gris via-paleta_tesis_blanco">

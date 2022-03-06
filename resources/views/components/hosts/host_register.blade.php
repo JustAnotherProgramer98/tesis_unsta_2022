@@ -36,7 +36,7 @@
             </div>
             <div class="relative w-full mb-3">
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Fecha de nacimiento</label>
-                <input value="{{ old('birthday') }}" type="date" name="birthday"
+                <input value="{{ old('birthday') }}" type="date" name="birthday" id="birthday_anfi" min="1920-01-01"
                     class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     placeholder="Email">
             </div>
@@ -126,12 +126,9 @@
 
             <div>
                 <label class="inline-flex items-center cursor-pointer">
-                    <input required type="checkbox"
+                    <input required type="checkbox" oninvalid="this.setCustomValidity('Debes aceptar los terminos y condiciones para continuar')" oninput="this.setCustomValidity('')"
                         class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150">
-                    <span class="ml-2 text-sm font-semibold text-blueGray-600">
-                        Acepto los terminos y concidiciones de
-                        <span class="text-paleta_tesis_celeste">TuristeAR</span>
-                    </span>
+                    <span class="ml-2 text-sm font-semibold text-blueGray-600">Acepto los terminos y concidiciones de <span class="text-paleta_tesis_celeste">TuristeAR</span></span>
                 </label>
             </div>
 
