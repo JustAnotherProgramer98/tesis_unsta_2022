@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth']], function () {
      Route::post('/force-delete/user', [UsersController::class, 'forceDeleteUser'])->name('users.forcedelete.admin');//deleted users
      Route::post('/restore/user', [UsersController::class, 'restoreUser'])->name('users.restore.admin');//deleted users
 
-     Route::get('/users/{category}/', [UsersController::class, 'show'])->name('user.show.admin');
+     Route::get('/users/{user}/show/', [UsersController::class, 'show'])->name('user.show.admin');
      Route::post('/users/store', [UsersController::class, 'store'])->name('users.store.admin');
      Route::post('/users/approve', [UsersController::class, 'approveUser'])->name('users.approve.admin');
      Route::get('/users/{category}/edit', [UsersController::class, 'edit'])->name('users.edit.admin');

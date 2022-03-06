@@ -107,7 +107,7 @@
                         $total_ammount=0;
                     @endphp
                     @else
-                    $ -{{(Session::get('coupon_code')->first()->discount_percent/100) *($total_ammount)}}
+                    $ -{{ number_format((Session::get('coupon_code')->first()->discount_percent/100) *($total_ammount),2)}}
                     @endif
                 </div>
             </div>
@@ -116,13 +116,14 @@
                 <div class="lg:px-4 lg:py-2 m-2 text-lg font-bold text-paleta_tesis_azul">Comision turiste<span
                         style='color: #3F72AF'>AR</span></div>
                 <div class="lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">$
-                    {{ round(($total_ammount * 0.2) / 10) * 10 }}</div>
+                    
+                    {{ number_format(round(($total_ammount * 0.2) / 10) * 10,2) }}</div>
             </div>
             <div class="flex justify-between pt-4 border-b">
                 <div class="lg:px-4 lg:py-2 m-2 text-lg lg:text-xl font-bold text-center text-gray-800">
                     Total
                 </div>
-                <div class="lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">$ {{ $total_ammount + round(($total_ammount * 0.2) / 10) * 10 }}</div>
+                <div class="lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">$ {{ number_format($total_ammount + round(($total_ammount * 0.2) / 10) * 10,2) }}</div>
             </div>
                 <div
                     class="flex justify-center w-full px-10 py-3 mt-6 font-medium rounded-full item-center">

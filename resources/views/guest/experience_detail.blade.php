@@ -2,6 +2,9 @@
 @section('content')   
 <main class="my-8">
     
+    @if (\Session::has('error_not_logged'))
+        <h4 class="pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-times text-red-700 text-2xl"></i>{{Session::get('error_not_logged')}}</h4>
+    @endif
     <div>
         <div class="container mx-auto md:flex md:items-center px-6">
             @if (count($experience->images) >0)
@@ -86,7 +89,7 @@
                 </div>
 
                 <div class="flex">
-                    <span class="title-font font-medium text-2xl text-gray-900">Precio: ${{$experience->price}}</span>
+                    <span class="title-font font-medium text-2xl text-gray-900">Precio: ${{number_format($experience->price,2)}}</span>
                         <button class="flex ml-auto text-paleta_tesis_blanco bg-paleta_tesis_azul border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_celeste rounded">Comprar</button>
                         <button id="add_to_cart" class="flex ml-3    text-paleta_tesis_gris bg-paleta_tesis_celeste border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_azul rounded">Agregar al carrito</button>
                 </div>
@@ -142,9 +145,10 @@
 
 <script>
     $("#add_to_cart").one( "click", function(e) {
-            e.preventDefault();
-            let quantity = $("#quantity_clients option:selected").val();
-            let experience_id = @json($experience->id);
+        e.preventDefault();
+        let quantity = $("#quantity_clients option:selected").val();
+        let experience_id = @json($experience->id);
+        if (@json(Auth::user()!=null)) {
             
 
             $.ajax({
@@ -194,6 +198,22 @@
                 }
             });
             return false;
+        }else{
+            Swal.fire({  
+                    title:'Houston tenemos un problema...',
+                    text: 'Debes iniciar sesion para comprar',
+                    imageUrl: "{{ asset('images/Turistear.png') }}",
+                    imageWidth: 300,
+                    imageHeight: 100,
+                    imageAlt: 'Turistear logo',
+                    confirmButtonText: 'Entendido',
+                    background:'#F9F7F7',
+                    margin: '5em',
+                    confirmButtonColor: '#112D4E',
+                    width: 600,
+                })
+        }
+
         });
         function open_description_modal(experience_description) {
         $( "#description_comment").text(experience_description);

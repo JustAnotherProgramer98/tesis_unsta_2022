@@ -21,6 +21,7 @@ class CartController extends Controller
         if ($experiences==null) return view('guest.cart_shop',compact(['experiences']));
 
         if(count($experiences)==1){
+            if (Auth::id()==null) return redirect()->back()->with('error_not_logged', 'Debes iniciar sesion para comprar');   
             $total_ammount=$experiences[0]->number_puchage * $experiences[0]->price;
             $total_ammount=$total_ammount + round(($total_ammount * 0.2) / 10) * 10;
             //Mercado pago funcional
@@ -41,8 +42,10 @@ class CartController extends Controller
             );
             $preference->auto_return = "approved"; 
             $preference->save();
+
             Sale::create(['experience_id'=> $experiences[0]->id,'buyer_id'=> Auth::id(),'amount'=> $total_ammount,'status'=> 0]);
         }else{
+            if (Auth::id()==null) return redirect()->back()->with('error_not_logged', 'Debes iniciar sesion para comprar');   
               //Mercado pago funcional
               SDK::setAccessToken(env('MERCADO_PAGO_PRIVATE'));
             $array_items=[];

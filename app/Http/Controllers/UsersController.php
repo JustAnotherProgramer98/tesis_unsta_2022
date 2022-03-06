@@ -51,7 +51,7 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
-        return view('guest.account_guest', compact(['user']));
+        return view('admin.users.show', compact(['user']));
     }
 
     /**
