@@ -288,7 +288,7 @@
                                 <!-- Botones para compartir de la review -->
                                 <button class="flex items-center">
                                     <i class="fab fa-whatsapp text-xl text-green-700"></i>
-                                    <a target="_blank" href="https://api.whatsapp.com/send?text=Hola,%20vi%20este%20comentario:{{$comment->body}}%20en%20Turistear!%20,%20dejado%20por%20{{$comment->user->name.' '.$comment->user->surname}}para%20la%20experiencia%20{{$comment->experience->title }}%20y%20queria%20compartirtelo%20">
+                                    <a target="_blank" href="https://api.whatsapp.com/send?text=Hola,%20vi%20este%20comentario:{{$comment->body}}%20en%20Turistear!%20,%20dejado%20por%20{{$comment->user->name.' '.$comment->user->surname}}%20para%20la%20experiencia%20{{$comment->experience->title }}%20y%20queria%20compartirtelo%20">
                                         <span class="ml-2">Compartir via whatsapp</span>
                                     </a>
                                 </button>
