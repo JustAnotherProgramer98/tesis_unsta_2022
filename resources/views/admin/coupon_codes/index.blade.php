@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <p class="text-paleta_tesis_celeste font-bold text-2xl">Cupones de descuento</p>
+<div class="flex flex-row">
+    <img width="150px" height="150px"  src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo">
+    <p class="text-black font-bold text-2xl my-auto">Cupones de descuento </p>
+</div>
 @endsection
 
 @section('content')

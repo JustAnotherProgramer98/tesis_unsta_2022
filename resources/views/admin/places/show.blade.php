@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-    <div class="flex flex-row">
-        <img width="150px" height="150px"  src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo">
-        <p class="text-black font-bold text-2xl">Informacion sobre <span class="text-paleta_tesis_celeste">{{ Str::limit($place->adress,10) }}</span></p>
-    </div>
+<div class="flex flex-row">
+    <img width="150px" height="150px"  src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo">
+    <p class="text-black font-bold text-2xl my-auto">Informacion sobre: <span class="text-paleta_tesis_celeste">{{ Str::limit($place->adress,20,'...') }}</span></p>
+</div>
 @endsection
 
 @section('content')
@@ -73,14 +73,10 @@
                         <p>{{ $place->coordenates }}</p>
                     </div>
                 </div>
-
-            </div>
-
                 <br>
                 <br>
                 <p>Datos del lugar</p>
-                <hr>
-
+                <hr style="width: 90%" class="border border-paleta_tesis_celeste">
                 <div class="relative p-4">
                     <label for="name" class="text-base leading-7 ">Estatus </label>
                     @switch($place->status)
@@ -126,8 +122,7 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
+    </div>
 
     @endsection

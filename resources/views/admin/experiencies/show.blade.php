@@ -11,8 +11,7 @@
 
 
 @section('content')
-    <div
-        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+    <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
         @if (session()->has('success'))
             <div class="alert alert-success">
@@ -36,7 +35,7 @@
                     <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
                         @if ($experience->images->first())
                             @forelse ($experience->images as $image)
-                                <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
+                                <img width="300px" height="300px" class="rounded-tl-lg rounded-br-lg m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
                             @empty
                             <p>Sin Imagenes</p>
                             @endforelse
@@ -106,7 +105,7 @@
                 <br>
                 <br>
                 <p>Datos de la Experiencia</p>
-                <hr>
+                <hr style="width: 90%" class="border border-paleta_tesis_celeste">
 
                 <div class="relative p-4">
                     <label for="name" class="text-base leading-7 ">Estatus </label>
@@ -146,8 +145,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
 
     @endsection

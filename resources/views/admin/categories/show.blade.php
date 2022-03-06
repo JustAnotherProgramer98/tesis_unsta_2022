@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
 @section('title_of_tab')
-<div class="flex align-middle">
-    <p class="text-black font-bold text-2xl">Informacion sobre: <span class="text-paleta_tesis_celeste">{{ $category->title }}</span></p>
-    <img width="100px" height="100px"  src="{{ asset('images/plane-with-marker.jpg') }}" alt="">
+<div class="flex flex-row">
+    <img width="150px" height="150px"  src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo">
+    <p class="text-black font-bold text-2xl my-auto">Informacion sobre: <span class="text-paleta_tesis_celeste">{{ $category->title }}</span></p>
 </div>
 @endsection
 
 @section('content')
-    <div
-        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+    <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         @if (session()->has('success'))
             <div class="alert alert-success">
                 @if (is_array(session('success')))
@@ -33,16 +32,18 @@
                 </a>
                 <section class="flex flex-col w-full h-full p-1 overflow-auto">
                     <label for="name" class="text-base leading-7  mb-5">Imagen de la categoria</label>
-                    <header class="flex flex-row gap-6 items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 {{ $category->images->first() ? '' :  'bg-gray-400 '}}">
-                        {{ $category->images->first() ? '' :  'Sin imagen ! '}}
+                    <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
                         @if ($category->images->first())
-                        @forelse ($category->images as $image)
-                            <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
-                        @empty
-                        <p>Sin Imagenes</p>
-                        @endforelse
-                    @endif
-                    </header>
+                            @forelse ($category->images as $image)
+                                <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
+                            @empty
+                            <p>Sin Imagenes</p>
+                            @endforelse
+                        @else
+                        <i class="text-3xl fad fa-sad-tear"></i>
+                        <label for="files">Esta experiencia no cuenta con fotos <br> </label>
+                        @endif
+                    </section>
                 </section>
                 <div class="relative p-4">
                     <label for="name" class="text-base leading-7 ">Nombre de la categoria</label>
@@ -57,13 +58,10 @@
                     </div>
                 </div>
 
-            </div>
-
                 <br>
                 <br>
                 <p>Datos de la categoria</p>
-                <hr>
-
+                <hr style="width: 90%" class="border border-paleta_tesis_celeste">
                 <div class="relative p-4">
                     <label for="name" class="text-base leading-7 ">Estatus </label>
                     @switch($category->status)
@@ -109,8 +107,7 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
+    </div>
 
     @endsection
