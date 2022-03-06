@@ -3,7 +3,7 @@
         <a class="text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
             <img class="" src="{{ asset('images/Turistear3.png') }}" alt="logo">
         </a>
-        <p class="ml-4 text-2xl font-thin text-paleta_tesis_azul">turiste<span style='color: #3F72AF'>AR</span></p>
+        <p class="ml-4 text-2xl font-thin text-paleta_tesis_azul">Turiste<span style='color: #3F72AF'>AR</span></p>
     </div>
     <div class="px-5 xl:px-12 py-6 flex w-full items-center">
         
