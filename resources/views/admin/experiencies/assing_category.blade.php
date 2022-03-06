@@ -22,8 +22,7 @@
         @endif
 
         <div class="container items-center px-5 py-12 lg:px-20">
-            <a href="{{ route('categories.index.admin') }}"
-            class="mb-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><i class="fas fa-arrow-left"></i>
+            <a href="{{ route('categories.index.admin') }}" class="mb-4 bg-transparent hover:bg-paleta_tesis_celeste text-paleta_tesis_celeste font-semibold hover:text-white py-2 px-4 border border-paleta_tesis_celeste hover:border-transparent rounded"><i class="fas fa-arrow-left"></i>
             Volver
             </a>
             @if ($errors->any())
@@ -36,7 +35,7 @@
                 </div>
             @endif
         
-            <form method="POST" action="{{ route('experiencies.assing.category.admin') }}"  class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+            <form method="POST" action="{{ route('experiencies.assing.category.admin') }}"  class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white mt-8">
                 @csrf
                 <div class="relative p-4">
                     <label for="name" class="text-base leading-7 ">Experiencia</label>

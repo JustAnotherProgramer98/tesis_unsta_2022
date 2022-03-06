@@ -34,7 +34,6 @@
                 <section class="flex flex-col w-full h-full p-1 overflow-auto">
                     <label for="name" class="text-base leading-7  mt-8 mb-5">Imagen de la experiencia</label>
                     <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
-                        
                         @if ($experience->images->first())
                             @forelse ($experience->images as $image)
                                 <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
@@ -45,7 +44,6 @@
                         <i class="text-3xl fad fa-sad-tear"></i>
                         <label for="files">Esta experiencia no cuenta con fotos <br> </label>
                         @endif
-
                     </section>
                 </section>
                 <div class="relative p-4">

@@ -69,15 +69,8 @@
                                                 <p class="font-semibold">$ {{ $experience->price }}  </p>
                                         </td>
                                         <td class="px-4 py-3">
-                                            @forelse ($experience->categories as $category)    
-                                            @if($loop->last)
-                                            <p class="font-semibold capitalize">{{ $category->title }}  </p>
-                                            @else
-                                            <p class="font-semibold capitalize">{{ $category->title }} -  </p>
-                                            @endif
-                                            @empty
-                                                Experiencia sin categoria
-                                            @endforelse
+                                            
+                                            <p class="font-semibold capitalize">@forelse ($experience->categories as $category)    @if($loop->last) {{ $category->title }} @else {{ $category->title }} - @endif @empty Experiencia sin categoria @endforelse </p>
                                         </td>
                                         <td class="px-4 py-3">
                                             @switch($experience->status)

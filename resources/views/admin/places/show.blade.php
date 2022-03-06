@@ -32,16 +32,18 @@
                 </a>
                 <section class="flex flex-col w-full h-full p-1 overflow-auto">
                     <label for="name" class="text-base leading-7  mb-5">Imagen del lugar</label>
-                    <header class="flex flex-row gap-6 items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 {{ $place->images->first() ? '' :  'bg-gray-400 '}}">
-                        {{ $place->images->first() ? '' :  'Sin imagen ! '}}
+                    <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
                         @if ($place->images->first())
-                        @forelse ($place->images as $image)
-                            <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
-                        @empty
-                        <p>Sin Imagenes</p>
-                        @endforelse
-                    @endif
-                    </header>
+                            @forelse ($place->images as $image)
+                                <img width="300px" height="300px" class="rounded-3xl m-4" src="{{asset('storage/'.$image->url)}}" alt="{{ $image->alt }}">
+                            @empty
+                            <p>Sin Imagenes</p>
+                            @endforelse
+                        @else
+                        <i class="text-3xl fad fa-sad-tear"></i>
+                        <label for="files">Esta experiencia no cuenta con fotos <br> </label>
+                        @endif
+                    </section>
                 </section>
                 <div class="relative p-4">
                     <label for="name" class="text-base leading-7 ">Informacion del lugar</label>

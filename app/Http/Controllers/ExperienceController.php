@@ -183,10 +183,11 @@ class ExperienceController extends Controller
     public function search(Request $request)
     {
             $experiences=Experience::whereRelation('host', 'name','like','%'.$request->search.'%')->Orwhere('title', 'like', '%'.$request->search.'%')->latest()->paginate(8);
-            $places=Place::all();
+            $places=Place::where('status',1)->get();
             $hosts = User::whereRelation('role', 'name','Anfitrion' )->get();
             $languajes=Languaje::all();
-            return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes']));
+            $categories=Category::where('status',1)->get();
+            return view('admin.experiencies.index',compact(['experiences','places','hosts','languajes','categories']));
     }
     public function assignCategoryExperiencie(Request $request)
     {
