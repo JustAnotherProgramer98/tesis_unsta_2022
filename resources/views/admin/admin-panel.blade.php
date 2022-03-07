@@ -94,15 +94,19 @@
         <div class="border border-gray-200 min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
             <canvas class="mx-auto" id="best_five_users" style="width:100%;max-width:600px"></canvas>
         </div>
+        <div class="border border-gray-200 min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+            <canvas class="mx-auto" id="best_five_categories" style="width:100%;max-width:600px"></canvas>
+        </div>
+        <div class="border border-gray-200 min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+            <canvas class="mx-auto" id="best_five_provinces" style="width:100%;max-width:600px"></canvas>
+        </div>
     </div>
     </div>
-
-{{-- var barColors = ["#60a5fa","#4ade80","#22d3ee","#c084fc","#34d399"];     --}}
-
+    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
+    //Experiencias validadas y no validadas
     var xValues = ["Validadas", "No validadas",'Pendientes de aprobacion'];
-    
     var yValues = [@json(count($experiences->where('status',1))), @json(count($experiences->where('status',0))), @json(count($experiences->where('status',2)))];
     var barColors = ["#c084fc","#4ade80","#34d399"];
 
@@ -123,8 +127,8 @@
     }
     });
 
+    //Anfitriones validados y no validados
     var xValues_hosts = ["Validados", "No validados",'Pendientes de aprobacion'];
-    
     var yValues_hosts = [@json(count($users->where('status',1))), @json(count($users->where('status',0))), @json(count($users->where('status',2)))];
     var barColors_hosts = ["#4ade80","#fa84be","#faf484"];
 
@@ -145,6 +149,7 @@
     }
     });
 
+    //Roles de los usuarios
     var xValues_roles = ["Anfitriones", "Clientes",'Administradores'];
     var yValues_roles = [@json($host_count),@json($count_clients), @json($count_admins)];
     var barColors_roles = ["#DBE2EF","#3F72AF","#112D4E"];
@@ -166,7 +171,7 @@
     }
     });
 
-    
+    //Top 5 usuarios con mas compras
     var xValues_best_names = [@json($best_users_names[0])+' '+@json($best_users_surnames[0]),@json($best_users_names[1])+' '+@json($best_users_surnames[1]),@json($best_users_names[2])+' '+@json($best_users_surnames[2]),@json($best_users_names[3])+' '+@json($best_users_surnames[3]),@json($best_users_names[4])+' '+@json($best_users_surnames[4])];
     var yValues_best_values = [@json($best_users_sales[0]),@json($best_users_sales[1]),@json($best_users_sales[2]),@json($best_users_sales[3]),@json($best_users_sales[4])];
     var barColors_best_5 = ["#019267","#00C897","#FFD365",'#FDFFA9','#533E85'];
@@ -183,12 +188,55 @@
     options: {
         title: {
         display: true,
-        text: "Top 5 usuarios"
+        text: "Top 5 usuarios con mas compras"
         }
     }
     });
-    
 
+    //Top 5  provincias con mas experiencias
+    var xValues_best_provinces = [@json($best_places[0]->city->province->name),@json($best_places[1]->city->province->name),@json($best_places[2]->city->province->name),@json($best_places[3]->city->province->name),@json($best_places[4]->city->province->name)];
+    var yValues_best_provinces_values = [@json($best_categories[0]->experiences_count),@json($best_categories[1]->experiences_count),@json($best_categories[2]->experiences_count),@json($best_categories[3]->experiences_count),@json($best_categories[4]->experiences_count)];
+    var barColors_best_5_provinces = ["#2B2E4A","#E84545","#903749",'#424874','#53354A'];
+
+    new Chart("best_five_provinces", {
+    type: "pie",
+    data: {
+        labels: xValues_best_provinces,
+        datasets: [{
+        backgroundColor: barColors_best_5_provinces,
+        data: yValues_best_provinces_values
+        }]
+    },
+    options: {
+        title: {
+        display: true,
+        text: "Top 5 usuarios con mas compras"
+        }
+    }
+    });
+
+    //Top 5  categorias con mas experiencias
+    
+    var xValues_best_categories = [@json($best_categories[0]->title),@json($best_categories[1]->title),@json($best_categories[2]->title),@json($best_categories[3]->title),@json($best_categories[4]->title)];
+    var yValues_best_categories_values = [@json($best_categories[0]->experiences_count),@json($best_categories[1]->experiences_count),@json($best_categories[2]->experiences_count),@json($best_categories[3]->experiences_count),@json($best_categories[4]->experiences_count)];
+    var barColors_best_5_categories = ["#F9ED69","#B83B5E","#F08A5D",'#6A2C70','#364F6B'];
+
+    new Chart("best_five_categories", {
+    type: "pie",
+    data: {
+        labels: xValues_best_categories,
+        datasets: [{
+        backgroundColor: barColors_best_5_categories,
+        data: yValues_best_categories_values
+        }]
+    },
+    options: {
+        title: {
+        display: true,
+        text: "Top 5  categorias con mas experiencias"
+        }
+    }
+    });
 
 </script>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Experience;
 use App\Models\Place;
 use App\Models\Sale;
@@ -23,6 +24,8 @@ class AdminController extends Controller
             $best_users_names=User::withCount('sales')->orderBy('sales_count', 'desc')->get()->take(5)->pluck('name'); 
             $best_users_surnames=User::withCount('sales')->orderBy('sales_count', 'desc')->get()->take(5)->pluck('surname'); 
             $best_users_sales=User::withCount('sales')->orderBy('sales_count', 'desc')->get()->take(5)->pluck('sales_count'); 
+            $best_places=Place::withCount('experiences')->orderBy('experiences_count', 'desc')->get()->take(5); 
+            $best_categories=Category::withCount('experiences')->orderBy('experiences_count', 'desc')->get()->take(5); 
             $host_count=count(User::whereRelation('role', 'name','Anfitrion' )->get());
             $count_clients=count(User::whereRelation('role', 'name','Cliente' )->get());
             $count_admins=count(User::whereRelation('role', 'name','Admin' )->get());
@@ -32,7 +35,7 @@ class AdminController extends Controller
                     $balance=$balance+$sale->amount;
                 }
             }
-            return view('admin.admin-panel',compact(['users','experiences','balance','contacts','host_count','count_clients','count_admins','best_users_names','best_users_sales','best_users_surnames']));
+            return view('admin.admin-panel',compact(['users','experiences','balance','contacts','host_count','count_clients','count_admins','best_users_names','best_users_sales','best_users_surnames','best_places','best_categories']));
         }
         return view('welcome');
     }
