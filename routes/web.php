@@ -49,12 +49,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::view('/experiencias/welcome', 'welcome');
 
 
-Route::view('/test2','email.register_email');
-Route::view('/test3','email.notification_email');
-Route::view('/test4','email.new_sale_email');
+
 Route::view('/test5','email.comment_reminder');
 Route::view('/test6','email.thanks_for_comment_client');
-Route::view('/test7','email.verified_email_user');
 Route::view('/test8','email.selled_experience_host');
 
 require __DIR__.'/admin.php';

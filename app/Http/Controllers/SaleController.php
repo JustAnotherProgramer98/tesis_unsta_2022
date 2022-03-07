@@ -125,6 +125,11 @@ class SaleController extends Controller
         $last_sale = Sale::where('buyer_id', Auth::id())->orderByDesc('id')->first();
         $request->session()->forget('cart');
         DB::transaction(function () use ($last_sale) { $last_sale->update(['status'=>1]);});
+
+        MailController::host_notify_sale($last_sale->user->name.' '.$last_sale->user->surname,
+        $last_sale->user->email,$last_sale->user->phone,$last_sale->created_at,$last_sale->experience->title,
+        number_format($last_sale->amount-round(($last_sale->amount * 0.2) / 10) * 10,2));
+
         return view('sale.success');
     }
     public function sale_failed(Request $request)
