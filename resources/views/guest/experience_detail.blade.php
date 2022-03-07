@@ -27,7 +27,7 @@
                         @endforelse
                     </div>
                 </div>
-                <button onclick="open_description_modal('{{addslashes($experience->description)}}')" class="ml-auto font-semibold text-paleta_tesis_blanco bg-gradient-to-br from-blue-500 via-paleta_tesis_celeste to-blue-300 border-0 py-2 px-6 rounded">Leer descripcion de la experiencia</button>
+                
             </div>
             @else
             <div class="md:flex-1 px-4">
@@ -37,7 +37,6 @@
                         </div>
                         
                     </div>
-                <button onclick="open_description_modal('{{addslashes($experience->description)}}')" class="ml-auto font-semibold text-paleta_tesis_blanco bg-gradient-to-br from-blue-500 via-paleta_tesis_celeste to-blue-300 border-0 py-2 px-6 rounded">Leer descripcion de la experiencia</button>
             </div>
 
             @endif
@@ -72,6 +71,9 @@
                         <span class="ml-2">Compartir via whatsapp</span>
                     </a>
                 </div>
+                <h2 class="mt-4 text-gray-800 text-2xl font-bold my-2">Descripción: <h3 class="mt-4 text-gray-800 text-2xl my-2">{{Str::limit( $experience->description, 100, '...') }}</h3></h2>
+                
+                <button onclick="open_description_modal('{{addslashes($experience->description)}}')" class="ml-auto font-semibold text-paleta_tesis_blanco bg-gradient-to-br from-blue-500 via-paleta_tesis_celeste to-blue-300 border-0 py-2 px-6 rounded">Más sobre la experiencia</button>
                 
                 <form action="{{ route('cart.buy',$experience) }}" method="POST">
                 @csrf
