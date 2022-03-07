@@ -131,7 +131,9 @@ class UsersController extends Controller
     public function approveUser(Request $request)
     {
         try {
-            return User::where('id',$request->experience_id)->get()->first()->update(['status' => 1]);
+            $user=User::where('id',$request->experience_id)->get()->first();
+            MailController::client_notify_aproved_user($user->name.' '.$user->surname,$user->email);
+            return $user->update(['status' => 1]);
         } catch (\Throwable $th) {
             return "error ".$th;
         }

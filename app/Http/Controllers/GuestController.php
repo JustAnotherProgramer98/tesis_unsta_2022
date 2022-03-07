@@ -43,7 +43,7 @@ class GuestController extends Controller
                 Auth::login($user);
 
                 //Send email to new User
-                MailController::register_email($user->name.' '.$user->surname,$user->email);
+                MailController::register_email($user->name.' '.$user->surname,$user->email,$user->created_at,$user->role->name);
             });
             // $admin = User::whereRelation('role', 'name','Admin' )->get()->first();
             //Send email to Admin
