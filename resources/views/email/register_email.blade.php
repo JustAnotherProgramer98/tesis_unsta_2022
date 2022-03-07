@@ -119,7 +119,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="images/image-6.png" alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 18%;max-width: 104.4px;" width="104.4" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://s3.amazonaws.com/unroll-images-production/projects%2F0%2F1646598317219-Turistear2.png" alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 18%;max-width: 104.4px;" width="104.4" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
@@ -173,7 +173,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="images/image-5.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 19%;max-width: 110.2px;" width="110.2" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://s3.amazonaws.com/unroll-images-production/projects%2F0%2F1646599549037-430991.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 19%;max-width: 110.2px;" width="110.2" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>

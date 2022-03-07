@@ -228,7 +228,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="images/image-8.jpeg" alt="Mark" title="Mark" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 34px;" width="34"/>
+      <img align="center" border="0" src="https://cdn.templates.unlayer.com/assets/1619163636909-icon1.jpg" alt="Mark" title="Mark" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 34px;" width="34"/>
       
     </td>
   </tr>
@@ -272,7 +272,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="images/image-5.jpeg" alt="Calendar" title="Calendar" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 34px;" width="34"/>
+      <img align="center" border="0" src="https://cdn.templates.unlayer.com/assets/1619163644933-icon2.jpg" alt="Calendar" title="Calendar" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 34px;" width="34"/>
       
     </td>
   </tr>
@@ -316,7 +316,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="images/image-6.jpeg" alt="Dollar" title="Dollar" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 23px;" width="23"/>
+      <img align="center" border="0" src="https://cdn.templates.unlayer.com/assets/1619163651651-icon3.jpg" alt="Dollar" title="Dollar" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 23px;" width="23"/>
       
     </td>
   </tr>
