@@ -36,8 +36,8 @@
                     <form action="{{ route('cart.delete') }}" id="remove_from_cart" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $loop->index }}" name="index">
-                        <button
-                            class="mt-2 text-paleta_tesis_blanco bg-red-500 border-0 py-1 px-2 focus:outline-none hover:bg-red-700 rounded">Remover</button>
+                        
+                        <button class="mt-2 text-gray-400 bg-transparent border-0 py-1 px-2  rounded"><i  class="mr-2 fas fa-trash-alt text-red-500"></i>Remover</button>
                     </form>
                 </td>
                 <td class="text-center">
@@ -45,11 +45,11 @@
                 </td>
 
                 <td class="hidden text-right md:table-cell">
-                    <span class="text-sm lg:text-base font-medium">$ {{ $experience->price }}</span>
+                    <span class="text-sm lg:text-base font-medium">$ {{ number_format($experience->price) }}</span>
                 </td>
                 <td class="text-right">
                     <span class="text-sm lg:text-base font-medium">$
-                        {{ $experience->number_puchage * $experience->price }} </span>
+                        {{ number_format($experience->number_puchage * $experience->price,2)  }} </span>
                 </td>
             </tr>
         @empty
@@ -93,7 +93,7 @@
                     Subtotal
                 </div>
                 <div class="lg:px-4 lg:py-2 m-2 lg:text-lg font-bold text-center text-gray-900">$
-                    {{ $total_ammount }}</div>
+                    {{ number_format($total_ammount,2) }}</div>
             </div>
             @if (\Session::has('coupon_code'))            
             <div class="flex justify-between pt-4 border-b">
