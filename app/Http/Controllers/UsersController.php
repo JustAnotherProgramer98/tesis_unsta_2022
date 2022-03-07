@@ -123,7 +123,9 @@ class UsersController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $user=User::where('id',$request->experience_id)->get()->first();
+            $user=User::where('id',$request->user_id)->get()->first();
+            if ($user == null) return  response()->json(['error' => 'No se pudo eliminar al usuario porque no fue encontrado']);
+            if (count($user->experiences)!=0) return  response()->json(['error' => 'No se pudo eliminar al usuario porque posee experiencias y ventas aun']);
             MailController::host_notify_disaproved_user($user->name.' '.$user->surname,$user->email);
             return $user->delete();
         } catch (\Throwable $th) {

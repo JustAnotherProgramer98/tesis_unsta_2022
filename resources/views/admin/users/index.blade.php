@@ -6,6 +6,7 @@
 @section('content')
     <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <div class="h-full overflow-hidden">
+            <h4 id="error_message" class="hidden pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "></h4>
             <!-- Client Table -->
             <div id="index" class="tabcontent mt-4 mx-4 block">
 
@@ -131,7 +132,10 @@
             </div>
         </div>
 
-
+        <div id="loading" class="hidden absolute top-1/2 w-9/12  h-1/2 text-center  bottom-1/4 bg-gray-100 p-2 rounded-md">
+            <p id="acction_notify" class="text-4xl font-semibold py-4 text-paleta_tesis_azul"> </p>  
+            <img class="mx-auto " src="{{ asset('gifs/email_sending.gif') }}" alt="Envio de correo">
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
                 crossorigin="anonymous"></script>
@@ -143,12 +147,12 @@
 
             });
 
-            function deleteUser(e, experience_name, experience_id) {
+            function deleteUser(e, experience_name, user_id) {
                 e.preventDefault();
 
                 Swal.fire({
                     title: 'Borrar usuario',
-                    text: '¿Estas seguro que quieres borrar a ' + experience_name + " ? Esto eliminara todas las experiencias y ventas que contenga",
+                    text: '¿Estas seguro que quieres borrar a ' + experience_name + " ?",
                     type: 'question',
                     showCancelButton: true,
                     confirmButtonColor: "#1e40af",
@@ -165,13 +169,27 @@
                             },
                             type: 'DELETE',
                             data: {
-                                experience_id: experience_id
+                                user_id: user_id
                             },
-
+                            beforeSend: function(){
+                                $('#acction_notify').text('Borrando al usuario y notificandolo via email');
+                                $( "#index" ).addClass( "blur-sm" );
+                                $("#loading").show();
+                                },
+                            complete: function(){
+                                 $("#loading").hide();
+                                },
                             success: (result) => {
-                                location.reload();
+                                if (result.error) {
+                                    $('#error_message').show();
+                                    $('#error_message').text(result.error);
+                                }
+                                else{
+                                     location.reload();
+                                }
                             },
-                            failure: (result) => alert(msg_error),
+                            failure: (result) =>{
+                            },
                         }); //fin Ajax
                     } // fin If
                 });
@@ -201,7 +219,14 @@
                             data: {
                                 experience_id: experience_id
                             },
-
+                            beforeSend: function(){
+                            $('#acction_notify').text('Aprobando al usuario y notificandolo via email');
+                            $( "#contact_page" ).addClass( "blur-sm" );
+                            $("#loading").show();
+                            },
+                            complete: function(){
+                            $("#loading").hide();
+                            },
                             success: (result) => {
                                 location.reload();
                             },
