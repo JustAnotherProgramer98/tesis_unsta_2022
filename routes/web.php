@@ -56,6 +56,8 @@ Route::view('/test5','email.comment_reminder');
 Route::view('/test6','email.thanks_for_comment_client');
 Route::view('/test7','email.verified_email_user');
 Route::view('/test8','email.selled_experience_host');
+Route::view('/test9','email.comment_anfitrion');
+Route::view('/test10','email.selled_experience_admin');
 
 require __DIR__.'/admin.php';
 require __DIR__.'/host.php';
