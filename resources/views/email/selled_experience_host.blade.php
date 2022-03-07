@@ -665,14 +665,7 @@ a[x-apple-data-detectors='true'] {
 <table id="u_content_text_26" style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 12px 15px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div class="v-text-align" style="color: #34495e; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;">Payment method:</span></p>
-<p style="font-size: 14px; line-height: 140%;"><strong><span style="font-size: 16px; line-height: 22.4px;">PAYPAL</span></strong></p>
-  </div>
-
-      </td>
+      
     </tr>
   </tbody>
 </table>
