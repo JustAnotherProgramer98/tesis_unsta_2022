@@ -36,6 +36,7 @@ class User extends Authenticatable
         'city',
         'province',
         'country',
+        'dni_picture',
         'role_id',
         'email_verified_at',
         'verified',

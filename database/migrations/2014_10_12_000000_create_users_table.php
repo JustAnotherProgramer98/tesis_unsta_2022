@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('province');
             $table->string('country');
+            $table->string('dni_picture')->nullable();
             $table->string('role_id');
             $table->boolean('verified')->default(0);
             $table->integer('status')->default(0);

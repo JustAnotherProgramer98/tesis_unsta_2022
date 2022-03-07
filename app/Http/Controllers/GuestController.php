@@ -32,7 +32,6 @@ class GuestController extends Controller
     }
     public function store(RegisterRequest $request)
     {
-        
         try {
             DB::transaction(function () use ($request){
                 $city=City::find($request['city_id']);
@@ -40,6 +39,12 @@ class GuestController extends Controller
                 ['role_id'=>$request['type_account'],'status'=>2,'address'=>$request['adress'],
                 'city'=>$city->name,'province'=>$city->province->name,
                 'country'=>$city->province->country->name,'cuit'=>$request['cuit'] ? $request['cuit'] : 'No definido' ]);
+
+                if($request['type_account']==3){
+                    $request['imagen_dni'][0]->store('public');
+                    $user->dni_picture=$request['imagen_dni'][0]->hashName();
+                    $user->save();
+                }
                 Auth::login($user);
 
                 //Send email to new User

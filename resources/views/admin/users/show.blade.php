@@ -33,6 +33,19 @@
                     <i class="fas fa-arrow-left"></i>
                     Volver
                 </a>
+                
+                <section class="mt-12 flex flex-col w-full h-full p-1 overflow-auto">
+                    <label for="name" class="text-base leading-7  mb-5">Dorso del DNI</label>
+                    <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
+                        @if ($user->dni_picture)
+                                <img width="620px" height="620px" class="m-4 rounded-md" src="{{asset('storage/'.$user->dni_picture)}}" alt="Imagen del DNI del usuario {{ $user->id }}">
+                        @else
+                        <i class="text-3xl fad fa-sad-tear"></i>
+                        <label for="files">Este usuario no subio la foto de su DNI <br> </label>
+                        @endif
+                    </section>
+                </section>
+
                 <section class="mt-12 flex flex-col w-full h-full p-1 overflow-auto">
                     <label for="name" class="text-base leading-7  mb-5">Imagen del usuario</label>
                     <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
