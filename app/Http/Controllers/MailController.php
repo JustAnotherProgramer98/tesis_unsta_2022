@@ -40,7 +40,7 @@ class MailController extends Controller
             return "Error ".$e;
         }
     }
-    public static function register_email($name,$email){
+    public static function register_email($fullname,$email,$created_at,$role_name){
 
         $mail = new PHPMailer(true);
     
@@ -56,8 +56,8 @@ class MailController extends Controller
         $mail->AddAddress($email); // Esta es la dirección a donde enviamos
         $mail->IsHTML(true); // El correo se envía como HTML
         $mail->Subject = "Registrado correctamente en turistear!"; // Este es el titulo del email.
-    
-        $mail->Body = view('email.register_email',['name'=> $name]);
+
+        $mail->Body = view('email.register_email',['fullname'=>$fullname,'email'=>$email,'created_at'=>$created_at,'role'=>$role_name]);
     
         $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado un formulario de contacto de tipo personal";
             try {
