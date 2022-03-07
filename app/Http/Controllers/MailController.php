@@ -68,7 +68,7 @@ class MailController extends Controller
             }
         }
 
-        public static function aproved_user($name,$email){
+        public static function client_notify_aproved_user($name,$email){
 
             $mail = new PHPMailer(true);
         
@@ -83,9 +83,9 @@ class MailController extends Controller
             $mail->FromName = $mail->Username;
             $mail->AddAddress($email); // Esta es la dirección a donde enviamos
             $mail->IsHTML(true); // El correo se envía como HTML
-            $mail->Subject = "Fuiste aprobado en turistear!"; // Este es el titulo del email.
+            $mail->Subject = "Fuiste aprobado en Turistear!"; // Este es el titulo del email.
         
-            $mail->Body = view('email.notification_email',['name'=> $name]);
+            $mail->Body = view('email.verified_email_user',['name'=> $name]);
         
             $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado un formulario de contacto de tipo personal";
                 try {

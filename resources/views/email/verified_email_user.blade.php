@@ -199,7 +199,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 60px 50px;font-family:'Montserrat',sans-serif;" align="left">
         
   <div style="color: #444444; line-height: 170%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 170%;"><span style="font-size: 16px; line-height: 27.2px;">Buenas noticias [nombre] , tu perfil fue verificado. </span></p>
+    <p style="font-size: 14px; line-height: 170%;"><span style="font-size: 16px; line-height: 27.2px;">Buenas noticias {{ $name ?? '' }} , tu perfil fue verificado. </span></p>
   </div>
 
       </td>
@@ -254,8 +254,8 @@ a[x-apple-data-detectors='true'] {
 <!--[if (mso)|(IE)]></td><![endif]-->
 <!--[if (mso)|(IE)]><td align="center" width="380" style="background-color: #cca250;width: 380px;padding: 20px;border-top: 1px solid #CCC;border-left: 1px solid #CCC;border-right: 1px solid #CCC;border-bottom: 1px solid #CCC;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
 <div class="u-col u-col-63p66" style="max-width: 320px;min-width: 382px;display: table-cell;vertical-align: top;">
-  <div style="background-color: rgb(21 128 61);width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-  <!--[if (!mso)&(!IE)]><!--><div style="padding: 20px;border-top: 1px solid #CCC;border-left: 1px solid #CCC;border-right: 1px solid #CCC;border-bottom: 1px solid #CCC;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
+  <div style="background-color: #15803d;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+  <!--[if (!mso)&(!IE)]><!--><div style="background-color: #15803d;padding: 20px;border-top: 1px solid #CCC;border-left: 1px solid #CCC;border-right: 1px solid #CCC;border-bottom: 1px solid #CCC;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
   
 <table style="font-family:'Montserrat',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
