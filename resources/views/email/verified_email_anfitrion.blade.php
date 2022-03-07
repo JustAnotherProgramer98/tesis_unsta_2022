@@ -185,7 +185,7 @@ a[x-apple-data-detectors='true'] {
   <tbody>
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 55px;font-family:'Montserrat',sans-serif;" align="left">      
-          <h1 class="v-font-size" style="border-bottom:5px solid rgb(21 128 61);margin: 10px;color:#444444; line-height: 160%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Montserrat',sans-serif; font-size: 33px;">
+          <h1 class="v-font-size" style="border-bottom:5px solid #15803d;margin: 10px;color:#444444; line-height: 160%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Montserrat',sans-serif; font-size: 33px;">
             <strong>Buenas noticias Anfitrion!</strong>
           </h1>
       </td>
@@ -199,7 +199,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 60px 50px;font-family:'Montserrat',sans-serif;" align="left">
         
   <div style="color: #444444; line-height: 170%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 170%;"><span style="font-size: 16px; line-height: 27.2px;">Felicidades {{ $name ?? '' }} , tu perfil fue verificado. </span></p>
+    <p style="font-size: 14px; line-height: 170%;"><span style="font-size: 16px; line-height: 27.2px;">Felicidades {{ $fullname ?? '' }} , tu perfil fue verificado. </span></p>
   </div>
 
       </td>

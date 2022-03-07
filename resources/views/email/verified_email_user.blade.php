@@ -185,7 +185,7 @@ a[x-apple-data-detectors='true'] {
   <tbody>
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 55px;font-family:'Montserrat',sans-serif;" align="left">      
-          <h1 class="v-font-size" style="border-bottom:5px solid rgb(21 128 61);margin: 10px;color:#444444; line-height: 160%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Montserrat',sans-serif; font-size: 33px;">
+          <h1 class="v-font-size" style="border-bottom:5px solid #15803d;margin: 10px;color:#444444; line-height: 160%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Montserrat',sans-serif; font-size: 33px;">
             <strong>Buenas noticias!</strong>
           </h1>
       </td>

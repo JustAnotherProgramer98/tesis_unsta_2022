@@ -438,7 +438,7 @@ text-decoration: none !important;
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 25px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>Precio pagado:&nbsp; </strong>{{ $amount_payed ?? '' }}</p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>Precio pagado:&nbsp; </strong>$ {{ $amount_payed ?? '' }}</p>
   </div>
 
       </td>

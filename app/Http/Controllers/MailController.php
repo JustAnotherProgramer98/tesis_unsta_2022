@@ -96,34 +96,85 @@ class MailController extends Controller
                 }
             }
 
-            public static function host_notify_sale($fullname,$email,$phone_number,$created_at,$experiencie_title,$amount_payed){
+        public static function host_notify_sale($fullname,$email,$phone_number,$created_at,$experiencie_title,$amount_payed){
 
-                $mail = new PHPMailer(true);
+            $mail = new PHPMailer(true);
             
-                $mail->IsSMTP();
-                $mail->SMTPAuth = true;
-                $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
-                $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
-                $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
-                $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
-                $mail->Port = 587;
-                $mail->From = $mail->Username;
-                $mail->FromName = $mail->Username;
-                $mail->AddAddress($email); // Esta es la dirección a donde enviamos
-                $mail->IsHTML(true); // El correo se envía como HTML
-                $mail->Subject = "Te compraron una experiencia en Turistear!"; // Este es el titulo del email.
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress($email); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Te compraron una experiencia en Turistear!"; // Este es el titulo del email.
             
-                
-                $mail->Body = view('email.new_sale_email',['fullname'=>$fullname,'email'=>$email,'phone_number'=>$phone_number,'created_at'=>$created_at,'experiencie_title'=>$experiencie_title,'amount_payed'=>$amount_payed,]);
+            $mail->Body = view('email.new_sale_email',['fullname'=>$fullname,'email'=>$email,'phone_number'=>$phone_number,'created_at'=>$created_at,'experiencie_title'=>$experiencie_title,'amount_payed'=>$amount_payed,]);
+            $mail->AltBody = "Su gestor de correo electronico no soporta emails HTML. Se a enviado una notificacion de venta de Turistear";
+
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
+
+        public static function host_notify_disaproved_user($fullname,$email){
+
+            $mail = new PHPMailer(true);
+                    
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress($email); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Malas noticias en Turistear :("; // Este es el titulo del email.
+        
+            $mail->Body = view('email.decline_email',['fullname'=>$fullname,'email'=>$email]);
+            $mail->AltBody = "Su gestor de correo electronico no soporta emails HTML. Se a enviado una notificacion de desaprobacion de Turistear";
+
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
+        public static function host_notify_aproved_user($fullname,$email){
+
+            $mail = new PHPMailer(true);
+        
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress($email); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Fuiste aprobado en Turistear!"; // Este es el titulo del email.
+
+            $mail->Body = view('email.verified_email_anfitrion',['fullname'=> $fullname]);
+            $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado una notificacion de alta en Turistear!";
             
-                $mail->AltBody = "Su gestor de correo electronico no soporta emails HTML. Se a enviado una notificacion de venta de Turistear";
-                    try {
-                        $mail->Send();
-            
-                    } catch (Exception $e) {
-                        return "Error ".$e;
-                    }
-                }
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
         
 }
 

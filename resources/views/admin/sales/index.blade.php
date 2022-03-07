@@ -60,7 +60,7 @@
                                         </td>
                                         <td class="px-4 py-3">
                                             <a href="{{ route('sale.show.admin', $sale) }}">
-                                                <p class="font-semibold capitalize">{{ $sale->experience->host->name }}
+                                                <p class="font-semibold capitalize">{{ $sale->experience->host ? $sale->experience->host->name : 'Usuario borrado'}}
                                                 </p>
                                             </a>
                                         </td>

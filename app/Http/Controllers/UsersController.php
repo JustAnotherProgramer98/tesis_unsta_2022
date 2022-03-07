@@ -123,7 +123,9 @@ class UsersController extends Controller
     public function destroy(Request $request)
     {
         try {
-            return User::where('id',$request->experience_id)->get()->first()->delete();
+            $user=User::where('id',$request->experience_id)->get()->first();
+            MailController::host_notify_disaproved_user($user->name.' '.$user->surname,$user->email);
+            return $user->delete();
         } catch (\Throwable $th) {
             return "error ".$th;
         }
@@ -132,7 +134,11 @@ class UsersController extends Controller
     {
         try {
             $user=User::where('id',$request->experience_id)->get()->first();
-            MailController::client_notify_aproved_user($user->name.' '.$user->surname,$user->email);
+            if ($user->role->name == 'Anfitrion') {
+                MailController::host_notify_aproved_user($user->name.' '.$user->surname,$user->email);
+            } else {
+                MailController::client_notify_aproved_user($user->name.' '.$user->surname,$user->email);
+            }
             return $user->update(['status' => 1]);
         } catch (\Throwable $th) {
             return "error ".$th;
