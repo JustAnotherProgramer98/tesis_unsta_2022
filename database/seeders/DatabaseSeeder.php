@@ -70,54 +70,67 @@ class DatabaseSeeder extends Seeder
         6=> Lugares Emblematicos
         */
 
-        Category::factory(['slug'=>'deportes',                'status'=>1,'title'=>'Deportes'])                ->create();
-        Category::factory(['slug'=>'acuaticos',               'status'=>1,'title'=>'Acuaticos'])               ->create();
-        Category::factory(['slug'=>'gastronomia',             'status'=>1,'title'=>'Gastronomia'])             ->create();
-        Category::factory(['slug'=>'naturaleza-y-aire-libre', 'status'=>1,'title'=>'Naturaleza y Aire libre']) ->create();
-        Category::factory(['slug'=>'arte-y-cultura',          'status'=>1,'title'=>'Arte y Cultura'])          ->create();
-        Category::factory(['slug'=>'lugares-emblematicos',    'status'=>1,'title'=>'Lugares Emblematicos'])    ->create();
+        Category::factory(['slug'=>'deportes',                'status'=>1,'title'=>'Deportes', 'description'=>'Desde pasar una tarde mirando de un partido de futbol a volar en parapente disfrutando las mejores vistas de la ciudad'])                ->create();
+        Category::factory(['slug'=>'acuaticos',               'status'=>1,'title'=>'Acuaticos', 'description'=>'Experiencias inolvidable creadas sobre el agua. Ir de pesca en una lancha hasta paseos en kayak por los mejores rios'])->create();
+        Category::factory(['slug'=>'gastronomia',             'status'=>1,'title'=>'Gastronomia', 'description'=>'Disfruta de las exquisitas comidas y bebidas al rededor del mundo'])->create();
+        Category::factory(['slug'=>'naturaleza-y-aire-libre', 'status'=>1,'title'=>'Naturaleza y Aire libre', 'description'=>'Saca tu instinto naturalista y disfruta de las mejores experiencias al aire libre'])->create();
+        Category::factory(['slug'=>'arte-y-cultura',          'status'=>1,'title'=>'Arte y Cultura', 'description'=>'Aprende sobre todo la historia de los distintos lugares y enriquécete en cultura'])->create();
+        Category::factory(['slug'=>'lugares-emblematicos',    'status'=>1,'title'=>'Lugares Emblematicos', 'description'=>'Pasea por los lugares más hermosos y emblematicos de las ciudades, reviviendo recuerdos atravez de la historia.'])->create();
 
-        Experience::factory([
-            'title'=>'Brunch y fútbol en la playa', 'slug'=>'brunch-y-fútbol-en-la-playa', 'description'=>'Una experiencia completa en las playas argentinas de la manera más tradicional',
-            'title'=>'Parapente biplaza', 'slug'=>'parapente-biplaza', 'description'=>'Disfruta de las mejores vistas con mucha adrenalina',
-            'title'=>'Vive la verdadera experiencia del futbol', 'slug'=>'Vive-la-verdadera-experiencia-del-futbol', 'description'=>'Descubre la verdadera pasión del futbol argentino con tus propios ojos',
-        ]);
+        Experience::factory(['title'=>'Brunch y fútbol en la playa', 'status'=>1, 'slug'=>'brunch-y-fútbol-en-la-playa', 'description'=>'Una experiencia completa en las playas argentinas de la manera más tradicional'])->create();
         DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>1]);
 
-        Experience::factory([
-            'title'=>'Travesía en kayak', 'slug'=>'travesía-en-kayak', 'description'=>'Disfruta de una manera diferente y divertida de pasear por los distintos rios. Luego una comida de la manera más tradicional de la zona junto al rio.',
-            'title'=>'Mañana de Surf', 'slug'=>'mañana-de-Surf', 'description'=>'Una Mañana de Surf En Mar Del Plata. Da tus primeros pasos en este apasionante deporte, o mejora tu técnica y sube unos escalones en tu nivel de surf!',
-            'title'=>'Disfruta de un día completo navegando', 'slug'=>'disfruta-de-un-día-completo-navegando', 'description'=>'Los pasajeros recibirán instrucciones sobre las maniobras básicas de navegación para participar activamente en la experiencia o simplemente disfrutarlo.',
-        ]);
-        DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>2]);
+        Experience::factory(['title'=>'Parapente biplaza', 'status'=>1, 'slug'=>'parapente-biplaza', 'description'=>'Disfruta de las mejores vistas con mucha adrenalina'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>2, 'category_id'=>1]);
+
+        Experience::factory([ 'title'=>'Vive la verdadera experiencia del futbol', 'status'=>1, 'slug'=>'Vive-la-verdadera-experiencia-del-futbol', 'description'=>'Descubre la verdadera pasión del futbol argentino con tus propios ojos'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>3, 'category_id'=>1]);
+
+        Experience::factory(['title'=>'Travesía en kayak', 'status'=>1, 'slug'=>'travesía-en-kayak', 'description'=>'Disfruta de una manera diferente y divertida de pasear por los distintos rios. Luego una comida de la manera más tradicional de la zona junto al rio.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>4, 'category_id'=>2]);
+
+        Experience::factory(['title'=>'Mañana de Surf', 'status'=>1, 'slug'=>'mañana-de-Surf', 'description'=>'Una Mañana de Surf En Mar Del Plata. Da tus primeros pasos en este apasionante deporte, o mejora tu técnica y sube unos escalones en tu nivel de surf!'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>5, 'category_id'=>2]);
+
+        Experience::factory(['title'=>'Disfruta de un día completo navegando', 'status'=>1, 'slug'=>'disfruta-de-un-día-completo-navegando', 'description'=>'Los pasajeros recibirán instrucciones sobre las maniobras básicas de navegación para participar activamente en la experiencia o simplemente disfrutarlo.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>6, 'category_id'=>2]);
+            
+        Experience::factory(['title'=>'Conviértete en un chef marroquí', 'status'=>1, 'slug'=>'conviértete-en-un-chef-marroquí', 'description'=>'Mi madre y yo estaremos muy contentos de ser sus anfitriones durante esta clase de cocina, estamos ofreciendo esta experiencia desde 2018 y estamos muy orgullosos de compartir esta increíble actividad con nuestros huéspedes.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>7, 'category_id'=>3]);
         
-        Experience::factory([
-            'title'=>'Conviértete en un chef marroquí', 'slug'=>'conviértete-en-un-chef-marroquí', 'description'=>'Mi madre y yo estaremos muy contentos de ser sus anfitriones durante esta clase de cocina, estamos ofreciendo esta experiencia desde 2018 y estamos muy orgullosos de compartir esta increíble actividad con nuestros huéspedes.',
-            'title'=>'Ruta nocturna de tragos y cerveza', 'slug'=>'ruta-nocturna-de-tragos-y-cerveza', 'description'=>'Iremos de paseo por los mejores bares del lugar, donde probaremos de las mejores cervezas artesanales y los tragos más exóticos. Déjate sumergir en una de las experiencias más divertidas',
-            'title'=>'El Tour Gourmet', 'slug'=>'el-Tour-Gourmet', 'description'=>'Aprenderas de la realización de los platos más conocidos de nuestra ciudad. Altamente recomiendo para todas aquellas personas que tengan ganas de aprender cosas nuevas del mundo de la gastronomia.',
-        ]);
-        DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>3]);
+        Experience::factory(['title'=>'Ruta nocturna de tragos y cerveza', 'status'=>1, 'slug'=>'ruta-nocturna-de-tragos-y-cerveza', 'description'=>'Iremos de paseo por los mejores bares del lugar, donde probaremos de las mejores cervezas artesanales y los tragos más exóticos. Déjate sumergir en una de las experiencias más divertidas'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>8, 'category_id'=>3]);
 
-        Experience::factory([
-            'title'=>'Rodéate de alpacas', 'slug'=>'rodéate-de-alpacas', 'description'=>'Únete a nosotros para dar un paseo tranquilo por la costa jurásica con nuestras amables y adorables alpacas, hay muchas oportunidades fotográficas impresionantes de la impresionante costa.',
-            'title'=>'A la caza de auroras boreales', 'slug'=>'a-la-caza-de-auroras-boreales', 'description'=>'Te recogeré en tu alojamiento y te llevaré directamente de la contaminación lumínica de la ciudad al lugar con la mayor probabilidad de ver auroras boreales. En caso de que esté nublado, visitamos 2-3 lugares para aumentar las posibilidades de encontrar un hueco en las nubes.',
-            'title'=>'Cuidador de Manatíes por un Día', 'slug'=>'cuidador-de-Manatíes-por-un-Día', 'description'=>'Se convertirá en cuidador de manatíes en nuestro centro de rehabilitación. Aprenderá sobre el trabajo diario de nuestro personal, tendrá un recorrido de las facilidades del Centro, ayudará en la preparación de la dieta para nuestros pacientes y ayudará en su entrega.',
-        ]);
-        DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>4]);
+        Experience::factory(['title'=>'El Tour Gourmet', 'status'=>1, 'slug'=>'el-Tour-Gourmet', 'description'=>'Aprenderas de la realización de los platos más conocidos de nuestra ciudad. Altamente recomiendo para todas aquellas personas que tengan ganas de aprender cosas nuevas del mundo de la gastronomia.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>9, 'category_id'=>3]);
 
-        Experience::factory([
-            'title'=>'Sesión de fotos privada', 'slug'=>'sesión-de-fotos-privada', 'description'=>'Saltaremos directamente a nuestra encantadora sesión de fotos paseando por los increíbles lugares',
-            'title'=>'Historias increíbles de Argentina en bicicleta eléctrica', 'slug'=>'historias-increíbles-de-argentina-en-bicicleta-eléctrica', 'description'=>'Envuelvete en las historia de todo un pais de la manera más divertida y entretenida posible. Tenemos todo el equipo que necesites asi que solo necesitamos de tu predisposición',
-            'title'=>'El fantástico tour de Harry Potter', 'slug'=>'el-fantástico-tour-de-harry-potter', 'description'=>'Este recorrido a pie por Londres muestra los escenarios de rodaje del mago más famoso del mundo (¡ya sabes quién es!). Gran día para la familia.',
-        ]);
-        DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>5]);
+        Experience::factory(['title'=>'Rodéate de alpacas', 'status'=>1, 'slug'=>'rodéate-de-alpacas', 'description'=>'Únete a nosotros para dar un paseo tranquilo por la costa jurásica con nuestras amables y adorables alpacas, hay muchas oportunidades fotográficas impresionantes de la impresionante costa.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>10, 'category_id'=>4]);
 
-        Experience::factory([
-            'title'=>'Tour por la casa historica', 'slug'=>'tour-por-la-casa-historica', 'description'=>'Uno de los lugares más pintoresco y bellos, con toda la historia de una pais. Este tour comprende desde el retiro del alojamiento como los más ricos aperitivos ',
-            'title'=>'Paseo historico por las ruinas de quilmes', 'slug'=>'paseo-historico-por-las-ruinas-de-quilmes', 'description'=>'Disfruta de los restos del más extenso del asentamiento precolombino de Argentina. Incluye traslado y comidas en el lugar. ',
-            'title'=>'Tour 4 Bodegas', 'slug'=>'tour-4-Bodegas', 'description'=>'Este paseo es intimo y tiene flexibilidad. Pasaremos a buscarlo por su hospedaje temprano y comenzaremos el viaje en auto privado, en el camino tomaremos Mate y nos presentaremos para comenzar el viaje por las mejores bodegas de la región.',
-        ]);
-        DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>6]);
+        Experience::factory(['title'=>'A la caza de auroras boreales', 'status'=>1, 'slug'=>'a-la-caza-de-auroras-boreales', 'description'=>'Te recogeré en tu alojamiento y te llevaré directamente de la contaminación lumínica de la ciudad al lugar con la mayor probabilidad de ver auroras boreales. En caso de que esté nublado, visitamos 2-3 lugares para aumentar las posibilidades de encontrar un hueco en las nubes.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>11, 'category_id'=>4]);
+
+        Experience::factory(['title'=>'Cuidador de Manatíes por un Día', 'status'=>1, 'slug'=>'cuidador-de-Manatíes-por-un-Día', 'description'=>'Se convertirá en cuidador de manatíes en nuestro centro de rehabilitación. Aprenderá sobre el trabajo diario de nuestro personal, tendrá un recorrido de las facilidades del Centro, ayudará en la preparación de la dieta para nuestros pacientes y ayudará en su entrega.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>12, 'category_id'=>4]);  
+
+        Experience::factory(['title'=>'Sesión de fotos privada', 'status'=>1, 'slug'=>'sesión-de-fotos-privada', 'description'=>'Saltaremos directamente a nuestra encantadora sesión de fotos paseando por los increíbles lugares'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>13, 'category_id'=>5]);
+
+        Experience::factory(['title'=>'Historias increíbles de Argentina en bicicleta eléctrica', 'status'=>1, 'slug'=>'historias-increíbles-de-argentina-en-bicicleta-eléctrica', 'description'=>'Envuelvete en las historia de todo un pais de la manera más divertida y entretenida posible. Tenemos todo el equipo que necesites asi que solo necesitamos de tu predisposición'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>14, 'category_id'=>5]);
+
+        Experience::factory(['title'=>'El fantástico tour de Harry Potter', 'status'=>1, 'slug'=>'el-fantástico-tour-de-harry-potter', 'description'=>'Este recorrido a pie por Londres muestra los escenarios de rodaje del mago más famoso del mundo (¡ya sabes quién es!). Gran día para la familia.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>15, 'category_id'=>5]);
+
+        Experience::factory(['title'=>'Tour por la casa historica', 'status'=>1, 'slug'=>'tour-por-la-casa-historica', 'description'=>'Uno de los lugares más pintoresco y bellos, con toda la historia de una pais. Este tour comprende desde el retiro del alojamiento como los más ricos aperitivos '])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>16, 'category_id'=>6]);
+
+        Experience::factory(['title'=>'Paseo historico por las ruinas de quilmes', 'status'=>1, 'slug'=>'paseo-historico-por-las-ruinas-de-quilmes', 'description'=>'Disfruta de los restos del más extenso del asentamiento precolombino de Argentina. Incluye traslado y comidas en el lugar. '])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>17, 'category_id'=>6]);
+
+        Experience::factory(['title'=>'Tour 4 Bodegas', 'status'=>1, 'slug'=>'tour-4-Bodegas', 'description'=>'Este paseo es intimo y tiene flexibilidad. Pasaremos a buscarlo por su hospedaje temprano y comenzaremos el viaje en auto privado, en el camino tomaremos Mate y nos presentaremos para comenzar el viaje por las mejores bodegas de la región.'])->create();
+        DB::table('categories_experiences')->insert(['experience_id'=>18, 'category_id'=>6]);
+
 
         //Imagenes de las categorias
         DB::table('images')->insert(['url'=>'https://cdn.pixabay.com/photo/2014/10/14/20/24/soccer-488700_960_720.jpg','alt' => 'Seeded from DB','picturable_id' => 1,'picturable_type' => 'App\Models\Category']);

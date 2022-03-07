@@ -131,7 +131,7 @@
                                     <img class="rounded-t-lg" src="{{asset($category->images->first()->url)}}" alt="{{ $category->images->first()->url }}">
                                     <div class="m-3">
                                         <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $category->title }} </h1>
-                                        <p class="text-gray-700 mb-2"> {{ $category->description }}</p>
+                                        <p class="text-gray-700 mb-2 font-bold"> {{$category->description}}</p>
                                         <div class="flex justify-between mt-4">
                                             <p class="text-sm font-thin text-paleta_tesis_azul">Aprobada por turiste<span style='color: #3F72AF'>AR</span></p>
                                         </div>
