@@ -101,9 +101,10 @@
                             <!-- Imagen del usuario de la review -->
                             <div class="inline-block relative">
                                 <div class="relative w-16 h-16 rounded-full overflow-hidden">
-                                    @if (count($comment->user->images) != 0)
+                                    @if ($comment->user)    
+                                        @if (count($comment->user->images) != 0)
                                         <img class="absolute top-0 left-0 w-full h-full bg-cover object-fit object-cover"
-                                            src="{{ $comment->user->images->url }}" alt="Profile picture">
+                                        src="{{ $comment->user->images->url }}" alt="Profile picture">
                                         <div class="absolute top-0 left-0 w-full h-full rounded-full shadow-inner">
                                         </div>
                                     @else
@@ -112,6 +113,7 @@
                                             alt="Profile picture">
                                         <div class="absolute top-0 left-0 w-full h-full rounded-full shadow-inner">
                                         </div>
+                                        @endif
                                     @endif
                                 </div>
                             </div>

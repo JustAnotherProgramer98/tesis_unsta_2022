@@ -53,6 +53,10 @@ class UsersController extends Controller
     {
         return view('admin.users.show', compact(['user']));
     }
+    public function show_profile(User $user)
+    {
+        return view('guest.account_guest', compact(['user']));
+    }
 
     /**
      * Show the form for editing the specified resource.

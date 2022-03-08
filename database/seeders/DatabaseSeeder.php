@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
         Category::factory(['slug'=>'lugares-emblematicos',    'status'=>1,'title'=>'Lugares Emblematicos', 'description'=>'Pasea por los lugares más hermosos y emblematicos de las ciudades, reviviendo recuerdos atravez de la historia.'])->create();
 
         //Experiencias
-        Experience::factory(['title'=>'Brunch y fútbol en la playa', 'status'=>1, 'slug'=>'brunch-y-fútbol-en-la-playa', 'description'=>'Una experiencia completa en las playas argentinas de la manera más tradicional'])->create();
+        Experience::factory(['title'=>'Brunch y fútbol en la playa', 'status'=>1, 'slug'=>'brunch-y-futbol-en-la-playa', 'description'=>'Una experiencia completa en las playas argentinas de la manera más tradicional'])->create();
         Experience::factory(['title'=>'Parapente biplaza', 'status'=>1, 'slug'=>'parapente-biplaza', 'description'=>'Disfruta de las mejores vistas con mucha adrenalina'])->create();
         Experience::factory([ 'title'=>'Vive la verdadera experiencia del futbol', 'status'=>1, 'slug'=>'Vive-la-verdadera-experiencia-del-futbol', 'description'=>'Descubre la verdadera pasión del futbol argentino con tus propios ojos'])->create();
         Experience::factory(['title'=>'Travesía en kayak', 'status'=>1, 'slug'=>'travesía-en-kayak', 'description'=>'Disfruta de una manera diferente y divertida de pasear por los distintos rios. Luego una comida de la manera más tradicional de la zona junto al rio.'])->create();
