@@ -79,9 +79,9 @@
             <div class="shrink-0 w-2/5  mx-4 ">
                 <a style="width: 22%" class="" href="{{ route('guest.product',$experience) }}">
                     <div class="focus:outline-none  xl:mb-0 mb-8 bg-white transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl  hover:bg-blue-200">
-                        <div class="rounded-t-lg text-center {{ $experience->images->first() ? '' : 'bg-gray-200' }}"> 
+                        <div class="rounded-t-lg text-center {{ $experience->images->first() ? 'bg-transparent' : 'bg-gray-200' }}"> 
                             @if ($experience->images->first())
-                                <img width="300px" height="300px" class="rounded-3xl m-4 mx-auto" src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
+                                <img width="600px" height="600px" class=" m-4 mx-auto" src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
                             @else
                                 <img width="300px" height="300px" class="rounded-3xl m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
                             @endif

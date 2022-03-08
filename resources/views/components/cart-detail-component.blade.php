@@ -21,7 +21,7 @@
             <tr>
                 <td class="hidden md:table-cell">
                     @if ($experience->images->first())
-                        <img width="400px" height="400px" class="focus:outline-none w-full rounded-3xl"
+                        <img width="400px" height="400px" class="focus:outline-none rounded-lg"
                             src="{{ asset('storage/' . $experience->images->first()->url) }}"
                             alt="{{ $experience->images->first()->alt }}">
                     @else
