@@ -587,7 +587,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div class="v-text-align" style="color: #b3b3b3; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"> {{$experience ?? ' '}}</p>
+    <p style="font-size: 14px; line-height: 140%;"> {{$experience_title ?? ' '}}</p>
   </div>
 
       </td>
@@ -739,9 +739,7 @@ a[x-apple-data-detectors='true'] {
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;" align="left">
         
-  <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;">Please, consider this as an acceptance email. If you have any questions contact us with this link turistear.arg@gmail.com</p>
-  </div>
+  
 
       </td>
     </tr>

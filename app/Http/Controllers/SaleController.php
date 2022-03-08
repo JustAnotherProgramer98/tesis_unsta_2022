@@ -130,6 +130,13 @@ class SaleController extends Controller
         $last_sale->user->email,$last_sale->user->phone,$last_sale->created_at,$last_sale->experience->title,
         number_format($last_sale->amount-round(($last_sale->amount * 0.2) / 10) * 10,2));
 
+        MailController::admin_notify_sale($last_sale->user->name.' '.$last_sale->user->surname,$last_sale->user->email,
+        $last_sale->created_at,$last_sale->amount,$last_sale->experience->host->name.' '.$last_sale->experience->host->surname,
+        $last_sale->experience->host->email,$last_sale->experience->title);
+
+        MailController::client_notify_sale($last_sale->user->email,$last_sale->id,$last_sale->created_at,$last_sale->experience->title,
+        number_format($last_sale->amount-round(($last_sale->amount * 0.2) / 10) * 10,2),$last_sale->experience->place->city->province->name.' '.$last_sale->experience->place->city->name.' '.$last_sale->experience->place->adress);
+        
         return view('sale.success');
     }
     public function sale_failed(Request $request)

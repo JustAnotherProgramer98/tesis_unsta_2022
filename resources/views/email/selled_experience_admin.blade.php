@@ -289,7 +289,7 @@ a[x-apple-data-detectors='true'] {
   <div style="color: #333333; line-height: 130%; text-align: left; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 130%;">&nbsp;</p>
 <p style="font-size: 14px; line-height: 130%;">&nbsp;</p>
-<p style="font-size: 14px; line-height: 130%;"><span style="font-size: 16px; line-height: 20.8px; font-family: Lato, sans-serif;">Verifica que todos los datos se encuentren correctamente! </span></p>
+<p style="font-size: 14px; line-height: 130%;"><span style="font-size: 16px; line-height: 20.8px; font-family: Lato, sans-serif;">Hola administrador , el sistema acaba de registrar una nueva venta correctamente</span><br> Te dejamos la informacion detallada de la venta:</p>
   </div>
 
       </td>
@@ -358,7 +358,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>Nombre Completo: </strong>&nbsp;{{ $fullname ?? '' }}</p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>Nombre Completo: </strong>&nbsp;{{ $fullname_cliente ?? '' }}</p>
   </div>
 
       </td>
@@ -372,7 +372,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 10px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>Email: </strong>&nbsp;{{ $email ?? '' }}</p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>Email: </strong>&nbsp;{{ $email_client ?? '' }}</p>
   </div>
 
       </td>
@@ -386,7 +386,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 10px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>Fecha de Registro: </strong>{{ $created_at ?? '' }}</p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>Fecha de compra: </strong>{{ $created_at ?? '' }}</p>
   </div>
 
       </td>
@@ -400,7 +400,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 25px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>Ubicaci&oacute;n: </strong>{{ $ubication ?? '' }}</p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>Monto pagado: </strong>{{ $amount ?? '' }}</p>
   </div>
 
       </td>
@@ -496,7 +496,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 10px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>Fecha de Registro: </strong>{{ $created_at ?? '' }}</p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>Fecha de compra: </strong>{{ $created_at ?? '' }}</p>
   </div>
 
       </td>

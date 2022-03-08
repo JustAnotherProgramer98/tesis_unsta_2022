@@ -176,6 +176,67 @@ class MailController extends Controller
             }
         }
         
+        public static function admin_notify_sale($fullname_cliente,$email_client,$created_at,$amount,$fullname,$email,$exp_sell){
+
+            $mail = new PHPMailer(true);
+        
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress(env("MAIL_USERNAME")); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Se realizo una compra con exito en Turistear!"; // Este es el titulo del email.
+
+            $mail->Body = view('email.selled_experience_admin',['fullname_cliente'=> $fullname_cliente,'email_client'=> $email_client,'created_at'=> $created_at,'amount'=> $amount,'fullname'=> $fullname,'email'=> $email,'exp_sell'=> $exp_sell]);
+            $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado una notificacion de venta para administrador en Turistear!";
+            
+            
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
+
+        public static function client_notify_sale($email_client,$nro_sale,$sale_created_at,$experience_title,$total,$ubication){
+
+            $mail = new PHPMailer(true);
+        
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress($email_client); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Se realizo una compra con exito en Turistear!"; // Este es el titulo del email.
+
+            
+            $mail->Body = view('email.selled_experience_host',['nro_sale' =>$nro_sale,'sale_created_at' =>$sale_created_at,'experience_title' =>$experience_title,'total' =>$total,'ubication' =>$ubication]);
+            $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado una notificacion de venta para administrador en Turistear!";
+            
+            
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
+        
+        
+
+
+        
 }
 
 
