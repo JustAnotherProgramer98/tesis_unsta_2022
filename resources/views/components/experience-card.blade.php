@@ -2,7 +2,7 @@
     <a href="{{ route('guest.product',$experiencie) }}">
         @if ($experiencie->images->first())
         <div class="w-full rounded-t-md min-h-40 {{ $experiencie->images->first() ? '' : 'bg-paleta_tesis_gris' }}">
-            <img class="aspect-video bg-cover w-full rounded-t-md min-h-40" src="{{asset('storage/'.$experiencie->images->first()->url)}}" />
+            <img class="aspect-video bg-cover w-full rounded-t-md h-64" src="{{asset('storage/'.$experiencie->images->first()->url)}}" />
         </div>
         @else
         <div class="w-full rounded-t-md min-h-40 {{ $experiencie->images->first() ? '' : 'bg-paleta_tesis_gris' }}">
