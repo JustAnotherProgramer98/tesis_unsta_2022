@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 //Render cities by province outside middleware for register 
 Route::post('render/places-by-province', [PlaceController::class, 'renderPlacesByProvince'])->name('places.render.cities.admin');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','adminCheck']], function () {
     Route::get('/panel-de-administracion', [AdminController::class, 'index'])->name('admin.panel');
 
     
