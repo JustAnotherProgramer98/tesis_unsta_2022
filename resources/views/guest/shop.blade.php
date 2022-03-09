@@ -12,7 +12,7 @@
                 <div class="items-center flex flex-wrap">
                     <div class="w-full lg:w-9/12 px-4 ml-auto mr-auto text-center">
                     <div class="pr-12">
-                        <h1 class="text-white font-semibold text-5xl whitespace-nowrap">Encuentra tu Experiencia Ideal   </h1> <br>
+                        <h1 class="text-white font-semibold text-5xl lg:whitespace-nowrap">Encuentra tu Experiencia Ideal   </h1> <br>
                         <!-- component -->
                         <form action="{{ route('experiencies.product_shop') }}" method="GET" autocomplete="off">
                             <div class="w-9/12 inline-flex flex-col justify-center relative text-gray-500">
@@ -25,7 +25,7 @@
                                     </div>
                                 <br>
                                 <p class="text-white">o podes buscar por</p>
-                                <div class="w-full inline-flex flex-row gap-4 mt-8">
+                                <div class="w-full inline-sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row gap-4 mt-8">
                                     <section class="flex w-full flex-col">
                                         <label for="category" class="text-white font-semibold text-2xl whitespace-nowrap">Categorias</label>
                                         <select id="category" class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="category">
@@ -122,7 +122,7 @@
                 <!-- Remove py-8 -->
                 <div class="mx-auto container py-8">
                                         
-                    <div class="flex flex-wrap items-center gap-8 justify-center">
+                    <div class="sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row items-center gap-8 justify-center">
                         <!-- Card Categorias -->
                         @forelse ($categories->take(4) as $category)
                         <a style="width: 22%" class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200" href="{{route('experiencies.by.category',$category)}}">
@@ -130,7 +130,7 @@
                                 <div class="rounded-t-lg"> 
                                     <img class="rounded-t-lg" src="{{asset($category->images->first()->url)}}" alt="{{ $category->images->first()->url }}">
                                     <div class="m-3">
-                                        <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $category->title }} </h1>
+                                        <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2 lg:whitespace-nowrap"> {{ $category->title }} </h1>
                                         <p class="text-gray-700 mb-2 font-bold"> {{$category->description}}</p>
                                         <div class="flex justify-between mt-4">
                                             <p class="text-sm font-thin text-paleta_tesis_azul">Aprobada por turiste<span style='color: #3F72AF'>AR</span></p>
@@ -169,7 +169,7 @@
             <div tabindex="0" class="focus:outline-none">
                 <!-- Remove py-8 -->
                 <div class="mx-auto container py-8">
-                    <div class="flex flex-wrap items-center gap-8 justify-center">
+                    <div class="sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row items-center gap-8 justify-center">
                         <!-- Card 1 -->
                         @forelse ($places->take(8) as $place)
                         <a style="width: 22%" class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200" href="{{route('experiencies.by.place',$place)}}">

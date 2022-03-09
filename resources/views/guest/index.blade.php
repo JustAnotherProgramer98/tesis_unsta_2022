@@ -161,9 +161,9 @@
 <!-- This is the Relevant Experience  -->
 <section>
 @if(count($experiences)>1)
-        <div class="min-h-screen">
+        <div class="min-h-screen w-full">
             <p class="text-center text-4xl font-semibold py-4"><br> Experiencias Destacadas</p>
-            <div class="p-4 m-12 gap-8 select-none justify-center flex">
+            <div class="p-4 m-12 gap-8 select-none justify-center sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row">
                 @foreach ($experiences->take(3) as $experiencie)
                   <x-experience-card :experiencie=$experiencie></x-experience-card>
                 @endforeach
@@ -183,7 +183,7 @@
             <div class="lg:grid lg:grid-cols-2">
                 <div class="py-24 px-10 lg:px-0 max-w-3xl lg:max-w-md mx-auto">
                     <h2 class="text-4xl tracking-tight font-extrabold text-gray-100">
-                        <span class="block whitespace-nowrap mb-2">¿Estás listo para la aventura?</span>
+                        <span class="block lg:whitespace-nowrap mb-2">¿Estás listo para la aventura?</span>
                         <span class="block">Registrate gratis y empezá a disfrutar tu vida.</span>
                     </h2>
                     <p class="text-gray-300 mt-5">

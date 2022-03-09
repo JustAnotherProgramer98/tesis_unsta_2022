@@ -1,9 +1,9 @@
-<nav class="flex justify-between bg-paleta_tesis_azul text-white w-full">
-    <div class="flex h-auto w-1/5 bg-gradient-to-r from-paleta_tesis_blanco via-paleta_tesis_blanco to-paleta_tesis_azul sm:flex sm:items-center pl-4">
-        <a class="text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
+<nav class="flex justify-between bg-paleta_tesis_azul text-white w-full sm:text-white sm:m-8 md:m-0">
+    <div class="shrink-0 flex h-auto w-1/5 bg-gradient-to-r from-paleta_tesis_blanco via-paleta_tesis_blanco to-paleta_tesis_azul sm:flex sm:items-center pl-4">
+        <a class="shrink-0	 text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
             <img class="" src="{{ asset('images/Turistear3.png') }}" alt="logo">
         </a>
-        <p class="ml-4 text-2xl font-thin text-paleta_tesis_azul">Turiste<span style='color: #3F72AF'>AR</span></p>
+        <p class="ml-4 text-2xl font-thin  lg:text-paleta_tesis_azul">Turiste<span style='color: #3F72AF'>AR</span></p>
     </div>
     <div class="px-5 xl:px-12 py-6 flex w-full items-center">
         
