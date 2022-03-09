@@ -77,7 +77,7 @@
                 
                 <form action="{{ route('cart.buy',$experience) }}" method="POST">
                 @csrf
-                <div class="flex flex-col mt-6 items-start pb-5 border-b-2 border-gray-200 mb-5">
+                <div class="sm:grid sm:grid-flow-row sm:auto-rows-max md:flex md:flex-col mt-6 items-start pb-5 border-b-2 border-gray-200 mb-5">
                     <div class="flex  items-center">
                         <span class="mr-3">Cantidad de personas</span>
                         <div class="relative">
@@ -90,10 +90,10 @@
                     </div>
                 </div>
 
-                <div class="flex">
+                <div class="sm:grid sm:grid-flow-col sm:auto-rows-max md:flex md:flex-col">
                     <span class="title-font font-medium text-2xl text-gray-900">Precio: ${{number_format($experience->price,2)}}</span>
-                        <button class="flex ml-auto text-paleta_tesis_blanco bg-paleta_tesis_azul border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_celeste rounded">Comprar</button>
-                        <button id="add_to_cart" class="flex ml-3    text-paleta_tesis_gris bg-paleta_tesis_celeste border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_azul rounded">Agregar al carrito</button>
+                        <button class="flex sm:mb-4 sm:ml-0 md:ml-auto text-paleta_tesis_blanco bg-paleta_tesis_azul border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_celeste rounded">Comprar</button>
+                        <button id="add_to_cart" class="flex sm:mt-4 sm:ml-0 md:ml-3     text-paleta_tesis_gris bg-paleta_tesis_celeste border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_azul rounded">Agregar al carrito</button>
                 </div>
             </form>
             </div>
@@ -105,7 +105,7 @@
         <div style="width: 100% !important" class="mt-16">
             <h3 class="ml-4 text-paleta_tesis_gris text-2xl font-medium border-b border-b-paleta_tesis_azul">Más experiencias <span class="text-paleta_tesis_azul"> que recomendamos</span> </h3>
             
-            <div class="mt-4 flex flex-row gap-8 place-content-center bg-gradient-to-b from-paleta_tesis_gris via-paleta_tesis_blanco">
+            <div class="sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row mt-4  gap-8 place-content-center bg-gradient-to-b from-paleta_tesis_gris via-paleta_tesis_blanco">
                 @foreach ($experiences as $experience_related)
                 <div class="focus:outline-none mx-2 w-96 xl:mb-0 m-6 shadow-2xl">
                     <a href="{{ route('guest.product',$experience_related) }}">

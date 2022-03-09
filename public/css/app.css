@@ -1045,6 +1045,9 @@ select {
 .top-3\.5 {
   top: 0.875rem;
 }
+.top-1\/2 {
+  top: 50%;
+}
 .z-0 {
   z-index: 0;
 }
@@ -1449,6 +1452,9 @@ select {
 }
 .h-72 {
   height: 18rem;
+}
+.h-1\/2 {
+  height: 50%;
 }
 .max-h-0 {
   max-height: 0px;
@@ -4198,6 +4204,10 @@ input.input-stars[type="radio"]:checked ~ label {
     grid-column: span 4 / span 4;
   }
 
+  .sm\:m-8 {
+    margin: 2rem;
+  }
+
   .sm\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
@@ -4318,6 +4328,15 @@ input.input-stars[type="radio"]:checked ~ label {
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
+  .sm\:grid-flow-row {
+    grid-auto-flow: row;
+  }
+
+  .sm\:auto-rows-max {
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content;
+  }
+
   .sm\:grid-cols-9 {
     grid-template-columns: repeat(9, minmax(0, 1fr));
   }
@@ -4418,6 +4437,11 @@ input.input-stars[type="radio"]:checked ~ label {
   .sm\:text-right {
     text-align: right;
   }
+
+  .sm\:text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
 }
 @media (min-width: 768px) {
 
@@ -4427,6 +4451,10 @@ input.input-stars[type="radio"]:checked ~ label {
 
   .md\:col-span-1 {
     grid-column: span 1 / span 1;
+  }
+
+  .md\:m-0 {
+    margin: 0px;
   }
 
   .md\:mx-auto {
@@ -4671,12 +4699,20 @@ input.input-stars[type="radio"]:checked ~ label {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
   .lg\:justify-between {
     justify-content: space-between;
   }
 
   .lg\:self-center {
     align-self: center;
+  }
+
+  .lg\:whitespace-nowrap {
+    white-space: nowrap;
   }
 
   .lg\:rounded-md {
@@ -4765,6 +4801,11 @@ input.input-stars[type="radio"]:checked ~ label {
   .lg\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-paleta_tesis_azul {
+    --tw-text-opacity: 1;
+    color: rgb(17 45 78 / var(--tw-text-opacity));
   }
 }
 @media (min-width: 1280px) {

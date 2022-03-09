@@ -169,7 +169,7 @@
             <div tabindex="0" class="focus:outline-none">
                 <!-- Remove py-8 -->
                 <div class="mx-auto container py-8">
-                    <div class="sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row items-center gap-8 justify-center">
+                    <div class="sm:grid sm:grid-flow-row sm:auto-rows-max md:flex md:flex-wrap  items-center gap-8 justify-center">
                         <!-- Card 1 -->
                         @forelse ($places->take(8) as $place)
                         <a style="width: 22%" class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200" href="{{route('experiencies.by.place',$place)}}">
