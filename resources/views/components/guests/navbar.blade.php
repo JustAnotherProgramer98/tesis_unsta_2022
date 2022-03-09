@@ -144,6 +144,9 @@
         @if (Auth::user()->role->id==1)
             <li><a href="{{ route('experiencies.index') }}"   class="{{ Route::is('experiencies.index') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }} block text-sm px-2 py-4">Panel de Administracion</a></li>    
         @endif
+        @else
+        <li><a href="{{ route('login') }}"    class="{{ Route::is('login') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4 ">Iniciar sesion</a></li>
+        <li><a href="{{ route('register') }}" class="{{ Route::is('register') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4 ">Registrarse</a></li>
         @endif
     </ul>
 </div>
