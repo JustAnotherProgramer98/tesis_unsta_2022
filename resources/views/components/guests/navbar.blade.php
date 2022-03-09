@@ -122,10 +122,37 @@
             </span>
         </span>
     </a>
-    <a class="navbar-burger self-center mr-12 xl:hidden" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    <div class="md:hidden flex items-center">
+        <button class="outline-none mobile-menu-button">
+        <svg class=" w-6 h-6 text-paleta_tesis_blanco " x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
-    </a>
+    </button>
+    </div>
+    	<!-- Mobile menu button -->
+       
+
+<!-- mobile menu -->
+<div style="z-index: 99" class="hidden flex-row flex absolute right-1 top-12 mobile-menu bg-red-500">
+    <ul class="w-80">
+        <li><a href="{{ route('experiencies.index') }}" class="{{ Route::is('experiencies.index') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4 ">Home</a></li>
+        <li><a href="{{ route('experiencies.shop') }}"  class="{{ Route::is('experiencies.shop') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4 ">Experiencias</a></li>
+        <li><a href="{{ route('contact_us') }}"         class="{{ Route::is('contact_us') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4 ">Contacto</a></li>
+        @if (Auth::user())
+            <li><a href="{{ route('edit.user',Auth::user()) }}"   class="{{ Route::is('edit.user') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4">Mi perfil</a></li>
+            <li><a href="{{ route('hosts.profile') }}"            class="{{ Route::is('hosts.profile') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4">Informacion personal</a></li>    
+        @if (Auth::user()->role->id==1)
+            <li><a href="{{ route('experiencies.index') }}"   class="{{ Route::is('experiencies.index') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }} block text-sm px-2 py-4">Panel de Administracion</a></li>    
+        @endif
+        @endif
+    </ul>
+</div>
+<script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
+</script>
 </nav>
