@@ -59,6 +59,21 @@
             force: true,
             noPatch: true
         };
+
+        @if (session('error_not_logged'))
+
+            Swal.fire({  
+            title: "<h4 class='text-red-700 rounded-md bg-red-100 shadow-lg text-2xl'><i class='pr-4 fas fa-times text-red-700 text-2xl'></i>{{Session::get('error_not_logged')}}</h4>",
+            imageUrl: "{{ asset('images/Turistear.png') }}",
+            imageWidth: 300,
+            imageHeight: 100,
+            imageAlt: 'Turistear logo',
+            confirmButtonText: 'Entendido!',
+            background:'#F9F7F7',
+            margin: '5em',
+            confirmButtonColor: '#112D4E',
+            })
+        @endif
     </script>
 
 </body>

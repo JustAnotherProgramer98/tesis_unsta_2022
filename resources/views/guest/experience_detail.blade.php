@@ -90,10 +90,10 @@
                     </div>
                 </div>
 
-                <div class="sm:grid sm:grid-flow-col sm:auto-rows-max md:flex md:flex-col">
+                <div class="sm:grid sm:grid-flow-col sm:auto-rows-max md:flex">
                     <span class="title-font font-medium text-2xl text-gray-900">Precio: ${{number_format($experience->price,2)}}</span>
-                        <button class="flex sm:mb-4 sm:ml-0 md:ml-auto text-paleta_tesis_blanco bg-paleta_tesis_azul border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_celeste rounded">Comprar</button>
-                        <button id="add_to_cart" class="flex sm:mt-4 sm:ml-0 md:ml-3     text-paleta_tesis_gris bg-paleta_tesis_celeste border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_azul rounded">Agregar al carrito</button>
+                    <button class="flex ml-auto  text-paleta_tesis_blanco bg-paleta_tesis_azul border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_celeste rounded">Comprar</button>
+                    <button id="add_to_cart" class="flex ml-3    text-paleta_tesis_gris bg-paleta_tesis_celeste border-0 py-2 px-6 focus:outline-none hover:bg-paleta_tesis_azul rounded">Agregar al carrito</button>
                 </div>
             </form>
             </div>
