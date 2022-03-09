@@ -133,7 +133,7 @@
        
 
 <!-- mobile menu -->
-<div style="z-index: 99" class="hidden flex-row flex absolute right-1 top-12 mobile-menu bg-red-500">
+<div style="z-index: 99" class="hidden flex-row flex absolute right-1 top-12 mobile-menu bg-transparent">
     <ul class="w-80">
         <li><a href="{{ route('experiencies.index') }}" class="{{ Route::is('experiencies.index') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4 ">Home</a></li>
         <li><a href="{{ route('experiencies.shop') }}"  class="{{ Route::is('experiencies.shop') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4 ">Experiencias</a></li>
@@ -141,6 +141,7 @@
         @if (Auth::user())
             <li><a href="{{ route('edit.user',Auth::user()) }}"   class="{{ Route::is('edit.user') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4">Mi perfil</a></li>
             <li><a href="{{ route('hosts.profile') }}"            class="{{ Route::is('hosts.profile') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }}  block text-sm px-2 py-4">Informacion personal</a></li>    
+            <li class="bg-paleta_tesis_azul px-2 py-4"><form action="{{ route('logout') }}" method="POST">@csrf<button><span class="text-white bg-paleta_tesis_azul text-sm">Cerrar sesion</span></button></form></li>    
         @if (Auth::user()->role->id==1)
             <li><a href="{{ route('experiencies.index') }}"   class="{{ Route::is('experiencies.index') ? 'bg-white text-paleta_tesis_azul ' : 'text-white bg-paleta_tesis_azul' }} block text-sm px-2 py-4">Panel de Administracion</a></li>    
         @endif
