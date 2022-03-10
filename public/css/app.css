@@ -1033,6 +1033,12 @@ select {
 .right-6 {
   right: 1.5rem;
 }
+.right-1 {
+  right: 0.25rem;
+}
+.top-12 {
+  top: 3rem;
+}
 .top-1\/4 {
   top: 25%;
 }
@@ -3130,6 +3136,10 @@ select {
   -webkit-text-decoration-color: #6366f1;
           text-decoration-color: #6366f1;
 }
+.decoration-paleta_tesis_azul {
+  -webkit-text-decoration-color: #112D4E;
+          text-decoration-color: #112D4E;
+}
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -4332,6 +4342,10 @@ input.input-stars[type="radio"]:checked ~ label {
     grid-auto-flow: row;
   }
 
+  .sm\:grid-flow-col {
+    grid-auto-flow: column;
+  }
+
   .sm\:auto-rows-max {
     grid-auto-rows: -webkit-max-content;
     grid-auto-rows: max-content;
@@ -4554,6 +4568,14 @@ input.input-stars[type="radio"]:checked ~ label {
     flex-direction: row;
   }
 
+  .md\:flex-col {
+    flex-direction: column;
+  }
+
+  .md\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
   .md\:items-start {
     align-items: flex-start;
   }
@@ -4769,6 +4791,10 @@ input.input-stars[type="radio"]:checked ~ label {
 
   .lg\:pt-12 {
     padding-top: 3rem;
+  }
+
+  .lg\:pr-12 {
+    padding-right: 3rem;
   }
 
   .lg\:pl-0 {

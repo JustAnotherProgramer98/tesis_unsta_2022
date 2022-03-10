@@ -3,7 +3,7 @@
 
         <section>
             <!-- component -->
-            <p class="text-center text-4xl font-semibold py-4"><br> Experincias encontradas</p>
+            <p class="text-center text-4xl font-semibold py-4"><br> Experiencias encontradas</p>
             @if (count($experiences) >0)
                 <div tabindex="0" class="focus:outline-none">
                     <!-- Remove py-8 -->

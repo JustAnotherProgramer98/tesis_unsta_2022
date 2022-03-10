@@ -1,7 +1,6 @@
 @extends('layouts.guest')
 @section('content')   
 <main class="my-8">
-    
     @if (\Session::has('error_not_logged'))
         <h4 class="pl-4 text-red-700 rounded-md bg-red-100 m-4 p-2 shadow-lg  text-2xl "><i class="pr-4 fas fa-times text-red-700 text-2xl"></i>{{Session::get('error_not_logged')}}</h4>
     @endif
@@ -67,7 +66,7 @@
                 </div>
                 <div class="flex items-center">
                     <i class="fab fa-whatsapp text-xl text-green-700"></i>
-                    <a target="_blank" href="https://api.whatsapp.com/send?text=Hola,%20vi%20esta%20experiencia%20en%20Turistear:%20{{$experience->title}}%20que%20se%20realiza%20con%20{{$experience->host->name.' '.$experience->host->surname}}%20y%20no%20pude%20resistirme%20a%20compartirtela%20">
+                    <a id="wpp_link" target="_blank" href="https://api.whatsapp.com/send?text=Hola,%20vi%20esta%20experiencia%20en%20Turistear:%20{{$experience->title}}%20que%20se%20realiza%20con%20{{$experience->host->name.' '.$experience->host->surname}}%20y%20no%20pude%20resistirme%20a%20compartirtela%20%0a %0a">
                         <span class="ml-2">Compartir via whatsapp</span>
                     </a>
                 </div>
@@ -105,9 +104,9 @@
         <div style="width: 100% !important" class="mt-16">
             <h3 class="ml-4 text-paleta_tesis_gris text-2xl font-medium border-b border-b-paleta_tesis_azul">Más experiencias <span class="text-paleta_tesis_azul"> que recomendamos</span> </h3>
             
-            <div class="sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row mt-4  gap-8 place-content-center bg-gradient-to-b from-paleta_tesis_gris via-paleta_tesis_blanco">
+            <div class="sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row mt-4  gap-8 place-content-center bg-gradient-to-b from-paleta_tesis_gris via-paleta_tesis_blanco overflow-x-hidden">
                 @foreach ($experiences as $experience_related)
-                <div class="focus:outline-none mx-2 w-96 xl:mb-0 m-6 shadow-2xl">
+                <div class="focus:outline-none mx-2 w-full md:w-96 xl:mb-0 m-6 shadow-2xl gap-4">
                     <a href="{{ route('guest.product',$experience_related) }}">
                         <div style="width: 200px;height: 200px;" class="mx-auto">
                             @if ($experience_related->images->first())
@@ -118,8 +117,8 @@
                             
                         </div>
                     </a>
-                    <div class="bg-paleta_tesis_blanco">
-                        <div class="p-4">
+                    <div class="relative bg-paleta_tesis_blanco w-full md:w-full p-4 ">
+                        <div class=" ">
                             <div class="flex items-center">
                                 <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">{{$experience_related->title}}</h2>
                             </div>
@@ -217,6 +216,9 @@
         }
 
         });
+        var wpp_href = $("#wpp_link").attr("href");
+        $("#wpp_link").attr("href", wpp_href + window.location.href);
+
         function open_description_modal(experience_description) {
         $( "#description_comment").text(experience_description);
         $("#experience_description").show();

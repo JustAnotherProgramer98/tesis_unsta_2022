@@ -148,8 +148,7 @@
                     Servicios de Primer Nivel
                   </h4>
                   <p class="text-md font-light mt-2 text-white">
-                    Paseos en botes por los mejores ríos de Neuquén, guías turísticas por las calles de Buenos Aires,
-                    Prueba los mejores vinos de Mendoza y muchísimos más.
+                    Paseos en bote por los mejores ríos de Neuquén, guías turísticas por las calles de Buenos Aires, degusta los mejores vinos de Mendoza y muchas más
                   </p>
                 </blockquote>
               </div>

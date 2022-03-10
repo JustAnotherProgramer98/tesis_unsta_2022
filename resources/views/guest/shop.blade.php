@@ -11,11 +11,11 @@
                 <div class="container relative mx-auto">
                 <div class="items-center flex flex-wrap">
                     <div class="w-full lg:w-9/12 px-4 ml-auto mr-auto text-center">
-                    <div class="pr-12">
-                        <h1 class="text-white font-semibold text-5xl lg:whitespace-nowrap">Encuentra tu Experiencia Ideal   </h1> <br>
+                    <div class="lg:pr-12">
+                        <h1 class="text-white font-semibold text-5xl lg:whitespace-nowrap">Encuentra tu <span class="decoration-paleta_tesis_azul">Experiencia Ideal   </span></h1> <br>
                         <!-- component -->
-                        <form action="{{ route('experiencies.product_shop') }}" method="GET" autocomplete="off">
-                            <div class="w-9/12 inline-flex flex-col justify-center relative text-gray-500">
+                        <form class="w-full lg:w-9/12 inline-flex flex-col justify-center relative text-gray-500" action="{{ route('experiencies.product_shop') }}" method="GET" autocomplete="off">
+                           
                                 <div class="relative">
 
                                         <input name="search" value="{{ old('search') }}" type="text" class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Buscar experiencia..."/>
@@ -39,7 +39,7 @@
                                         </select>
                                     </section>
                                     <section class="flex w-full flex-col">
-                                        <label for="place" class="text-white font-semibold text-2xl whitespace-nowrap">Lugares</label>
+                                        <label for="place" class="text-white font-semibold text-2xl whitespace-nowrap mt-4 lg:mt-0">Lugares</label>
                                         <select class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="place">
                                             <option selected value="X">Selecciona una opcion</option>
                                             @forelse ($places as $place)
@@ -50,9 +50,9 @@
                                             
                                         </select>
                                     </section>
-                                    <button  class="transition-colors duration-700 p-4 my-6 bg-paleta_tesis_gris hover:bg-blue-500 text-paleta_tesis_celeste font-semibold hover:text-white border border-blue-500 hover:border-transparent rounded">Buscar</button>
+                                    <button  class="w-60 md:min-w-max transition-colors duration-700 p-4 my-6 bg-paleta_tesis_gris hover:bg-blue-500 text-paleta_tesis_celeste font-semibold hover:text-white border border-blue-500 hover:border-transparent rounded">Buscar</button>
                                 </div>
-                            </div>
+                          
                         </form>
                         
                     </div>
@@ -74,9 +74,9 @@
             
 
         </div>
-        <div  class="parent w-4/5 mx-auto mt-8 flex snap-x overflow-x-auto py-14">
+        <div  class="parent md:w-4/5 w-full mx-auto mt-8 flex snap-x overflow-x-auto py-14">
             @forelse ($experiences as $experience)
-            <div class="shrink-0 w-2/5  mx-4 ">
+            <div class="shrink-0 w-3/5 md:w-2/5  mx-4 ">
                 <a style="width: 22%" class="" href="{{ route('guest.product',$experience) }}">
                     <div class="focus:outline-none  xl:mb-0 mb-8 bg-white transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl  hover:bg-blue-200">
                         <div class="rounded-t-lg text-center {{ $experience->images->first() ? 'bg-transparent' : 'bg-gray-200' }}"> 
