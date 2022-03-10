@@ -14,6 +14,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class GuestController extends Controller
 {
@@ -36,9 +37,11 @@ class GuestController extends Controller
             DB::transaction(function () use ($request){
                 $city=City::find($request['city_id']);
                 $user=User::create($request->all()+
-                ['role_id'=>$request['type_account'],'status'=>2,'address'=>$request['adress'],
+                ['password'=>Hash::make($request['password']),'role_id'=>$request['type_account'],'status'=>2,'address'=>$request['adress'],
                 'city'=>$city->name,'province'=>$city->province->name,
                 'country'=>$city->province->country->name,'cuit'=>$request['cuit'] ? $request['cuit'] : 'No definido' ]);
+
+                $user->update(['password'=>Hash::make($request['password'])]);
 
                 if($request['type_account']==3){
                     $request['imagen_dni'][0]->store('public');

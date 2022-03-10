@@ -58,7 +58,7 @@
                         <div class="flex gap-3">
                             <div class="w-full mb-3">
                                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Presentate para la gente en Turistear...</label>
-                                <textarea name="introducing_me"  style="resize: none" cols="30" rows="10" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow  focus:ring focus:ring-blue-900 w-full ease-linear transition-all duration-150">{{ old('introducing_me',Auth::user()->introducing_me) }}</textarea>
+                                <textarea id="introducing_me" name="introducing_me"  style="resize: none" cols="30" rows="10" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow  focus:ring focus:ring-blue-900 w-full ease-linear transition-all duration-150">{{ old('introducing_me',Auth::user()->introducing_me) }}</textarea>
                             </div>
                         </div>
                         <input type="hidden" name="type_account" value="2">
@@ -124,12 +124,8 @@
                         </div>
 
                         <div class=" w-full mb-3">
-                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Nueva contraseña</label>
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Contraseña para validar que eres tu</label>
                             <input id="password" type="password" name="password" placeholder="Contraseña"
-                                class="border-0 px-3 py-3  bg-white rounded text-sm shadow  focus:ring focus:ring-blue-900 w-full ease-linear transition-all duration-150">
-                            
-                            <label class="mt-4 block uppercase text-blueGray-600 text-xs font-bold mb-2">Repetir contraseña</label>
-                            <input id="password2" type="password" name="password2" placeholder=""
                                 class="border-0 px-3 py-3  bg-white rounded text-sm shadow  focus:ring focus:ring-blue-900 w-full ease-linear transition-all duration-150">
                                 <br>
                             <input type="checkbox"

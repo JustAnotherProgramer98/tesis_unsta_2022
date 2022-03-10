@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -88,10 +89,10 @@ class UsersController extends Controller
             'adress'=>'required',
             'email'=>'required',
             'password'=>'required',
-            ],[
-                'password.required'=>'Por motivos de seguridad debes ingresar tu contraseña para validar los cambios',
-            ]);
-        if ($validated['password']!=$request->password2 and $request->password2!=null) return redirect()->back()->withErrors('Las contraseñas no coinciden!'); 
+        ],[
+            'password.required'=>'Por motivos de seguridad debes ingresar tu contraseña para validar los cambios',
+        ]);
+        if (password_verify($validated['password'], Auth::user()->password)==false) return redirect()->back()->withErrors('Las contraseñas no coinciden!'); 
         try {
             DB::transaction(function () use ($validated,$request,$user){
                 $user->update($validated);
