@@ -233,7 +233,115 @@ class MailController extends Controller
             }
         }
         
+        public static function host_notify_payment($fullname,$email){
+
+            $mail = new PHPMailer(true);
         
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress($email); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Tu dinero fue depositado por Turistear!"; // Este es el titulo del email.
+
+            $mail->Body = view('email.payment_anfitrion',['fullname' =>$fullname]);
+            $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado una notificacion de pago para un administrador en Turistear!";
+            
+            
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
+        public static function client_reminder_comment($client_email,$client_fullname,$host_fullname,$email,$experience,$place){
+
+            $mail = new PHPMailer(true);
+        
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress($client_email); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Danos un segundo para comentar la experiencia Turistear!"; // Este es el titulo del email.
+
+            $mail->Body = view('email.comment_reminder',['client_fullname'=>$client_fullname,'host_fullname'=>$host_fullname,'email'=>$email,'experience'=>$experience,'place'=>$place]);
+            $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado un recordatorio de comentario en Turistear!";
+            
+            
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
+
+        public static function client_notify_comment($client_email){
+
+            $mail = new PHPMailer(true);
+        
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress($client_email); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Gracias por tu comentario de parte del equipo de Turistear!"; // Este es el titulo del email.
+
+            $mail->Body = view('email.thanks_for_comment_client');
+            $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado un agradecimiento de comentario en Turistear!";
+            
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
+
+        public static function host_notify_commented($host_email,$host_name,$client_fullname,$experience,$comment){
+
+            $mail = new PHPMailer(true);
+        
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = "smtp.gmail.com"; // SMTP a utilizar.
+            $mail->Username = env("MAIL_USERNAME"); // Cuenta de correo que autentifica
+            $mail->Password = env("MAIL_PASSWORD"); // Contraseña de la cuenta de correo
+            $mail->SMTPSecure = 'tsl'; // Activa el cifrado TLS
+            $mail->Port = 587;
+            $mail->From = $mail->Username;
+            $mail->FromName = $mail->Username;
+            $mail->AddAddress($host_email); // Esta es la dirección a donde enviamos
+            $mail->IsHTML(true); // El correo se envía como HTML
+            $mail->Subject = "Habemus feedback de tu experiencia en Turistear!"; // Este es el titulo del email.
+  
+            $mail->Body = view('email.comment_anfitrion',['host_name'=>$host_name,'client_fullname'=>$client_fullname,'experience'=>$experience,'comment'=>$comment]);
+            $mail->AltBody = "Su gestor de correo electronico no soporta Emails HTML. Se a enviado una notificacion de comentario en Turistear!";
+            
+            
+            try {
+                $mail->Send();
+            } catch (Exception $e) {
+                return "Error ".$e;
+            }
+        }
 
 
         

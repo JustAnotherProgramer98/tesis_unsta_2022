@@ -306,8 +306,8 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:28px 33px 25px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #444444; line-height: 200%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 200%;">&nbsp;</p>
-<p style="font-size: 14px; line-height: 200%;">&nbsp; </p>
+    <p style="font-size: 14px; line-height: 200%;">&nbsp;Hola <b>{{ $client_fullname ?? '' }}</b>, recorda que podes comentar la experiencia!</p>
+<p style="font-size: 14px; line-height: 200%;">&nbsp;Tus comentarios nos ayudan a todos a crecer. Te dejamos los datos de la experiencia que finalizaste </p>
   </div>
 
       </td>
@@ -340,7 +340,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:25px 10px 0px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Lato, sans-serif; font-size: 14px; line-height: 19.6px;"><strong><span style="font-size: 18px; line-height: 25.2px; color: #3F72AF;">Informaci&oacute;n Detallada de la Experiencia</span></strong></span></p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Lato, sans-serif; font-size: 14px; line-height: 19.6px;"><strong><span style="font-size: 18px; line-height: 25.2px; color: #112D4E;">Informaci&oacute;n Detallada de la Experiencia</span></strong></span></p>
   </div>
 
       </td>
@@ -374,7 +374,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>Nombre Completo del Anfitrion: </strong>&nbsp;{{ $fullname ?? '' }}</p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>Nombre del anfitrion: </strong>&nbsp;{{ $host_fullname ?? '' }}</p>
   </div>
 
       </td>
@@ -416,7 +416,7 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 25px 20px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><strong>Ubicaci&oacute;n: </strong>{{ $ubication ?? '' }}</p>
+    <p style="font-size: 14px; line-height: 140%;"><strong>Ubicaci&oacute;n: </strong>{{ $place ?? '' }}</p>
   </div>
 
       </td>
@@ -450,7 +450,7 @@ a[x-apple-data-detectors='true'] {
         
 <div align="center">
   <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:'Open Sans',sans-serif;"><tr><td style="font-family:'Open Sans',sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:49px; v-text-anchor:middle; width:276px;" arcsize="81.5%" stroke="f" fillcolor="#272362"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Open Sans',sans-serif;"><![endif]-->
-    <a href="{{ route('hosts.profile') }}" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:'Open Sans',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #272362; border-radius: 40px;-webkit-border-radius: 40px; -moz-border-radius: 40px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+    <a href="{{ route('hosts.profile') }}" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:'Open Sans',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #F9F7F7; background-color: #112D4E; border-radius: 40px;-webkit-border-radius: 40px; -moz-border-radius: 40px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
       <span style="display:block;padding:15px 44px;line-height:120%;"><span style="font-size: 16px; line-height: 19.2px;"><strong><span style="line-height: 19.2px; font-size: 16px;">Comenta la experiencia</span></strong></span></span>
     </a>
   <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
@@ -487,7 +487,8 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;">Please, consider this as an acceptance email. If you have any questions contact us with this link turistear.arg@gmail.com</p>
+    
+    <p style="font-size: 14px; line-height: 140%;"> Si tenes alguna duda , sentite libre de contactarnos en  <a style="color: #3F72AF" href="mailto:turistear.arg@gmail.com"> Turistear.arg@gmail.com</a> </p>
   </div>
 
       </td>
@@ -501,7 +502,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;">Recorda que tenes 30 dias para dar por finalizada la experiencia.</p>
+    <p style="font-size: 14px; line-height: 140%;color: #757575"><strong style="color: #080f30">Tenes 30 dias para dar por finalizada la experiencia </strong>, antes que el sistema lo haga automaticamente</p>
   </div>
 
       </td>

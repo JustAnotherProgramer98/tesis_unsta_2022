@@ -223,8 +223,8 @@ a[x-apple-data-detectors='true'] {
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;">
+    <p style="font-size: 14px; line-height: 140%;">Hola {{ $fullname ?? '' }} , queriamos informarte que tu experiencia es lo mas!.</p>
     <p style="font-size: 14px; line-height: 140%;">El dinero ya se encuentra disponible en tu cuenta.</p>
-<p style="font-size: 14px; line-height: 140%;">Click para ver m&aacute;s detalles.</p>
   </div>
 
       </td>
@@ -232,23 +232,7 @@ a[x-apple-data-detectors='true'] {
   </tbody>
 </table>
 
-<table id="u_content_button_1" style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-<div class="v-text-align" align="left">
-  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td class="v-text-align" style="font-family:arial,helvetica,sans-serif;" align="left"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://unlayer.com/" style="height:37px; v-text-anchor:middle; width:94px;" arcsize="11%" stroke="f" fillcolor="#0396a6"><w:anchorlock/><center style="color:#ffffff;font-family:arial,helvetica,sans-serif;"><![endif]-->
-    <a href="{{ route('hosts.profile') }}" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #ffffff; background-color: #0396a6; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
-      <span style="display:block;padding:10px 20px;line-height:120%;"><strong>Detalles</strong></span>
-    </a>
-  <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
-</div>
 
-      </td>
-    </tr>
-  </tbody>
-</table>
 
   <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
   </div>
@@ -345,7 +329,7 @@ a[x-apple-data-detectors='true'] {
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <h3 class="v-text-align" style="margin: 0px; color: #0396a6; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 18px;">
+  <h3 class="v-text-align" style="margin: 0px; color: #112D4E; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 18px;">
     <strong>&iquest;Quieres seguir ganando?</strong>
   </h3>
 

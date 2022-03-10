@@ -243,7 +243,8 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="margin: 0px; color: #112D4E; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Raleway',sans-serif; font-size: 48px;">
-    <p style="line-height: 140%; font-size: 14px;"><strong><span style="font-size: 19.6px; line-height: 25.2px;">Acabas de recibir un comentario!!</span></strong></p>
+    <p style="line-height: 140%; font-size: 14px;">Buenas noticias {{ $host_name ?? '' }}</p>
+    <p style="line-height: 140%; font-size: 14px;"><strong><span style="font-size: 19.6px; line-height: 25.2px;">Acabas de recibir un comentario!</span></strong></p>
   </div>
 
       </td>
@@ -295,7 +296,7 @@ a[x-apple-data-detectors='true'] {
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="https://cdn.templates.unlayer.com/assets/1625153922060-emma.png" alt="Speaker" title="Speaker" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 25%;max-width: 145px;" width="145" class="v-src-width v-src-max-width"/>
+      <img style="border-radius: 500px" align="center" border="0" src="https://cdn.pixabay.com/photo/2020/11/22/14/58/earth-5766860_960_720.png" alt="imagen generica de usuario" title="Speaker" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 25%;max-width: 145px;" width="145" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
@@ -312,9 +313,8 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 3px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="color: #003e5f; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 24px; line-height: 33.6px;"><strong><span style="font-family: Montserrat, sans-serif; line-height: 33.6px; font-size: 24px;">{{$fullname ?? ' '}}</span></strong></span></p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 24px; line-height: 33.6px;">Por: <strong><span style="font-family: Montserrat, sans-serif; line-height: 33.6px; font-size: 24px;">{{$client_fullname ?? ''}}</span></strong></span></p>
   </div>
-
       </td>
     </tr>
   </tbody>
@@ -326,7 +326,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:0px 50px 35px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="color: #575656; line-height: 190%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 190%;"><em><span style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 30.4px;">"{{$comment ?? ' '}}"</span></em></p>
+    <p style="font-size: 14px; line-height: 190%;">Comentario: <em><span style="font-family: Montserrat, sans-serif; font-size: 16px; line-height: 30.4px;">"{{$comment ?? ''}}"</span></em></p>
   </div>
 
       </td>
@@ -408,7 +408,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;">Please, consider this as an acceptance email. If you have any questions contact us with this link turistear.arg@gmail.com</p>
+    <p style="font-size: 14px; line-height: 140%;"> Si tenes alguna duda , sentite libre de contactarnos en  <a style="color: #3F72AF" href="mailto:turistear.arg@gmail.com"> Turistear.arg@gmail.com</a> </p>
   </div>
 
       </td>

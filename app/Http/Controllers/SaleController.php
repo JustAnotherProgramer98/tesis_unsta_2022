@@ -104,6 +104,11 @@ class SaleController extends Controller
                 ]);
                 Sale::find($validated['sale_id'])->update(['commented'=>1]);
             });
+            $sale=Sale::where('id',$validated['sale_id'])->get()->first();
+            
+            MailController::client_notify_comment(Auth::user()->email);
+            MailController::host_notify_commented($sale->experience->host->email,$sale->experience->host->name.' '.$sale->experience->host->surname,
+            Auth::user()->name.' '.Auth::user()->surname,$sale->experience->title,$sale->body);
             return redirect()->back()->with('commented', 'Gracias por tu comentario , notificaremos al anfitrion de tu experiencia!');    
         } catch (\Throwable $th) {
             throw $th;
@@ -113,7 +118,14 @@ class SaleController extends Controller
     public function aprove(Request $request)
     {
         try {
-            return Sale::where('id',$request->sale_id)->get()->first()->update(['finished' => 1]);
+            $sale=Sale::where('id',$request->sale_id)->get()->first();
+            MailController::client_reminder_comment(Auth::user()->email,
+            Auth::user()->name.' '.Auth::user()->surname,$sale->experience->host->name.' '.$sale->experience->host->surname,
+            $sale->experience->host->email,$sale->experience->title,
+            'Argentina - '.$sale->experience->place->city->province->name.' - '.$sale->experience->place->city->name.' - '.$sale->experience->place->adress);
+
+            MailController::host_notify_payment($sale->experience->host->name.' '.$sale->experience->host->surname,$sale->experience->host->email);
+            return $sale->update(['finished' => 1]);
         } catch (\Throwable $th) {
             return "error ".$th;
         }

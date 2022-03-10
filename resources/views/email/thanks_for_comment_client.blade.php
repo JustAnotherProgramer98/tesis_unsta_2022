@@ -193,7 +193,6 @@ a[x-apple-data-detectors='true'] {
   <tbody>
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;" align="left">
-        
   <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
     <tbody>
       <tr style="vertical-align: top">
@@ -251,7 +250,8 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="margin: 0px; color: #112D4E; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Raleway',sans-serif; font-size: 48px;">
-    <p style="line-height: 140%; font-size: 14px;"><span style="line-height: 19.6px; font-size: 14px;"><span style="line-height: 19.6px; font-size: 14px;"><span style="font-size: 28px; line-height: 39.2px;"><strong>Gracias Por Tu Comentario</strong></span></span></p>
+    <p style="line-height: 140%; font-size: 14px;"><span style="line-height: 19.6px; font-size: 14px;"><span style="line-height: 19.6px; font-size: 14px;"><span style="font-size: 28px; line-height: 39.2px;"><strong>Gracias por tu comentario</strong></span></span></p>
+    <p style="line-height: 140%; font-size: 14px;">Le haremos saber al anfitrion lo que piensas al respecto</p>
   </div>
 
       </td>
@@ -314,7 +314,6 @@ a[x-apple-data-detectors='true'] {
   <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #f9f9f9;">
     <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
       <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #f9f9f9;"><![endif]-->
-      
 
 <table style="font-family:'Open Sans',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
@@ -342,8 +341,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;" align="left">
         
   <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;">Please, consider this as an acceptance email. If you have any questions contact us with this link turistear.arg@gmail.com</p>
-  </div>
+    <p style="font-size: 14px; line-height: 140%;"> Si tenes alguna duda , sentite libre de contactarnos en  <a style="color: #3F72AF" href="mailto:turistear.arg@gmail.com"> Turistear.arg@gmail.com</a> </p>  </div>
 
       </td>
     </tr>
