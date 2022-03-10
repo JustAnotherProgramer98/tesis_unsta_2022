@@ -34,18 +34,19 @@
                     Volver
                 </a>
                 
-                <section class="mt-12 flex flex-col w-full h-full p-1 overflow-auto">
-                    <label for="name" class="text-base leading-7  mb-5">Dorso del DNI</label>
-                    <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
-                        @if ($user->dni_picture)
-                                <img width="620px" height="620px" class="m-4 rounded-md" src="{{asset('storage/'.$user->dni_picture)}}" alt="Imagen del DNI del usuario {{ $user->id }}">
-                        @else
-                        <i class="text-3xl fad fa-sad-tear"></i>
-                        <label for="files">Este usuario no subio la foto de su DNI <br> </label>
-                        @endif
+                @if ($user->role->name!='Cliente')
+                    <section class="mt-12 flex flex-col w-full h-full p-1 overflow-auto">
+                        <label for="name" class="text-base leading-7  mb-5">Dorso del DNI</label>
+                        <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
+                            @if ($user->dni_picture)
+                                    <img width="620px" height="620px" class="m-4 rounded-md" src="{{asset('storage/'.$user->dni_picture)}}" alt="Imagen del DNI del usuario {{ $user->id }}">
+                            @else
+                            <i class="text-3xl fad fa-sad-tear"></i>
+                            <label for="files">Este anfritrion no subio la foto de su DNI <br> </label>
+                            @endif
+                        </section>
                     </section>
-                </section>
-
+                @endif
                 <section class="mt-12 flex flex-col w-full h-full p-1 overflow-auto">
                     <label for="name" class="text-base leading-7  mb-5">Imagen del usuario</label>
                     <section class="h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border-2 border-gray-300 rounded-lg  ring-offset-current ring-offset-2">
@@ -131,6 +132,26 @@
                                 <li class="text-blue-800 ml-12">
                                     <div class="text-black hover:text-paleta_tesis_celeste"><a href="{{ route('user.show.admin', $sale->experience->host) }}" target="_blank">Anfitrion: {{ $sale->experience->host->name.' '.$sale->experience->host->surname }}</a></div>
                                 </li>
+                                <li class="text-blue-800 ml-12">
+                                    <div class="text-black hover:text-paleta_tesis_celeste">Estado de la venta: 
+                                        @switch($sale->status)
+                                        @case(0)
+                                            <span
+                                                class="cursor-default px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Cancelada | No finalizada
+                                            </span>
+                                        @break
+                                        @case(1)
+                                            <span
+                                                class="cursor-default px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">Aprobada
+                                            </span>
+                                        @break
+                                        @default
+                                        <span
+                                            class="cursor-default px-2 py-1 font-semibold leading-tight text-yellow-700 bg-yellow-100 rounded-full">
+                                            Pendiente de pago</span>
+                                        @endswitch
+                                </div>
+                                </li>
                             </li>
                             
                             @empty
@@ -158,30 +179,32 @@
                             @endforelse
                         </ul>
                     </div>
-                    <div class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
-                        <div class="list-outside list-disc flex flex-row  justify-evenly">
-                            <div class="list-outside list-disc ">Dinero cobrado
-                            <p class="text-center text-green-500">$ @php $revenue=0;@endphp
-                                @foreach ($user->experiences as $experience )
-                                    @foreach ($experience->sales as $sale )
-                                        @php
-                                        $revenue=$revenue+ (float)$sale->amount;
-                                        @endphp
+                    @if ($user->role->name!='Cliente')
+                        <div class="font-bold text-black placeholder-gray-600 w-full px-4 py-2.5 mt-2 text-base   transition duration-500 ease-in-out transform border-transparent rounded-lg bg-gray-200  focus:border-blueGray-500  dark:focus:bg-gray-800 focus:outline-none ring-offset-2 ">
+                            <div class="list-outside list-disc flex flex-row  justify-evenly">
+                                <div class="list-outside list-disc ">Dinero cobrado
+                                <p class="text-center text-green-500">$ @php $revenue=0;@endphp
+                                    @foreach ($user->experiences as $experience )
+                                        @foreach ($experience->sales as $sale )
+                                            @php
+                                            $revenue=$revenue+ (float)$sale->amount;
+                                            @endphp
+                                        @endforeach
+                                        @if ($loop->last)
+                                                {{  number_format($revenue,2) }}
+                                        @endif
                                     @endforeach
-                                    @if ($loop->last)
-                                            {{  number_format($revenue,2) }}
-                                    @endif
-                                @endforeach
-                                </p>
-                            </div>
-                            <div class="list-outside list-disc ">Comision TuristeAR
-                                <p class="text-center text-paleta_tesis_celeste">$ {{ number_format(round(($revenue * 0.2) / 10) * 10,2) }}</p>
-                            </div>
-                            <div class="list-outside list-disc ">Ganancia Anfitrion
-                                <p class="text-center text-orange-400">$ {{ number_format($revenue-round(($revenue * 0.2) / 10) * 10,2) }}</p>
+                                    </p>
+                                </div>
+                                <div class="list-outside list-disc ">Comision TuristeAR
+                                    <p class="text-center text-paleta_tesis_celeste">$ {{ number_format(round(($revenue * 0.2) / 10) * 10,2) }}</p>
+                                </div>
+                                <div class="list-outside list-disc ">Ganancia Anfitrion
+                                    <p class="text-center text-orange-400">$ {{ number_format($revenue-round(($revenue * 0.2) / 10) * 10,2) }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
