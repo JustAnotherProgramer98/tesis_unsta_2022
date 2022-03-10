@@ -158,9 +158,6 @@ foreach ($user->experiences as $experience) {
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
                                 {{$user->province}}, {{$user->country}}
                             </div>
-                            @if ($user->introducing_me)
-                                <div class="text-sm leading-normal mt-0 mb-2  font-bold uppercase">{{$user->introducing_me}}</div>  
-                            @endif
                             <div class="mb-2 text-gray-700 mt-10">
                                 <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i>Agente de turismo - Turismo Tuc
                             </div>
@@ -172,11 +169,7 @@ foreach ($user->experiences as $experience) {
                             <div class="flex flex-wrap justify-center">
                                 <div class="w-full lg:w-9/12 px-4">
                                     <p class="mb-4 text-lg leading-relaxed text-gray-800">
-                                    Hola a todos!!
-                                    Mi nombre es Carlos y organizo experiencias para todas las edades: 
-                                    Desde un festín con sándwiches con un experto hasta caminatas por los mejores senderos de Tucumán.
-                                    No vivo con un lema, pero creo que ayuda ser un buen tipo y, por lo general, el karma regresa para ayudarte a largo plazo.
-                                    No puedo esperar a conocerte pronto.
+                                        {{ $user->introducing_me ?? ''  }}
                                     </p>
                                 </div>
                             </div>
@@ -187,6 +180,8 @@ foreach ($user->experiences as $experience) {
             </div>
         </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 <script>
     //Get the button
 var mybutton = document.getElementById("GoToTop");
@@ -207,6 +202,28 @@ function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+   //Estrellas:
+   var xValues = ["1 estrella", "2 estrellas","3 estrellas","4 estrellas","5 estrellas"];
+          var yValues = [@json($five_star_review),@json($four_star_review),@json($three_star_review),@json($two_star_review),@json($one_star_review)];
+          var barColors = ["#789395","#94B49F","#398AB9","#1C658C","#F1E0AC"];
+
+          new Chart("rates_and_stars", {
+          type: "pie",
+          data: {
+              labels: xValues,
+              datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+              }]
+          },
+          options: {
+              title: {
+              display: true,
+              responsive:true,
+              text: "Estrellas del usuario"
+              }
+          }
+          });
 </script>
     </main>
     @endsection 

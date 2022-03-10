@@ -68,22 +68,20 @@
       </section>
       <section class="relative py-16 bg-gray-300">
         <div class="container mx-auto px-4">
-          <div
-            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64"
-          >
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
             <div class="px-6">
               <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div class="relative">
                     @if (Auth::user()->images->first())
                     <img src="{{asset('storage/'.Auth::user()->images->first()->url)}}" alt="{{ Auth::user()->images->first()->alt }}" 
-                      class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                      class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-32 -ml-20 lg:-ml-16"
                       style="max-width: 150px;"/>
                     
                     @else
                     <img
                     src="https://thumbs.dreamstime.com/z/icono-de-cuenta-personal-dise%C3%B1o-elementos-creativos-la-colecci%C3%B3n-iconos-pixel-perfecto-para-web-aplicaciones-software-uso-146958683.jpg" 
-                    class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                    class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-32 -ml-20 lg:-ml-16"
                     style="max-width: 150px;"/>
                     @endif
                     
@@ -187,11 +185,11 @@
                   <i class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
                   {{Auth::user()->province}}, {{Auth::user()->country}}
                 </div>
-                @if (Auth::user()->introducing_me)
+                
                     <div class="text-sm leading-normal mt-0 mb-2  font-bold uppercase">
-                       {{Auth::user()->introducing_me}}
+                       {{Auth::user()->introducing_me ?? 'Aun no te describiste para la gente de turistear...'}}
                     </div>  
-                @endif
+                
                 
                 <div class="mb-2 text-gray-700 mt-10">
                   <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i>
@@ -255,6 +253,8 @@
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.21.1/sweetalert2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
     
     <script>
       $(document).ready(function() {
@@ -262,6 +262,30 @@
           label: 'Arrastra o hace click para subir las imagenes',
           imagesInputName: 'images'
         });
+
+
+          //Estrellas:
+          var xValues = ["1 estrella", "2 estrellas","3 estrellas","4 estrellas","5 estrellas"];
+          var yValues = [@json($five_star_review),@json($four_star_review),@json($three_star_review),@json($two_star_review),@json($one_star_review)];
+          var barColors = ["#789395","#94B49F","#398AB9","#1C658C","#F1E0AC"];
+
+          new Chart("rates_and_stars", {
+          type: "pie",
+          data: {
+              labels: xValues,
+              datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+              }]
+          },
+          options: {
+              title: {
+              display: true,
+              responsive:true,
+              text: "Estrellas del usuario"
+              }
+          }
+          });
     });
   
   

@@ -1,4 +1,4 @@
-<div id="comments" class="tabcontent hidden px-4">
+<div id="comments" class="tabcontent hidden md:px-4">
     <br>
     <div class="w-full overflow-x-auto mt-8"> {{-- inicio tabla de comentarios --}}
     
@@ -6,76 +6,13 @@
             
             <div class="py-2"><!-- comentarios -->
                 <!-- review items -->
-                <div class="mx-auto bg-white shadow-lg rounded-lg my-500 px-3 py-3 w-9/12 border">
+                <div class="mx-auto bg-white shadow-lg rounded-lg my-500 md:px-3 py-3 w-full md:w-9/12 border">
                     <h1 class="ml-2 font-bold uppercase flex flex-wrap mt-12 justify-center"> Valoracion promedio de experiencias </h1>
-                    <div class="mb-1 tracking-wide px-4 py-4" >
+                    <div class="mb-1 tracking-wide md:px-4 md:py-4" >
                         <h2 class="text-gray-800 font-semibold mt-1">Cantidad de valoraciones: {{ $numerber_of_reviews }}</h2>
+                        
                         <div class="px-8 pb-3">
-                            <div class="flex items-center mt-1">
-                                <div class=" w-1/5 text-indigo-500 tracking-tighter">
-                                    <span>5 estrellas</span>
-                                </div>
-                                <div class="w-3/5">
-                                    <div class="bg-gray-300 w-full rounded-lg h-2">
-                                        <div class=" w-7/12 bg-indigo-600 rounded-lg h-2"></div>
-                                    </div>
-                                </div>
-                                <div class="w-1/5 text-gray-700 pl-3">
-                                    <span class="text-sm">{{ $five_star_review }}</span>
-                                </div>
-                            </div><!-- first -->
-                            <div class="flex items-center mt-1">
-                                <div class="w-1/5 text-indigo-500 tracking-tighter">
-                                    <span>4 estrellas</span>
-                                </div>
-                                <div class="w-3/5">
-                                    <div class="bg-gray-300 w-full rounded-lg h-2">
-                                        <div class="w-1/5 bg-indigo-600 rounded-lg h-2"></div>
-                                    </div>
-                                </div>
-                                <div class="w-1/5 text-gray-700 pl-3">
-                                    <span class="text-sm">{{ $four_star_review }}</span>
-                                </div>
-                            </div><!-- second -->
-                            <div class="flex items-center mt-1">
-                                <div class="w-1/5 text-indigo-500 tracking-tighter">
-                                    <span>3 estrellas</span>
-                                </div>
-                                <div class="w-3/5">
-                                    <div class="bg-gray-300 w-full rounded-lg h-2">
-                                        <div class=" w-3/12 bg-indigo-600 rounded-lg h-2"></div>
-                                    </div>
-                                </div>
-                                <div class="w-1/5 text-gray-700 pl-3">
-                                    <span class="text-sm">{{ $three_star_review }}</span>
-                                </div>
-                            </div><!-- thierd -->
-                            <div class="flex items-center mt-1">
-                                <div class=" w-1/5 text-indigo-500 tracking-tighter">
-                                    <span>2 estrellas</span>
-                                </div>
-                                <div class="w-3/5">
-                                    <div class="bg-gray-300 w-full rounded-lg h-2">
-                                        <div class=" w-1/5 bg-indigo-600 rounded-lg h-2"></div>
-                                    </div>
-                                </div>
-                                <div class="w-1/5 text-gray-700 pl-3">
-                                    <span class="text-sm">{{ $two_star_review }}</span>
-                                </div>
-                            </div><!-- 4th -->
-                            <div class="flex items-center mt-1">
-                                <div class="w-1/5 text-indigo-500 tracking-tighter">
-                                    <span>1 estrellas</span>
-                                </div>
-                                <div class="w-3/5">
-                                    <div class="bg-gray-300 w-full rounded-lg h-2">
-                                        <div class=" w-2/12 bg-indigo-600 rounded-lg h-2"></div>
-                                    </div>
-                                </div>
-                                <div class="w-1/5 text-gray-700 pl-3">
-                                    <span class="text-sm">{{ $one_star_review }}</span>
-                                </div>
-                            </div><!-- 5th -->
+                            <canvas class="mx-auto" id="rates_and_stars" style="width:100%;max-width:600px"></canvas>
                         </div>
                     </div>
                     <!-- component -->
