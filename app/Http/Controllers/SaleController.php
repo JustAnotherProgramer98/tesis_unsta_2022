@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Experience;
 use App\Models\Sale;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -95,7 +96,7 @@ class SaleController extends Controller
         
         try {
             DB::transaction(function () use ($validated) {
-                Comment::create([
+                $comment=Comment::create([
                     'body'=>$validated['comment'],
                     'user_id'=>Auth::id(),
                     'experience_id'=>$validated['experience_id'],
@@ -106,9 +107,10 @@ class SaleController extends Controller
             });
             $sale=Sale::where('id',$validated['sale_id'])->get()->first();
             
+            $comment=Comment::where('user_id',Auth::id())->where('stars',$validated['stars_number'])->where('body',$validated['comment'])->where('experience_id',$validated['experience_id'])->get()->first();
             MailController::client_notify_comment(Auth::user()->email);
             MailController::host_notify_commented($sale->experience->host->email,$sale->experience->host->name.' '.$sale->experience->host->surname,
-            Auth::user()->name.' '.Auth::user()->surname,$sale->experience->title,$sale->body);
+            Auth::user()->name.' '.Auth::user()->surname,$sale->experience->title,$comment->body);
             return redirect()->back()->with('commented', 'Gracias por tu comentario , notificaremos al anfitrion de tu experiencia!');    
         } catch (\Throwable $th) {
             throw $th;
