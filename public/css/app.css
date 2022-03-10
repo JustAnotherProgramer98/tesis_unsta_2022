@@ -1352,6 +1352,9 @@ select {
 .-mr-0\.5 {
   margin-right: -0.125rem;
 }
+.mb-20 {
+  margin-bottom: 5rem;
+}
 .block {
   display: block;
 }
@@ -4417,6 +4420,11 @@ input.input-stars[type="radio"]:checked ~ label {
     border-bottom-right-radius: 0.375rem;
   }
 
+  .sm\:bg-red-300 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+  }
+
   .sm\:p-6 {
     padding: 1.5rem;
   }
@@ -4532,6 +4540,10 @@ input.input-stars[type="radio"]:checked ~ label {
     width: 20rem;
   }
 
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
   .md\:w-64 {
     width: 16rem;
   }
@@ -4544,8 +4556,22 @@ input.input-stars[type="radio"]:checked ~ label {
     width: 80%;
   }
 
-  .md\:w-1\/2 {
-    width: 50%;
+  .md\:w-2\/5 {
+    width: 40%;
+  }
+
+  .md\:w-96 {
+    width: 24rem;
+  }
+
+  .md\:w-full {
+    width: 100%;
+  }
+
+  .md\:min-w-max {
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
   }
 
   .md\:max-w-lg {

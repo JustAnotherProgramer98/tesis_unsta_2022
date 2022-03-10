@@ -66,8 +66,7 @@
                                 </select>
                             </div>
                             <div class="w-1/2 mb-3">
-                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Numero de
-                                    telefono</label>
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Nro. de telefono</label>
                                 <input value="{{ old('phone') }}" id="phone" autocomplete="off"
                                     placeholder="+XXX-(XXX)-XXXXXX" type="text" name="phone"
                                     class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
@@ -84,8 +83,8 @@
                             </select>
                         </div>
 
-                        <div class="flex gap-3">
-                            <div class="w-1/2 mb-3">
+                        <div class="sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row lg:gap-3">
+                            <div class="w-full md:w-1/2 mb-3">
                                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Provincia</label>
                                 @php
                                     $url = route('places.render.cities.admin');
@@ -101,7 +100,7 @@
                                     @endforelse
                                 </select>
                             </div>
-                            <div class="w-1/2 mb-3">
+                            <div class="w-full md:w-1/2 mb-3">
                                 <label for="name"
                                     class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Ciudad</label>
                                 <select id="city_name"
@@ -112,8 +111,7 @@
                             </div>
                         </div>
                         <div class=" w-full mb-3">
-                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Direccion de
-                                domicilio</label>
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Direccion de domicilio</label>
                             <input value="{{ old('adress') }}" type="text" name="adress"
                                 placeholder="Direccion de domicilio"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -158,9 +156,10 @@
             @include('components.hosts.host_register')
         </div>
     </section>
-    <div style="margin-left: 25%;background-color: #f4f4f4" id="loading" class="hidden bg-paleta_tesis_blanco  absolute top-1/4 w-1/2 max-h-max text-center  bottom-1/4">
-        <p class="text-4xl font-semibold py-4 text-paleta_tesis_azul mx-24">Haciendote lugarcito en nuestro corazon... <i class="text-red-500 animate-ping fas fa-heart"></i></i></p>  
-        <div class="h-80 w-80 object-contain mx-auto">
+
+    <div style="background-color: #f4f4f4" id="loading" class="hidden mx-auto bg-paleta_tesis_blanco  absolute top-1/4 w-full md:w-1/2 md:ml-96 max-h-max text-center  bottom-1/4 ">
+        <p class="text-4xl font-semibold py-4 text-paleta_tesis_azul md:mx-24">Haciendote lugarcito en nuestro corazon... <i class="text-red-500 animate-ping fas fa-heart"></i></i></p>  
+        <div class="h-auto w-auto md:h-80 md:w-80 object-contain mx-auto">
             <img class=" block" src="{{ asset('gifs/plane_spinning.gif') }}" alt="Formularrio de alta">
         </div>
     </div>

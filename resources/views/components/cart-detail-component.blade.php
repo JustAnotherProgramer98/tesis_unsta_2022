@@ -62,10 +62,10 @@
 <div class="my-4 mt-6 -mx-2 lg:flex">
     <div class="lg:px-2 lg:w-1/2">
         <div class="p-4 bg-gray-100 rounded-full">
-            <h1 class="ml-2 font-bold uppercase">̈́ ¿Tenes un cupon de descuento ?</h1>
+            <h1 class="ml-2 font-bold uppercase">¿Tenes un cupon de descuento?</h1>
         </div>
         <div class="p-4">
-            <p class="mb-4 ">Si tenes un cupon , ingresalo y lo validaremos!</p>
+            <p class="mb-4 ">Si tenes un cupon ingresalo y lo validaremos!</p>
             <div class="justify-center md:flex">
                 <form id="coupon_use" action="{{ route('couppon.use') }}" method="POST">
                     @csrf

@@ -2,8 +2,8 @@
 @section('content') 
 <!-- component -->
 
-<section class="bg-gradient-to-b h-screen from-paleta_tesis_gris">
-<div class="w-full pt-12 md:w-3/5 px-4 mx-auto">
+<section class="bg-gradient-to-b h-full from-paleta_tesis_gris mb-20">
+<div class=" w-full pt-12 md:w-3/5 px-4 mx-auto">
   
   <h2 class="text-center text-4xl font-semibold py-4 text-paleta_tesis_azul"><img width="150" height="150" src="{{ asset('images/Turistear.png') }}" alt="Turistear Logo Registro">Bienvenido de vuelta!  <br></h2>
   

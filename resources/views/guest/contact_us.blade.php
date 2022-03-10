@@ -76,7 +76,8 @@
             </div>
         </div>
     </section>
-    <div id="loading" class="hidden absolute top-1/4 w-full max-h-max text-center  bottom-1/4">
+    
+    <div id="loading" class="hidden sm:bg-paleta_tesis_blanco md:bg-transparent bg-white absolute top-1/4 w-full max-h-max text-center  bottom-1/4 p-8 md:p-0">
         <p class="text-4xl font-semibold py-4 text-paleta_tesis_azul">Enviando mensaje  <i class="animate-bounce fal fa-envelope"></i></p>  
         <img class="mx-auto " src="{{ asset('gifs/email_sending.gif') }}" alt="Envio de correo">
     </div>
