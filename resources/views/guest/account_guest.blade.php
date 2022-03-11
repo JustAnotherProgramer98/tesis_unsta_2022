@@ -126,7 +126,7 @@ foreach ($user->experiences as $experience) {
                             <div class="flex justify-center py-4 lg:pt-4 pt-8">
                                     <div class="mr-4 p-3 text-center border-2 border-paleta_tesis_azul rounded-xl">
                                         <span
-                                        class="text-xl font-bold block uppercase tracking-wide text-gray-700">{{ $numer_of_starts }}</span><span class="text-sm text-gray-500">Estrellas</span>
+                                        class="text-xl font-bold block uppercase tracking-wide text-gray-700">{{ $numer_of_starts }}</span><span class="text-sm text-gray-500">Estrellas totales</span>
                                     </div>
                                     <a href="#reseñas">
                                     <div class="mr-4 p-3 text-center bg-paleta_tesis_azul rounded-xl">
@@ -202,7 +202,7 @@ function backToTop() {
   document.documentElement.scrollTop = 0;
 }
    //Estrellas:
-   var xValues = ["1 estrella", "2 estrellas","3 estrellas","4 estrellas","5 estrellas"];
+   var xValues = ["5 estrella", "4 estrellas","3 estrellas","2 estrellas","1 estrellas"];
           var yValues = [@json($five_star_review),@json($four_star_review),@json($three_star_review),@json($two_star_review),@json($one_star_review)];
           var barColors = ["#789395","#FA58B6","#7A0BC0","#270082","#1A1A40"];
 
