@@ -32,7 +32,11 @@ foreach ($user->experiences as $experience) {
             }
         }
     }
-    $numer_of_starts=($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5);
+    if($numerber_of_reviews == 0){
+        $numer_of_starts=(($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5));
+    } else{
+        $numer_of_starts=(($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5))/$numerber_of_reviews;
+    }
 @endphp
 
 
@@ -158,12 +162,7 @@ foreach ($user->experiences as $experience) {
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"></i>
                                 {{$user->province}}, {{$user->country}}
                             </div>
-                            <div class="mb-2 text-gray-700 mt-10">
-                                <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i>Agente de turismo - Turismo Tuc
-                            </div>
-                            <div class="mb-2 text-gray-700">
-                                <i class="fas fa-university mr-2 text-lg text-gray-500"></i>Universidad del Norte Santo Tomas de Aquino
-                            </div>
+                           
                         </div>
                         <div class="mt-10 py-10 border-t border-gray-300 text-center">
                             <div class="flex flex-wrap justify-center">
@@ -205,7 +204,7 @@ function backToTop() {
    //Estrellas:
    var xValues = ["1 estrella", "2 estrellas","3 estrellas","4 estrellas","5 estrellas"];
           var yValues = [@json($five_star_review),@json($four_star_review),@json($three_star_review),@json($two_star_review),@json($one_star_review)];
-          var barColors = ["#789395","#94B49F","#398AB9","#1C658C","#F1E0AC"];
+          var barColors = ["#789395","#FA58B6","#7A0BC0","#270082","#1A1A40"];
 
           new Chart("rates_and_stars", {
           type: "pie",
@@ -221,7 +220,7 @@ function backToTop() {
               display: true,
               responsive:true,
               text: "Estrellas del usuario"
-              }
+    }
           }
           });
 </script>
