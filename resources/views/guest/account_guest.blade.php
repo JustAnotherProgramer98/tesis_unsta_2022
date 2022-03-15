@@ -31,12 +31,15 @@ foreach ($user->experiences as $experience) {
                 break;
             }
         }
-    }
-    if($numerber_of_reviews == 0){
-        $numer_of_starts=(($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5));
-    } else{
-        $numer_of_starts=(($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5))/$numerber_of_reviews;
-    }
+}
+if ($numerber_of_reviews == 0) {
+    $numer_of_starts=(($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5));
+} else {
+    $sum_stars=($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5);
+    $numer_of_starts=round($sum_stars/$numerber_of_reviews);
+}
+
+
 @endphp
 
 
@@ -126,7 +129,7 @@ foreach ($user->experiences as $experience) {
                             <div class="flex justify-center py-4 lg:pt-4 pt-8">
                                     <div class="mr-4 p-3 text-center border-2 border-paleta_tesis_azul rounded-xl">
                                         <span
-                                        class="text-xl font-bold block uppercase tracking-wide text-gray-700">{{ $numer_of_starts }}</span><span class="text-sm text-gray-500">Estrellas totales</span>
+                                        class="text-xl font-bold block uppercase tracking-wide text-gray-700">{{ $numer_of_starts }}</span><span class="text-sm text-gray-500">{{ $numer_of_starts == 1 ? 'Estrella promedio ' : 'Estrellas promedio'}}</span>
                                     </div>
                                     <a href="#reseñas">
                                     <div class="mr-4 p-3 text-center bg-paleta_tesis_azul rounded-xl">

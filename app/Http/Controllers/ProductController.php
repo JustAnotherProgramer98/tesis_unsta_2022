@@ -36,7 +36,7 @@ class ProductController extends Controller
             case $request->category=="X" and $request->place != "X":
                 $experiences = Experience::where('status', 1)
                 ->whereHas('place', function ($q) use ($request) {
-                    $q->where('id', $request->place);})->paginate(10);
+                    $q->where('id', $request->place);})->get();
                     
                 return view('guest.search',compact(['experiences']));
                 break;
@@ -46,7 +46,7 @@ class ProductController extends Controller
                 $experiences = Experience::where('status', 1)
                 ->whereHas('categories', function ($q) use ($request) {
                         $q->where('categories.id', $request->category);
-                })->paginate(10);
+                })->get();
 
                   return view('guest.search',compact(['experiences']));
                 break;
@@ -55,7 +55,7 @@ class ProductController extends Controller
             case $request->category == null and $request->search == null:
                 
                 $experiencias = Experience::with('place')->where('status', 1)
-                ->where('place', $request->place)->paginate(10);
+                ->where('place', $request->place)->get();
                   return view('guest.search',compact(['experiences']));
                 break;
 
@@ -63,7 +63,7 @@ class ProductController extends Controller
 
                 //Caso solo titulo
             case $request->search and  $request->category == "X" and $request->place == "X":
-                $experiences = Experience::where('status', 1)->where('title', 'like', "%$request->search%")->paginate(10);
+                $experiences = Experience::where('status', 1)->where('title', 'like', "%$request->search%")->get();
                 return view('guest.search',compact(['experiences']));
 
                 break;
@@ -77,11 +77,11 @@ class ProductController extends Controller
                     ->whereHas('categories', function ($q) use ($request) {
                         $q->where('categories.id', $request->category);
                     })
-                    ->paginate(10);
+                    ->get();
 
                   return view('guest.search',compact(['experiences']));
             default:
-                $experiences = Experience::with('place')->where('status',1)->paginate(10);
+                $experiences = Experience::with('place')->where('status',1)->get();
                   return view('guest.search',compact(['experiences']));
             break;
         }
