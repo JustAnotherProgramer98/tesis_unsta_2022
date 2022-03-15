@@ -18,7 +18,7 @@ class CitySeeder extends Seeder
 
 
         $cities= [
-            ['province_id'=>2, 'name'=>'CIUDAD DE BUENOS AIRES'],
+            ['province_id'=>2, 'name'=>'CABA'],
             ['province_id'=>2, 'name'=>'CONSTITUCION'],
             ['province_id'=>2, 'name'=>'MONSERRAT'],
             ['province_id'=>2, 'name'=>'PUERTO MADERO'],

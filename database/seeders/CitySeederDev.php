@@ -19,7 +19,7 @@ class CitySeederDev extends Seeder
 
         $cities= [
             //Ciudad de BS AS del 1 al 7
-            ['province_id'=>2, 'name'=>'CIUDAD DE BUENOS AIRES'],
+            ['province_id'=>2, 'name'=>'CABA'],
             ['province_id'=>2, 'name'=>'CONSTITUCION'],
             ['province_id'=>2, 'name'=>'MONSERRAT'],
             ['province_id'=>2, 'name'=>'PARQUE CHAS'],

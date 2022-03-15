@@ -77,8 +77,36 @@ class DatabaseSeeder extends Seeder
         Category::factory(['slug'=>'arte-y-cultura',          'status'=>1,'title'=>'Arte y Cultura', 'description'=>'Aprende sobre todo la historia de los distintos lugares y enriquécete en cultura'])->create();
         Category::factory(['slug'=>'lugares-emblematicos',    'status'=>1,'title'=>'Lugares Emblematicos', 'description'=>'Pasea por los lugares más hermosos y emblematicos de las ciudades, reviviendo recuerdos atravez de la historia.'])->create();
 
+         //Experience id
+        /*
+        1=>  Vivi la experiencia del futbol tucumano
+        2=>  Parapente biplaza
+        3=>  'Vive
+        4=>  Travesía en
+        5=>  Mañana de
+        6=>  Disfruta de
+        7=>  Conviértete en
+        8=>  Ruta nocturna
+        9=>  El Tour
+        10=> Artesano por un dia
+        11=> Alfarero por un dia
+        12=> Cuidador de
+        13=> Sesión de
+        14=> Historias increíbles
+        15=> El fantástico
+        16=> Tour por
+        17=> Paseo historico
+        18=> Ven a conocer Salta y su Patrimonio
+        
+        */
+
         //Experiencias
-        Experience::factory(['title'=>'Brunch y fútbol en la playa', 'status'=>1, 'slug'=>'brunch-y-futbol-en-la-playa', 'description'=>'Una experiencia completa en las playas argentinas de la manera más tradicional'])->create();
+        Experience::factory(['title'=>'Vivi la experiencia del futbol Tucumano!', 'status'=>1, 'slug'=>'vivi-la-experiencia-del-futbol-tucumano', 'description'=>'El fútbol argentino está conocido por la pasión, la imprevisibilidad, y el caos - con mi apoyo puedes disfrutarlo al máximo, con cero pena.
+        Los fixtures y horarios se publican muy tardes y de forma irregular - sigo las noticias locales y puedo elegir el mejor partido todos los findes.
+        Nos encontraremos en un lugar central y viajaremos en seguridad a la cancha.Te contaré el contexto de cada equipo y las historias de los clubes.
+        Lo más importante, te ayudaré a navegar todos los controles policiales y de los guardias - de los cuales hay bastantes.
+        Adentro del estadio disfrutaremos de una vista buenísima del partido, y de la hinchada y barra brava.'])->create();
+
         Experience::factory(['title'=>'Parapente biplaza', 'status'=>1, 'slug'=>'parapente-biplaza', 'description'=>'Disfruta de las mejores vistas con mucha adrenalina'])->create();
         Experience::factory([ 'title'=>'Vive la verdadera experiencia del futbol', 'status'=>1, 'slug'=>'Vive-la-verdadera-experiencia-del-futbol', 'description'=>'Descubre la verdadera pasión del futbol argentino con tus propios ojos'])->create();
         Experience::factory(['title'=>'Travesía en kayak', 'status'=>1, 'slug'=>'travesía-en-kayak', 'description'=>'Disfruta de una manera diferente y divertida de pasear por los distintos rios. Luego una comida de la manera más tradicional de la zona junto al rio.'])->create();
@@ -86,16 +114,29 @@ class DatabaseSeeder extends Seeder
         Experience::factory(['title'=>'Disfruta de un día completo navegando', 'status'=>1, 'slug'=>'disfruta-de-un-día-completo-navegando', 'description'=>'Los pasajeros recibirán instrucciones sobre las maniobras básicas de navegación para participar activamente en la experiencia o simplemente disfrutarlo.'])->create();
         Experience::factory(['title'=>'Conviértete en un chef marroquí', 'status'=>1, 'slug'=>'conviértete-en-un-chef-marroquí', 'description'=>'Mi madre y yo estaremos muy contentos de ser sus anfitriones durante esta clase de cocina, estamos ofreciendo esta experiencia desde 2018 y estamos muy orgullosos de compartir esta increíble actividad con nuestros huéspedes.'])->create();
         Experience::factory(['title'=>'Ruta nocturna de tragos y cerveza', 'status'=>1, 'slug'=>'ruta-nocturna-de-tragos-y-cerveza', 'description'=>'Iremos de paseo por los mejores bares del lugar, donde probaremos de las mejores cervezas artesanales y los tragos más exóticos. Déjate sumergir en una de las experiencias más divertidas'])->create();
-        Experience::factory(['title'=>'El Tour Gourmet', 'status'=>1, 'slug'=>'el-Tour-Gourmet', 'description'=>'Aprenderas de la realización de los platos más conocidos de nuestra ciudad. Altamente recomiendo para todas aquellas personas que tengan ganas de aprender cosas nuevas del mundo de la gastronomia.'])->create();
-        Experience::factory(['title'=>'Rodéate de alpacas', 'status'=>1, 'slug'=>'rodéate-de-alpacas', 'description'=>'Únete a nosotros para dar un paseo tranquilo por la costa jurásica con nuestras amables y adorables alpacas, hay muchas oportunidades fotográficas impresionantes de la impresionante costa.'])->create();
-        Experience::factory(['title'=>'A la caza de auroras boreales', 'status'=>1, 'slug'=>'a-la-caza-de-auroras-boreales', 'description'=>'Te recogeré en tu alojamiento y te llevaré directamente de la contaminación lumínica de la ciudad al lugar con la mayor probabilidad de ver auroras boreales. En caso de que esté nublado, visitamos 2-3 lugares para aumentar las posibilidades de encontrar un hueco en las nubes.'])->create();
+        Experience::factory(['title'=>'El Tour Gourmet', 'status'=>1, 'slug'=>'el-tour-gourmet', 'description'=>'Degustaremos cinco Vinos Argentinos Premium y Únicos de diferentes regiones acompañados de 5 Maridajes de Comida Local Gourmet mientras aprenden sobre nuestra cultura en un ambiente divertido. Solo trabajo con Vinos Premium de alta calidad de pequeños productores de diferentes regiones de nuestro país.
+        ¡Esta no es una clase de comida aburrida! Quiero que te diviertas, aprendas y degustes deliciosos vinos de primera!'])->create();
+
+        Experience::factory(['title'=>'Artesano por un dia', 'status'=>1, 'slug'=>'artesano-por-un-dia', 'description'=>'El punto de encuentro será al pie del icónico monumento al General Martín Miguel de Güemes. Allí mismo nos ubicaremos en las mesitas de roca que nos brinda el lugar, al aire libre, rodeados de naturaleza y una bella vista panorámica de la ciudad de Salta. Entre charlas, anécdotas y risas. 
+        junto a mi novia Paula, les enseñaremos el arte del repujado sobre Alpaca, metal típico utilizado por artesanos del norte argentino, con el que se pueden realizar hermosos objetos de decoración y accesorios; muy similar a la plata. En el caso de no tener en stock el metal Alpaca, lo realizaremos con cobre. 
+        Mediante esta técnica milenaria obtendremos un accesorio de lujo, tanto para hombres como para mujeres y niños, utilizando herramientas rudimentarias, con el objetivo de llevarse consigo no solo el objeto, sino también el conocimiento de los principios básicos del arte del repujado de la alpaca y una pequeña parte de nuestra cultura.'])->create();
+
+        Experience::factory(['title'=>'Alfarero por un dia', 'status'=>1, 'slug'=>'alfarero-por-un-dia', 'description'=>'en esta actividad recreativa apta para toda la familia, podrás conocer todos los procesos que lleva realizar una pieza de ceramica.
+        Podrás conocer, y disfrutar de una experiencia única en contacto con la tierra en tus manos ,
+        Podras crear tu propio diseño como recuerdo de tu viaje , pintando una pieza de barro ya seca, hecha por nosotros, y lista para hornear luego de finalizada la actividad.
+        al día siguiente se las entregaremos en su correspondiente alojamiento.
+        Y las que podran usar cotidianamente en sus casas.'])->create();
+
         Experience::factory(['title'=>'Cuidador de Manatíes por un Día', 'status'=>1, 'slug'=>'cuidador-de-Manatíes-por-un-Día', 'description'=>'Se convertirá en cuidador de manatíes en nuestro centro de rehabilitación. Aprenderá sobre el trabajo diario de nuestro personal, tendrá un recorrido de las facilidades del Centro, ayudará en la preparación de la dieta para nuestros pacientes y ayudará en su entrega.'])->create();
         Experience::factory(['title'=>'Sesión de fotos privada', 'status'=>1, 'slug'=>'sesión-de-fotos-privada', 'description'=>'Saltaremos directamente a nuestra encantadora sesión de fotos paseando por los increíbles lugares'])->create();
         Experience::factory(['title'=>'Historias increíbles de Argentina en bicicleta eléctrica', 'status'=>1, 'slug'=>'historias-increíbles-de-argentina-en-bicicleta-eléctrica', 'description'=>'Envuelvete en las historia de todo un pais de la manera más divertida y entretenida posible. Tenemos todo el equipo que necesites asi que solo necesitamos de tu predisposición'])->create();
         Experience::factory(['title'=>'El fantástico tour de Harry Potter', 'status'=>1, 'slug'=>'el-fantástico-tour-de-harry-potter', 'description'=>'Este recorrido a pie por Londres muestra los escenarios de rodaje del mago más famoso del mundo (¡ya sabes quién es!). Gran día para la familia.'])->create();
         Experience::factory(['title'=>'Tour por la casa historica', 'status'=>1, 'slug'=>'tour-por-la-casa-historica', 'description'=>'Uno de los lugares más pintoresco y bellos, con toda la historia de una pais. Este tour comprende desde el retiro del alojamiento como los más ricos aperitivos '])->create();
         Experience::factory(['title'=>'Paseo historico por las ruinas de quilmes', 'status'=>1, 'slug'=>'paseo-historico-por-las-ruinas-de-quilmes', 'description'=>'Disfruta de los restos del más extenso del asentamiento precolombino de Argentina. Incluye traslado y comidas en el lugar. '])->create();
-        Experience::factory(['title'=>'Tour 4 Bodegas', 'status'=>1, 'slug'=>'tour-4-Bodegas', 'description'=>'Este paseo es intimo y tiene flexibilidad. Pasaremos a buscarlo por su hospedaje temprano y comenzaremos el viaje en auto privado, en el camino tomaremos Mate y nos presentaremos para comenzar el viaje por las mejores bodegas de la región.'])->create();
+        Experience::factory(['title'=>'Ven a conocer Salta y su patrimonio', 'status'=>1, 'slug'=>'conoce-salta-y-su-patrimonio', 'description'=>'Te propongo experimentar una jornada fotográfica y entretenida de visualización del patrimonio arquitectonico del casco histórico de la ciudad de Salta. A través de la 
+        toma de fotografías analizaremos la historia de la arquitectura de Salta, aprendiendo de los períodos de construcción, los materiales, los aspectos decorativos, los colores. La experiencia consiste en partir de una visual, esa primera impresión que provocan los edificios y 
+        monumentos a simple o a primera vista hasta encontrar, y descubrir en ellos, aspectos nuevos que provoca el saber y el conocimiento, rescatando impresiones diferentes, encontrando elementos particulares, objetos llamativos, llevándonos una visual y una comprensión diferente con la que comenzamos. 
+        Mientras recorremos estos espacios, te contaré sobre los estilos arquitectónicos que conviven en cada espacio, así como del patrimonio material e inmaterial que existen y conviven en Salta.'])->create();
         
         //Relacion Experiencia Categoria
         DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>1]);
