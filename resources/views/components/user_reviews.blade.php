@@ -13,7 +13,7 @@
                 </div>
             </div>
             <!-- component -->
-            @forelse($user->experiences->take(-4) as $experience)
+            @forelse($user->experiences as $experience)
                 <div class="mt-12 bg-paleta_tesis_blanco border-b-2 border-b-paleta_tesis_celeste">
                     <p class="text-paleta_tesis_azul ">Experiencia: <b>{{ $experience->title }}</b> </p>
                 </div>
@@ -31,7 +31,7 @@
                     </div>
                 @endif
 
-                @forelse ($experience->comments->take(-4) as $comment)
+                @forelse ($experience->comments->take(-6) as $comment)
                     <div class="flex flex-wrap mt-12 justify-center">
                         <div class="flex-shrink-0">
                             <!-- Imagen del usuario de la review -->
