@@ -108,7 +108,11 @@ class DatabaseSeeder extends Seeder
         Adentro del estadio disfrutaremos de una vista buenísima del partido, y de la hinchada y barra brava.'])->create();
 
         Experience::factory(['title'=>'Parapente biplaza', 'status'=>1, 'slug'=>'parapente-biplaza', 'description'=>'Disfruta de las mejores vistas con mucha adrenalina'])->create();
-        Experience::factory([ 'title'=>'Vive la verdadera experiencia del futbol', 'status'=>1, 'slug'=>'Vive-la-verdadera-experiencia-del-futbol', 'description'=>'Descubre la verdadera pasión del futbol argentino con tus propios ojos'])->create();
+        Experience::factory([ 'title'=>'Dia de Golf en Santa Fe', 'status'=>1, 'slug'=>'dia-de-golf-en-santa-fe', 'description'=>'Pasaremos una jornada a puro golf en una de las mejores canchas de Buenos Aires. Los buscare en el lugar a convenir por ambas partes, luego iremos al campo de golf acordado previamente por el huesped a jugar 18 hoyos. Tanto el GREEN FEE como los palos ESTAN INCLUIDOS.
+        Al finalizar los regresare al lugar de recogida.
+        Otros aspectos destacables
+        Deben traer un guante y pelotas, handicap nacional o extranjero y ropa adecauda'])->create();
+        
         Experience::factory(['title'=>'Travesía en kayak', 'status'=>1, 'slug'=>'travesía-en-kayak', 'description'=>'Disfruta de una manera diferente y divertida de pasear por los distintos rios. Luego una comida de la manera más tradicional de la zona junto al rio.'])->create();
         Experience::factory(['title'=>'Mañana de Surf', 'status'=>1, 'slug'=>'mañana-de-Surf', 'description'=>'Una Mañana de Surf En Mar Del Plata. Da tus primeros pasos en este apasionante deporte, o mejora tu técnica y sube unos escalones en tu nivel de surf!'])->create();
         Experience::factory(['title'=>'Disfruta de un día completo navegando', 'status'=>1, 'slug'=>'disfruta-de-un-día-completo-navegando', 'description'=>'Los pasajeros recibirán instrucciones sobre las maniobras básicas de navegación para participar activamente en la experiencia o simplemente disfrutarlo.'])->create();

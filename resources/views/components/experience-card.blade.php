@@ -17,7 +17,7 @@
             @endforeach
             </p>                              
           <p class=" text-2xl  py-2">{{ $experiencie->title }}</p>
-          <p class="font-light text-gray-700 text-justify line-clamp-3">{{ Str::limit($experiencie->description, 20, '...') }}</p>
+          <p class="font-light text-gray-700 text-justify line-clamp-3">{{ Str::limit($experiencie->description, 50, '...') }}</p>
           <div class="flex flex-wrap mt-10 space-x-4 align-bottom">
             @if ($experiencie->host->images->first())
               <img class="w-10 h-10 rounded-full" src="{{asset('storage/'.$experiencie->host->images->first()->url)}}" />
