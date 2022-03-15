@@ -24,10 +24,17 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $names=['Facundo','Gabriela','Gabriel','Ernesto','David',
+        'Milagros','Micaela','Maria Jose' , 'Jose' , 'Adrian','Santiago',
+        'Clemente','Carolina','Fernando','Florencia','Josefina','Maria',
+        'Camila','Sabrina','Ignacio','Felix'];
 
+        $surnames=['Paz','Rotondo','Gutierrez','Perez','Arboleda','Reyes','Campazzo',
+        'Benitez','Palermo','Musso','Ocampos' ,'Curia','Angelici','Fernandez','Oblack',
+        'Perotti','Piedra Buena','Nadder','Londra'];
         return [
-            'name' => $this->faker->name(),
-            'surname'=> $this->faker->lastName(),
+            'name' => $this->faker->randomElement($names),
+            'surname'=> $this->faker->randomElement($surnames),
             'cuit'=> $this->faker->phoneNumber(),
             'birthday'=> $this->faker->date(),
             'email' => $this->faker->unique()->safeEmail(),

@@ -24,7 +24,7 @@ class SaleFactory extends Factory
         return [
             'amount'=>$this->faker->numberBetween(500,2500),
             'experience_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
-            'buyer_id'=>$this->faker->randomElement([2,4,5,6,7,8,9,10]),
+            'buyer_id'=>$this->faker->randomElement([4,5,6,7,8,9,10]),
         ];
     }
 }

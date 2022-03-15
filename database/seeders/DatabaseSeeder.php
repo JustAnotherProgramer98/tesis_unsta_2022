@@ -39,9 +39,10 @@ class DatabaseSeeder extends Seeder
 
 
         $this->command->line('Users...');
-        User::factory(['name'=>'Santiago','email'=>'d@gmail.com','password'=>Hash::make('123'),'role_id'=>1])->create();
-        User::factory(['name'=>'Facundo','status'=>2,'email'=>'f@gmail.com','password'=>Hash::make('123'),'role_id'=>2])->create();
-        User::factory(['name'=>'Marcelo','email'=>'m@gmail.com','password'=>Hash::make('123'),'role_id'=>3])->create();
+        User::factory(['name'=>'Santiago','surname'=>'Evangelista','email'=>'santiago.dev@turistear.com','password'=>Hash::make('desarrolladores'),'role_id'=>1])->create();
+        User::factory(['name'=>'Matias','surname'=>'Morales','email'=>'matias.dev@turistear.com','password'=>Hash::make('desarrolladores'),'role_id'=>1])->create();
+        User::factory(['name'=>'Facundo','surname'=>'Moreno','status'=>2,'email'=>'facundo.moreno@gmail.com','password'=>Hash::make('anfitrion'),'role_id'=>2])->create();
+        User::factory(['name'=>'Marcelo','surname'=>'Gutierrez','email'=>'marcelo.gutierrez@gmail.com','password'=>Hash::make('cliente'),'role_id'=>3])->create();
         User::factory(10)->create();
 
         $this->command->line('Roles...');
@@ -71,7 +72,7 @@ class DatabaseSeeder extends Seeder
         */
 
         Category::factory(['slug'=>'deportes',                'status'=>1,'title'=>'Deportes', 'description'=>'Desde pasar una tarde mirando de un partido de futbol a volar en parapente disfrutando las mejores vistas de la ciudad'])                ->create();
-        Category::factory(['slug'=>'acuaticos',               'status'=>1,'title'=>'Acuaticos', 'description'=>'Experiencias inolvidable creadas sobre el agua. Ir de pesca en una lancha hasta paseos en kayak por los mejores rios'])->create();
+        Category::factory(['slug'=>'deportes-acuaticos',      'status'=>1,'title'=>'Deportes acuaticos', 'description'=>'Experiencias inolvidable creadas sobre el agua. Ir de pesca en una lancha hasta paseos en kayak por los mejores rios'])->create();
         Category::factory(['slug'=>'gastronomia',             'status'=>1,'title'=>'Gastronomia', 'description'=>'Disfruta de las exquisitas comidas y bebidas al rededor del mundo'])->create();
         Category::factory(['slug'=>'naturaleza-y-aire-libre', 'status'=>1,'title'=>'Naturaleza y Aire libre', 'description'=>'Saca tu instinto naturalista y disfruta de las mejores experiencias al aire libre'])->create();
         Category::factory(['slug'=>'arte-y-cultura',          'status'=>1,'title'=>'Arte y Cultura', 'description'=>'Aprende sobre todo la historia de los distintos lugares y enriquécete en cultura'])->create();
@@ -112,7 +113,7 @@ class DatabaseSeeder extends Seeder
         Al finalizar los regresare al lugar de recogida.
         Otros aspectos destacables
         Deben traer un guante y pelotas, handicap nacional o extranjero y ropa adecauda'])->create();
-        
+
         Experience::factory(['title'=>'Travesía en kayak', 'status'=>1, 'slug'=>'travesía-en-kayak', 'description'=>'Disfruta de una manera diferente y divertida de pasear por los distintos rios. Luego una comida de la manera más tradicional de la zona junto al rio.'])->create();
         Experience::factory(['title'=>'Mañana de Surf', 'status'=>1, 'slug'=>'mañana-de-Surf', 'description'=>'Una Mañana de Surf En Mar Del Plata. Da tus primeros pasos en este apasionante deporte, o mejora tu técnica y sube unos escalones en tu nivel de surf!'])->create();
         Experience::factory(['title'=>'Disfruta de un día completo navegando', 'status'=>1, 'slug'=>'disfruta-de-un-día-completo-navegando', 'description'=>'Los pasajeros recibirán instrucciones sobre las maniobras básicas de navegación para participar activamente en la experiencia o simplemente disfrutarlo.'])->create();

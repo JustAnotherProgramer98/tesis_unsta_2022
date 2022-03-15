@@ -16,7 +16,7 @@ class ProvinceSeeder extends Seeder
     {
 
         $provinces = [
-        ['id' => 2,'country_id'=>1, 'name' => 'CIUDAD AUTONOMA DE BUENOS AIRES'],
+        ['id' => 2,'country_id'=>1, 'name' => 'CABA'],
         ['id' => 6,'country_id'=>1, 'name' => 'BUENOS AIRES'],
         ['id' => 10,'country_id'=>1, 'name' => 'CATAMARCA'],
         ['id' => 14,'country_id'=>1, 'name' => 'CORDOBA'],
