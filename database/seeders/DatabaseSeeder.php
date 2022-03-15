@@ -31,11 +31,11 @@ class DatabaseSeeder extends Seeder
         $this->command->line('Provincias...');
         $this->call(ProvinceSeeder::class);
         $this->command->line('Ciudades...');
-        if(\App::environment() == 'local' || \App::environment() == 'development'){
-            $this->call(CitySeederDev::class);
-        }else{
+        // if(\App::environment() == 'local' || \App::environment() == 'development'){
+        //     $this->call(CitySeederDev::class);
+        // }else{
             $this->call(CitySeeder::class);
-        }
+        // }
 
 
         $this->command->line('Users...');
