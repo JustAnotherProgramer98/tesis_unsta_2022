@@ -27,7 +27,7 @@ class UserFactory extends Factory
         $names=['Facundo','Gabriela','Gabriel','Ernesto','David',
         'Milagros','Micaela','Maria Jose' , 'Jose' , 'Adrian','Santiago',
         'Clemente','Carolina','Fernando','Florencia','Josefina','Maria',
-        'Camila','Sabrina','Ignacio','Felix'];
+        'Camila','Sabrina','Ignacio','Felix','Paula','Joaquin','Dario','Matias','Juan Pablo','Baltazar'];
 
         $surnames=['Paz','Rotondo','Gutierrez','Perez','Arboleda','Reyes','Campazzo',
         'Benitez','Palermo','Musso','Ocampos' ,'Curia','Angelici','Fernandez','Oblack',

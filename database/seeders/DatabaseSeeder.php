@@ -39,11 +39,15 @@ class DatabaseSeeder extends Seeder
 
 
         $this->command->line('Users...');
+        //Admins
         User::factory(['name'=>'Santiago','surname'=>'Evangelista','email'=>'santiago.dev@turistear.com','password'=>Hash::make('desarrolladores'),'role_id'=>1])->create();
         User::factory(['name'=>'Matias','surname'=>'Morales','email'=>'matias.dev@turistear.com','password'=>Hash::make('desarrolladores'),'role_id'=>1])->create();
-        User::factory(['name'=>'Facundo','surname'=>'Moreno','status'=>2,'email'=>'facundo.moreno@gmail.com','password'=>Hash::make('anfitrion'),'role_id'=>2])->create();
+        //Anfitriones
         User::factory(['name'=>'Marcelo','surname'=>'Gutierrez','email'=>'marcelo.gutierrez@gmail.com','password'=>Hash::make('cliente'),'role_id'=>3])->create();
-        User::factory(10)->create();
+        User::factory(['name'=>'Augusto','surname'=>'Fuentes','email'=>'augustofuentes@gmail.com','password'=>Hash::make('anfitrion'),'role_id'=>3])->create();
+        //Clientes
+        User::factory(['name'=>'Facundo','surname'=>'Moreno','status'=>2,'email'=>'facundo.moreno@gmail.com','password'=>Hash::make('anfitrion'),'role_id'=>2])->create();
+        User::factory(7)->create();
 
         $this->command->line('Roles...');
         Role::factory(['name'=>'Admin','description'=>'Alta , baja y modificacion de datos.'])->create();
