@@ -13,7 +13,7 @@ class Comment extends Model
 
     public function experience()
     {
-        return $this->belongsTo(Experience::class);
+        return $this->belongsTo(Experience::class,'experience_id','id','experience');
     }
 
     public function user()

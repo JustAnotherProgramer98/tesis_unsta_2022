@@ -58,7 +58,7 @@ class Experience extends Model
     }
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class,'experience_id','id');
     }
 
 }

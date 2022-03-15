@@ -70,7 +70,40 @@ class GuestController extends Controller
     public function showExperience(Experience $experience)
     {
         $experiences = Experience::where('status',1)->where('id','!=',$experience->id)->take(5)->get()->unique();
-        return view('guest.experience_detail', compact(['experiences', 'experience']));
+
+        $numerber_of_reviews = $one_star_review = $two_star_review = $three_star_review= $four_star_review = $five_star_review =0;
+        $numerber_of_reviews=$numerber_of_reviews+count($experience->sales);
+        
+        foreach ($experience->comments as $comment) {
+                switch ($comment->stars) {
+                    case (1):
+                    $one_star_review++;
+                        break;
+                    case (2):
+                    $two_star_review++;
+                        break;
+                    case (3):
+                    $three_star_review++;
+                        break;
+                    case (4):
+                    $four_star_review++;
+                        break;
+                    case (5):
+                    $five_star_review++;
+                        break;
+                    default:
+                        break;
+                }
+        }
+        if ($numerber_of_reviews == 0) {
+            $numer_of_starts=(($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5));
+        } else {
+            $sum_stars=($one_star_review*1)+($two_star_review*2)+($three_star_review*3)+($four_star_review*4)+($five_star_review*5);
+            $numer_of_starts=round($sum_stars/$numerber_of_reviews);
+        }
+        
+        
+        return view('guest.experience_detail', compact(['experiences', 'experience','numer_of_starts']));
     }
     public function createContact()
     {
