@@ -107,7 +107,7 @@
                 </div>
                 <h2 class="mt-4 text-gray-800 text-2xl font-bold my-2">Descripción: <h3 class="mt-4 text-gray-800 text-2xl my-2">{{Str::limit( $experience->description, 100, '...') }}</h3></h2>
                 
-                <button onclick="open_description_modal('{{addslashes($experience->description)}}')" class="ml-auto font-semibold text-paleta_tesis_blanco bg-gradient-to-br from-blue-500 via-paleta_tesis_celeste to-blue-300 border-0 py-2 px-6 rounded">Más sobre la experiencia</button>
+                <button onclick="open_description_modal()" class="ml-auto font-semibold text-paleta_tesis_blanco bg-gradient-to-br from-blue-500 via-paleta_tesis_celeste to-blue-300 border-0 py-2 px-6 rounded">Más sobre la experiencia</button>
                 
                 <form action="{{ route('cart.buy',$experience) }}" method="POST">
                 @csrf
@@ -255,6 +255,7 @@
         $("#wpp_link").attr("href", wpp_href + window.location.href);
 
         function open_description_modal(experience_description) {
+        experience_description=@json(addslashes($experience->description));
         $( "#description_comment").text(experience_description);
         $("#experience_description").show();
             
