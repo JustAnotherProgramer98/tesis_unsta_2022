@@ -27,7 +27,7 @@ class CouponCodeFactory extends Factory
         return [
             'code'=>$secure_encript_code,
             'discount_percent'=>100,
-            'user_id'=>$this->faker->randomElement([4,5,6,7,8,9,10,11,12,13]),
+            'user_id'=>$this->faker->randomElement([5,6,7,8,9,10]),
             'experience_id'=>$this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
         ];
     }
