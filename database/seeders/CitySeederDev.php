@@ -853,7 +853,7 @@ class CitySeederDev extends Seeder
             ['province_id'=>90, 'name'=>'EL MOLLAR'],
             ['province_id'=>90, 'name'=>'TAFI DEL VALLE'],
             ['province_id'=>90, 'name'=>'ALTO DE ANFAMA'],
-            ['province_id'=>90, 'name'=>'ANCAJULI'],,
+            ['province_id'=>90, 'name'=>'ANCAJULI'],
             ['province_id'=>90, 'name'=>'NUEVA ESPERANZA'],
             ['province_id'=>90, 'name'=>'RACO'],
             ['province_id'=>90, 'name'=>'SAN JAVIER'],
