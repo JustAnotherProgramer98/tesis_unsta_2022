@@ -101,7 +101,7 @@ class PlaceController extends Controller
                         $image = new Image;
                         $image_request->store('public');
                         $image->url=$image_request->hashName();
-                        $image->alt="Imagen Experiencia";
+                        $image->alt="Imagen de lugar";
                         $image->picturable_type=get_class($place);
                         $image->picturable_id=$place->id;
                         $image->save();

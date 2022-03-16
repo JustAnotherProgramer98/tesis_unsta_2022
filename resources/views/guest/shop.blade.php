@@ -43,7 +43,7 @@
                                         <select class="w-full p-2 pl-8 rounded border border-gray-200 bg-gray-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="place">
                                             <option selected value="X">Selecciona una opcion</option>
                                             @forelse ($places as $place)
-                                            <option value="{{ $place->id }}">{{ $place->city->name }}</option>
+                                            <option value="{{ $place->id }}">{{ $place->city->province->name }}, {{ $place->city->name }}</option>
                                             @empty
                                             <option selected value="X">No hay lugares en la base de datos</option>
                                             @endforelse
@@ -175,7 +175,12 @@
                         <a style="width: 22%" class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200" href="{{route('experiencies.by.place',$place)}}">
                             <div tabindex="0" class="focus:outline-none  xl:mb-0 mb-8">
                                 <div class="rounded-t-lg"> 
-                                    <img class="rounded-t-lg h-72 w-full" src="{{asset($place->images->first()->url)}}" alt="{{ $place->images->first()->url }}">
+                                    @if ($place->images->first())
+                                        <img class="rounded-t-lg h-72 w-full" src="{{asset('storage/'.$place->images->first()->url)}}" alt="{{ $place->images->first()->alt }}">
+                                    @else
+                                        <img width="300px" height="300px" class="rounded-3xl m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
+                                    @endif
+                                    
                                     <div class="m-3">
                                         <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ Str::limit($place->city->province->name.', '.$place->city->name, 20, '...') }}</h1>
                                         <div class="flex justify-between mt-4">

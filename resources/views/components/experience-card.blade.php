@@ -1,4 +1,4 @@
-<div class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-110 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200   shadow-gray-200 hover:shadow-dark-400/80 ">
+<div class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-110 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200   shadow-gray-200 hover:shadow-dark-400/80 my-12 lg:my-0">
     <a href="{{ route('guest.product',$experiencie) }}">
         @if ($experiencie->images->first())
         <div class="w-full rounded-t-md min-h-40 {{ $experiencie->images->first() ? '' : 'bg-paleta_tesis_gris' }}">

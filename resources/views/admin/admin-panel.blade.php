@@ -210,7 +210,7 @@
     options: {
         title: {
         display: true,
-        text: "Top 5 usuarios con mas compras"
+        text: "Top 5  provincias con mas experiencias"
         }
     }
     });

@@ -61,8 +61,26 @@ class DatabaseSeeder extends Seeder
         Languaje::factory(['title'=>'Portuges'])->create();
 
         $this->command->line('Places...');
-        Place::factory(['status'=>1])->count(10)->create();
+        // La Boca, Bs As,              =>city_id: 12
+        // San telmo, Bs As,            =>city_id: 7
+        // Sierras de Cordoba,Cordoba   =>city_id: 119        
+        // Mendoza, Mendoza             =>city_id: 303
+        // Rosario, Santa Fe            =>city_id: 441
+        // San Javier, Tucuman          =>city_id: 855
+        // Jujuy cerro de 7 colores     =>city_id: 231        
+        // Glaciar perito moreno        =>city_id: 417   
 
+        Place::factory(['status'=>1,'city_id'=>12])->create();
+        Place::factory(['status'=>1,'city_id'=>7])->create();
+        Place::factory(['status'=>1,'city_id'=>119])->create();
+        Place::factory(['status'=>1,'city_id'=>303])->create();
+        Place::factory(['status'=>1,'city_id'=>441])->create();
+        Place::factory(['status'=>1,'city_id'=>856])->create();
+        Place::factory(['status'=>1,'city_id'=>231])->create();
+        Place::factory(['status'=>1,'city_id'=>417])->create();
+        
+
+        Place::factory(['status'=>1])->count(10)->create();
         $this->command->line('Experiencies...');
         
         //Category id
@@ -176,17 +194,15 @@ class DatabaseSeeder extends Seeder
         DB::table('images')->insert(['url'=>'https://cdn.pixabay.com/photo/2018/05/26/19/30/woman-3432069_960_720.jpg','alt' => 'Seeded from DB','picturable_id' => 5,'picturable_type' => 'App\Models\Category']);
         DB::table('images')->insert(['url'=>'https://cdn.pixabay.com/photo/2017/08/29/23/31/christ-bendicente-2695316_960_720.jpg','alt' => 'Seeded from DB','picturable_id' => 6,'picturable_type' => 'App\Models\Category']);
 
-        //Imagenes de los lugares
-        DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/1060803/pexels-photo-1060803.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260','alt' => 'Seeded from DB','picturable_id' => 1,'picturable_type' => 'App\Models\Place']);
-        DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/3345082/pexels-photo-3345082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','alt' => 'Seeded from DB','picturable_id' => 2,'picturable_type' => 'App\Models\Place']);
-        DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/1684168/pexels-photo-1684168.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260','alt' => 'Seeded from DB','picturable_id' => 3,'picturable_type' => 'App\Models\Place']);
-        DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/3699812/pexels-photo-3699812.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260','alt' => 'Seeded from DB','picturable_id' => 4,'picturable_type' => 'App\Models\Place']);
-        DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/3348377/pexels-photo-3348377.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260','alt' => 'Seeded from DB','picturable_id' => 5,'picturable_type' => 'App\Models\Place']);
-        DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/4161812/pexels-photo-4161812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','alt' => 'Seeded from DB','picturable_id' => 6,'picturable_type' => 'App\Models\Place']);
-        DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/8043782/pexels-photo-8043782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','alt' => 'Seeded from DB','picturable_id' => 7,'picturable_type' => 'App\Models\Place']);
-        DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/6564672/pexels-photo-6564672.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','alt' => 'Seeded from DB','picturable_id' => 8,'picturable_type' => 'App\Models\Place']);
-
-
+        // //Imagenes de los lugares
+        // DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/1060803/pexels-photo-1060803.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260','alt' => 'Seeded from DB','picturable_id' => 1,'picturable_type' => 'App\Models\Place']);
+        // DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/3345082/pexels-photo-3345082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','alt' => 'Seeded from DB','picturable_id' => 2,'picturable_type' => 'App\Models\Place']);
+        // DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/1684168/pexels-photo-1684168.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260','alt' => 'Seeded from DB','picturable_id' => 3,'picturable_type' => 'App\Models\Place']);
+        // DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/3699812/pexels-photo-3699812.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260','alt' => 'Seeded from DB','picturable_id' => 4,'picturable_type' => 'App\Models\Place']);
+        // DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/3348377/pexels-photo-3348377.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260','alt' => 'Seeded from DB','picturable_id' => 5,'picturable_type' => 'App\Models\Place']);
+        // DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/4161812/pexels-photo-4161812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','alt' => 'Seeded from DB','picturable_id' => 6,'picturable_type' => 'App\Models\Place']);
+        // DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/8043782/pexels-photo-8043782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','alt' => 'Seeded from DB','picturable_id' => 7,'picturable_type' => 'App\Models\Place']);
+        // DB::table('images')->insert(['url'=>'https://images.pexels.com/photos/6564672/pexels-photo-6564672.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940','alt' => 'Seeded from DB','picturable_id' => 8,'picturable_type' => 'App\Models\Place']); 
 
         //Estado de las experiencias 2:Pendiente de aprovacion 1: Activa , 0:Inactiva
         
