@@ -74,27 +74,27 @@
             
 
         </div>
-        <div  class="parent md:w-4/5 w-full mx-auto mt-8 flex snap-x overflow-x-auto py-14">
+        <div  class="parent md:w-4/5 w-full mx-auto mt-8 flex  snap-x overflow-x-auto py-14">
             @forelse ($experiences as $experience)
-            <div class="shrink-0 w-3/5 md:w-2/5  mx-4 ">
-                <a style="width: 22%" class="" href="{{ route('guest.product',$experience) }}">
-                    <div class="focus:outline-none  xl:mb-0 mb-8 bg-white transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl  hover:bg-blue-200">
-                        <div class="rounded-t-lg text-center {{ $experience->images->first() ? 'bg-transparent' : 'bg-gray-200' }}"> 
-                            @if ($experience->images->first())
-                                <img width="600px" height="600px" class=" m-4 mx-auto" src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
-                            @else
-                                <img width="300px" height="300px" class="rounded-3xl m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
-                            @endif
-                            <div class="{{ $experience->images->first() ? '' : 'bg-white' }}">
-                                <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $experience->title }} </h1>
-                                <p class="text-gray-700 mb-2"> {{ Str::limit($experience->description, 25, '...')  }}</p>
-                                <div class="flex justify-between mt-4 m-3 ">
-                                    <p class="text-sm font-thin text-paleta_tesis_azul mb-4">Aprobada por turiste<span style='color: #3F72AF'>AR</span></p>
+            <div class="shrink-0  w-3/5 md:w-2/5   mx-4">
+                <div class="focus:outline-none container xl:mb-0 mb-8 bg-white transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-grabbing	 rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl  hover:bg-blue-200">
+                    <div class=" rounded-t-lg text-center {{ $experience->images->first() ? 'bg-transparent' : 'bg-gray-200' }}"> 
+                        @if ($experience->images->first())
+                        <img  class="h-[20rem] w-full m-4 mx-auto" src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
+                        @else
+                        <img  class="h-[10rem] w-full rounded-3xl m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
+                        @endif
+                            <a style="width: 22%" class="" href="{{ route('guest.product',$experience) }}">
+                                <div class="{{ $experience->images->first() ? '' : 'bg-white' }}">
+                                    <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $experience->title }} </h1>
+                                    <p class="text-gray-700 mb-2"> {{ Str::limit($experience->description, 25, '...')  }}</p>
+                                    <div class="flex justify-between mt-4 m-3 ">
+                                        <p class="text-sm font-thin text-paleta_tesis_azul mb-4">Aprobada por turiste<span style='color: #3F72AF'>AR</span></p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
-                </a>
                 </div>
             @empty
             <div class="w-full md:w-4/12 mx-auto px-4 my-10 text-center">
