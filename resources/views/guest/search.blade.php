@@ -16,11 +16,10 @@
                                 <a href="{{ route('guest.product',$experience) }}">
                                     <div>
                                         @if ($experience->images->first())
-                                            <img width="400px" height="400px" class="focus:outline-none w-full rounded-3xl" src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
-                                            @else
-                                            <img width="400px" height="400px"   class="focus:outline-none w-full h-44 rounded-3xl m-4" src="{{asset('images/Turistear.png')}}" alt="Logo por defecto">
-                                        @endif
-                                        
+                                            <img  class="h-[20rem] w-full m-4 mx-auto rounded-t-lg " src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
+                                        @else
+                                            <img  class="h-[20rem] w-full rounded-t-lg  m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
+                                        @endif 
                                     </div>
                                 </a>
                                 <div class="bg-paleta_tesis_blanco">

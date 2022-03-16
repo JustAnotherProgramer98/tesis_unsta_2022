@@ -80,14 +80,14 @@
                 <div class="focus:outline-none container xl:mb-0 mb-8 bg-white transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-grabbing	 rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl  hover:bg-blue-200">
                     <div class=" rounded-t-lg text-center {{ $experience->images->first() ? 'bg-transparent' : 'bg-gray-200' }}"> 
                         @if ($experience->images->first())
-                        <img  class="h-[20rem] w-full m-4 mx-auto" src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
+                        <img  class="h-[20rem] w-full m-4 mx-auto rounded-t-lg " src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
                         @else
-                        <img  class="h-[10rem] w-full rounded-3xl m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
+                        <img  class="h-[20rem] w-full rounded-t-lg  m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
                         @endif
                             <a style="width: 22%" class="" href="{{ route('guest.product',$experience) }}">
                                 <div class="{{ $experience->images->first() ? '' : 'bg-white' }}">
                                     <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2"> {{ $experience->title }} </h1>
-                                    <p class="text-gray-700 mb-2"> {{ Str::limit($experience->description, 25, '...')  }}</p>
+                                    <p class="text-gray-700 mb-2"> {{ Str::limit($experience->description, 60, '...')  }}</p>
                                     <div class="flex justify-between mt-4 m-3 ">
                                         <p class="text-sm font-thin text-paleta_tesis_azul mb-4">Aprobada por turiste<span style='color: #3F72AF'>AR</span></p>
                                     </div>
@@ -120,15 +120,14 @@
             <p class="text-center text-4xl font-semibold py-4"><br> Por categorías</p>
             <div tabindex="0" class="focus:outline-none border-b-2 border-gray-200 mb-5">
                 <!-- Remove py-8 -->
-                <div class="mx-auto container py-8">
-                                        
-                    <div class="sm:grid sm:grid-flow-row sm:auto-rows-max lg:flex lg:flex-row items-center gap-8 justify-center">
+                <div class="mx-auto container py-8"> 
+                    <div class="sm:grid sm:grid-flow-row sm:auto-rows-max md:flex md:flex-row items-center gap-8 justify-center">
                         <!-- Card Categorias -->
                         @forelse ($categories->take(4) as $category)
                         <a style="width: 22%" class="transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-pointer rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl bg-paleta_tesis_blanco hover:bg-blue-200" href="{{route('experiencies.by.category',$category)}}">
                             <div tabindex="0" class="focus:outline-none  xl:mb-0 mb-8">
                                 <div class="rounded-t-lg"> 
-                                    <img class="rounded-t-lg" src="{{asset($category->images->first()->url)}}" alt="{{ $category->images->first()->url }}">
+                                    <img class="h-[15rem] w-full rounded-t-lg" src="{{asset($category->images->first()->url)}}" alt="{{ $category->images->first()->url }}">
                                     <div class="m-3">
                                         <h1 class="mt-3 text-gray-800 text-2xl font-bold my-2 lg:whitespace-nowrap"> {{ $category->title }} </h1>
                                         <p class="text-gray-700 mb-2 font-bold"> {{$category->description}}</p>
@@ -176,9 +175,9 @@
                             <div tabindex="0" class="focus:outline-none  xl:mb-0 mb-8">
                                 <div class="rounded-t-lg"> 
                                     @if ($place->images->first())
-                                        <img class="rounded-t-lg h-72 w-full" src="{{asset('storage/'.$place->images->first()->url)}}" alt="{{ $place->images->first()->alt }}">
+                                        <img class="h-[20rem] w-full m-4 mx-auto rounded-t-lg" src="{{asset('storage/'.$place->images->first()->url)}}" alt="{{ $place->images->first()->alt }}">
                                     @else
-                                        <img width="300px" height="300px" class="rounded-3xl m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
+                                        <img class="h-[20rem] w-full rounded-t-lg  m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
                                     @endif
                                     
                                     <div class="m-3">
