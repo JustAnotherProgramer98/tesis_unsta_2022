@@ -1,9 +1,9 @@
 <nav class="flex justify-between bg-paleta_tesis_azul text-white w-full sm:text-white sm:m-8 md:m-0">
-    <div class="shrink-0 flex h-auto w-1/5 bg-gradient-to-r from-paleta_tesis_blanco via-paleta_tesis_blanco to-paleta_tesis_azul sm:flex sm:items-center pl-4">
-        <a class="shrink-0	 text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
+    <div class="shrink-0 flex h-auto w-1/5  bg-gradient-to-r from-paleta_tesis_blanco via-paleta_tesis_blanco to-paleta_tesis_azul  sm:flex sm:items-center pl-4">
+        <a class="shrink-0	lg:my-0 ml-0 my-2 text-3xl font-bold font-heading" href="{{route('experiencies.index')}}">
             <img class="" src="{{ asset('images/Turistear3.png') }}" alt="logo">
         </a>
-        <p class="ml-4 text-2xl font-thin  lg:text-paleta_tesis_azul">Turiste<span style='color: #3F72AF'>AR</span></p>
+        <p class="lg:my-0 lg:ml-4 my-3 ml-4 text-2xl font-thin  lg:text-paleta_tesis_azul">Turiste<span style='color: #3F72AF'>AR</span></p>
     </div>
     <div class="px-5 xl:px-12 py-6 flex w-full items-center">
         
@@ -123,7 +123,7 @@
             @endif
         </span>
     </a>
-    <div class="xl:hidden flex items-center">
+    <div class="xl:hidden flex items-center lg:my-0 lg:mr-4 my-3 mr-4">
         <button class="outline-none mobile-menu-button">
         <svg class=" w-6 h-6 text-paleta_tesis_blanco " x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
             <path d="M4 6h16M4 12h16M4 18h16"></path>

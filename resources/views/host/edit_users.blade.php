@@ -41,16 +41,16 @@
                     <form action="{{ route('update.user',Auth::user()) }}" method="POST" autocomplete="off" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
-                        <section class="mb-12 h-80 flex flex-row items-center gap-6 justify-center py-12 text-base  bg-white border-2 border-gray-300 rounded-lg  {{ Auth::user()->images->first() ? '' :  'bg-transparent '}}">
+                        <section class="mb-12 h-80 flex flex-row items-center gap-6  justify-center py-12 text-base  bg-white border-2 border-gray-300 rounded-lg  {{ Auth::user()->images->first() ? '' :  'bg-transparent '}}">
                             
                             @if (Auth::user()->images->first())
                                     <label for="files"class="bg-gray-700  ml-4  text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none  mr-1 mb-1">Cambiar imagen</label>
                                     <input id="files" style="visibility:hidden;" name="profile_image" type="file">
                                     <img width="400px" height="400px" class="rounded-3xl m-4" src="{{asset('storage/'.Auth::user()->images->first()->url)}}" alt="{{ Auth::user()->images->first()->alt }}">
                             @else
-                                <i class="text-3xl fad fa-sad-tear"></i>
+                                <i style="margin-left: 1rem" class="text-3xl fad fa-sad-tear"></i>
                                 <label for="files">Aun no subiste tu foto de perfil <br> Animate a subir una haciendo <span class="text-paleta_tesis_celeste cursor-pointer">click aqui!</span> </label>
-                                <input id="files" style="visibility:hidden;" name="profile_image" type="file">
+                                <input id="files" style="visibility:hidden;height: 1rem;width: 1rem;" name="profile_image" type="file">
                             @endif
 
                         </section>

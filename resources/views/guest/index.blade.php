@@ -10,7 +10,7 @@
             <div class="container relative mx-auto">
                 <div class="items-center flex flex-wrap">
                     <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                        <div class="pr-12">
+                        <div class="text-center">
                             <h1 class="text-white font-semibold text-5xl">
                                 Viví una experiencia creada por verdaderos expertos
                             </h1>
@@ -86,7 +86,7 @@
                         </svg>
                     </span>
                   </div>
-                  <h6 class="text-xl font-semibold">Altos Estandáres</h6>
+                  <h6 class="text-xl font-semibold">Altos Estándares</h6>
                   <p class="mt-2 mb-4 text-gray-600">
                   Revisamos todas las experiencias para comprobar que ofrezcan una perspectiva única en el tema.
                   </p>

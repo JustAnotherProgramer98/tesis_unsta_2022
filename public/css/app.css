@@ -1108,6 +1108,9 @@ select {
 .m-60 {
   margin: 15rem;
 }
+.-m-32 {
+  margin: -8rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1349,11 +1352,11 @@ select {
 .mr-8 {
   margin-right: 2rem;
 }
-.-mr-0\.5 {
-  margin-right: -0.125rem;
-}
 .mb-20 {
   margin-bottom: 5rem;
+}
+.-mr-0\.5 {
+  margin-right: -0.125rem;
 }
 .block {
   display: block;
@@ -4420,9 +4423,9 @@ input.input-stars[type="radio"]:checked ~ label {
     border-bottom-right-radius: 0.375rem;
   }
 
-  .sm\:bg-red-300 {
+  .sm\:bg-paleta_tesis_blanco {
     --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+    background-color: rgb(249 247 247 / var(--tw-bg-opacity));
   }
 
   .sm\:p-6 {
@@ -4484,12 +4487,21 @@ input.input-stars[type="radio"]:checked ~ label {
     margin-right: auto;
   }
 
+  .md\:mx-24 {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+
   .md\:mt-0 {
     margin-top: 0px;
   }
 
   .md\:ml-64 {
     margin-left: 16rem;
+  }
+
+  .md\:ml-96 {
+    margin-left: 24rem;
   }
 
   .md\:block {
@@ -4560,6 +4572,10 @@ input.input-stars[type="radio"]:checked ~ label {
     width: 40%;
   }
 
+  .md\:w-9\/12 {
+    width: 75%;
+  }
+
   .md\:w-96 {
     width: 24rem;
   }
@@ -4628,9 +4644,27 @@ input.input-stars[type="radio"]:checked ~ label {
     border-left-width: 1px;
   }
 
+  .md\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .md\:p-0 {
+    padding: 0px;
+  }
+
   .md\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .md\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .md\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .md\:text-2xl {
@@ -4669,6 +4703,11 @@ input.input-stars[type="radio"]:checked ~ label {
 
   .lg\:col-span-4 {
     grid-column: span 4 / span 4;
+  }
+
+  .lg\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .lg\:mr-32 {
@@ -4753,6 +4792,10 @@ input.input-stars[type="radio"]:checked ~ label {
 
   .lg\:justify-between {
     justify-content: space-between;
+  }
+
+  .lg\:gap-3 {
+    gap: 0.75rem;
   }
 
   .lg\:self-center {
