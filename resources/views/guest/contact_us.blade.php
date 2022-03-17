@@ -56,19 +56,13 @@
 
                 <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-0 xl:mx-4 xl:w-1/2 md:grid-cols-2">
                     <div>
-                        <img class="object-cover rounded-xl h-64 w-full"
-                            src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                            alt="">
-
+                        <img class="object-cover rounded-xl h-80 w-80" src="{{ asset('images/CONTACTO/Santiago_Evangelista.jpg') }}" alt="Santiago Evangelista Desarrollador">
                         <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Santiago Evangelista</h1>
                         <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">Full stack developer</p>
                     </div>
 
                     <div>
-                        <img class="object-cover rounded-xl h-64 w-full"
-                            src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                            alt="">
-
+                        <img class="object-cover rounded-xl h-80 w-80" src="{{ asset('images/CONTACTO/Matias_Morales.jpg') }}" alt="Matias Morales Desarrollador">
                         <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Matias Nicolas Morales</h1>
                         <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">Graphic Designer</p>
                     </div>

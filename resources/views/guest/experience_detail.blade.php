@@ -11,7 +11,7 @@
                 <div x-data="{ image: 1 }" x-cloak>
                     <div class="h-64 md:h-80 rounded-lg bg-transparent mb-4">
                         @forelse ($experience->images->take(4) as $image)
-                            <div x-show="image ==={{$loop->iteration}}" style="background: center;background-size: contain;background-repeat: no-repeat;background-image: url('{{asset('storage/'.$image->url)}}')" class="h-64 md:h-80 rounded-lg bg-transparent mx-auto mb-4 flex items-center justify-center"></div>
+                            <div x-show="image ==={{$loop->iteration}}" style="background: center;background-size: contain;background-repeat: no-repeat;background-image: url('{{asset($image->url)}}')" class="h-64 md:h-80 rounded-lg bg-transparent mx-auto mb-4 flex items-center justify-center"></div>
                         @empty
                         @endforelse
                     </div>
@@ -20,7 +20,7 @@
                     <div class="flex -mx-2 mb-4">
                         @forelse ($experience->images->take(4) as $image)
                         <div class="flex-1 px-2">
-                            <button x-on:click="image = {{$loop->iteration}}" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === {{$loop->iteration}} }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-400 flex items-center justify-center" style="background: center;background-repeat: no-repeat;background-size: contain;background-image: url('{{asset('storage/'.$image->url)}}')"></button>
+                            <button x-on:click="image = {{$loop->iteration}}" :class="{ 'ring-2 ring-indigo-300 ring-inset': image === {{$loop->iteration}} }" class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-400 flex items-center justify-center" style="background: center;background-repeat: no-repeat;background-size: contain;background-image: url('{{asset($image->url)}}')"></button>
                         </div>
                         @empty
                         @endforelse
@@ -152,11 +152,11 @@
                 @foreach ($experiences as $experience_related)
                 <div class="focus:outline-none mx-2 w-full md:w-96 xl:mb-0 m-6 shadow-2xl gap-4">
                     <a href="{{ route('guest.product',$experience_related) }}">
-                        <div style="width: 200px;height: 200px;" class="mx-auto">
+                        <div class="mx-auto">
                             @if ($experience_related->images->first())
-                                <img class="focus:outline-none w-full rounded-3xl" src="{{asset('storage/'.$experience_related->images->first()->url)}}" alt="{{ $experience_related->images->first()->alt }}">
+                                <img class="h-[10rem] w-full mx-auto rounded-t-lg" src="{{asset($experience_related->images->first()->url)}}" alt="{{ $experience_related->images->first()->alt }}">
                                 @else
-                                <img class="focus:outline-none w-full h-full rounded-3xl m-4" src="{{asset('images/Turistear.png')}}" alt="Logo por defecto">
+                                <img class="h-[10rem] w-full mx-auto rounded-t-lg" src="{{asset('images/Turistear.png')}}" alt="Logo por defecto">
                             @endif
                             
                         </div>

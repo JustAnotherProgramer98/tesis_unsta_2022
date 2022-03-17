@@ -80,7 +80,7 @@
                 <div class="focus:outline-none container xl:mb-0 mb-8 bg-white transition ease-in-out duration-110  hover:-translate-y-1 hover:scale-125 cursor-grabbing	 rounded-md shadow-2xl hover:shadow-dark-400/80 hover:shadow-2xl  hover:bg-blue-200">
                     <div class=" rounded-t-lg text-center {{ $experience->images->first() ? 'bg-transparent' : 'bg-gray-200' }}"> 
                         @if ($experience->images->first())
-                        <img  class="h-[20rem] w-full m-4 mx-auto rounded-t-lg " src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
+                        <img  class="h-[20rem] w-full m-4 mx-auto rounded-t-lg " src="{{asset($experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
                         @else
                         <img  class="h-[20rem] w-full rounded-t-lg  m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
                         @endif
@@ -175,7 +175,7 @@
                             <div tabindex="0" class="focus:outline-none  xl:mb-0 mb-8">
                                 <div class="rounded-t-lg"> 
                                     @if ($place->images->first())
-                                        <img class="h-[20rem] w-full m-4 mx-auto rounded-t-lg" src="{{asset('storage/'.$place->images->first()->url)}}" alt="{{ $place->images->first()->alt }}">
+                                        <img class="h-[20rem] w-full  mx-auto rounded-t-lg" src="{{asset($place->images->first()->url)}}" alt="{{ $place->images->first()->alt }}">
                                     @else
                                         <img class="h-[20rem] w-full rounded-t-lg  m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
                                     @endif

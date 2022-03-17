@@ -6,7 +6,7 @@
             class="flex flex-col items-center justify-center py-12 text-base  transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
             @if (Auth::user()->experiences->first())
                 @if (Auth::user()->experiences->first()->images->first())
-                    <img id="experience_image" src="{{asset('storage/'.Auth::user()->experiences->first()->images->first()->url)}}">
+                    <img id="experience_image" src="{{asset(Auth::user()->experiences->first()->images->first()->url)}}">
                 @endif
             @endif
         </header>

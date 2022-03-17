@@ -61,24 +61,33 @@ class DatabaseSeeder extends Seeder
         Languaje::factory(['title'=>'Portuges'])->create();
 
         $this->command->line('Places...');
-        // La Boca, Bs As,              =>city_id: 12
-        // San telmo, Bs As,            =>city_id: 7
-        // Sierras de Cordoba,Cordoba   =>city_id: 119        
-        // Mendoza, Mendoza             =>city_id: 303
-        // Rosario, Santa Fe            =>city_id: 441
-        // San Javier, Tucuman          =>city_id: 855
-        // Jujuy cerro de 7 colores     =>city_id: 231        
-        // Glaciar perito moreno        =>city_id: 417   
 
-        Place::factory(['status'=>1,'city_id'=>12])->create();
-        Place::factory(['status'=>1,'city_id'=>7])->create();
-        Place::factory(['status'=>1,'city_id'=>119])->create();
-        Place::factory(['status'=>1,'city_id'=>303])->create();
-        Place::factory(['status'=>1,'city_id'=>441])->create();
-        Place::factory(['status'=>1,'city_id'=>856])->create();
-        Place::factory(['status'=>1,'city_id'=>231])->create();
-        Place::factory(['status'=>1,'city_id'=>417])->create();
+        // place_id=> 1  La Boca, Bs As,              =>city_id: 12
+        // place_id=> 2  San telmo, Bs As,            =>city_id: 7
+        // place_id=> 3  Sierras de Cordoba,Cordoba   =>city_id: 119        
+        // place_id=> 4  Mendoza, Mendoza             =>city_id: 303
+        // place_id=> 5  Rosario, Santa Fe            =>city_id: 441
+        // place_id=> 6  San Javier, Tucuman          =>city_id: 855
+        // place_id=> 7  Jujuy cerro de 7 colores     =>city_id: 231        
+        // place_id=> 8  Glaciar perito moreno        =>city_id: 417   
+
+        Place::factory(['adress'=>'Suarez 515', 'status'=>1,'city_id'=>12])->create();
+        Place::factory(['adress'=>'Moreno 200', 'status'=>1,'city_id'=>7])->create();
+        Place::factory(['adress'=>'Fray Luis Beltran 50', 'status'=>1,'city_id'=>119])->create();
+        Place::factory(['adress'=>'Av. Colon y 25 de Mayo ', 'status'=>1,'city_id'=>303])->create();
+        Place::factory(['adress'=>'Boulevard Segui 626', 'status'=>1,'city_id'=>441])->create();
+        Place::factory(['adress'=>'Ruta 340', 'status'=>1,'city_id'=>856])->create();
+        Place::factory(['adress'=>'Av. Libertad 463', 'status'=>1,'city_id'=>231])->create();
+        Place::factory(['adress'=>'Av. Juan Domingo Peron 600', 'status'=>1,'city_id'=>417])->create();
         
+        DB::table('images')->insert(['url'=>asset('images/CIUDADES/Buenos Aires, la boca.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1,'picturable_type' => 'App\Models\Place']);
+        DB::table('images')->insert(['url'=>asset('images/CIUDADES/Buenos Aires, la boca.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 2,'picturable_type' => 'App\Models\Place']);
+        DB::table('images')->insert(['url'=>asset('images/CIUDADES/Cordoba, Sierras de cordoba.jpg'),'alt' => 'Seeded from DB', 'picturable_id' => 3,'picturable_type' => 'App\Models\Place']);
+        DB::table('images')->insert(['url'=>asset('images/CIUDADES/Mendoza, mendoza.jpg'),'alt' => 'Seeded from DB',            'picturable_id' => 4,'picturable_type' => 'App\Models\Place']);
+        DB::table('images')->insert(['url'=>asset('images/CIUDADES/Santa Fe, Rosario.jpg'),'alt' => 'Seeded from DB',           'picturable_id' => 5,'picturable_type' => 'App\Models\Place']);
+        DB::table('images')->insert(['url'=>asset('images/CIUDADES/Tucuman San Javier.jpg'),'alt' => 'Seeded from DB',          'picturable_id' => 6,'picturable_type' => 'App\Models\Place']);
+        DB::table('images')->insert(['url'=>asset('images/CIUDADES/Tucuman San Javier.jpg'),'alt' => 'Seeded from DB',          'picturable_id' => 7,'picturable_type' => 'App\Models\Place']);
+        DB::table('images')->insert(['url'=>asset('images/CIUDADES/Tucuman San Javier.jpg'),'alt' => 'Seeded from DB',          'picturable_id' => 8,'picturable_type' => 'App\Models\Place']);
 
         Place::factory(['status'=>1])->count(10)->create();
         $this->command->line('Experiencies...');
@@ -104,7 +113,7 @@ class DatabaseSeeder extends Seeder
         /*
         1=>  Vivi la experiencia del futbol tucumano
         2=>  Parapente biplaza
-        3=>  'Vive
+        3=>  'Dia de gol
         4=>  Travesía en
         5=>  Mañana de
         6=>  Disfruta de
@@ -165,6 +174,26 @@ class DatabaseSeeder extends Seeder
         monumentos a simple o a primera vista hasta encontrar, y descubrir en ellos, aspectos nuevos que provoca el saber y el conocimiento, rescatando impresiones diferentes, encontrando elementos particulares, objetos llamativos, llevándonos una visual y una comprensión diferente con la que comenzamos. 
         Mientras recorremos estos espacios, te contaré sobre los estilos arquitectónicos que conviven en cada espacio, así como del patrimonio material e inmaterial que existen y conviven en Salta.'])->create();
         
+        //Imagenes de las experiencias
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi la experiencia del futbol tucumano/f1.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi la experiencia del futbol tucumano/f2.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi la experiencia del futbol tucumano/f3.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi la experiencia del futbol tucumano/f4.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Parapente Biplaza/descarga.jpg'),                'alt' => 'Seeded from DB',       'picturable_id' => 2, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Parapente Biplaza/descarga (1).jpg'),            'alt' => 'Seeded from DB',       'picturable_id' => 2, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Parapente Biplaza/descarga (2).jpg'),            'alt' => 'Seeded from DB',       'picturable_id' => 2, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga (1).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga (2).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga (4).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga (5).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/descarga.jpg'),                            'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/descarga (1).jpg'),                        'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/images (1).jpg'),                          'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/images.jpg'),                              'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga.jpg'),                   'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga (1).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga (2).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' => 'App\Models\Experience']);
+
         //Relacion Experiencia Categoria
         DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>1]);
         DB::table('categories_experiences')->insert(['experience_id'=>2, 'category_id'=>1]);

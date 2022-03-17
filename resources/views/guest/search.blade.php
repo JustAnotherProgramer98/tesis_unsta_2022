@@ -16,7 +16,7 @@
                                 <a href="{{ route('guest.product',$experience) }}">
                                     <div>
                                         @if ($experience->images->first())
-                                            <img  class="h-[20rem] w-full m-4 mx-auto rounded-t-lg " src="{{asset('storage/'.$experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
+                                            <img  class="h-[20rem] w-full m-4 mx-auto rounded-t-lg " src="{{asset($experience->images->first()->url)}}" alt="{{ $experience->images->first()->alt }}">
                                         @else
                                             <img  class="h-[20rem] w-full rounded-t-lg  m-4 mx-auto" src="{{asset('images/Turistear.png')}}" alt="">                                
                                         @endif 

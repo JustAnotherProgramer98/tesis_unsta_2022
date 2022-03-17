@@ -2,7 +2,7 @@
     <a href="{{ route('guest.product',$experiencie) }}">
         @if ($experiencie->images->first())
         <div class="w-full rounded-t-md min-h-40 {{ $experiencie->images->first() ? '' : 'bg-paleta_tesis_gris' }}">
-            <img class="aspect-video bg-cover w-full rounded-t-md h-64" src="{{asset('storage/'.$experiencie->images->first()->url)}}" />
+            <img class="aspect-video bg-cover w-full rounded-t-md h-64" src="{{asset($experiencie->images->first()->url)}}" />
         </div>
         @else
         <div class="w-full rounded-t-md min-h-40 {{ $experiencie->images->first() ? '' : 'bg-paleta_tesis_gris' }}">
@@ -20,7 +20,7 @@
           <p class="font-light text-gray-700 text-justify line-clamp-3">{{ Str::limit($experiencie->description, 50, '...') }}</p>
           <div class="flex flex-wrap mt-10 space-x-4 align-bottom">
             @if ($experiencie->host->images->first())
-              <img class="w-10 h-10 rounded-full" src="{{asset('storage/'.$experiencie->host->images->first()->url)}}" />
+              <img class="w-10 h-10 rounded-full" src="{{asset($experiencie->host->images->first()->url)}}" />
             @else
               <img class="w-10 h-10 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile picture">
             @endif
