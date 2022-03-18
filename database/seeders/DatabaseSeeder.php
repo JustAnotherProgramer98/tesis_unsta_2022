@@ -115,10 +115,10 @@ class DatabaseSeeder extends Seeder
         2=>  Parapente biplaza
         3=>  'Dia de gol
         4=>  Travesía en
-        5=>  Mañana de
-        6=>  Disfruta de
-        7=>  Conviértete en
-        8=>  Ruta nocturna
+        5=>  Mañana de Surf
+        6=>  Disfruta de un día completo navegando
+        7=>  Conviértete en un chef marroquí
+        8=>  Ruta nocturna de tragos y cerveza
         9=>  El Tour
         10=> Artesano por un dia
         11=> Alfarero por un dia
@@ -175,24 +175,84 @@ class DatabaseSeeder extends Seeder
         Mientras recorremos estos espacios, te contaré sobre los estilos arquitectónicos que conviven en cada espacio, así como del patrimonio material e inmaterial que existen y conviven en Salta.'])->create();
         
         //Imagenes de las experiencias
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi_la_experiencia_del_futbol_tucumano/f4.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
         DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi_la_experiencia_del_futbol_tucumano/f1.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
         DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi_la_experiencia_del_futbol_tucumano/f2.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
         DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi_la_experiencia_del_futbol_tucumano/f3.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Vivi_la_experiencia_del_futbol_tucumano/f4.jpg'),'alt' => 'Seeded from DB',       'picturable_id' => 1, 'picturable_type' => 'App\Models\Experience']);
+
         DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Parapente_Biplaza/descarga.jpg'),                'alt' => 'Seeded from DB',       'picturable_id' => 2, 'picturable_type' => 'App\Models\Experience']);
         DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Parapente_Biplaza/descarga_(1).jpg'),            'alt' => 'Seeded from DB',       'picturable_id' => 2, 'picturable_type' => 'App\Models\Experience']);
         DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Parapente_Biplaza/descarga_(2).jpg'),            'alt' => 'Seeded from DB',       'picturable_id' => 2, 'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga_(1).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga_(2).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga_(4).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga_(5).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/descarga.jpg'),                            'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/descarga (1).jpg'),                        'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/images (1).jpg'),                          'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/images.jpg'),                              'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga.jpg'),                   'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga (1).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' => 'App\Models\Experience']);
-        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga (2).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' => 'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga_(1).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga_(2).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga_(4).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/golf/descarga_(5).jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 3,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/descarga.jpg'),                            'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/descarga (1).jpg'),                        'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/images (1).jpg'),                          'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/kayak/images.jpg'),                              'alt' => 'Seeded from DB',       'picturable_id' => 4,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga.jpg'),                   'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga (1).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Mañana de surf/descarga (2).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 5,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/navegacion/descarga (3).jpg'),                   'alt' => 'Seeded from DB',       'picturable_id' => 6, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/navegacion/images (1).jpg'),                     'alt' => 'Seeded from DB',       'picturable_id' => 6, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/navegacion/images.jpg'),                         'alt' => 'Seeded from DB',       'picturable_id' => 6, 'picturable_type' => 'App\Models\Experience']);
+
+
+        //HACER AHORA
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Cocina marroqui/descarga (1).jpg'),              'alt' => 'Seeded from DB',       'picturable_id' => 7, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Cocina marroqui/descarga (2).jpg'),              'alt' => 'Seeded from DB',       'picturable_id' => 7, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Cocina marroqui/descarga.jpg'),                  'alt' => 'Seeded from DB',       'picturable_id' => 7, 'picturable_type' => 'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/ruta por bares/descarga (1).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 8, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/ruta por bares/descarga (3).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 8, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/ruta por bares/descarga.jpg'),                   'alt' => 'Seeded from DB',       'picturable_id' => 8, 'picturable_type' => 'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Tour gourmet/descarga (2).jpg'),                  'alt' => 'Seeded from DB',       'picturable_id' => 9, 'picturable_type' => 'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Tour gourmet/descarga.jpg'),                      'alt' => 'Seeded from DB',       'picturable_id' => 9,'picturable_type' =>  'App\Models\Experience']);
+        
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Artesano por un dia/descarga (1).jpg'),           'alt' => 'Seeded from DB',       'picturable_id' => 10,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Artesano por un dia/descarga.jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 10,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Artesano por un dia/images (1).jpg'),             'alt' => 'Seeded from DB',       'picturable_id' => 10,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Artesano por un dia/images.jpg'),                 'alt' => 'Seeded from DB',       'picturable_id' => 10,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Alfarero por un dia/descarga (2).jpg'),           'alt' => 'Seeded from DB',       'picturable_id' => 11,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Alfarero por un dia/descarga.jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 11,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Cuidador de manaties/images (1).jpg'),            'alt' => 'Seeded from DB',       'picturable_id' => 12,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Cuidador de manaties/images (2).jpg'),            'alt' => 'Seeded from DB',       'picturable_id' => 12,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Cuidador de manaties/images.jpg'),                'alt' => 'Seeded from DB',       'picturable_id' => 12,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Sesion de fotos/descarga (1).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 13,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Sesion de fotos/descarga (2).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 13,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Sesion de fotos/descarga (3).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 13,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/Sesion de fotos/descarga.jpg'),                   'alt' => 'Seeded from DB',       'picturable_id' => 13,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/paseo en bicicletas/descarga.jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 14,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/paseo en bicicletas/images (1).jpg'),             'alt' => 'Seeded from DB',       'picturable_id' => 14,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/paseo en bicicletas/images.jpg'),                 'alt' => 'Seeded from DB',       'picturable_id' => 14,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/tour de harry potter/descarga (1).jpg'),          'alt' => 'Seeded from DB',       'picturable_id' => 15,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/tour de harry potter/descarga (2).jpg'),          'alt' => 'Seeded from DB',       'picturable_id' => 15,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/tour de harry potter/descarga (3).jpg'),          'alt' => 'Seeded from DB',       'picturable_id' => 15,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/tour de harry potter/descarga.jpg'),              'alt' => 'Seeded from DB',       'picturable_id' => 15,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/tour casa historica/descarga (1).jpg'),           'alt' => 'Seeded from DB',       'picturable_id' => 16,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/tour casa historica/descarga (4).jpg'),           'alt' => 'Seeded from DB',       'picturable_id' => 16,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/tour casa historica/descarga.jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 16,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/tour casa historica/images.jpg'),                 'alt' => 'Seeded from DB',       'picturable_id' => 16,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/ruinas de quilmes/descarga (2).jpg'),             'alt' => 'Seeded from DB',       'picturable_id' => 17,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/ruinas de quilmes/images (1).jpg'),               'alt' => 'Seeded from DB',       'picturable_id' => 17,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/ruinas de quilmes/images.jpg'),                   'alt' => 'Seeded from DB',       'picturable_id' => 17,'picturable_type' =>  'App\Models\Experience']);
+
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/paseo en salta/descarga (1).jpg'),                'alt' => 'Seeded from DB',       'picturable_id' => 18,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/paseo en salta/descarga (2).jpg'),                'alt' => 'Seeded from DB',       'picturable_id' => 18,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/paseo en salta/descarga (3).jpg'),                'alt' => 'Seeded from DB',       'picturable_id' => 18,'picturable_type' =>  'App\Models\Experience']);
+        DB::table('images')->insert(['url'=>asset('images/EXPERIENCIAS_IMAGENES/paseo en salta/descarga.jpg'),                    'alt' => 'Seeded from DB',       'picturable_id' => 18,'picturable_type' =>  'App\Models\Experience']);
 
         //Relacion Experiencia Categoria
         DB::table('categories_experiences')->insert(['experience_id'=>1, 'category_id'=>1]);
