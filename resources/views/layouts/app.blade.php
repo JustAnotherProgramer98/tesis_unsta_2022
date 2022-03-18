@@ -28,7 +28,7 @@
     @include('sidebar_mobile')
     <div class="flex flex-col w-full dark:bg-gray-800">
         <div
-            class="bg-white dark:bg-gray-800 container flex items-center justify-between p-4 mx-auto text-purple-600 dark:text-purple-300">
+            class="bg-white dark:bg-gray-800 container flex items-center justify-between p-4 mx-auto text-paleta_tesis_azul dark:text-purple-300">
             <!-- Mobile hamburger -->
             <button class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
                 @click="toggleSideMenu" aria-label="Menu">

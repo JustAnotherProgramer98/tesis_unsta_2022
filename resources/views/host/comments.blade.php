@@ -131,18 +131,16 @@
             </div><!-- fin comentarios -->
             <br>
         @else
-        <div class="px-4 py-5 flex-auto">
-            <div class="text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full bg-blue-400">
-              <span class="inline-block  text-blue-500 dark:text-blue-400">
-                    <i class="text-6xl bg-paleta_tesis_celeste far fa-sad-tear"></i>
-              </span>
+        <div class="px-4 py-5 flex-auto text-center">
+            <div
+                class="bg-paleta_tesis_azul text-white p-3 text-center inline-flex items-center justify-center w-max h-max mb-5 shadow-lg rounded-full ">
+                <span class="text-white inline-block   dark:text-blue-400">
+                    <i class="text-6xl far fa-sad-tear"></i>
+                </span>
             </div>
             <h6 class="text-xl font-semibold">Malas noticias</h6>
-            <p class="mt-2 mb-4 text-paleta_tesis_blanco">
-                Aun no tienes valoraciones
-            </p>
-          </div>
-            
+            <p class="mt-2 mb-4 text-black">No tenes experiencias aun , animate a crear algunas!</p>
+        </div>
         @endif
     </div> {{-- fin tabla de experiencia --}}
 </div>

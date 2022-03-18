@@ -135,17 +135,19 @@ function openCouponDetail(event, tab_name,model,coupons) {
     for (let index = 0; index != coupons.length ; index++) {
     popover_button=`
         <div style="width: max-content" x-data="{open: false}"  class="items-center justify-between">
-            <div style="border-top-left-radius: 10px;border-bottom-right-radius: 10px;left: 70px;top:20px" x-cloak class="flex-shrink-0 pr-2  {{ $coupon->status==1 ? 'bg-green-400' : 'bg-red-400' }}  z-20 relative">
+            @isset($coupon)
+            <div style="border-top-left-radius: 10px;border-bottom-right-radius: 10px;left: 70px;top:20px" x-cloak class="flex-shrink-0 pr-2   {{ $coupon->status==1 ? 'bg-green-400' : 'bg-red-400' }}  z-20 relative">
                 <div x-show="open"  @mouseleave="open = false" x-transition class="" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1 z-50">
                     <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                    <p class="{{ $coupon->status==1 ? 'text-green-700' : 'text-red-700' }}  block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">{{ $coupon->status==1 ? 'Usado' : 'Sin usar' }}</p>
+                    <p class="{{ $coupon->status==1 ? 'text-green-700' : 'text-red-700' }}  block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2"> {{ $coupon->status==1 ? 'Usado' : 'Sin usar' }} </p>
                 </div>
                 </div>
             </div>
             <div class="z-10 flex-1 w-fit border border-gray-400 rounded-xl text-sm truncate m-3"  @mouseover="open = true" >
             <p id=Cuppon_code[${loop}] class="p-3 text-gray-500 w-full font-bold">Codigo de cupon</p>
             </div>
+            @endisset
         </div>`
 
      

@@ -37,6 +37,16 @@ public function store(Request $request)
         "address" => "required",
         "coordenates" => "required",
         'languajes'=>'required|array'
+    ],[
+        'title.required'=>'El campo titulo es requerido',
+        'subtitle.required'=>'El campo subtitulo es requerido',
+        'price.required'=>'Necesitamos saber el precio de la experiencia para crearla',
+        'description.required'=>'Sin una descripcion , no podemos crear la experiencia',
+        "province_name.required" => "La provincia es requerida",
+        "city_name.required" => "La ciduad es requerida",
+        "address.required" => "El campo direccion es requerido",
+        "coordenates.required" => "Las coordenadas del lugar son requeridas",
+        'languajes.required'=>'Necesitamos saber los lenguajes de la experiencia'
     ]);
 try {
     DB::transaction(function () use ($validated,$request){

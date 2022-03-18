@@ -1,14 +1,6 @@
 <div id="create" class=" tabcontent hidden px-4">
     <br>
-    @if ($errors->any())
-    <div class="text-center bg-blue-800 text-lg  text-white italic">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+
     <div class="flex gap-4 my-4 ">
       
         <form method="POST" autocomplete="off" action="{{ route('host.experiencies.store') }}" class="flex flex-col p-10 px-8 pt-6 mx-auto my-6 mb-4 transition duration-500 ease-in-out transform w-11/12 border rounded-lg border-purple-400">
@@ -104,13 +96,30 @@
             </div>
     
             <div class="flex items-center w-full pt-4 mb-4">
-                <button class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-800 ">Crear experiencia </button>
+                
+                @if (Auth::user()->status==1)
+                    <button class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-800 ">Crear experiencia </button>
+                @else
+                    <button type="button" onclick="not_admin()" class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blue-800 ">Crear experiencia </button>
+                @endif
+                
             </div>
         </form>
     </div>
 </div>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB68RsG0J3b_BuRnHW1BTNBqam5rYHu58Y&callback=initMap"></script>
 <script>
+    function not_admin() {
+        Swal.fire({
+        title: 'Tenemos un problema...',
+        text: 'No podes crear una experiencia si sos un usuario no validado por el sistema!',
+        type: 'error',
+        confirmButtonColor: "#1e40af",
+        confirmButtonText: "Aceptar",
+    });   
+    }
+     
+
     function initMap() {
         // Coordenadas de Tucuman
         const tucuman = {

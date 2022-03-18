@@ -204,6 +204,15 @@
               <!-- Tabla de valores -->  
               {{-- Tablas en caso de ser Anfitrion o Admin --}}
               @if (Auth::user()->role->name!="Cliente")
+              @if ($errors->any())
+              <div class="text-center bg-blue-800 text-lg  text-white italic">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                      <li>{{$error}}</li>
+                      @endforeach
+                  </ul>
+              </div>
+              @endif
               <div id="index" class="tabcontent block py-8 pb-20 px-4 margin-left: 30px;margin-right: 30px">
                 <br>
                 <div class="flex gap-4 my-4 ">
